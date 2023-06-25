@@ -33,6 +33,7 @@ Chương này thảo luận về các định dạng của dữ liệu. Sẽ r�
 pacman::p_load(
   rio,          # File import
   here,         # File locator
+  kableExtra,   # Build and manipulate complex tables
   tidyverse)    # data management + ggplot2 graphics
 ```
 

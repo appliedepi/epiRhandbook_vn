@@ -120,642 +120,6 @@ ggplot(data = linelist)+
   geom_histogram(aes(x = date_onset))
 ```
 
-<!-- ======================================================= -->
-
-## Đường cong dịch bệnh với package **incidence2**
-
-Dưới đây, chúng tôi trình bày cách tạo các đường cong dịch bệnh bằng cách sử dụng package **precision2**. Các tác giả của package này đã cố gắng cho phép người dùng tạo và sửa đổi các đường cong dịch bệnh mà không cần biết cú pháp **ggplot2**. Phần lớn nội dung của chương này được điều chỉnh từ **minh họa** của package, bạn có thể tìm thấy tại trang [github](https://github.com/reconhub/incidence2) của package **incidence2**.
-
-<!-- ======================================================= -->
-
-### Ví dụ đơn giản {.unnumbered}
-
-**Cần có 2 bước để vẽ đường cong dịch bệnh với package *incidence2*:**
-
-1)  **Tạo** một *incidence object* (sử dụng hàm `incidence()`)
-
-    -   Cung cấp dữ liệu\
-    -   Xác định cột ngày tại `date_index =`\
-    -   Xác định khoảng thời gian `interval =` các ca nên được tổng hợp (hàng ngày, tuần, tháng..)\
-    -   Xác định bất kỳ cột dùng để nhóm nào (ví dụ như giới tính, bệnh viện, kết quả)\
-
-2)  **Vẽ biểu đồ** incidence object
-
-    -   Xác định nhãn, màu, tiêu đề, ...
-
-Dưới đây, chúng tôi gọi package **incidence2**, tạo incidence object từ dữ liệu `linelist` trên cột `date_onset` và tổng hợp các trường hợp theo ngày. Sau đó, chúng tôi in ra tóm tắt về đối tượng incidence object.
-
-```{r, warning=F, message=F}
-# load incidence2 package
-pacman::p_load(incidence2)
-
-# create the incidence object, aggregating cases by day
-epi_day <- incidence(       # create incidence object
-  x = linelist,             # dataset
-  date_index = date_onset,  # date column
-  interval = "day"          # date grouping interval
-  )
-```
-
-Đối tượng **incidence2** trông giống như một tibble (một kiểu data frame) và có thể được hiển thị hoặc thao tác thêm như một bộ dữ liệu.
-
-```{r}
-class(epi_day)
-```
-
-Đây là thông tin khi được hiển thị. Nó có một cột `date_index` và một cột `count` .
-
-```{r}
-epi_day
-```
-
-Bạn cũng có thể tổng hợp thông tin của đối tượng:
-
-```{r}
-# print summary of the incidence object
-summary(epi_day)
-```
-
-Để *vẽ biểu đồ incidence object*, hãy sử dụng hàm `plot()` với *tên của incidence object*. Trong nền, hàm `plot.incidence2()` đã được gọi, vì vậy để đọc tài liệu cụ thể về **incidence2**, bạn cần chạy lệnh `?plot.incidence2`.
-
-```{r}
-# plot the incidence object
-plot(epi_day)
-```
-
-Nếu bạn nhận thấy nhiều đường dọc nhỏ màu trắng, hãy cố gắng điều chỉnh kích thước hình ảnh của bạn. Ví dụ: nếu bạn xuất biểu đồ bằng `ggsave()`, bạn có thể cung cấp giá trị số cho `width =` và `height =`. Nếu bạn mở rộng biểu đồ, những đường đó có thể biến mất.
-
-### Thay đổi khoảng thời gian tổng hợp ca bệnh {.unnumbered}
-
-Đối số `interval =` của hàm `incidence()` xác định cách các quan sát được nhóm thành các cột dọc trong biểu đồ.
-
-**Xác định khoảng thời gian**
-
-**incidence2** đem lại sự linh hoạt và cú pháp dễ hiểu để bạn có thể dễ dàng tổng hợp số ca bệnh thành các biểu đồ cột-đường cong dịch bệnh. Cung cấp một giá trị như những giá trị bên dưới cho đối số `interval =`. Bạn có thể viết bất kỳ thông tin nào bên dưới dưới dạng số nhiều (ví dụ: "week**s**") và bạn có thể thêm số phía trước (ví dụ: "3 months").
-
-| Tùy chọn đối số         | Giải thích thêm                                           |
-|-------------------------|-----------------------------------------------------------|
-| Số (1, 7, 13, 14, etc.) | số ngày cho mỗi khoảng thời gian                          |
-| "weeks"                 | ghi chú: mặc định ngày bắt đầu là Thứ 2                   |
-| "2 weeks"               | hoặc 3, 4, 5...                                           |
-| "Sunday weeks"          | tuần bắt đầu tính từ Chủ nhật (cũng có thể là Thứ 5, ...) |
-| "2 Sunday weeks"        | hoặc 3, 4, 5...                                           |
-| "MMWRweek"              | tuần bắt đầu vào Chủ nhật - xem thêm tại CDC Hoa Kỳ       |
-| "month"                 | ngày đầu tiên của tháng                                   |
-| "quarter"               | ngày đầu tiên của tháng của một quí                       |
-| "2 months"              | hoặc 3, 4, 5...                                           |
-| "year"                  | ngày đầu tiên của năm                                     |
-
-Dưới đây là ví dụ về các khoảng thời gian khác nhau trông như thế nào khi áp dụng vào bộ số liệu `linelist`. Lưu ý cách mà định dạng mặc định và tần suất của các *nhãn* thời gian trên trục x thay đổi khi khoảng thời gian thay đổi.
-
-```{r incidence, out.width=c('50%', '50%', '50%', '50%'), fig.show='hold', warning=F, message=F}
-# Create the incidence objects (with different intervals)
-##############################
-# Weekly (Monday week by default)
-epi_wk      <- incidence(linelist, date_onset, interval = "Monday week")
-
-# Sunday week
-epi_Sun_wk  <- incidence(linelist, date_onset, interval = "Sunday week")
-
-# Three weeks (Monday weeks by default)
-epi_2wk     <- incidence(linelist, date_onset, interval = "2 weeks")
-
-# Monthly
-epi_month   <- incidence(linelist, date_onset, interval = "month")
-
-# Quarterly
-epi_quarter   <- incidence(linelist, date_onset, interval = "quarter")
-
-# Years
-epi_year   <- incidence(linelist, date_onset, interval = "year")
-
-
-# Plot the incidence objects (+ titles for clarity)
-############################
-plot(epi_wk)+      labs(title = "Monday weeks")
-plot(epi_Sun_wk)+  labs(title = "Sunday weeks")
-plot(epi_2wk)+     labs(title = "2 (Monday) weeks")
-plot(epi_month)+   labs(title = "Months")
-plot(epi_quarter)+ labs(title = "Quarters")
-plot(epi_year)+    labs(title = "Years")
-
-```
-
-<!--**Bắt đầu với ca đầu tiên**-->
-
-<!--Nếu bạn muốn các khoảng thời gian bắt đầu ở trường hợp đầu tiên, bạn có thể thêm argument `standard = TRUE` vào lệnh `incidence()`. Điều này chỉ hoạt động nếu khoảng thời gian là "tuần", "tháng", "quý" hoặc "năm".-->
-
-**Ngày đầu tiên**
-
-Bạn có thể tùy chọn chỉ định một giá trị thuộc phân lớp Ngày (ví dụ: `as.Date("2016-05-01")`) tới đối số `firstdate =` trong lệnh `incidence()`. Nếu được cung cấp, dữ liệu sẽ được cắt bớt theo phạm vi này và khoảng thời gian sẽ bắt đầu từ ngày này.
-
-### Nhóm {.unnumbered}
-
-Các nhóm được chỉ định trong lệnh `incidence()` và có thể được sử dụng để tô màu cho các cột hoặc facet dữ liệu. Để chỉ định các nhóm trong dữ liệu của bạn, hãy cung cấp tên cột tới đối số `groups =` trong hàm `incidence()` (không có dấu ngoặc kép xung quanh tên cột). Nếu chỉ định nhiều cột, hãy để tên các cột bên trong hàm `c()`.
-
-Bạn có thể chỉ định rằng các trường hợp có giá trị bị thiếu trong các cột được nhóm được liệt kê như một nhóm `NA` riêng biệt bằng cách thiết lập `na_as_group = TRUE`. Nếu không, chúng sẽ bị loại khỏi biểu đồ.
-
--   Để *tô màu các cột theo cột nhóm*, bạn cần cung cấp lại tên cột tới đối số `fill =` trong lệnh `plot()`.
-
--   Để *facet dựa trên cột nhóm*, hãy xem phần bên dưới về facet với **incidence2**.
-
-Trong ví dụ dưới đây, các trường hợp trong toàn bộ đợt bùng phát được nhóm theo phân loại tuổi của họ. Các giá trị thiếu được đưa vào một nhóm. Khoảng thời gian của đường cong bệnh dịch là tuần.
-
-```{r, message=F, warning=F}
-# Create incidence object, with data grouped by age category
-age_outbreak <- incidence(
-  linelist,                # dataset
-  date_index = date_onset, # date column
-  interval = "week",       # Monday weekly aggregation of cases
-  groups = age_cat,        # age_cat is set as a group
-  na_as_group = TRUE)      # missing values assigned their own group
-
-# plot the grouped incidence object
-plot(
-  age_outbreak,             # incidence object with age_cat as group
-  fill = age_cat)+          # age_cat is used for bar fill color (must have been set as a groups column above)
-labs(fill = "Age Category") # change legend title from default "age_cat" (this is a ggplot2 modification)
-```
-
-[***MẸO***: Thay đổi tiêu đề của chú giải bằng cách thêm `+` lệnh **ggplot2** `labs(fill = "your title")` vào biểu đồ **incidence2**.]{style="color: darkgreen;"}
-
-Bạn cũng có thể để các cột được nhóm hiển thị cạnh nhau bằng cách đặt `stack = FALSE` trong `plot()`, như được hiển thị bên dưới:
-
-```{r, warning=F, message=F}
-# Make incidence object of monthly counts. 
-monthly_gender <- incidence(
- linelist,
- date_index = date_onset,
- interval = "month",
- groups = gender            # set gender as grouping column
-)
-
-plot(
-  monthly_gender,   # incidence object
-  fill = gender,    # display bars colored by gender
-  stack = FALSE)    # side-by-side (not stacked)
-```
-
-Bạn có thể đặt đối số `na_as_group =` thành FALSE trong lệnh `incidence()` để loại bỏ các hàng có giá trị bị thiếu khỏi biểu đồ.
-
-### Lọc dữ liệu {.unnumbered}
-
-Để vẽ biểu đồ đường cong dịch bệnh của một bộ dữ liệu con:
-
-1)  Lọc bộ số liệu `linelist`\
-2)  Cung cấp dữ liệu đã lọc vào lệnh `incidence()`\
-3)  Vẽ biểu đồ incidence object
-
-Ví dụ dưới đây sử dụng dữ liệu được lọc để chỉ hiển thị các trường hợp tại Central Hospital.
-
-```{r, warning=F, message=F}
-# filter the linelist
-central_data <- linelist %>% 
-  filter(hospital == "Central Hospital")
-
-# create incidence object using filtered data
-central_outbreak <- incidence(central_data, date_index = date_onset, interval = "week")
-
-# plot the incidence object
-plot(central_outbreak, title = "Weekly case incidence at Central Hospital")
-```
-
-### Số lượng tổng hợp {.unnumbered}
-
-Nếu dữ liệu ban đầu của bạn được tổng hợp (số lượng), hãy cung cấp tên của cột chứa thông tin về số lượng ca tới đối số `count =` khi tạo incidence object với hàm `incidence()`.
-
-Ví dụ, data frame `count_data` này được tổng hợp từ linelist theo số lượng hàng ngày theo bệnh viện. 50 hàng đầu tiên hiển thị như sau:
-
-```{r message=FALSE, echo=F}
-DT::datatable(head(count_data,50), rownames = FALSE, options = list(pageLength = 5, scrollX=T), class = 'white-space: nowrap' )
-```
-
-Nếu bạn đang bắt đầu phân tích với dữ liệu đếm hàng ngày như bộ dữ liệu ở trên, thì lệnh `incidence()` để chuyển đổi dữ liệu này thành đường cong dịch bệnh hàng tuần theo bệnh viện sẽ trông như sau:
-
-```{r}
-epi_counts <- incidence(              # create weekly incidence object
-  count_data,                         # dataset with counts aggregated by day
-  date_index = date_hospitalisation,  # column with dates
-  count = n_cases,                    # column with counts
-  interval = "week",                  # aggregate daily counts up to weeks
-  groups = hospital                   # group by hospital
-  )
-
-# plot the weekly incidence epi curve, with stacked bars by hospital
-plot(epi_counts,                      # incidence object
-     fill = hospital)                 # color the bars by hospital
-```
-
-### Facets/Các biểu đồ nhỏ {.unnumbered}
-
-Để facet dữ liệu theo nhóm (ví dụ tạo "các biểu đồ nhỏ"):
-
-1)  Xác định các cột dùng để facet tới đối số `groups =` khi bạn tạo incidence object\
-2)  Sử dụng lệnh `facet_plot()` thay cho `plot()`\
-3)  Xác định cột nhóm nào được sử dụng cho `fill =` và cho `facets =`
-
-Dưới đây, chúng ta thiết lập cả hai cột `hospital` và `outcome` làm cột chia nhóm trong lệnh `incidence()`. Sau đó, trong lệnh `facet_plot()`, chúng ta vẽ biểu đồ đường cong dịch bệnh, chỉ rõ rằng chúng ta muốn có các đường cong dịch bệnh khác nhau cho mỗi bệnh viện và trong mỗi đường cong dịch bệnh, các cột được xếp chồng lên nhau và được tô màu theo outcome.
-
-```{r, warning=F, message=F}
-epi_wks_hosp_out <- incidence(
-  linelist,                      # dataset
-  date_index = date_onset,       # date column
-  interval = "month",            # monthly bars  
-  groups = c(outcome, hospital)  # both outcome and hospital are given as grouping columns
-  )
-
-# plot
-incidence2::facet_plot(
-  epi_wks_hosp_out,      # incidence object
-  facets = hospital,     # facet column
-  fill = outcome)        # fill column
-
-```
-
-Lưu ý rằng package **ggtree** (được sử dụng để trực quan cây phả hệ) cũng có một hàm là `facet_plot()` - đây là lý do tại sao chúng ta phải cụ thể `incidence2::facet_plot()` như ở trên.
-
-### Hiệu chỉnh với `plot()` {.unnumbered}
-
-Một đường cong dịch bệnh được tạo ra bởi **incidence2** có thể được sửa đổi thông qua các đối số *trong hàm `plot()`*.
-
-**Dưới đây là các đối số của hàm `plot()` dùng để điều chỉnh hình thức cột:**
-
-+----------------+-------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------+
-| Đối số         | Mô tả                                                                                                                   | Ví dụ                                                                |
-+================+=========================================================================================================================+======================================================================+
-| `fill =`       | Màu cột. Tên màu hoặc tên cột đã được chỉ định trước đó tới đối số `groups =` trong lệnh `incidence()`                  | `fill = "red"`, hoặc `fill = gender`                                 |
-+----------------+-------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------+
-| `color =`      | Tô màu xung quanh mỗi cột hoặc xung quanh mỗi nhóm trong một cột                                                        | `border = "white"`                                                   |
-+----------------+-------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------+
-| `legend =`     | Vị trí danh mục                                                                                                         | Một trong các lựa chọn "bottom", "top", "left", "right", hoặc "none" |
-+----------------+-------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------+
-| `alpha =`      | Độ trong suốt của cột                                                                                                   | 1 là đục hoàn toàn, 0 là trong suốt hoàn toàn                        |
-+----------------+-------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------+
-| `width =`      | Giá trị từ 0 đến 1 cho biết kích thước tương đối của các cột với khoảng thời gian của chúng                             | `width = .7`                                                         |
-+----------------+-------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------+
-| `show_cases =` | Giá trị logic; nếu TRUE, mỗi trường hợp hiển thị như một hộp. Cách hiển thị này là tốt nhất trên các đợt bùng phát nhỏ. | `show_cases = TRUE`                                                  |
-+----------------+-------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------+
-
-**Dưới đây là các đối số của hàm `plot()` để sửa đổi trục ngày tháng:**
-
-+------------------+--------------------------------------------------------------------------------------------------------------------------------+
-| Đối số           | Mô tả                                                                                                                          |
-+==================+================================================================================================================================+
-| `centre_dates =` | TRUE/FALSE tương đương với việc hiển thị ngày tháng xuất hiện ở dưới trung tâm các cột hay ở trên đỉnh các cột                 |
-+------------------+--------------------------------------------------------------------------------------------------------------------------------+
-| `date_format =`  | Điều chỉnh định dạng hiển thị ngày bằng cú pháp `strptime("%")`. Chỉ hoạt động nếu `centre_dates = FALSE` (chi tiết bên dưới). |
-+------------------+--------------------------------------------------------------------------------------------------------------------------------+
-| `n.breaks =`     | Khoảng số lượng nhãn ngắt khoảng trên trục x mong muốn.                                                                        |
-+------------------+--------------------------------------------------------------------------------------------------------------------------------+
-| `angle =`        | Góc nghiêng của nhãn ngày trên trục x (số độ)                                                                                  |
-+------------------+--------------------------------------------------------------------------------------------------------------------------------+
-| `size =`         | Kích thước của văn bản tính bằng điểm                                                                                          |
-+------------------+--------------------------------------------------------------------------------------------------------------------------------+
-
-Lưu ý rằng đối số `date_breaks =` chỉ hoạt động nếu `centre_dates = FALSE`. Cung cấp giá trị ký tự trong dấu ngoặc kép bằng cú pháp strptime như bên dưới, như đã được trình bày chi tiết trong chương [Làm việc với ngày tháng]. Bạn có thể sử dụng `\n` để tạo "dòng mới".
-
-%d = Số ngày của tháng (5, 17, 28, ...)\
-%j = Số ngày của năm (ngày Julian 001-366)\
-%a = Ngày trong tuần viết tắt (Mon, Tue, Wed, ...)\
-%A = Ngày trong tuần viết đầy đủ (Monday, Tuesday, ...)\
-%w = Số thứ tự ngày của tuần (0-6, Chủ nhật là 0)\
-%u = Số thứ tự ngày của tuần (1-7, Thứ hai là 1)\
-%W = Số thứ tự tuần (00-53, Thứ hai là ngày bắt đầu tuần mới)\
-%U = Số thứ tự tuần (01-53, Chủ nhật là ngày bắt đầu tuần mới)\
-%m = Số thứ tự tháng (Ví dụ 01, 02, 03, 04)\
-%b = Tháng viết tắt (Jan, Feb, ...)\
-%B = Tháng viết đầy đủ (January, February, ...)\
-%y = Năm viết dạng 2 ký tự (Ví dụ 89)\
-%Y = Năm viết dạng 2 ký tự (Ví dụ 1989)\
-%H = giờ (khung 24 giờ)\
-%M = phút\
-%S = giây\
-%z = bù từ múi giờ GMT\
-%Z = Múi giờ (ký tự)
-
-<!--<span style="color: darkgreen;">**_MẸO:_** Đối với ngắt mỗi khoảng "thứ n" (ví dụ: mỗi khoảng thứ 4), hãy sử dụng `n.breaks = nrow(i)/n` (trong đó "i" là tên chỉ số tỷ lệ mắc bệnh và "n" là một số). Nếu dữ liệu của bạn được nhóm lại, bạn sẽ cần nhân "n" với số nhóm duy nhất.</span>-->
-
-**Dưới đây là các đối số trong hàm `plot()` để hiệu chỉnh các nhãn trong biểu đồ:**
-
-+-----------+----------------------------------------------------------------------------------------------------------------------------------------------+
-| Đối số    | Mô tả                                                                                                                                        |
-+===========+==============================================================================================================================================+
-| `title =` | Tiêu đề của biểu đồ                                                                                                                          |
-+-----------+----------------------------------------------------------------------------------------------------------------------------------------------+
-| `xlab =`  | Tiêu đề của trục x                                                                                                                           |
-+-----------+----------------------------------------------------------------------------------------------------------------------------------------------+
-| `ylab =`  | Tiêu đề của trục y                                                                                                                           |
-+-----------+----------------------------------------------------------------------------------------------------------------------------------------------+
-| `size =`  | Kích thước của đoạn văn bản trên trục x tính bằng đơn vị pts (sử dụng hàm `theme()` trong ggplot để điều chỉnh các thông số kích thước khác) |
-+-----------+----------------------------------------------------------------------------------------------------------------------------------------------+
-
-Một ví dụ sử dụng kết hợp các đối số ở trên:
-
-```{r, warning=F, message=F}
-# filter the linelist
-central_data <- linelist %>% 
-  filter(hospital == "Central Hospital")
-
-# create incidence object using filtered data
-central_outbreak <- incidence(
-  central_data,
-  date_index = date_onset,
-  interval = "week",
-  groups = outcome)
-
-# plot incidence object
-plot(
-  central_outbreak,
-  fill = outcome,                       # box/bar color
-  legend = "top",                       # legend on top
-  title = "Cases at Central Hospital",  # title
-  xlab = "Week of onset",               # x-axis label
-  ylab = "Week of onset",               # y-axis label
-  show_cases = TRUE,                    # show each case as an individual box
-  alpha = 0.7,                          # transparency 
-  border = "grey",                      # box border
-  angle = 30,                           # angle of date labels
-  centre_dates = FALSE,                 # date labels at edge of bar
-  date_format = "%a %d %b %Y\n(Week %W)" # adjust how dates are displayed
-  )
-```
-
-Để điều chỉnh thêm giao diện hiển thị của biểu đồ, hãy xem mục bên dưới về các hiệu chỉnh với hàm `ggplot()`.
-
-### Hiệu chỉnh với ggplot2 {.unnumbered}
-
-Bạn có thể hiệu chỉnh biểu đồ được tạo bởi **incidence2** bằng cách thêm các hiệu chỉnh **ggplot2** với dấu `+` sau khi đóng ngoặc hàm biểu diễn tỷ lệ mắc bệnh `plot()`, như được minh họa bên dưới.
-
-Dưới đây, biểu đồ **incidence2** kết thúc và ngay sau đó các lệnh **ggplot2** được sử dụng để sửa đổi các trục, thêm chú thích và điều chỉnh phông chữ đậm và kích thước chữ.
-
-Lưu ý rằng nếu bạn thêm `scale_x_date()`, hầu hết các định dạng ngày từ `plot()` sẽ bị ghi đè. Xem mục đường cong dịch bệnh với `ggplot()` và chương [Các tips với ggplot] để có thêm lựa chọn.
-
-```{r, warning=F, message=F}
-# filter the linelist
-central_data <- linelist %>% 
-  filter(hospital == "Central Hospital")
-
-# create incidence object using filtered data
-central_outbreak <- incidence(
-  central_data,
-  date_index = date_onset,
-  interval = "week",
-  groups = c(outcome))
-
-# plot incidence object
-plot(
-  central_outbreak,
-  fill = outcome,                       # box/bar color
-  legend = "top",                       # legend on top
-  title = "Cases at Central Hospital",  # title
-  xlab = "Week of onset",               # x-axis label
-  ylab = "Week of onset",               # y-axis label
-  show_cases = TRUE,                    # show each case as an individual box
-  alpha = 0.7,                          # transparency 
-  border = "grey",                      # box border
-  centre_dates = FALSE,                   
-  date_format = "%a %d %b\n%Y (Week %W)", 
-  angle = 30                           # angle of date labels
-  )+
-  
-  scale_y_continuous(
-    breaks = seq(from = 0, to = 30, by = 5),  # specify y-axis increments by 5
-    expand = c(0,0))+                         # remove excess space below 0 on y-axis
-  
-  # add dynamic caption
-  labs(
-    fill = "Patient outcome",                               # Legend title
-    caption = stringr::str_glue(                            # dynamic caption - see page on characters and strings for details
-      "n = {central_cases} from Central Hospital
-      Case onsets range from {earliest_date} to {latest_date}. {missing_onset} cases are missing date of onset and not shown",
-      central_cases = nrow(central_data),
-      earliest_date = format(min(central_data$date_onset, na.rm=T), format = '%a %d %b %Y'),
-      latest_date = format(max(central_data$date_onset, na.rm=T), format = '%a %d %b %Y'),      
-      missing_onset = nrow(central_data %>% filter(is.na(date_onset)))))+
-  
-  # adjust bold face, and caption position
-  theme(
-    axis.title = element_text(size = 12, face = "bold"),    # axis titles larger and bold
-    axis.text = element_text(size = 10, face = "bold"),     # axis text size and bold
-    plot.caption = element_text(hjust = 0, face = "italic") # move caption to left
-  )
-  
-```
-
-### Đổi màu {.unnumbered}
-
-#### Chỉ định bảng màu {.unnumbered}
-
-Cung cấp tên của bảng màu đã được định danh trước tới tham số `col_pal =` trong hàm `plot()`. Package **incidence2** đi kèm với 2 bảng màu được xác định trước: "vibrant" và "muted". Trong "vibrant", có 6 màu đầu tiên là riêng biệt và trong "muted" có 9 màu đầu tiên là khác biệt. Sau những con số này, các màu là sự thêm vào/trung gian của các màu khác. Bạn có thể tìm thấy những bảng màu được xác định trước này tại [website này](https://personal.sron.nl/~pault/#sec:qualitative). Các bảng màu loại trừ màu xám, do nó được dành riêng cho dữ liệu bị thiếu (sử dụng `na_color =` để thay đổi mặc định này).
-
-```{r out.width = c('50%', '50%'), fig.show='hold', warning = F, message = F}
-# Create incidence object, with data grouped by age category  
-age_outbreak <- incidence(
-  linelist,
-  date_index = date_onset,   # date of onset for x-axis
-  interval = "week",         # weekly aggregation of cases
-  groups = age_cat)
-
-# plot the epicurve with default palette
-plot(age_outbreak, fill = age_cat, title = "'vibrant' default incidence2 palette")
-
-# plot with different color palette
-#plot(age_outbreak, fill = age_cat, col_pal = muted, title = "'muted' incidence2 palette")
-```
-
-Bạn cũng có thể sử dụng một trong các bảng màu trong **base** R (đặt tên của bảng màu *không* có dấu ngoặc kép).
-
-```{r out.width = c('50%', '50%'), fig.show='hold', warning = F, message = F}
-# plot with base R palette
-plot(age_outbreak, fill = age_cat, col_pal = heat.colors, title = "base R heat.colors palette")
-
-# plot with base R palette
-plot(age_outbreak, fill = age_cat, col_pal = rainbow, title = "base R rainbow palette")
-```
-
-Bạn cũng có thể thêm bảng màu từ package **viridis** hoặc package **RColorBrewer**. Đầu tiên các package đó cần được tải, sau đó thêm các hàm `scale_fill_*()` tương ứng của chúng bằng dấu `+`, như bên dưới đây.
-
-```{r out.width = c('50%', '50%'), fig.show='hold', warning = F, message = F}
-pacman::p_load(RColorBrewer, viridis)
-
-# plot with color palette
-plot(age_outbreak, fill = age_cat, title = "Viridis palette")+
-  scale_fill_viridis_d(
-    option = "inferno",     # color scheme, try also "plasma" or the default
-    name = "Age Category",  # legend name
-    na.value = "grey")      # for missing values
-
-# plot with color palette
-plot(age_outbreak, fill = age_cat, title = "RColorBrewer palette")+
-  scale_fill_brewer(
-    palette = "Dark2",      # color palette, try also Accent, Dark2, Paired, Pastel1, Pastel2, Set1, Set2, Set3
-    name = "Age Category",  # legend name
-    na.value = "grey")      # for missing values
-```
-
-#### Xác định thủ công {.unnumbered}
-
-Để chỉ định màu theo cách thủ công, hãy thêm hàm `scale_fill_manual()` trong **ggplot2** sau hàm `plot()` bằng dấu `+` và cung cấp vectơ tên màu hoặc mã HEX tới đối số `values =`. Số lượng màu được liệt kê phải bằng số nhóm. Hãy lưu ý, các giá trị bị thiếu có phải là một nhóm hay không - chúng có thể được chuyển đổi thành giá trị dạng ký tự chẳng hạn như "Missing" trong quá trình chuẩn bị dữ liệu của bạn bằng hàm `fct_explicit_na()`, như đã được giải thích trong chương [Factors].
-
-```{r out.width = c('50%', '50%'), fig.show='hold', warning=F, message=F}
-# manual colors
-plot(age_outbreak, fill = age_cat, title = "Manually-specified colors")+
-  scale_fill_manual(
-    values = c("darkgreen", "darkblue", "purple", "grey", "yellow", "orange", "red", "lightblue"),  # colors
-    name = "Age Category")      # Name for legend
-```
-
-Như đã đề cập trong chương [Các tips với ggplot], bạn có thể tạo bảng màu của riêng mình bằng cách sử dụng hàm `colorRampPalette()` trên một vectơ chứa tên các màu sắc và chỉ định số màu bạn muốn trả về. Đây là một cách tốt để có thể thu được nhiều màu trong một lần bằng cách chỉ định một vài màu.
-
-```{r}
-my_cols <- c("darkgreen", "darkblue", "purple", "grey", "yellow", "orange")
-my_palette <- colorRampPalette(my_cols)(12)  # expand the 6 colors above to 12 colors
-my_palette
-```
-
-### Điều chỉnh thứ bậc {.unnumbered}
-
-Để điều chỉnh thứ tự xuất hiện của nhóm (trên biểu đồ và trong chú giải), cột phân nhóm cần phải là kiểu Factor. Xem chương [Factors] để biết thêm thông tin.
-
-Đầu tiên, chúng ta hãy quan sát một đường cong dịch bệnh hàng tuần theo bệnh viện với thứ tự mặc định:
-
-```{r, message=F, warning=F}
-# ORIGINAL - hospital NOT as factor
-###################################
-
-# create weekly incidence object, rows grouped by hospital and week
-hospital_outbreak <- incidence(
-  linelist,
-  date_index = date_onset, 
-  interval = "week", 
-  groups = hospital)
-
-# plot incidence object
-plot(hospital_outbreak, fill = hospital, title = "ORIGINAL - hospital not a factor")
-```
-
-Bây giờ, để điều chỉnh thứ tự sao cho nhóm phân loại "Missing" và "Other" ở trên cùng của đường cong dịch bệnh, chúng ta có thể làm như sau:
-
--   Gọi package **forcats**, để làm việc với cột định dạng factor\
-
--   Điều chỉnh bộ dữ liệu - trong trường hợp này, chúng tôi sẽ xác định một bộ dữ liệu mới (`plot_data`) trong đó:
-
-    -   Cột `gender` được xác định là một biến phân loại có thứ bậc được thiết lập bằng hàm `fct_relevel()` sao cho "Other" và "Missing" đứng đầu tiên, do đó chúng xuất hiện ở trên đầu các cột\
-
--   Incidence object được tạo và vẽ biểu đồ như trước đó\
-
--   Chúng ta thêm các điều chỉnh **ggplot2**
-
-    -   `scale_fill_manual()` để gán màu theo cách thủ công sao cho "Missing" là màu xám và "Other" là màu be
-
-```{r, message=F, warning=F}
-# MODIFIED - hospital as factor
-###############################
-
-# load forcats package for working with factors
-pacman::p_load(forcats)
-
-# Convert hospital column to factor and adjust levels
-plot_data <- linelist %>% 
-  mutate(hospital = fct_relevel(hospital, c("Missing", "Other"))) # Set "Missing" and "Other" as top levels
-
-
-# Create weekly incidence object, grouped by hospital and week
-hospital_outbreak_mod <- incidence(
-  plot_data,
-  date_index = date_onset, 
-  interval = "week", 
-  groups = hospital)
-
-# plot incidence object
-plot(hospital_outbreak_mod, fill = hospital)+
-  
-  # manual specify colors
-  scale_fill_manual(values = c("grey", "beige", "darkgreen", "green2", "orange", "red", "pink"))+                      
-
-  # labels added via ggplot
-  labs(
-      title = "MODIFIED - hospital as factor",   # plot title
-      subtitle = "Other & Missing at top of epicurve",
-      y = "Weekly case incidence",               # y axis title  
-      x = "Week of symptom onset",               # x axis title
-      fill = "Hospital")                         # title of legend     
-```
-
-[***MẸO***: Nếu bạn chỉ muốn đảo ngược thứ tự của chú giải, hãy thêm lệnh **ggplot2** này `guides(fill = guide_legend(reverse = TRUE))`.]{style="color: darkgreen;"}
-
-### Đường lưới dọc {.unnumbered}
-
-Nếu bạn vẽ biểu đồ với các thiết lập mặc định của **incidence2**, bạn có thể nhận thấy rằng các đường lưới dọc xuất hiện ở từng nhãn ngày và giữa mỗi nhãn ngày. Điều này có thể dẫn đến các đường lưới giao nhau với đỉnh của một số cột.
-
-<!--[Lưu ý đoạn này không áp dụng với phiên bản 1.0.0 của incidence2]. Bạn có thể chỉ định khoảng thời gian cho các đường lưới bằng cách thêm lệnh **ggplot2**'s `scale_x_date()` vào biểu đồ **incidence2**. Trong đó, chỉ định khoảng thời gian cho `date_breaks = ` và `date_minor_breaks = ` (ví dụ: "tuần" hoặc "3 tuần" hoặc "tháng"). Lưu ý rằng việc sử dụng `scale_x_date()` sẽ làm sai bất kỳ định dạng nào của nhãn ngày trong `plot()`, vì vậy bạn sẽ cần chỉ định bất kỳ định dạng chuỗi nào cho `date_labels = ` như bên dưới.-->
-
-Bạn có thể xóa tất cả các đường lưới bằng cách thêm lệnh **ggplot2** `theme_classic()`.
-
-```{r, warning=F, message=F, out.width = c('50%', '50%', '50%'), fig.show='hold'}
-# make incidence object
-a <- incidence(
-  central_data,
-  date_index = date_onset,
-  interval = "Monday weeks"
-)
-
-# Default gridlines
-plot(a, title = "Default lines")
-
-# Specified gridline intervals
-# NOT WORKING WITH INCIDENCE2 1.0.0
-# plot(a, title = "Weekly lines")+
-#   scale_x_date(
-#     date_breaks = "4 weeks",      # major vertical lines align on weeks
-#     date_minor_breaks = "weeks",  # minor vertical lines every week
-#     date_labels = "%a\n%d\n%b")   # format of date labels
-
-# No gridlines
-plot(a, title = "No lines")+
-  theme_classic()                 # remove all gridlines
-```
-
-Tuy nhiên, lưu ý rằng nếu sử dụng tuần, các đối số `date_breaks` và `date_minor_breaks` chỉ hoạt động cho các tuần được quy định bắt đầu vào *Thứ Hai*. Nếu các tuần của bạn bắt đầu vào một ngày khác trong tuần, thay vào đó, bạn sẽ cần cung cấp vectơ ngày cho các đối số `breaks =` và `minor_breaks =` theo cách thủ công. Xem mục **ggplot2** để biết các ví dụ về điều này bằng cách sử dụng hàm `seq.Date()`.
-
-### Số mới mắc tích lũy {.unnumbered}
-
-<!-- Bạn có thể dễ dàng tạo ra một biểu đồ số mới mắc tích lũy bằng cách chuyển incidence object đến lệnh **incidence2** `cumulate()` và sau đó đến lệnh `plot()`. Điều này cũng tương tự với lệnh `facet_plot()`. -->
-
-<!-- ```{r} -->
-<!-- # make weekly incidence object -->
-<!-- wkly_inci <- incidence( -->
-<!--   linelist, -->
-<!--   date_index = date_onset, -->
-<!--   interval = "week" -->
-<!-- ) -->
-
-<!-- # plot cumulative incidence -->
-<!-- wkly_inci %>%  -->
-<!--   cumulate() %>%  -->
-<!--   plot() -->
-<!-- ``` -->
-
-Xem phần sau để biết phương pháp thay thế để vẽ biểu đồ số mới mắc tích lũy với **ggplot2** - ví dụ: để chồng một đường số mới mắc tích lũy lên trên đường cong dịch bệnh.
-
-### Trung bình động {.unnumbered}
-
-Bạn có thể thêm đường trung bình động vào biểu đồ tạo bởi **incidence2** một cách dễ dàng với hàm `add_rolling_average()` từ package **i2extras**. Chuyển đối tượng incidence2 của bạn tới hàm này, và sau đó vẽ bằng hàm `plot()`. Thiết lập `before =` là số ngày trước đó bạn muốn đưa vào đường trung bình động (mặc định là 2). Nếu dữ liệu của bạn được nhóm lại, trung bình động sẽ được tính cho mỗi nhóm.
-
-```{r, warning=F, message=F}
-rolling_avg <- incidence(                    # make incidence object
-  linelist,
-  date_index = date_onset,
-  interval = "week",
-  groups = gender) %>% 
-  
-  i2extras::add_rolling_average(before = 6)  # add rolling averages (in this case, by gender)
-
-# plot
-plot(rolling_avg, n.breaks = 3) # faceted automatically because rolling average on groups
-```
-
-Để tìm hiểu cách áp dụng đường trung bình động một cách tổng quát hơn trên dữ liệu, hãy xem chương [Đường trung bình động](#moving-average).
 
 <!-- ======================================================= -->
 
@@ -971,8 +335,8 @@ scale_x_date(
       by   = "week"),
    
     # date label format
-    date_labels = "%a\n%d %b\n%Y")+         # day, above month abbrev., above 2-digit year
-
+    #date_labels = "%a\n%d %b\n%Y")+         # day, above month abbrev., above 2-digit year
+    label = scales::label_date_short())+ # automatic label formatting
 ```
 
 ### Nhóm/tô màu theo giá trị {.unnumbered}
@@ -1078,7 +442,7 @@ ggplot(plot_data) +                     # Use NEW dataset with hospital as re-or
     expand            = c(0,0),         # remove excess x-axis space before and after case bars
     date_breaks       = "3 weeks",      # labels appear every 3 Monday weeks
     date_minor_breaks = "week",         # vertical lines appear every Monday week
-    date_labels       = "%d\n%b\n'%y")+ # date labels format
+    label = scales::label_date_short())+ # efficient label formatting
   
   # y-axis
   scale_y_continuous(
@@ -1148,7 +512,7 @@ ggplot(central_data %>% drop_na(gender))+   # begin with Central Hospital cases 
   scale_x_date(expand            = c(0,0),         # remove excess x-axis space below and after case bars
                date_breaks       = "3 weeks",      # labels appear every 3 Monday weeks
                date_minor_breaks = "week",         # vertical lines appear every Monday week
-               date_labels       = "%d\n%b\n'%y")+ # date labels format
+               label = scales::label_date_short())+ # efficient date labels
   
   # y-axis
   scale_y_continuous(expand = c(0,0))+             # removes excess y-axis space between bottom of bars and the labels
@@ -1231,7 +595,7 @@ ggplot(central_data) +
     expand = c(0,0),               # remove excess x-axis space below and after case bars
     date_breaks = "3 weeks",       # Monday every 3 weeks
     date_minor_breaks = "week",    # Monday weeks
-    date_labels = "%a\n%d\n%b\n'%y")+  # label format
+    label = scales::label_date_short())+ # automatic label formatting
   
   scale_y_continuous(
     expand = c(0,0))+              # remove excess space under x-axis, make flush
@@ -1255,7 +619,7 @@ ggplot(central_data) +
     expand = c(0,0),                  # remove excess x-axis space below and after case bars
     date_breaks = "months",           # 1st of month
     date_minor_breaks = "week",       # Monday weeks
-    date_labels = "%a\n%d %b\n%Y")+    # label format
+    label = scales::label_date_short())+ # automatic label formatting
   
   scale_y_continuous(
     expand = c(0,0))+                # remove excess space under x-axis, make flush 
@@ -1282,7 +646,7 @@ ggplot(central_data) +
     expand = c(0,0),                   # remove excess x-axis space below and after case bars
     date_breaks = "4 weeks",           # Monday every 4 weeks
     date_minor_breaks = "week",        # Monday weeks 
-    date_labels = "%a\n%d %b\n%Y")+      # label format
+    label = scales::label_date_short())+ # label formatting
   
   scale_y_continuous(
     expand = c(0,0))+                # remove excess space under x-axis, make flush 
@@ -1309,7 +673,7 @@ ggplot(central_data) +
     expand = c(0,0),                   # remove excess x-axis space below and after case bars
     date_breaks = "months",            # Monday every 4 weeks
     date_minor_breaks = "week",        # Monday weeks 
-    date_labels = "%b\n%Y")+          # label format
+    label = scales::label_date_short())+ # label formatting
   
   scale_y_continuous(
     expand = c(0,0))+                # remove excess space under x-axis, make flush 
@@ -1348,7 +712,7 @@ ggplot(central_data) +
                             to   = ceiling_date(max(central_data$date_onset, na.rm=T), "week", week_start = 7),
                             by   = "7 days"),
     
-    date_labels = "%a\n%d\n%b\n'%y")+  # label format
+    label = scales::label_date_short())+ # label formatting
   
   scale_y_continuous(
     expand = c(0,0))+                # remove excess space under x-axis, make flush 
@@ -1425,7 +789,7 @@ ggplot(data = count_data_weekly)+
   scale_x_date(
     date_breaks = "2 months",      # labels every 2 months 
     date_minor_breaks = "1 month", # gridlines every month
-    date_labels = '%b\n%Y')+       #labeled by month with year below
+    label = scales::label_date_short())+ # label formatting
      
   # Choose color palette (uses RColorBrewer package)
   scale_fill_brewer(palette = "Pastel2")+ 
@@ -1492,7 +856,7 @@ ggplot(data = ll_counts_7day) +  # begin with new dataset defined above
       size = 1) +                # width of line
     scale_x_date(                # date scale
       date_breaks = "1 month",
-      date_labels = '%d/%m',
+      label = scales::label_date_short(), # label formatting
       expand = c(0,0)) +
     scale_y_continuous(          # y-axis scale
       expand = c(0,0),
@@ -1569,7 +933,7 @@ ggplot(central_data) +
     expand            = c(0,0),         # remove excess x-axis space below and after case bars
     date_breaks       = "2 months",     # labels appear every 2 months
     date_minor_breaks = "1 month",      # vertical lines appear every 1 month 
-    date_labels       = "%b\n'%y")+     # date labels format
+    label = scales::label_date_short())+ # label formatting
   
   # y-axis
   scale_y_continuous(expand = c(0,0))+                       # removes excess y-axis space between bottom of bars and the labels
@@ -1629,7 +993,7 @@ ggplot(central_data) +
     expand            = c(0,0),         # remove excess x-axis space below and after case bars
     date_breaks       = "2 months",     # labels appear every 2 months
     date_minor_breaks = "1 month",      # vertical lines appear every 1 month 
-    date_labels       = "%b\n'%y")+     # date labels format
+    label = scales::label_date_short())+ # label formatting
   
   # y-axis
   scale_y_continuous(expand = c(0,0))+  # removes excess y-axis space below 0
@@ -1723,7 +1087,7 @@ ggplot(central_data2) +
     expand            = c(0,0),         # remove excess x-axis space below and after case bars
     date_breaks       = "2 months",     # labels appear every 2 months
     date_minor_breaks = "1 month",      # vertical lines appear every 1 month 
-    date_labels       = "%b\n'%y")+     # date labels format
+    label = scales::label_date_short())+ # label formatting
   
   # y-axis
   scale_y_continuous(expand = c(0,0))+  # removes excess y-axis space between bottom of bars and the labels
@@ -1786,7 +1150,7 @@ ggplot(central_data) +
     expand = c(0,0),                   # remove excess x-axis space below and after case bars
     date_breaks = "1 month",           # 1st of month
     date_minor_breaks = "1 month",     # 1st of month
-    date_labels = "%b\n'%y")+          # label format
+    label = scales::label_date_short())+ # automatic label formatting
   
   # labels and theme
   labs(
@@ -1861,7 +1225,7 @@ ggplot(plot_data, aes(x = date_onset, fill = tentative)) +
     expand = c(0,0),                   # remove excess x-axis space below and after case bars
     date_breaks = "3 weeks",           # Monday every 3 weeks
     date_minor_breaks = "week",        # Monday weeks 
-    date_labels = "%d\n%b\n'%y")+      # label format
+    label = scales::label_date_short())+ # label formatting
   
   # labels and theme
   labs(title = "Show days that are tentative reporting",

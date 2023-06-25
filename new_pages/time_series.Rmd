@@ -6,7 +6,7 @@
 
 Chương này minh họa cách sử dụng của một số packages cho phân tích chuỗi thời gian. Các packages chủ yếu đến từ hệ sinh thái [**tidyverts**](https://tidyverts.org/), ngoài ra cũng sử dụng RECON [**trending**](https://github.com/reconhub/trending) package để fit các mô hình dịch tễ học bệnh truyền nhiễm. 
 
-VÍ dụ dưới đây chúng ta sẽ sử dụng bộ dữ liệu về Campylobacter ở Germanywe thuộc package **surveillance** (xem chương [Tải sách và dữ liệu] để biết thêm chi tiết). Tuy nhiên, nếu bạn muốn thử chạy code này trên bộ dữ liệu lớn hơn (nhiều quốc gia hoặc tầng), bạn có thể tham khảo code mẫu tại [repo github của r4epis](https://github.com/R4EPI/epitsa). 
+VÍ dụ dưới đây chúng ta sẽ sử dụng bộ dữ liệu về Campylobacter ở Đức thuộc package **surveillance** (xem chương [Tải sách và dữ liệu] để biết thêm chi tiết). Tuy nhiên, nếu bạn muốn thử chạy code này trên bộ dữ liệu lớn hơn (nhiều quốc gia hoặc tầng), bạn có thể tham khảo code mẫu tại [repo github của r4epis](https://github.com/R4EPI/epitsa). 
 
 Các chủ đề được đề cập bao gồm:  
 
@@ -499,8 +499,10 @@ fitted_model <- trending::fit(model, counts)
 ## calculate confidence intervals and prediction intervals 
 observed <- predict(fitted_model, simulate_pi = FALSE)
 
+estimate_res <- data.frame(observed$result)
+
 ## plot your regression 
-ggplot(data = observed, aes(x = epiweek)) + 
+ggplot(data = estimate_res, aes(x = epiweek)) + 
   ## add in a line for the model estimate
   geom_line(aes(y = estimate),
             col = "Red") + 
@@ -527,24 +529,24 @@ Những gì chúng ta thấy dưới đây là chúng ta không giải thích t�
 ```{r, warning=F, message=F}
 
 ## calculate the residuals 
-observed <- observed %>% 
-  mutate(resid = residuals(fitted_model$fitted_model, type = "response"))
+estimate_res <- estimate_res %>% 
+  mutate(resid = fitted_model$result[[1]]$residuals)
 
 ## are the residuals fairly constant over time (if not: outbreaks? change in practice?)
-observed %>%
+estimate_res %>%
   ggplot(aes(x = epiweek, y = resid)) +
   geom_line() +
   geom_point() + 
   labs(x = "epiweek", y = "Residuals")
 
 ## is there autocorelation in the residuals (is there a pattern to the error?)  
-observed %>% 
+estimate_res %>% 
   as_tsibble(index = epiweek) %>% 
   ACF(resid, lag_max = 52) %>% 
   autoplot()
 
 ## are residuals normally distributed (are under or over estimating?)  
-observed %>%
+estimate_res %>%
   ggplot(aes(x = resid)) +
   geom_histogram(binwidth = 100) +
   geom_rug() +
@@ -552,7 +554,7 @@ observed %>%
   
 ## compare observed counts to their residuals 
   ## should also be no pattern 
-observed %>%
+estimate_res %>%
   ggplot(aes(x = estimate, y = resid)) +
   geom_point() +
   labs(x = "Fitted", y = "Residuals")
@@ -561,7 +563,7 @@ observed %>%
 ## H0 is that residuals are from a white-noise series (i.e. random)
 ## test for independence 
 ## if p value significant then non-random
-Box.test(observed$resid, type = "Ljung-Box")
+Box.test(estimate_res$resid, type = "Ljung-Box")
 
 ```
 
@@ -688,18 +690,19 @@ observed <- predict(fitted_model, simulate_pi = FALSE)
 
 fitted_model %>% 
   ## extract original negative binomial regression
-  get_model() %>% 
+  get_fitted_model()
   ## get a tidy dataframe of results
-  tidy(exponentiate = TRUE, 
-       conf.int = TRUE)
+  #tidy(exponentiate = TRUE, 
+  #     conf.int = TRUE)
 ```
 
 Đánh giá nhanh mô hình cho thấy nó có thể thực hiện tốt hơn công việc ước tính số ca bệnh quan sát được.
 
 ```{r plot_nb_reg_bivar, warning=F, message=F}
+estimate_res <- data.frame(observed$result)
 
 ## plot your regression 
-ggplot(data = observed, aes(x = epiweek)) + 
+ggplot(data = estimate_res, aes(x = epiweek)) + 
   ## add in a line for the model estimate
   geom_line(aes(y = estimate),
             col = "Red") + 
@@ -724,24 +727,24 @@ Chúng ta một lần nữa lại khảo sát phần dư để xem mô hình c�
 ```{r}
 
 ## calculate the residuals 
-observed <- observed %>% 
+estimate_res <- estimate_res %>% 
   mutate(resid = case_int - estimate)
 
 ## are the residuals fairly constant over time (if not: outbreaks? change in practice?)
-observed %>%
+estimate_res %>%
   ggplot(aes(x = epiweek, y = resid)) +
   geom_line() +
   geom_point() + 
   labs(x = "epiweek", y = "Residuals")
 
 ## is there autocorelation in the residuals (is there a pattern to the error?)  
-observed %>% 
+estimate_res %>% 
   as_tsibble(index = epiweek) %>% 
   ACF(resid, lag_max = 52) %>% 
   autoplot()
 
 ## are residuals normally distributed (are under or over estimating?)  
-observed %>%
+estimate_res %>%
   ggplot(aes(x = resid)) +
   geom_histogram(binwidth = 100) +
   geom_rug() +
@@ -749,7 +752,7 @@ observed %>%
   
 ## compare observed counts to their residuals 
   ## should also be no pattern 
-observed %>%
+estimate_res %>%
   ggplot(aes(x = estimate, y = resid)) +
   geom_point() +
   labs(x = "Fitted", y = "Residuals")
@@ -758,7 +761,7 @@ observed %>%
 ## H0 is that residuals are from a white-noise series (i.e. random)
 ## test for independence 
 ## if p value significant then non-random
-Box.test(observed$resid, type = "Ljung-Box")
+Box.test(estimate_res$resid, type = "Ljung-Box")
 
 ```
 
@@ -905,7 +908,7 @@ forecasts <- fitted_model %>%
   predict(pred_data, simulate_pi = FALSE)
 
 ## combine baseline and predicted datasets
-observed <- bind_rows(observed, forecasts)
+observed <- bind_rows(observed$result, forecasts$result)
 
 ```
 
@@ -1085,7 +1088,8 @@ forecasts <- purrr::map(unique(case_roll$.id),
   
   # forecast with data want to predict with 
   forecasts <- fitted_model %>% 
-    predict(pred_data, simulate_pi = FALSE) %>% 
+    predict(pred_data, simulate_pi = FALSE) 
+  forecasts <- data.frame(forecasts$result[[1]]) %>%   
     ## only keep the week and the forecast estimate
     select(epiweek, estimate)
     
@@ -1348,9 +1352,9 @@ fitted_model <- trending::fit(model, counts)
 
 ## calculate confidence intervals and prediction intervals 
 observed <- predict(fitted_model, simulate_pi = FALSE)
+```
 
-
-
+```{r table_regression, eval = FALSE, echo = TRUE}
 ## show estimates and percentage change in a table
 fitted_model %>% 
   ## extract original negative binomial regression
@@ -1383,8 +1387,9 @@ fitted_model %>%
 Như bên trên, chúng ta có thể trực quan hóa các đầu ra của mô hình hồi quy. 
 
 ```{r plot_interrupted}
+estimate_res <- data.frame(observed$result)
 
-ggplot(observed, aes(x = epiweek)) + 
+ggplot(estimate_res, aes(x = epiweek)) + 
   ## add in observed case counts as a line
   geom_line(aes(y = case_int, colour = "Observed")) + 
   ## add in a line for the model estimate
