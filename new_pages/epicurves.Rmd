@@ -336,7 +336,7 @@ scale_x_date(
    
     # date label format
     #date_labels = "%a\n%d %b\n%Y")+         # day, above month abbrev., above 2-digit year
-    label = scales::label_date_short())+ # automatic label formatting
+    label = scales::label_date_short())      # automatic label formatting
 ```
 
 ### Nhóm/tô màu theo giá trị {.unnumbered}
@@ -442,7 +442,7 @@ ggplot(plot_data) +                     # Use NEW dataset with hospital as re-or
     expand            = c(0,0),         # remove excess x-axis space before and after case bars
     date_breaks       = "3 weeks",      # labels appear every 3 Monday weeks
     date_minor_breaks = "week",         # vertical lines appear every Monday week
-    label = scales::label_date_short())+ # efficient label formatting
+    label = scales::label_date_short()) # efficient label formatting
   
   # y-axis
   scale_y_continuous(
