@@ -56,7 +56,7 @@ knitr::include_graphics(here::here("images", "Epi R Handbook Banner Vietnamese 1
 
 **Bạn mới bắt đầu học R?** Thử trải nghiệm **[các học phần tương tác miễn phí](https://www.appliedepi.org/tutorial/)** hoặc khóa học trực tuyến **[nền tảng về R](https://www.appliedepi.org/live/)** của chúng tôi, đã được sử dụng bởi US CDC, WHO, 75+ tổ chức y tế khác, và các Chương trình đào tạo dịch tễ học thực địa (FETP) trên toàn thế giới.
 
-**Ngôn ngữ:** [Tiếng Anh](https://epirhandbook.com/en/), [Tiếng Pháp](https://epirhandbook.com/fr), [Tiếng Tây Ban Nha](https://epirhandbook.com/es), [Tiếng Nhật](https://epirhandbook.com/jp), [Tiếng Thổ Nhĩ Kỳ](https://epirhandbook.com/tr)
+**Ngôn ngữ:** [Tiếng Anh (English)](https://epirhandbook.com/en/), [Tiếng Việt)](https://epirhandbook.com/vn/), [Tiếng Pháp (Français)](https://epirhandbook.com/fr), [Tiếng Tây Ban Nha (Español)](https://epirhandbook.com/es), [Tiếng Nhật (日本)](https://epirhandbook.com/jp), [Tiếng Thổ Nhĩ Kỳ (Türkçe)](https://epirhandbook.com/tr), [Tiếng Bồ Đào Nha (Português)](https://epirhandbook.com/pt),  [Tiếng Nga (Русский)](https://epirhandbook.com/ru)
 
 
 <!-- * Use practical epi examples - cleaning case linelists, making transmission chains and epidemic curves, automated reports and dashboards, modeling incidence and making projections, demographic pyramids and rate standardization, record matching, outbreak detection, survey analysis, survival analysis, GIS basics, contact tracing, phylogenetic trees...   -->
