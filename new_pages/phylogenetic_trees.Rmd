@@ -165,9 +165,10 @@ ggtree(tree, layout="circular", branch.length = "none") # simple circular tree w
 ### Cây đơn giản cộng với dữ liệu mẫu {.unnumbered}  
 
 Toán tử **%<+%** được sử dụng để kết nối data frame `sample_data` tới tệp `tree`.
-Cách chú thích dễ dàng nhất cho cây của bạn là thêm tên mẫu ở các ngọn, cũng như tô màu các điểm ngọn và các nhánh nếu muốn :
+Cách chú thích dễ dàng nhất cho cây của bạn là thêm tên mẫu ở các ngọn, cũng như tô màu các điểm ngọn và các nhánh nếu muốn:
 
-Here is an example of a circular tree: 
+Dưới đây là một ví dụ về cây phả hệ dạng tròn: 
+
 ```{r, phylogenetic_trees_adding_sampledata, fig.align='center', warning=F, message=F}
 
 ggtree(tree, layout = "circular", branch.length = 'none') %<+% sample_data + # %<+% adds dataframe with sample data to tree

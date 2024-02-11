@@ -456,7 +456,7 @@ knitr::kable(mortality_ds_rate_phe)
 
 Để chuẩn hóa gián tiếp, chúng ta cần dân số tham chiếu có số lượng tử vong và dân số theo tầng. Trong ví dụ này, chúng ta sẽ tính tỷ suất của quốc gia A bằng cách *sử dụng quốc gia B làm dân số tham chiếu*, vì dân số tham chiếu trong bộ số liệu `standard_pop_clean` không có số lượng tử vong theo tầng. 
 
-Trước tiên, chúng ta tạo dân số tham chiếu từ quốc gia B như bên dưới. Sau đó, chúng ta chuyển số liệu tử vong và dân số của quốc gia A, kết nối nó với dân số tham chiếu và chuyển nó vào hàm `phe_isr()`, để có được tỷ suất chuẩn hóa gián tiếp. Dĩ nhiên, chúng ta cũng có thể làm ngược lại.
+Trước tiên, chúng ta tạo dân số tham chiếu từ quốc gia B như bên dưới. Sau đó, chúng ta chuyển số liệu tử vong và dân số của quốc gia A, kết nối nó với dân số tham chiếu và chuyển nó vào hàm `calculate_ISRate()`, để có được tỷ suất chuẩn hóa gián tiếp. Dĩ nhiên, chúng ta cũng có thể làm ngược lại.
 
 Lưu ý - trong ví dụ bên dưới, dân số tham chiếu được cung cấp dưới dạng một data frame riêng rẽ. Trong trường hợp này, chúng ta cần đảm bảo rằng các véctơ `x = `, `n = `, `x_ref = ` và `n_ref = ` tất cả được sắp đặt cùng giá trị với loại chuẩn hóa (theo đúng tầng) như được sắp đặt trong data frame quốc gia, vì vị trí các bản ghi/các hàng phải khớp với nhau.
 

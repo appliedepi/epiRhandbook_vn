@@ -31,7 +31,7 @@ Ngày trong R có kiểu đối tượng riêng - kiểu `Date`. Nên lưu ý r�
 
 pacman::p_load(
   lubridate,  # general package for handling and converting dates  
-  linelist,   # has function to "guess" messy dates
+  parsedate,   # has function to "guess" messy dates
   aweek,      # another option for converting dates to weeks, and weeks to dates
   zoo,        # additional date/time functions
   tidyverse,  # data management and visualization  
@@ -95,7 +95,7 @@ Dưới đây, chúng tôi trình bày hai cách để chuyển đổi một c�
 Sử dụng hàm `as.Date()` yêu cầu:  
 
 * Bạn *làm rõ định dạng **hiện tại** của ngày ở dạng văn bản gốc* hoặc ngày gốc nếu biến ngày được cung cấp dưới dạng số (xem mục ngày tháng trong Excel)  
-* Nếu hàm được áp dụng trên cột dạng văn bản, tất cả các giá trị ngày phải có cùng một định dạng chính xác (nếu không như vậy, hãy thử hàm `guess_dates()` từ package **linelist**)  
+* Nếu hàm được áp dụng trên cột dạng văn bản, tất cả các giá trị ngày phải có cùng một định dạng chính xác (nếu không như vậy, hãy thử hàm `parse_date()` từ package **parsedate**)  
 
 **Trước tiên**, hãy kiểm tra kiểu của cột với hàm `class()` trong **base** R. Nếu bạn không chắc chắn hoặc phân vân về kiểu dữ liệu của cột (vd: bạn thấy "POSIXct", v.v.) dễ dàng nhất là chuyển đổi cột thành kiểu văn bản với hàm `as.character()`, và sau đó chuyển đổi nó thành kiểu Ngày.  
 
@@ -250,7 +250,7 @@ Hàm `guess_dates()` từ package **linelist** cố gắng nhận diện một c
 Ví dụ: hàm `guess_dates` sẽ nhận diện một vectơ gồm các ngày chứa ký tự như sau "03 Jan 2018", "07/03/1982", và "08/20/85" và chuyển đổi chúng thành định dạng Ngày tiêu chuẩn như: `2018-01-03`, `1982-03-07`, và `1985-08-20`.  
 
 ```{r, }
-linelist::guess_dates(c("03 Jan 2018",
+parsedate::parse_date(c("03 Jan 2018",
                         "07/03/1982",
                         "08/20/85"))
 ```
@@ -265,12 +265,7 @@ Một số tùy chọn đối số cho hàm `guess_dates()` mà bạn có thể 
 ```{r eval = FALSE}
 # An example using guess_dates on the column dater_onset
 linelist <- linelist %>%                 # the dataset is called linelist
-  mutate(
-    date_onset = linelist::guess_dates(  # the guess_dates() from package "linelist"
-      date_onset,
-      error_tolerance = 0.1,
-      first_date = "2016-01-01"
-    )
+  mutate(date_onset = parse_date(date_onset)
 ```
 
 

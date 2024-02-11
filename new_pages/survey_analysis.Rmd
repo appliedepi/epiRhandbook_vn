@@ -513,7 +513,7 @@ left_join(ag, propcount, by = "age_group", suffix = c("", "_pop")) %>%
 
 ### Tháp dân số  
 
-Tháp dân số (hoặc tháp tuổi-giới) là một cách dễ dàng để trực quan hóa sự phân bố trong quần thể khảo sát của bạn. Cũng nên xem xét việc tạo [Bảng mô tả] về độ tuổi và giới tính theo tầng khảo sát. Chúng ta sẽ minh họa bằng package **apyramid** vì nó cho phép các tỷ lệ được áp dụng trọng số sử dụng đối tượng theo thiết kế nghiên cứu mà chúng ta đã tạo ở trên. Các tùy chọn khác để tạo [Tháp dân số](#age-pyramid) được đề cập nhiều hơn trong chương đó của sổ tay. Chúng ta cũng sẽ sử dụng một hàm gọn hơn từ **sitrep** được gọi là `plot_age_pyramid()` để lưu một vài dòng code để tạo ra một biểu đồ theo tỷ lệ.  
+Tháp dân số (hoặc tháp tuổi-giới) là một cách dễ dàng để trực quan hóa sự phân bố trong quần thể khảo sát của bạn. Cũng nên xem xét việc tạo [Bảng mô tả] về độ tuổi và giới tính theo tầng khảo sát. Chúng ta sẽ minh họa bằng package **apyramid** vì nó cho phép các tỷ lệ được áp dụng trọng số sử dụng đối tượng theo thiết kế nghiên cứu mà chúng ta đã tạo ở trên. Các tùy chọn khác để tạo [Tháp dân số](#age-pyramid) được đề cập nhiều hơn trong chương đó của sổ tay. Chúng ta cũng sẽ sử dụng một hàm trong package **apyramid** là `age_pyramid()` để code ngắn gọn hơn một biểu đồ theo tỷ lệ.  
 
 Giống như với phép kiểm định sự khác biệt giữa hai nhóm chuẩn được thảo luận ở trên trong phần sai số chọn mẫu, ở đây chúng ta quan tâm đến việc trực quan hóa liệu quần thể mẫu của chúng ta có khác biệt đáng kể so với quần thể gốc hay không, và liệu trọng số có sửa chữa được sự khác biệt này hay không. Để làm điều này, chúng ta sẽ sử dụng package **patchwork** để hiển thị các biểu đồ tạo bởi **ggplot** song song với nhau; chi tiết xem phần kết hợp các đồ thị trong chương [Các tips với ggplot] của sổ tay này. Chúng ta sẽ trực quan hóa quần thể gốc, quần thể khảo sát không trọng số và quần thể khảo sát có trọng số. Bạn cũng có thể xem xét trực quan theo từng tầng của khảo sát - bằng cách sử dụng đối số `stack_by  = "health_district"` trong ví dụ của chúng tôi ở đây (xem `?plot_age_pyramid` để biết chi tiết).  
 
@@ -580,7 +580,7 @@ source_population <- population %>%
   
   
 ## plot the unweighted sample population 
-sample_population <- plot_age_pyramid(survey_data, 
+sample_population <- age_pyramid(survey_data, 
                  age_group = "age_group", 
                  split_by = "sex",
                  proportion = TRUE) + 
@@ -599,7 +599,7 @@ weighted_population <- survey_design %>%
   ## make sure the variables are factors
   mutate(age_group = factor(age_group), 
          sex = factor(sex)) %>%
-  plot_age_pyramid(
+  age_pyramid(
     age_group = "age_group",
     split_by = "sex", 
     proportion = TRUE) +
@@ -634,12 +634,7 @@ Trực quan điểm bắt đầu và kết quả của từng cá nhân có th�
 ## summarize data
 flow_table <- survey_data %>%
   count(startcause, endcause, sex) %>%  # get counts 
-  gather_set_data(x = c("startcause", "endcause")) %>%     # change format for plotting
-  mutate(x = fct_relevel(x, c("startcause", "endcause")),  # set startcause as first level
-         x = fct_recode(x, 
-                        "Start \n cause" = "startcause",   # add line break (\n) after start
-                        "End \n cause"   = "endcause")
-        )
+  gather_set_data(x = c("startcause", "endcause"))     # change format for plotting
 
 
 ## plot your dataset 
@@ -654,19 +649,10 @@ ggplot(flow_table, aes(x, id = id, split = y, value = n)) +
   geom_parallel_sets_axes(axis.width = 0.15, fill = "grey80", color = "grey80") +
   ## change text colour and angle (needs to be adjusted)
   geom_parallel_sets_labels(color = "black", angle = 0, size = 5) +
-  ## adjusted y and x axes (probably needs more vertical space)
-  scale_x_discrete(name = NULL, expand = c(0, 0.2)) + 
   ## remove axis labels
-  theme(
-    title = element_text(size = 26),
-    text = element_text(size = 26),
-    axis.line = element_blank(),
-    axis.ticks = element_blank(),
-    axis.text.y = element_blank(),
-    panel.background = element_blank(),
-    legend.position = "bottom",                    # move legend to bottom
-    legend.title = element_blank(),                # remove title
-  )
+  theme_void()+
+  ## move legend to bottom
+  theme(legend.position = "bottom") 
 
 ```
 
