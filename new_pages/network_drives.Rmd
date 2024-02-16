@@ -42,7 +42,7 @@ Bạn có thể trả về (các) đường dẫn đến các thư thư mục l�
  
 Bạn có thể muốn chuyển đổi thứ tự của các thư viện package được sử dụng bởi R. Ví dụ: nếu R đang chọn một vị trí thư viện với đường dẫn bắt đầu bằng "\\\" và một đường dẫn bắt đầu bằng chữ cái, ví dụ: "D:". Bạn có thể điều chỉnh thứ tự của `.libPaths()` bằng đoạn mã code dưới đây.  
 
-````{r, eval=F}
+```{r, eval=F}
 # Switch order of libraries
 # this can effect the priority of R finding a package. E.g. you may want your C: library to be listed first
 myPaths <- .libPaths() # get the paths
