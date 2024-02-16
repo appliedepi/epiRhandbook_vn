@@ -1,5 +1,5 @@
-tab:unnamed-chunk-155
-tab:unnamed-chunk-655
+tab:unnamed-chunk-180
+tab:unnamed-chunk-681
 editorial-style
 cách-tiếp-cận-và-phong-cách
 quyết-định-biên-tập
@@ -285,12 +285,11 @@ tổng-hợp
 nguồn-7
 epicurves
 chuẩn-bị-23
-đường-cong-dịch-bệnh-với-package-incidence2
 đường-cong-dịch-bệnh-với-ggplot2
 dữ-liệu-dự-kiến
 nhãn-ngày-nhiều-cấp-độ
 trục-kép-1
-số-mới-mắc-tích-lũy-1
+số-mới-mắc-tích-lũy
 nguồn-tham-khảo-2
 age-pyramid
 chuẩn-bị-24

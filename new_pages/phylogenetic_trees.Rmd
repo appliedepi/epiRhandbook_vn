@@ -15,7 +15,7 @@ Trong chương này chúng ta sẽ học cách sử dụng package **ggtree**, c
 
 ```{r, phylogenetic_trees_overview_graph, out.width=c('80%'), fig.align='center', fig.show='hold', echo = FALSE}
 
-pacman::p_load(here, ggplot2, dplyr, ape, ggtree, treeio, ggnewscale)
+pacman::p_load(here, ggplot2, dplyr, ape, ggtree, treeio, ggnewscale, tidytree)
 
 tree <- ape::read.tree(here::here("data", "phylo", "Shigella_tree.txt"))
 
@@ -383,7 +383,7 @@ p1 # print
 
 Bây giờ chúng ta có thể xoay nút 37 trong đối tượng `p1` để các mẫu trên nút 38 di chuyển lên đỉnh. Chúng ta lưu trữ cây đã xoay trong một đối tượng mới có tên `p2`.
 ```{r}
-p2 <- rotate(p1, 37) + 
+p2 <- ggtree::rotate(p1, 37) + 
       ggtitle("Rotated Node 37")
 
 

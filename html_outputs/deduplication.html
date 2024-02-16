@@ -1,43 +1,153 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>15 Loại bỏ trùng lặp | Cẩm nang dịch tễ học với R</title>
-<meta name="author" content="the handbook team">
-<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.2"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.5.1/tabs.js"></script><script src="libs/bs3compat-0.2.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
-<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/htmlwidgets-1.5.3/htmlwidgets.js"></script><link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet">
-<script src="libs/datatables-binding-0.16/datatables.js"></script><link href="libs/dt-core-1.10.20/css/jquery.dataTables.min.css" rel="stylesheet">
-<link href="libs/dt-core-1.10.20/css/jquery.dataTables.extra.css" rel="stylesheet">
-<script src="libs/dt-core-1.10.20/js/jquery.dataTables.min.js"></script><link href="libs/nouislider-7.0.10/jquery.nouislider.min.css" rel="stylesheet">
-<script src="libs/nouislider-7.0.10/jquery.nouislider.min.js"></script><link href="libs/selectize-0.12.0/selectize.bootstrap3.css" rel="stylesheet">
-<script src="libs/selectize-0.12.0/selectize.min.js"></script><link href="libs/crosstalk-1.1.1/css/crosstalk.css" rel="stylesheet">
-<script src="libs/crosstalk-1.1.1/js/crosstalk.min.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
-<link href="libs/tabwid-1.0.0/tabwid.css" rel="stylesheet">
-<script src="libs/tabwid-1.0.0/tabwid.js"></script><link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet">
-<script src="libs/leaflet-1.3.1/leaflet.js"></script><link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet">
-<script src="libs/Proj4Leaflet-1.0.1/proj4-compressed.js"></script><script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script><link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet">
-<script src="libs/leaflet-binding-2.0.3/leaflet.js"></script><script src="libs/leaflet-providers-1.9.0/leaflet-providers_1.9.0.js"></script><script src="libs/leaflet-providers-plugin-2.0.3/leaflet-providers-plugin.js"></script><script src="libs/viz-1.8.2/viz.js"></script><link href="libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet">
-<script src="libs/grViz-binding-1.0.6.1/grViz.js"></script><script src="libs/d3-4.5.0/d3.min.js"></script><script src="libs/sankey-1/sankey.js"></script><script src="libs/sankeyNetwork-binding-0.4/sankeyNetwork.js"></script><script src="libs/plotly-binding-4.9.2.1/plotly.js"></script><script src="libs/typedarray-0.1/typedarray.min.js"></script><link href="libs/plotly-htmlwidgets-css-1.52.2/plotly-htmlwidgets.css" rel="stylesheet">
-<script src="libs/plotly-main-1.52.2/plotly-latest.min.js"></script><link href="libs/vis-4.20.1/vis.css" rel="stylesheet">
-<script src="libs/vis-4.20.1/vis.min.js"></script><script src="libs/visNetwork-binding-2.0.9/visNetwork.js"></script><link href="libs/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet">
-<script src="libs/plotly-basic-1.52.2/plotly-basic-1.52.2.min.js"></script><script src="libs/plotly-cartesian-1.52.2/plotly-cartesian-1.52.2.min.js"></script><script src="libs/proj4js-2.3.15/proj4.js"></script><link href="libs/highcharts-8.1.2/css/motion.css" rel="stylesheet">
-<script src="libs/highcharts-8.1.2/highcharts.js"></script><script src="libs/highcharts-8.1.2/highcharts-3d.js"></script><script src="libs/highcharts-8.1.2/highcharts-more.js"></script><script src="libs/highcharts-8.1.2/modules/stock.js"></script><script src="libs/highcharts-8.1.2/modules/map.js"></script><script src="libs/highcharts-8.1.2/modules/annotations.js"></script><script src="libs/highcharts-8.1.2/modules/data.js"></script><script src="libs/highcharts-8.1.2/modules/drilldown.js"></script><script src="libs/highcharts-8.1.2/modules/item-series.js"></script><script src="libs/highcharts-8.1.2/modules/offline-exporting.js"></script><script src="libs/highcharts-8.1.2/modules/overlapping-datalabels.js"></script><script src="libs/highcharts-8.1.2/modules/exporting.js"></script><script src="libs/highcharts-8.1.2/modules/export-data.js"></script><script src="libs/highcharts-8.1.2/modules/funnel.js"></script><script src="libs/highcharts-8.1.2/modules/heatmap.js"></script><script src="libs/highcharts-8.1.2/modules/treemap.js"></script><script src="libs/highcharts-8.1.2/modules/sankey.js"></script><script src="libs/highcharts-8.1.2/modules/dependency-wheel.js"></script><script src="libs/highcharts-8.1.2/modules/organization.js"></script><script src="libs/highcharts-8.1.2/modules/solid-gauge.js"></script><script src="libs/highcharts-8.1.2/modules/streamgraph.js"></script><script src="libs/highcharts-8.1.2/modules/sunburst.js"></script><script src="libs/highcharts-8.1.2/modules/vector.js"></script><script src="libs/highcharts-8.1.2/modules/wordcloud.js"></script><script src="libs/highcharts-8.1.2/modules/xrange.js"></script><script src="libs/highcharts-8.1.2/modules/tilemap.js"></script><script src="libs/highcharts-8.1.2/modules/venn.js"></script><script src="libs/highcharts-8.1.2/modules/gantt.js"></script><script src="libs/highcharts-8.1.2/modules/timeline.js"></script><script src="libs/highcharts-8.1.2/modules/parallel-coordinates.js"></script><script src="libs/highcharts-8.1.2/modules/bullet.js"></script><script src="libs/highcharts-8.1.2/modules/coloraxis.js"></script><script src="libs/highcharts-8.1.2/modules/dumbbell.js"></script><script src="libs/highcharts-8.1.2/modules/lollipop.js"></script><script src="libs/highcharts-8.1.2/modules/series-label.js"></script><script src="libs/highcharts-8.1.2/plugins/motion.js"></script><script src="libs/highcharts-8.1.2/custom/reset.js"></script><script src="libs/highcharts-8.1.2/modules/boost.js"></script><script src="libs/highchart-binding-0.8.2/highchart.js"></script><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=G-QXDW878QLX"></script><script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>15 Loại bỏ trùng lặp | Cẩm nang dịch tễ học với R</title>
+
+    <meta name="author" content="the handbook team" />
+  
+   <meta name="description" content="The Epi R Handbook is a R reference manual for applied epidemiology and public health." />
+   <meta name="generator" content="placeholder" />
+  <meta property="og:title" content="15 Loại bỏ trùng lặp | Cẩm nang dịch tễ học với R" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="The Epi R Handbook is a R reference manual for applied epidemiology and public health." />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="15 Loại bỏ trùng lặp | Cẩm nang dịch tễ học với R" />
+  
+  <meta name="twitter:description" content="The Epi R Handbook is a R reference manual for applied epidemiology and public health." />
+  
+  <!-- JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script>
+    <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet" />
+    <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script>
+    <script src="libs/bs3compat-0.6.1/transition.js"></script>
+    <script src="libs/bs3compat-0.6.1/tabs.js"></script>
+    <script src="libs/bs3compat-0.6.1/bs3compat.js"></script>
+    <link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet" />
+    <script src="libs/bs4_book-1.0.0/bs4_book.js"></script>
+    <script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+    <link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+    <script src="libs/datatables-binding-0.31/datatables.js"></script>
+    <link href="libs/dt-core-1.13.6/css/jquery.dataTables.min.css" rel="stylesheet" />
+    <link href="libs/dt-core-1.13.6/css/jquery.dataTables.extra.css" rel="stylesheet" />
+    <script src="libs/dt-core-1.13.6/js/jquery.dataTables.min.js"></script>
+    <link href="libs/nouislider-7.0.10/jquery.nouislider.min.css" rel="stylesheet" />
+    <script src="libs/nouislider-7.0.10/jquery.nouislider.min.js"></script>
+    <link href="libs/selectize-0.12.0/selectize.bootstrap3.css" rel="stylesheet" />
+    <script src="libs/selectize-0.12.0/selectize.min.js"></script>
+    <link href="libs/crosstalk-1.2.1/css/crosstalk.min.css" rel="stylesheet" />
+    <script src="libs/crosstalk-1.2.1/js/crosstalk.min.js"></script>
+    <script src="libs/kePrint-0.0.1/kePrint.js"></script>
+    <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+    <link href="libs/tabwid-1.1.3/tabwid.css" rel="stylesheet" />
+    <script src="libs/tabwid-1.1.3/tabwid.js"></script>
+    <link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet" />
+    <script src="libs/leaflet-1.3.1/leaflet.js"></script>
+    <link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
+    <script src="libs/proj4-2.6.2/proj4.min.js"></script>
+    <script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
+    <link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
+    <script src="libs/leaflet-binding-2.2.1/leaflet.js"></script>
+    <script src="libs/leaflet-providers-2.0.0/leaflet-providers_2.0.0.js"></script>
+    <script src="libs/leaflet-providers-plugin-2.2.1/leaflet-providers-plugin.js"></script>
+    <script src="libs/viz-1.8.2/viz.js"></script>
+    <link href="libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet" />
+    <script src="libs/grViz-binding-1.0.11/grViz.js"></script>
+    <script src="libs/d3-4.5.0/d3.min.js"></script>
+    <script src="libs/sankey-1/sankey.js"></script>
+    <script src="libs/sankeyNetwork-binding-0.4/sankeyNetwork.js"></script>
+    <script src="libs/plotly-binding-4.10.4/plotly.js"></script>
+    <script src="libs/typedarray-0.1/typedarray.min.js"></script>
+    <link href="libs/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet" />
+    <script src="libs/plotly-main-2.11.1/plotly-latest.min.js"></script>
+    <link href="libs/vis-9.1.0/vis-network.min.css" rel="stylesheet" />
+    <script src="libs/vis-9.1.0/vis-network.min.js"></script>
+    <script src="libs/visNetwork-binding-2.1.2/visNetwork.js"></script>
+    <link href="libs/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <script src="libs/plotly-basic-2.11.1/plotly-basic-2.11.1.min.js"></script>
+    <script src="libs/plotly-cartesian-2.11.1/plotly-cartesian-2.11.1.min.js"></script>
+    <script src="libs/proj4js-2.3.15/proj4.js"></script>
+    <link href="libs/highcharts-9.3.1/css/motion.css" rel="stylesheet" />
+    <script src="libs/highcharts-9.3.1/highcharts.js"></script>
+    <script src="libs/highcharts-9.3.1/highcharts-3d.js"></script>
+    <script src="libs/highcharts-9.3.1/highcharts-more.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/stock.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/map.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/data.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/exporting.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/offline-exporting.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/drilldown.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/item-series.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/overlapping-datalabels.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/annotations.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/export-data.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/funnel.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/heatmap.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/treemap.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/sankey.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/dependency-wheel.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/organization.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/solid-gauge.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/streamgraph.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/sunburst.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/vector.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/wordcloud.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/xrange.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/tilemap.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/venn.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/gantt.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/timeline.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/parallel-coordinates.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/bullet.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/coloraxis.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/dumbbell.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/lollipop.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/series-label.js"></script>
+    <script src="libs/highcharts-9.3.1/plugins/motion.js"></script>
+    <script src="libs/highcharts-9.3.1/custom/reset.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/boost.js"></script>
+    <script src="libs/highchart-binding-0.9.4/highchart.js"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QXDW878QLX"></script>
+    <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
 
       gtag('config', 'G-QXDW878QLX');
-    </script><script src="https://cdn.jsdelivr.net/autocomplete.js/0/autocomplete.jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/mark.js@8.11.1/dist/mark.min.js"></script><!-- CSS --><link rel="stylesheet" href="style_bs4.css">
+    </script>
+
+    <div class="alert alert-info alert-dismissible">
+      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+      <strong>Bạn cần trợ giúp khi học R?</strong> Hãy tham gia <a href="https://www.appliedepi.org/live/" class="alert-link">khóa học</a>, trải nghiệm <a href="https://www.appliedepi.org/tutorial/" class="alert-link">các học phần miễn phí</a>, gửi bài viết <a href="https://community.appliedepi.org/" class="alert-link">trên trang Cộng đồng</a>, hoặc liên hệ <a href="mailto:contact@appliedepi.org" class="alert-link">dịch vụ hỗ trợ của chúng tôi</a>.
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script>
+
+  <!-- CSS -->
+  <style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+      <link rel="stylesheet" href="style_bs4.css" />
+  
 </head>
+
 <body data-spy="scroll" data-target="#toc">
 
 <div class="container-fluid">
 <div class="row">
-  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book">
+    <a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
 
     <div class="d-flex align-items-start justify-content-between">
       <h1>
@@ -49,144 +159,81 @@
     <div id="main-nav" class="collapse-lg">
       <form role="search">
         <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
-</form>
+      </form>
 
-      <nav aria-label="Table of contents"><h2>Table of contents</h2>
-        <ul class="book-toc list-unstyled">
-<li><a class="" href="index.html"></a></li>
-<li class="book-part">Về cuốn sách này</li>
-<li><a class="" href="editorial-style.html"><span class="header-section-number">1</span> Biên tập và ghi chú kỹ thuật</a></li>
-<li><a class="" href="data-used.html"><span class="header-section-number">2</span> Tải sách và dữ liệu</a></li>
-<li class="book-part">Nhập môn về R</li>
-<li><a class="" href="basics.html"><span class="header-section-number">3</span> R Cơ bản</a></li>
-<li><a class="" href="transition-to-R.html"><span class="header-section-number">4</span> Chuyển đổi sang R</a></li>
-<li><a class="" href="packages-suggested.html"><span class="header-section-number">5</span> Package đề xuất</a></li>
-<li><a class="" href="r-projects.html"><span class="header-section-number">6</span> Dự án R</a></li>
-<li><a class="" href="importing.html"><span class="header-section-number">7</span> Nhập xuất dữ liệu</a></li>
-<li class="book-part">Quản lý dữ liệu</li>
-<li><a class="" href="cleaning.html"><span class="header-section-number">8</span> Làm sạch số liệu và các hàm quan trọng</a></li>
-<li><a class="" href="dates.html"><span class="header-section-number">9</span> Làm việc với ngày tháng</a></li>
-<li><a class="" href="characters-strings.html"><span class="header-section-number">10</span> Ký tự và chuỗi</a></li>
-<li><a class="" href="factors.html"><span class="header-section-number">11</span> Factors</a></li>
-<li><a class="" href="pivoting.html"><span class="header-section-number">12</span> Xoay trục dữ liệu</a></li>
-<li><a class="" href="grouping.html"><span class="header-section-number">13</span> Nhóm dữ liệu</a></li>
-<li><a class="" href="joining-matching.html"><span class="header-section-number">14</span> Nối dữ liệu</a></li>
-<li><a class="active" href="deduplication.html"><span class="header-section-number">15</span> Loại bỏ trùng lặp</a></li>
-<li><a class="" href="iteration.html"><span class="header-section-number">16</span> Lặp, vòng lặp, và danh sách</a></li>
-<li class="book-part">Phân tích dữ liệu</li>
-<li><a class="" href="tables-descriptive.html"><span class="header-section-number">17</span> Bảng mô tả</a></li>
-<li><a class="" href="stat-tests.html"><span class="header-section-number">18</span> Các kiểm định thống kê cơ bản</a></li>
-<li><a class="" href="regression.html"><span class="header-section-number">19</span> Hồi quy đơn và đa biến</a></li>
-<li><a class="" href="missing-data.html"><span class="header-section-number">20</span> Dữ liệu Missing</a></li>
-<li><a class="" href="standardization.html"><span class="header-section-number">21</span> Tỷ suất chuẩn hóa</a></li>
-<li><a class="" href="moving-average.html"><span class="header-section-number">22</span> Đường trung bình động</a></li>
-<li><a class="" href="time-series.html"><span class="header-section-number">23</span> Chuỗi thời gian và phát hiện ổ dịch</a></li>
-<li><a class="" href="epidemic-models.html"><span class="header-section-number">24</span> Mô hình hóa dịch bệnh</a></li>
-<li><a class="" href="contact-tracing.html"><span class="header-section-number">25</span> Truy vết tiếp xúc</a></li>
-<li><a class="" href="survey-analysis.html"><span class="header-section-number">26</span> Phân tích khảo sát</a></li>
-<li><a class="" href="survival-analysis.html"><span class="header-section-number">27</span> Phân tích sống còn</a></li>
-<li><a class="" href="gis.html"><span class="header-section-number">28</span> GIS cơ bản</a></li>
-<li class="book-part">Trực quan hóa dữ liệu</li>
-<li><a class="" href="tables-presentation.html"><span class="header-section-number">29</span> Trình bày bảng</a></li>
-<li><a class="" href="ggplot-basics.html"><span class="header-section-number">30</span> ggplot cơ bản</a></li>
-<li><a class="" href="ggplot-tips.html"><span class="header-section-number">31</span> Các tips với ggplot</a></li>
-<li><a class="" href="epicurves.html"><span class="header-section-number">32</span> Đường cong dịch bệnh</a></li>
-<li><a class="" href="age-pyramid.html"><span class="header-section-number">33</span> Tháp dân số và thang đo Likert</a></li>
-<li><a class="" href="heatmaps.html"><span class="header-section-number">34</span> Biểu đồ nhiệt</a></li>
-<li><a class="" href="diagrams.html"><span class="header-section-number">35</span> Sơ đồ và biểu đồ</a></li>
-<li><a class="" href="combination-analysis.html"><span class="header-section-number">36</span> Biểu đồ kết hợp</a></li>
-<li><a class="" href="transmission-chains.html"><span class="header-section-number">37</span> Chuỗi lây nhiễm</a></li>
-<li><a class="" href="phylogenetic-trees.html"><span class="header-section-number">38</span> Cây phả hệ</a></li>
-<li><a class="" href="interactive-plots.html"><span class="header-section-number">39</span> Biểu đồ tương tác</a></li>
-<li class="book-part">Báo cáo và dashboards</li>
-<li><a class="" href="rmarkdown.html"><span class="header-section-number">40</span> Báo cáo với R Markdown</a></li>
-<li><a class="" href="reportfactory.html"><span class="header-section-number">41</span> Tổ chức báo cáo định kỳ</a></li>
-<li><a class="" href="flexdashboard.html"><span class="header-section-number">42</span> Dashboards với R Markdown</a></li>
-<li><a class="" href="shiny-basics.html"><span class="header-section-number">43</span> Dashboards với Shiny</a></li>
-<li class="book-part">Tổng hợp</li>
-<li><a class="" href="writing-functions.html"><span class="header-section-number">44</span> Viết hàm</a></li>
-<li><a class="" href="directories.html"><span class="header-section-number">45</span> Tương tác với thư mục làm việc</a></li>
-<li><a class="" href="collaboration.html"><span class="header-section-number">46</span> Version control với Git và Github</a></li>
-<li><a class="" href="errors.html"><span class="header-section-number">47</span> Các lỗi thường gặp</a></li>
-<li><a class="" href="help.html"><span class="header-section-number">48</span> Nhờ sự trợ giúp</a></li>
-<li><a class="" href="network-drives.html"><span class="header-section-number">49</span> R trên ổ cứng mạng</a></li>
-<li><a class="" href="data-table.html"><span class="header-section-number">50</span> Data Table</a></li>
-</ul>
+      <nav aria-label="Table of contents">
+        <h2>Table of contents</h2>
+        <div id="book-toc"></div>
 
         <div class="book-extra">
-          
+          <p><a id="book-repo" href="#">View book source <i class="fab fa-github"></i></a></li></p>
         </div>
       </nav>
-</div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="deduplication" class="section level1" number="15">
-<h1>
-<span class="header-section-number">15</span> Loại bỏ trùng lặp<a class="anchor" aria-label="anchor" href="#deduplication"><i class="fas fa-link"></i></a>
-</h1>
-<div class="inline-figure"><img src="images/deduplication.png" width="50%"></div>
+    </div>
+  </header>
+
+  <main class="col-sm-12 col-md-9 col-lg-7" id="content">
+<div id="deduplication" class="section level1" number="15">
+<h1><span class="header-section-number">15</span> Loại bỏ trùng lặp</h1>
+<p><img src="images/deduplication.png" width="50%" /></p>
 <p>Chương này đề cập đến các kỹ thuật loại bỏ trùng lặp sau:</p>
 <ol style="list-style-type: decimal">
-<li>Xác định và loại bỏ các hàng trùng lặp<br>
+<li>Xác định và loại bỏ các hàng trùng lặp<br />
 </li>
-<li>“Cắt” một số hàng để chỉ giữ lại những hàng nhất định (ví dụ: tối thiểu hoặc tối đa) từ mỗi nhóm hàng<br>
+<li>“Cắt” một số hàng để chỉ giữ lại những hàng nhất định (ví dụ: tối thiểu hoặc tối đa) từ mỗi nhóm hàng<br />
 </li>
 <li>“Rolling-up” hoặc kết hợp các giá trị từ nhiều hàng thành một hàng</li>
 </ol>
-<!-- ======================================================= --><div id="chuẩn-bị-6" class="section level2" number="15.1">
-<h2>
-<span class="header-section-number">15.1</span> Chuẩn bị<a class="anchor" aria-label="anchor" href="#chu%E1%BA%A9n-b%E1%BB%8B-6"><i class="fas fa-link"></i></a>
-</h2>
+<!-- ======================================================= -->
+<div id="chuẩn-bị-6" class="section level2" number="15.1">
+<h2><span class="header-section-number">15.1</span> Chuẩn bị</h2>
 <div id="gọi-package-4" class="section level3 unnumbered">
-<h3>Gọi package<a class="anchor" aria-label="anchor" href="#g%E1%BB%8Di-package-4"><i class="fas fa-link"></i></a>
-</h3>
-<p>Đoạn code này hiển thị những package cần tải cho các phân tích. Trong sổ tay này, chúng tôi nhấn mạnh đến hàm <code><a href="https://rdrr.io/pkg/pacman/man/p_load.html">p_load()</a></code> từ <strong>pacman</strong>, hàm sẽ cài đặt package nếu cần <em>và</em> gọi nó ra để sử dụng. Bạn cũng có thể gọi các package đã cài đặt với <code><a href="https://rdrr.io/r/base/library.html">library()</a></code> từ <strong>base</strong> R. Xem chương <a href="basics.html#basics">R cơ bản</a> để có thêm thông tin về các R package.</p>
-<div class="sourceCode" id="cb719"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">pacman</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/pacman/man/p_load.html">p_load</a></span><span class="op">(</span>
-  <span class="va">tidyverse</span>,   <span class="co"># deduplication, grouping, and slicing functions</span>
-  <span class="va">janitor</span>,     <span class="co"># function for reviewing duplicates</span>
-  <span class="va">stringr</span><span class="op">)</span>      <span class="co"># for string searches, can be used in "rolling-up" values</span></code></pre></div>
+<h3>Gọi package</h3>
+<p>Đoạn code này hiển thị những package cần tải cho các phân tích. Trong sổ tay này, chúng tôi nhấn mạnh đến hàm <code>p_load()</code> từ <strong>pacman</strong>, hàm sẽ cài đặt package nếu cần <em>và</em> gọi nó ra để sử dụng. Bạn cũng có thể gọi các package đã cài đặt với <code>library()</code> từ <strong>base</strong> R. Xem chương <a href="basics.html#basics">R cơ bản</a> để có thêm thông tin về các R package.</p>
+<div class="sourceCode" id="cb724"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb724-1"><a href="deduplication.html#cb724-1" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(</span>
+<span id="cb724-2"><a href="deduplication.html#cb724-2" tabindex="-1"></a>  tidyverse,   <span class="co"># deduplication, grouping, and slicing functions</span></span>
+<span id="cb724-3"><a href="deduplication.html#cb724-3" tabindex="-1"></a>  janitor,     <span class="co"># function for reviewing duplicates</span></span>
+<span id="cb724-4"><a href="deduplication.html#cb724-4" tabindex="-1"></a>  stringr)      <span class="co"># for string searches, can be used in &quot;rolling-up&quot; values</span></span></code></pre></div>
 </div>
 <div id="nhập-dữ-liệu-8" class="section level3 unnumbered">
-<h3>Nhập dữ liệu<a class="anchor" aria-label="anchor" href="#nh%E1%BA%ADp-d%E1%BB%AF-li%E1%BB%87u-8"><i class="fas fa-link"></i></a>
-</h3>
+<h3>Nhập dữ liệu</h3>
 <p>Để minh họa, chúng tôi sẽ sử dụng một bộ dữ liệu mẫu được tạo bằng code R bên dưới.</p>
 <p>Dữ liệu là các bản ghi về những cuộc gọi truy vết COVID-19, bao gồm những cuộc gọi truy vết với các liên hệ và với các trường hợp. Các cột bao gồm <code>recordID</code> (mã bản ghi) (do máy tính tạo), <code>personID</code> (mã người truy vết), <code>name</code> (tên), <code>date</code> (ngày) truy vết, <code>time</code> (thời gian) truy vết, <code>purpose</code> (mục đích) truy vết (phỏng vấn một trường hợp hoặc một liên hệ) và <code>symptoms_ever</code> (liệu người được truy vết đã <em>từng</em> được báo cáo có triệu chứng hay không).</p>
 <p>Đây là code để tạo bộ dữ liệu <code>obs</code>:</p>
-<div class="sourceCode" id="cb720"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">obs</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>
-  recordID  <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">1</span>,<span class="fl">2</span>,<span class="fl">3</span>,<span class="fl">4</span>,<span class="fl">5</span>,<span class="fl">6</span>,<span class="fl">7</span>,<span class="fl">8</span>,<span class="fl">9</span>,<span class="fl">10</span>,<span class="fl">11</span>,<span class="fl">12</span>,<span class="fl">13</span>,<span class="fl">14</span>,<span class="fl">15</span>,<span class="fl">16</span>,<span class="fl">17</span>,<span class="fl">18</span><span class="op">)</span>,
-  personID  <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">1</span>,<span class="fl">2</span>,<span class="fl">2</span>,<span class="fl">3</span>,<span class="fl">2</span>,<span class="fl">4</span>,<span class="fl">5</span>,<span class="fl">6</span>,<span class="fl">7</span>,<span class="fl">2</span>,<span class="fl">1</span>,<span class="fl">3</span>,<span class="fl">3</span>,<span class="fl">4</span>,<span class="fl">5</span>,<span class="fl">5</span>,<span class="fl">7</span>,<span class="fl">8</span><span class="op">)</span>,
-  name      <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"adam"</span>, <span class="st">"adam"</span>, <span class="st">"amrish"</span>, <span class="st">"amrish"</span>, <span class="st">"mariah"</span>, <span class="st">"amrish"</span>, <span class="st">"nikhil"</span>, <span class="st">"brian"</span>, <span class="st">"smita"</span>, <span class="st">"raquel"</span>, <span class="st">"amrish"</span>,
-                <span class="st">"adam"</span>, <span class="st">"mariah"</span>, <span class="st">"mariah"</span>, <span class="st">"nikhil"</span>, <span class="st">"brian"</span>, <span class="st">"brian"</span>, <span class="st">"raquel"</span>, <span class="st">"natalie"</span><span class="op">)</span>,
-  date      <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"1/1/2020"</span>, <span class="st">"1/1/2020"</span>, <span class="st">"2/1/2020"</span>, <span class="st">"2/1/2020"</span>, <span class="st">"5/1/2020"</span>, <span class="st">"5/1/2020"</span>, <span class="st">"5/1/2020"</span>, <span class="st">"5/1/2020"</span>, <span class="st">"5/1/2020"</span>,<span class="st">"5/1/2020"</span>, <span class="st">"2/1/2020"</span>,
-                <span class="st">"5/1/2020"</span>, <span class="st">"6/1/2020"</span>, <span class="st">"6/1/2020"</span>, <span class="st">"6/1/2020"</span>, <span class="st">"6/1/2020"</span>, <span class="st">"7/1/2020"</span>, <span class="st">"7/1/2020"</span>, <span class="st">"7/1/2020"</span><span class="op">)</span>,
-  time      <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"09:00"</span>, <span class="st">"09:00"</span>, <span class="st">"14:20"</span>, <span class="st">"14:20"</span>, <span class="st">"12:00"</span>, <span class="st">"16:10"</span>, <span class="st">"13:01"</span>, <span class="st">"15:20"</span>, <span class="st">"14:20"</span>, <span class="st">"12:30"</span>, <span class="st">"10:24"</span>,
-                <span class="st">"09:40"</span>, <span class="st">"07:25"</span>, <span class="st">"08:32"</span>, <span class="st">"15:36"</span>, <span class="st">"15:31"</span>, <span class="st">"07:59"</span>, <span class="st">"11:13"</span>, <span class="st">"17:12"</span><span class="op">)</span>,
-  encounter <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">1</span>,<span class="fl">1</span>,<span class="fl">1</span>,<span class="fl">1</span>,<span class="fl">3</span>,<span class="fl">1</span>,<span class="fl">1</span>,<span class="fl">1</span>,<span class="fl">1</span>,<span class="fl">2</span>,
-                <span class="fl">2</span>,<span class="fl">2</span>,<span class="fl">3</span>,<span class="fl">2</span>,<span class="fl">2</span>,<span class="fl">3</span>,<span class="fl">2</span>,<span class="fl">1</span><span class="op">)</span>,
-  purpose   <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"contact"</span>, <span class="st">"contact"</span>, <span class="st">"contact"</span>, <span class="st">"contact"</span>, <span class="st">"case"</span>, <span class="st">"case"</span>, <span class="st">"contact"</span>, <span class="st">"contact"</span>, <span class="st">"contact"</span>, <span class="st">"contact"</span>, <span class="st">"contact"</span>,
-                <span class="st">"case"</span>, <span class="st">"contact"</span>, <span class="st">"contact"</span>, <span class="st">"contact"</span>, <span class="st">"contact"</span>, <span class="st">"case"</span>, <span class="st">"contact"</span>, <span class="st">"case"</span><span class="op">)</span>,
-  symptoms_ever <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="cn">NA</span>, <span class="cn">NA</span>, <span class="st">"No"</span>, <span class="st">"No"</span>, <span class="st">"No"</span>, <span class="st">"Yes"</span>, <span class="st">"Yes"</span>, <span class="st">"No"</span>, <span class="st">"Yes"</span>, <span class="cn">NA</span>, <span class="st">"Yes"</span>,
-                    <span class="st">"No"</span>, <span class="st">"No"</span>, <span class="st">"No"</span>, <span class="st">"Yes"</span>, <span class="st">"Yes"</span>, <span class="st">"No"</span>,<span class="st">"No"</span>, <span class="st">"No"</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> 
-  <span class="fu">mutate</span><span class="op">(</span>date <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/as.Date.html">as.Date</a></span><span class="op">(</span><span class="va">date</span>, format <span class="op">=</span> <span class="st">"%d/%m/%Y"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb725"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb725-1"><a href="deduplication.html#cb725-1" tabindex="-1"></a>obs <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb725-2"><a href="deduplication.html#cb725-2" tabindex="-1"></a>  <span class="at">recordID  =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>,<span class="dv">10</span>,<span class="dv">11</span>,<span class="dv">12</span>,<span class="dv">13</span>,<span class="dv">14</span>,<span class="dv">15</span>,<span class="dv">16</span>,<span class="dv">17</span>,<span class="dv">18</span>),</span>
+<span id="cb725-3"><a href="deduplication.html#cb725-3" tabindex="-1"></a>  <span class="at">personID  =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">5</span>,<span class="dv">7</span>,<span class="dv">8</span>),</span>
+<span id="cb725-4"><a href="deduplication.html#cb725-4" tabindex="-1"></a>  <span class="at">name      =</span> <span class="fu">c</span>(<span class="st">&quot;adam&quot;</span>, <span class="st">&quot;adam&quot;</span>, <span class="st">&quot;amrish&quot;</span>, <span class="st">&quot;amrish&quot;</span>, <span class="st">&quot;mariah&quot;</span>, <span class="st">&quot;amrish&quot;</span>, <span class="st">&quot;nikhil&quot;</span>, <span class="st">&quot;brian&quot;</span>, <span class="st">&quot;smita&quot;</span>, <span class="st">&quot;raquel&quot;</span>, <span class="st">&quot;amrish&quot;</span>,</span>
+<span id="cb725-5"><a href="deduplication.html#cb725-5" tabindex="-1"></a>                <span class="st">&quot;adam&quot;</span>, <span class="st">&quot;mariah&quot;</span>, <span class="st">&quot;mariah&quot;</span>, <span class="st">&quot;nikhil&quot;</span>, <span class="st">&quot;brian&quot;</span>, <span class="st">&quot;brian&quot;</span>, <span class="st">&quot;raquel&quot;</span>, <span class="st">&quot;natalie&quot;</span>),</span>
+<span id="cb725-6"><a href="deduplication.html#cb725-6" tabindex="-1"></a>  <span class="at">date      =</span> <span class="fu">c</span>(<span class="st">&quot;1/1/2020&quot;</span>, <span class="st">&quot;1/1/2020&quot;</span>, <span class="st">&quot;2/1/2020&quot;</span>, <span class="st">&quot;2/1/2020&quot;</span>, <span class="st">&quot;5/1/2020&quot;</span>, <span class="st">&quot;5/1/2020&quot;</span>, <span class="st">&quot;5/1/2020&quot;</span>, <span class="st">&quot;5/1/2020&quot;</span>, <span class="st">&quot;5/1/2020&quot;</span>,<span class="st">&quot;5/1/2020&quot;</span>, <span class="st">&quot;2/1/2020&quot;</span>,</span>
+<span id="cb725-7"><a href="deduplication.html#cb725-7" tabindex="-1"></a>                <span class="st">&quot;5/1/2020&quot;</span>, <span class="st">&quot;6/1/2020&quot;</span>, <span class="st">&quot;6/1/2020&quot;</span>, <span class="st">&quot;6/1/2020&quot;</span>, <span class="st">&quot;6/1/2020&quot;</span>, <span class="st">&quot;7/1/2020&quot;</span>, <span class="st">&quot;7/1/2020&quot;</span>, <span class="st">&quot;7/1/2020&quot;</span>),</span>
+<span id="cb725-8"><a href="deduplication.html#cb725-8" tabindex="-1"></a>  <span class="at">time      =</span> <span class="fu">c</span>(<span class="st">&quot;09:00&quot;</span>, <span class="st">&quot;09:00&quot;</span>, <span class="st">&quot;14:20&quot;</span>, <span class="st">&quot;14:20&quot;</span>, <span class="st">&quot;12:00&quot;</span>, <span class="st">&quot;16:10&quot;</span>, <span class="st">&quot;13:01&quot;</span>, <span class="st">&quot;15:20&quot;</span>, <span class="st">&quot;14:20&quot;</span>, <span class="st">&quot;12:30&quot;</span>, <span class="st">&quot;10:24&quot;</span>,</span>
+<span id="cb725-9"><a href="deduplication.html#cb725-9" tabindex="-1"></a>                <span class="st">&quot;09:40&quot;</span>, <span class="st">&quot;07:25&quot;</span>, <span class="st">&quot;08:32&quot;</span>, <span class="st">&quot;15:36&quot;</span>, <span class="st">&quot;15:31&quot;</span>, <span class="st">&quot;07:59&quot;</span>, <span class="st">&quot;11:13&quot;</span>, <span class="st">&quot;17:12&quot;</span>),</span>
+<span id="cb725-10"><a href="deduplication.html#cb725-10" tabindex="-1"></a>  <span class="at">encounter =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">2</span>,</span>
+<span id="cb725-11"><a href="deduplication.html#cb725-11" tabindex="-1"></a>                <span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">1</span>),</span>
+<span id="cb725-12"><a href="deduplication.html#cb725-12" tabindex="-1"></a>  <span class="at">purpose   =</span> <span class="fu">c</span>(<span class="st">&quot;contact&quot;</span>, <span class="st">&quot;contact&quot;</span>, <span class="st">&quot;contact&quot;</span>, <span class="st">&quot;contact&quot;</span>, <span class="st">&quot;case&quot;</span>, <span class="st">&quot;case&quot;</span>, <span class="st">&quot;contact&quot;</span>, <span class="st">&quot;contact&quot;</span>, <span class="st">&quot;contact&quot;</span>, <span class="st">&quot;contact&quot;</span>, <span class="st">&quot;contact&quot;</span>,</span>
+<span id="cb725-13"><a href="deduplication.html#cb725-13" tabindex="-1"></a>                <span class="st">&quot;case&quot;</span>, <span class="st">&quot;contact&quot;</span>, <span class="st">&quot;contact&quot;</span>, <span class="st">&quot;contact&quot;</span>, <span class="st">&quot;contact&quot;</span>, <span class="st">&quot;case&quot;</span>, <span class="st">&quot;contact&quot;</span>, <span class="st">&quot;case&quot;</span>),</span>
+<span id="cb725-14"><a href="deduplication.html#cb725-14" tabindex="-1"></a>  <span class="at">symptoms_ever =</span> <span class="fu">c</span>(<span class="cn">NA</span>, <span class="cn">NA</span>, <span class="st">&quot;No&quot;</span>, <span class="st">&quot;No&quot;</span>, <span class="st">&quot;No&quot;</span>, <span class="st">&quot;Yes&quot;</span>, <span class="st">&quot;Yes&quot;</span>, <span class="st">&quot;No&quot;</span>, <span class="st">&quot;Yes&quot;</span>, <span class="cn">NA</span>, <span class="st">&quot;Yes&quot;</span>,</span>
+<span id="cb725-15"><a href="deduplication.html#cb725-15" tabindex="-1"></a>                    <span class="st">&quot;No&quot;</span>, <span class="st">&quot;No&quot;</span>, <span class="st">&quot;No&quot;</span>, <span class="st">&quot;Yes&quot;</span>, <span class="st">&quot;Yes&quot;</span>, <span class="st">&quot;No&quot;</span>,<span class="st">&quot;No&quot;</span>, <span class="st">&quot;No&quot;</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb725-16"><a href="deduplication.html#cb725-16" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">date =</span> <span class="fu">as.Date</span>(date, <span class="at">format =</span> <span class="st">&quot;%d/%m/%Y&quot;</span>))</span></code></pre></div>
 <div id="dedup_data" class="section level4 unnumbered">
-<h4>Đây là data frame<a class="anchor" aria-label="anchor" href="#dedup_data"><i class="fas fa-link"></i></a>
-</h4>
+<h4>Đây là data frame</h4>
 <p>Sử dụng bộ lọc của các box ở trên cùng để xem lại các cuộc gọi truy vết theo từng người.</p>
-<div id="htmlwidget-3508bec41861c90ebb39" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-3508bec41861c90ebb39">{"x":{"filter":"top","filterHTML":"<tr>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none; position: absolute; width: 200px;\">\n      <div data-min=\"1\" data-max=\"18\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none; position: absolute; width: 200px;\">\n      <div data-min=\"1\" data-max=\"8\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"date\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none; position: absolute; width: 200px;\">\n      <div data-min=\"1577836800000\" data-max=\"1578355200000\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none; position: absolute; width: 200px;\">\n      <div data-min=\"1\" data-max=\"3\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n<\/tr>","data":[[1,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18],[1,1,2,2,3,2,4,5,6,7,2,1,3,3,4,5,5,7,8],["adam","adam","amrish","amrish","mariah","amrish","nikhil","brian","smita","raquel","amrish","adam","mariah","mariah","nikhil","brian","brian","raquel","natalie"],["2020-01-01","2020-01-01","2020-01-02","2020-01-02","2020-01-05","2020-01-05","2020-01-05","2020-01-05","2020-01-05","2020-01-05","2020-01-02","2020-01-05","2020-01-06","2020-01-06","2020-01-06","2020-01-06","2020-01-07","2020-01-07","2020-01-07"],["09:00","09:00","14:20","14:20","12:00","16:10","13:01","15:20","14:20","12:30","10:24","09:40","07:25","08:32","15:36","15:31","07:59","11:13","17:12"],[1,1,1,1,1,3,1,1,1,1,2,2,2,3,2,2,3,2,1],["contact","contact","contact","contact","case","case","contact","contact","contact","contact","contact","case","contact","contact","contact","contact","case","contact","case"],[null,null,"No","No","No","Yes","Yes","No","Yes",null,"Yes","No","No","No","Yes","Yes","No","No","No"]],"container":"<table class=\"white-space: nowrap\">\n  <thead>\n    <tr>\n      <th>recordID<\/th>\n      <th>personID<\/th>\n      <th>name<\/th>\n      <th>date<\/th>\n      <th>time<\/th>\n      <th>encounter<\/th>\n      <th>purpose<\/th>\n      <th>symptoms_ever<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":19,"scrollX":true,"columnDefs":[{"className":"dt-right","targets":[0,1,5]}],"order":[],"autoWidth":false,"orderClasses":false,"orderCellsTop":true,"lengthMenu":[10,19,25,50,100]}},"evals":[],"jsHooks":[]}</script><p>Một số điều cần lưu ý khi bạn xem xét dữ liệu:</p>
+<div class="datatables html-widget html-fill-item" id="htmlwidget-ec298d2e694cdcf3478f" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-ec298d2e694cdcf3478f">{"x":{"filter":"top","vertical":false,"filterHTML":"<tr>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"1\" data-max=\"18\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"1\" data-max=\"8\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"date\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"1577836800000\" data-max=\"1578355200000\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"1\" data-max=\"3\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n<\/tr>","data":[[1,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18],[1,1,2,2,3,2,4,5,6,7,2,1,3,3,4,5,5,7,8],["adam","adam","amrish","amrish","mariah","amrish","nikhil","brian","smita","raquel","amrish","adam","mariah","mariah","nikhil","brian","brian","raquel","natalie"],["2020-01-01","2020-01-01","2020-01-02","2020-01-02","2020-01-05","2020-01-05","2020-01-05","2020-01-05","2020-01-05","2020-01-05","2020-01-02","2020-01-05","2020-01-06","2020-01-06","2020-01-06","2020-01-06","2020-01-07","2020-01-07","2020-01-07"],["09:00","09:00","14:20","14:20","12:00","16:10","13:01","15:20","14:20","12:30","10:24","09:40","07:25","08:32","15:36","15:31","07:59","11:13","17:12"],[1,1,1,1,1,3,1,1,1,1,2,2,2,3,2,2,3,2,1],["contact","contact","contact","contact","case","case","contact","contact","contact","contact","contact","case","contact","contact","contact","contact","case","contact","case"],[null,null,"No","No","No","Yes","Yes","No","Yes",null,"Yes","No","No","No","Yes","Yes","No","No","No"]],"container":"<table class=\"white-space: nowrap\">\n  <thead>\n    <tr>\n      <th>recordID<\/th>\n      <th>personID<\/th>\n      <th>name<\/th>\n      <th>date<\/th>\n      <th>time<\/th>\n      <th>encounter<\/th>\n      <th>purpose<\/th>\n      <th>symptoms_ever<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":19,"scrollX":true,"columnDefs":[{"className":"dt-right","targets":[0,1,5]},{"name":"recordID","targets":0},{"name":"personID","targets":1},{"name":"name","targets":2},{"name":"date","targets":3},{"name":"time","targets":4},{"name":"encounter","targets":5},{"name":"purpose","targets":6},{"name":"symptoms_ever","targets":7}],"order":[],"autoWidth":false,"orderClasses":false,"orderCellsTop":true,"lengthMenu":[10,19,25,50,100]},"selection":{"mode":"multiple","selected":null,"target":"row","selectable":null}},"evals":[],"jsHooks":[]}</script>
+<p>Một số điều cần lưu ý khi bạn xem xét dữ liệu:</p>
 <ul>
-<li>Hai bản ghi đầu tiên hoàn toàn 100% là trùng lặp, bao gồm cả <code>recordID</code> (hẳn là một lỗi máy tính!)<br>
+<li>Hai bản ghi đầu tiên hoàn toàn 100% là trùng lặp, bao gồm cả <code>recordID</code> (hẳn là một lỗi máy tính!)<br />
 </li>
-<li>Hai hàng thứ hai trùng lặp trong tất cả các cột <em>ngoại trừ <code>recordID</code></em><br>
+<li>Hai hàng thứ hai trùng lặp trong tất cả các cột <em>ngoại trừ <code>recordID</code></em><br />
 </li>
-<li>Một vài cá nhân có nhiều cuộc gọi truy vết, vào những ngày, giờ khác nhau, được tính là những liên hệ và/hoặc những trường hợp<br>
+<li>Một vài cá nhân có nhiều cuộc gọi truy vết, vào những ngày, giờ khác nhau, được tính là những liên hệ và/hoặc những trường hợp<br />
 </li>
 <li>Ở mỗi cuộc gọi truy vết, người được truy vết được hỏi đã <strong>từng</strong> mắc các triệu chứng chưa và một số thông tin này bị missing.</li>
 </ul>
 <p>Và đây là bản tóm tắt nhanh về những người truy vết và mục đích các cuộc gọi truy vết của họ, sử dụng hàm <code>tabyl()</code> từ <strong>janitor</strong>:</p>
-<div class="sourceCode" id="cb721"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">obs</span> <span class="op">%&gt;%</span> 
-  <span class="fu">tabyl</span><span class="op">(</span><span class="va">name</span>, <span class="va">purpose</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb726"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb726-1"><a href="deduplication.html#cb726-1" tabindex="-1"></a>obs <span class="sc">%&gt;%</span> </span>
+<span id="cb726-2"><a href="deduplication.html#cb726-2" tabindex="-1"></a>  <span class="fu">tabyl</span>(name, purpose)</span></code></pre></div>
 <pre><code>##     name case contact
 ##     adam    1       2
 ##   amrish    1       3
@@ -201,357 +248,350 @@
 </div>
 </div>
 <div id="loại-bỏ-trùng-lặp-1" class="section level2" number="15.2">
-<h2>
-<span class="header-section-number">15.2</span> Loại bỏ trùng lặp<a class="anchor" aria-label="anchor" href="#lo%E1%BA%A1i-b%E1%BB%8F-tr%C3%B9ng-l%E1%BA%B7p-1"><i class="fas fa-link"></i></a>
-</h2>
+<h2><span class="header-section-number">15.2</span> Loại bỏ trùng lặp</h2>
 <p>Phần này mô tả cách xem xét và loại bỏ các hàng trùng lặp trong data frame. Đồng thời cũng chỉ ra cách xử lý các phần tử trùng lặp trong một vectơ.</p>
 <!-- ======================================================= -->
 <div id="kiểm-tra-hàng-trùng-lặp" class="section level3 unnumbered">
-<h3>Kiểm tra hàng trùng lặp<a class="anchor" aria-label="anchor" href="#ki%E1%BB%83m-tra-h%C3%A0ng-tr%C3%B9ng-l%E1%BA%B7p"><i class="fas fa-link"></i></a>
-</h3>
+<h3>Kiểm tra hàng trùng lặp</h3>
 <p>Để nhanh chóng xem lại các hàng có trùng lặp, bạn có thể sử dụng <code>get_dupes()</code> từ package <strong>janitor</strong>. <em>Theo mặc định</em>, tất cả các cột được xem xét khi đánh giá trùng lặp - các hàng được hàm trả về là trùng lặp 100% nếu xét đến các giá trị trong <em>tất cả</em> các cột.</p>
 <p>Trong data frame <code>obs</code>, hai hàng đầu tiên <em>trùng lặp 100%</em> - chúng có cùng giá trị trong tất cả các cột (bao gồm cả cột <code>recordID</code>, vốn <em>được cho</em> là duy nhất - hẳn là một số trục trặc máy tính). Data frame được trả về tự động bao gồm một cột mới <code>dupe_count</code> ở phía bên phải, hiển thị số hàng có sự kết hợp của các giá trị trùng lặp đó.</p>
-<div class="sourceCode" id="cb723"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># 100% duplicates across all columns</span>
-<span class="va">obs</span> <span class="op">%&gt;%</span> 
-  <span class="fu">janitor</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/janitor/man/get_dupes.html">get_dupes</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
-<div id="htmlwidget-5adef2ef112a072dc3e8" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-5adef2ef112a072dc3e8">{"x":{"filter":"none","data":[[1,1],[1,1],["adam","adam"],["2020-01-01","2020-01-01"],["09:00","09:00"],[1,1],["contact","contact"],[null,null],[2,2]],"container":"<table class=\"white-space: nowrap\">\n  <thead>\n    <tr>\n      <th>recordID<\/th>\n      <th>personID<\/th>\n      <th>name<\/th>\n      <th>date<\/th>\n      <th>time<\/th>\n      <th>encounter<\/th>\n      <th>purpose<\/th>\n      <th>symptoms_ever<\/th>\n      <th>dupe_count<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":19,"scrollX":true,"columnDefs":[{"className":"dt-right","targets":[0,1,5,8]}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[10,19,25,50,100]}},"evals":[],"jsHooks":[]}</script><p>Xem <a href="deduplication.html#dedup_data">dữ liệu gốc</a></p>
-<p>Tuy nhiên, nếu chúng ta chọn bỏ qua <code>recordID</code>, thì hàng thứ 3 và thứ 4 cũng là bản trùng lặp của nhau. Nghĩa là chúng có cùng giá trị trong tất cả các cột <em>ngoại trừ</em> <code>recordID</code>. Bạn có thể xác định các cột cụ thể bị bỏ qua trong hàm bằng ký hiệu <code><a href="https://rdrr.io/r/base/Arithmetic.html">-</a></code> (dấu trừ).</p>
-<div class="sourceCode" id="cb724"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Duplicates when column recordID is not considered</span>
-<span class="va">obs</span> <span class="op">%&gt;%</span> 
-  <span class="fu">janitor</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/janitor/man/get_dupes.html">get_dupes</a></span><span class="op">(</span><span class="op">-</span><span class="va">recordID</span><span class="op">)</span>         <span class="co"># if multiple columns, wrap them in c()</span></code></pre></div>
-<div id="htmlwidget-e3fcebc3519e4e8fe023" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-e3fcebc3519e4e8fe023">{"x":{"filter":"none","data":[[1,1,2,2],["adam","adam","amrish","amrish"],["2020-01-01","2020-01-01","2020-01-02","2020-01-02"],["09:00","09:00","14:20","14:20"],[1,1,1,1],["contact","contact","contact","contact"],[null,null,"No","No"],[2,2,2,2],[1,1,2,3]],"container":"<table class=\"white-space: nowrap\">\n  <thead>\n    <tr>\n      <th>personID<\/th>\n      <th>name<\/th>\n      <th>date<\/th>\n      <th>time<\/th>\n      <th>encounter<\/th>\n      <th>purpose<\/th>\n      <th>symptoms_ever<\/th>\n      <th>dupe_count<\/th>\n      <th>recordID<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":19,"scrollX":true,"columnDefs":[{"className":"dt-right","targets":[0,4,7,8]}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[10,19,25,50,100]}},"evals":[],"jsHooks":[]}</script><p>Bạn cũng có thể xác định rõ các cột cần xem xét. Dưới đây, chỉ các hàng có cùng giá trị trong cột <code>name</code> và <code>purpose</code> được trả về. Lưu ý rằng “amrish” hiện có <code>dupe_count</code> bằng 3 cho thấy ba cuộc gọi truy vết “liên hệ” của anh ta.</p>
+<div class="sourceCode" id="cb728"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb728-1"><a href="deduplication.html#cb728-1" tabindex="-1"></a><span class="co"># 100% duplicates across all columns</span></span>
+<span id="cb728-2"><a href="deduplication.html#cb728-2" tabindex="-1"></a>obs <span class="sc">%&gt;%</span> </span>
+<span id="cb728-3"><a href="deduplication.html#cb728-3" tabindex="-1"></a>  janitor<span class="sc">::</span><span class="fu">get_dupes</span>()</span></code></pre></div>
+<div class="datatables html-widget html-fill-item" id="htmlwidget-9b009a14481f63e4f723" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-9b009a14481f63e4f723">{"x":{"filter":"none","vertical":false,"data":[[1,1],[1,1],["adam","adam"],["2020-01-01","2020-01-01"],["09:00","09:00"],[1,1],["contact","contact"],[null,null],[2,2]],"container":"<table class=\"white-space: nowrap\">\n  <thead>\n    <tr>\n      <th>recordID<\/th>\n      <th>personID<\/th>\n      <th>name<\/th>\n      <th>date<\/th>\n      <th>time<\/th>\n      <th>encounter<\/th>\n      <th>purpose<\/th>\n      <th>symptoms_ever<\/th>\n      <th>dupe_count<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":19,"scrollX":true,"columnDefs":[{"className":"dt-right","targets":[0,1,5,8]},{"name":"recordID","targets":0},{"name":"personID","targets":1},{"name":"name","targets":2},{"name":"date","targets":3},{"name":"time","targets":4},{"name":"encounter","targets":5},{"name":"purpose","targets":6},{"name":"symptoms_ever","targets":7},{"name":"dupe_count","targets":8}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[10,19,25,50,100]},"selection":{"mode":"multiple","selected":null,"target":"row","selectable":null}},"evals":[],"jsHooks":[]}</script>
+<p>Xem <a href="deduplication.html#dedup_data">dữ liệu gốc</a></p>
+<p>Tuy nhiên, nếu chúng ta chọn bỏ qua <code>recordID</code>, thì hàng thứ 3 và thứ 4 cũng là bản trùng lặp của nhau. Nghĩa là chúng có cùng giá trị trong tất cả các cột <em>ngoại trừ</em> <code>recordID</code>. Bạn có thể xác định các cột cụ thể bị bỏ qua trong hàm bằng ký hiệu <code>-</code> (dấu trừ).</p>
+<div class="sourceCode" id="cb729"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb729-1"><a href="deduplication.html#cb729-1" tabindex="-1"></a><span class="co"># Duplicates when column recordID is not considered</span></span>
+<span id="cb729-2"><a href="deduplication.html#cb729-2" tabindex="-1"></a>obs <span class="sc">%&gt;%</span> </span>
+<span id="cb729-3"><a href="deduplication.html#cb729-3" tabindex="-1"></a>  janitor<span class="sc">::</span><span class="fu">get_dupes</span>(<span class="sc">-</span>recordID)         <span class="co"># if multiple columns, wrap them in c()</span></span></code></pre></div>
+<div class="datatables html-widget html-fill-item" id="htmlwidget-9a5ff398a6398298d149" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-9a5ff398a6398298d149">{"x":{"filter":"none","vertical":false,"data":[[1,1,2,2],["adam","adam","amrish","amrish"],["2020-01-01","2020-01-01","2020-01-02","2020-01-02"],["09:00","09:00","14:20","14:20"],[1,1,1,1],["contact","contact","contact","contact"],[null,null,"No","No"],[2,2,2,2],[1,1,2,3]],"container":"<table class=\"white-space: nowrap\">\n  <thead>\n    <tr>\n      <th>personID<\/th>\n      <th>name<\/th>\n      <th>date<\/th>\n      <th>time<\/th>\n      <th>encounter<\/th>\n      <th>purpose<\/th>\n      <th>symptoms_ever<\/th>\n      <th>dupe_count<\/th>\n      <th>recordID<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":19,"scrollX":true,"columnDefs":[{"className":"dt-right","targets":[0,4,7,8]},{"name":"personID","targets":0},{"name":"name","targets":1},{"name":"date","targets":2},{"name":"time","targets":3},{"name":"encounter","targets":4},{"name":"purpose","targets":5},{"name":"symptoms_ever","targets":6},{"name":"dupe_count","targets":7},{"name":"recordID","targets":8}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[10,19,25,50,100]},"selection":{"mode":"multiple","selected":null,"target":"row","selectable":null}},"evals":[],"jsHooks":[]}</script>
+<p>Bạn cũng có thể xác định rõ các cột cần xem xét. Dưới đây, chỉ các hàng có cùng giá trị trong cột <code>name</code> và <code>purpose</code> được trả về. Lưu ý rằng “amrish” hiện có <code>dupe_count</code> bằng 3 cho thấy ba cuộc gọi truy vết “liên hệ” của anh ta.</p>
 <p><em>Cuộn sang trái để xem thêm hàng</em></p>
-<div class="sourceCode" id="cb725"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># duplicates based on name and purpose columns ONLY</span>
-<span class="va">obs</span> <span class="op">%&gt;%</span> 
-  <span class="fu">janitor</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/janitor/man/get_dupes.html">get_dupes</a></span><span class="op">(</span><span class="va">name</span>, <span class="va">purpose</span><span class="op">)</span></code></pre></div>
-<div id="htmlwidget-8e84c97f86ac813337cd" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-8e84c97f86ac813337cd">{"x":{"filter":"none","data":[["adam","adam","amrish","amrish","amrish","brian","brian","mariah","mariah","nikhil","nikhil","raquel","raquel"],["contact","contact","contact","contact","contact","contact","contact","contact","contact","contact","contact","contact","contact"],[2,2,3,3,3,2,2,2,2,2,2,2,2],[1,1,2,3,10,7,15,12,13,6,14,9,17],[1,1,2,2,2,5,5,3,3,4,4,7,7],["2020-01-01","2020-01-01","2020-01-02","2020-01-02","2020-01-02","2020-01-05","2020-01-06","2020-01-06","2020-01-06","2020-01-05","2020-01-06","2020-01-05","2020-01-07"],["09:00","09:00","14:20","14:20","10:24","15:20","15:31","07:25","08:32","13:01","15:36","12:30","11:13"],[1,1,1,1,2,1,2,2,3,1,2,1,2],[null,null,"No","No","Yes","No","Yes","No","No","Yes","Yes",null,"No"]],"container":"<table class=\"white-space: nowrap\">\n  <thead>\n    <tr>\n      <th>name<\/th>\n      <th>purpose<\/th>\n      <th>dupe_count<\/th>\n      <th>recordID<\/th>\n      <th>personID<\/th>\n      <th>date<\/th>\n      <th>time<\/th>\n      <th>encounter<\/th>\n      <th>symptoms_ever<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":7,"scrollX":true,"columnDefs":[{"className":"dt-right","targets":[2,3,4,7]}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[7,10,25,50,100]}},"evals":[],"jsHooks":[]}</script><p>Xem <a href="deduplication.html#dedup_data">dữ liệu gốc</a>.</p>
+<div class="sourceCode" id="cb730"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb730-1"><a href="deduplication.html#cb730-1" tabindex="-1"></a><span class="co"># duplicates based on name and purpose columns ONLY</span></span>
+<span id="cb730-2"><a href="deduplication.html#cb730-2" tabindex="-1"></a>obs <span class="sc">%&gt;%</span> </span>
+<span id="cb730-3"><a href="deduplication.html#cb730-3" tabindex="-1"></a>  janitor<span class="sc">::</span><span class="fu">get_dupes</span>(name, purpose)</span></code></pre></div>
+<div class="datatables html-widget html-fill-item" id="htmlwidget-376b93f9ff70cd193690" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-376b93f9ff70cd193690">{"x":{"filter":"none","vertical":false,"data":[["amrish","amrish","amrish","adam","adam","brian","brian","mariah","mariah","nikhil","nikhil","raquel","raquel"],["contact","contact","contact","contact","contact","contact","contact","contact","contact","contact","contact","contact","contact"],[3,3,3,2,2,2,2,2,2,2,2,2,2],[2,3,10,1,1,7,15,12,13,6,14,9,17],[2,2,2,1,1,5,5,3,3,4,4,7,7],["2020-01-02","2020-01-02","2020-01-02","2020-01-01","2020-01-01","2020-01-05","2020-01-06","2020-01-06","2020-01-06","2020-01-05","2020-01-06","2020-01-05","2020-01-07"],["14:20","14:20","10:24","09:00","09:00","15:20","15:31","07:25","08:32","13:01","15:36","12:30","11:13"],[1,1,2,1,1,1,2,2,3,1,2,1,2],["No","No","Yes",null,null,"No","Yes","No","No","Yes","Yes",null,"No"]],"container":"<table class=\"white-space: nowrap\">\n  <thead>\n    <tr>\n      <th>name<\/th>\n      <th>purpose<\/th>\n      <th>dupe_count<\/th>\n      <th>recordID<\/th>\n      <th>personID<\/th>\n      <th>date<\/th>\n      <th>time<\/th>\n      <th>encounter<\/th>\n      <th>symptoms_ever<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":7,"scrollX":true,"columnDefs":[{"className":"dt-right","targets":[2,3,4,7]},{"name":"name","targets":0},{"name":"purpose","targets":1},{"name":"dupe_count","targets":2},{"name":"recordID","targets":3},{"name":"personID","targets":4},{"name":"date","targets":5},{"name":"time","targets":6},{"name":"encounter","targets":7},{"name":"symptoms_ever","targets":8}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[7,10,25,50,100]},"selection":{"mode":"multiple","selected":null,"target":"row","selectable":null}},"evals":[],"jsHooks":[]}</script>
+<p>Xem <a href="deduplication.html#dedup_data">dữ liệu gốc</a>.</p>
 <p>Xem <code>?get_dupes</code> để biết thêm chi tiết hoặc xem tài liệu <a href="https://cran.r-project.org/web/packages/janitor/vignettes/janitor.html#explore-records-with-duplicated-values-for-specific-combinations-of-variables-with-get_dupes">tham khảo trực tuyến</a> này</p>
 <!-- ======================================================= -->
 </div>
 <div id="chỉ-giữ-lại-các-hàng-duy-nhất" class="section level3 unnumbered">
-<h3>Chỉ giữ lại các hàng duy nhất<a class="anchor" aria-label="anchor" href="#ch%E1%BB%89-gi%E1%BB%AF-l%E1%BA%A1i-c%C3%A1c-h%C3%A0ng-duy-nh%E1%BA%A5t"><i class="fas fa-link"></i></a>
-</h3>
+<h3>Chỉ giữ lại các hàng duy nhất</h3>
 <p>Để chỉ giữ lại các hàng duy nhất của một data frame, hãy sử dụng <code>distinct()</code> từ <strong>dplyr</strong> (đã được giải thích trong chương <a href="cleaning.html#cleaning">Làm sạch số liệu và các hàm quan trọng</a>). Các hàng trùng lặp sẽ bị loại bỏ sao cho chỉ giữ lại hàng đầu tiên trong số các hàng đó. Theo mặc định, hàng “đầu tiên” có nghĩa là hàng có <code>rownumber</code> cao nhất (thứ tự của các hàng từ trên-xuống-dưới). Chỉ các hàng duy nhất được giữ lại.</p>
-<p>Trong ví dụ dưới đây, chúng tôi chạy lệnh <code>distinct()</code> sao cho cột <code>recordID</code> bị loại trừ khỏi việc xem xét - do đó <strong>hai hàng trùng lặp sẽ bị loại bỏ</strong>. Hàng đầu tiên (đối với “adam”) bị trùng lặp 100% và đã bị loại bỏ. Bên cạnh đó, hàng 3 (cho “amrish”) là một bản bị trùng lặp trong tất cả các cột <em>ngoại trừ</em> <code>recordID</code> (đang không được xét) và do đó cũng bị loại bỏ. Bộ dữ liệu <code>obs</code> bây giờ có số dòng là <code>nrow(obs)-2</code>, không phải là <code><a href="https://rdrr.io/r/base/nrow.html">nrow(obs)</a></code>).</p>
+<p>Trong ví dụ dưới đây, chúng tôi chạy lệnh <code>distinct()</code> sao cho cột <code>recordID</code> bị loại trừ khỏi việc xem xét - do đó <strong>hai hàng trùng lặp sẽ bị loại bỏ</strong>. Hàng đầu tiên (đối với “adam”) bị trùng lặp 100% và đã bị loại bỏ. Bên cạnh đó, hàng 3 (cho “amrish”) là một bản bị trùng lặp trong tất cả các cột <em>ngoại trừ</em> <code>recordID</code> (đang không được xét) và do đó cũng bị loại bỏ. Bộ dữ liệu <code>obs</code> bây giờ có số dòng là <code>nrow(obs)-2</code>, không phải là <code>nrow(obs)</code>).</p>
 <p><em>Cuộn sang trái để xem toàn bộ data frame</em></p>
-<div class="sourceCode" id="cb726"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># added to a chain of pipes (e.g. data cleaning)</span>
-<span class="va">obs</span> <span class="op">%&gt;%</span> 
-  <span class="fu">distinct</span><span class="op">(</span><span class="fu">across</span><span class="op">(</span><span class="op">-</span><span class="va">recordID</span><span class="op">)</span>, <span class="co"># reduces data frame to only unique rows (keeps first one of any duplicates)</span>
-           .keep_all <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> 
-
-<span class="co"># if outside pipes, include the data as first argument </span>
-<span class="co"># distinct(obs)</span></code></pre></div>
-<div id="htmlwidget-5efb67de5865907063e3" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-5efb67de5865907063e3">{"x":{"filter":"none","data":[[1,2,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18],[1,2,3,2,4,5,6,7,2,1,3,3,4,5,5,7,8],["adam","amrish","mariah","amrish","nikhil","brian","smita","raquel","amrish","adam","mariah","mariah","nikhil","brian","brian","raquel","natalie"],["2020-01-01","2020-01-02","2020-01-05","2020-01-05","2020-01-05","2020-01-05","2020-01-05","2020-01-05","2020-01-02","2020-01-05","2020-01-06","2020-01-06","2020-01-06","2020-01-06","2020-01-07","2020-01-07","2020-01-07"],["09:00","14:20","12:00","16:10","13:01","15:20","14:20","12:30","10:24","09:40","07:25","08:32","15:36","15:31","07:59","11:13","17:12"],[1,1,1,3,1,1,1,1,2,2,2,3,2,2,3,2,1],["contact","contact","case","case","contact","contact","contact","contact","contact","case","contact","contact","contact","contact","case","contact","case"],[null,"No","No","Yes","Yes","No","Yes",null,"Yes","No","No","No","Yes","Yes","No","No","No"]],"container":"<table class=\"white-space: nowrap\">\n  <thead>\n    <tr>\n      <th>recordID<\/th>\n      <th>personID<\/th>\n      <th>name<\/th>\n      <th>date<\/th>\n      <th>time<\/th>\n      <th>encounter<\/th>\n      <th>purpose<\/th>\n      <th>symptoms_ever<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":6,"scrollX":true,"columnDefs":[{"className":"dt-right","targets":[0,1,5]}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[6,10,25,50,100]}},"evals":[],"jsHooks":[]}</script><p><span style="color: orange;"><strong><em>CHÚ Ý:</em></strong> Nếu sử dụng <code>distinct()</code> trên nhóm dữ liệu, hàm sẽ áp dụng cho từng nhóm.</span></p>
+<div class="sourceCode" id="cb731"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb731-1"><a href="deduplication.html#cb731-1" tabindex="-1"></a><span class="co"># added to a chain of pipes (e.g. data cleaning)</span></span>
+<span id="cb731-2"><a href="deduplication.html#cb731-2" tabindex="-1"></a>obs <span class="sc">%&gt;%</span> </span>
+<span id="cb731-3"><a href="deduplication.html#cb731-3" tabindex="-1"></a>  <span class="fu">distinct</span>(<span class="fu">across</span>(<span class="sc">-</span>recordID), <span class="co"># reduces data frame to only unique rows (keeps first one of any duplicates)</span></span>
+<span id="cb731-4"><a href="deduplication.html#cb731-4" tabindex="-1"></a>           <span class="at">.keep_all =</span> <span class="cn">TRUE</span>) </span>
+<span id="cb731-5"><a href="deduplication.html#cb731-5" tabindex="-1"></a></span>
+<span id="cb731-6"><a href="deduplication.html#cb731-6" tabindex="-1"></a><span class="co"># if outside pipes, include the data as first argument </span></span>
+<span id="cb731-7"><a href="deduplication.html#cb731-7" tabindex="-1"></a><span class="co"># distinct(obs)</span></span></code></pre></div>
+<div class="datatables html-widget html-fill-item" id="htmlwidget-4f3d8d6a3f3c236e2151" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-4f3d8d6a3f3c236e2151">{"x":{"filter":"none","vertical":false,"data":[[1,2,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18],[1,2,3,2,4,5,6,7,2,1,3,3,4,5,5,7,8],["adam","amrish","mariah","amrish","nikhil","brian","smita","raquel","amrish","adam","mariah","mariah","nikhil","brian","brian","raquel","natalie"],["2020-01-01","2020-01-02","2020-01-05","2020-01-05","2020-01-05","2020-01-05","2020-01-05","2020-01-05","2020-01-02","2020-01-05","2020-01-06","2020-01-06","2020-01-06","2020-01-06","2020-01-07","2020-01-07","2020-01-07"],["09:00","14:20","12:00","16:10","13:01","15:20","14:20","12:30","10:24","09:40","07:25","08:32","15:36","15:31","07:59","11:13","17:12"],[1,1,1,3,1,1,1,1,2,2,2,3,2,2,3,2,1],["contact","contact","case","case","contact","contact","contact","contact","contact","case","contact","contact","contact","contact","case","contact","case"],[null,"No","No","Yes","Yes","No","Yes",null,"Yes","No","No","No","Yes","Yes","No","No","No"]],"container":"<table class=\"white-space: nowrap\">\n  <thead>\n    <tr>\n      <th>recordID<\/th>\n      <th>personID<\/th>\n      <th>name<\/th>\n      <th>date<\/th>\n      <th>time<\/th>\n      <th>encounter<\/th>\n      <th>purpose<\/th>\n      <th>symptoms_ever<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":6,"scrollX":true,"columnDefs":[{"className":"dt-right","targets":[0,1,5]},{"name":"recordID","targets":0},{"name":"personID","targets":1},{"name":"name","targets":2},{"name":"date","targets":3},{"name":"time","targets":4},{"name":"encounter","targets":5},{"name":"purpose","targets":6},{"name":"symptoms_ever","targets":7}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[6,10,25,50,100]},"selection":{"mode":"multiple","selected":null,"target":"row","selectable":null}},"evals":[],"jsHooks":[]}</script>
+<p><span style="color: orange;"><strong><em>CHÚ Ý:</em></strong> Nếu sử dụng <code>distinct()</code> trên nhóm dữ liệu, hàm sẽ áp dụng cho từng nhóm.</span></p>
 <p><strong>Loại bỏ trùng lặp dựa trên cột cụ thể</strong></p>
 <p>Bạn cũng có thể xác định các cột cơ sở để loại bỏ trùng lặp. Theo cách này, loại bỏ trùng lặp chỉ áp dụng cho các hàng trùng lặp trong các cột được chỉ định. Trừ khi bạn đặt <code>.keep_all = TRUE</code>, tất cả các cột không được đề cập sẽ bị loại bỏ.</p>
 <p>Trong ví dụ dưới đây, loại bỏ trùng lặp chỉ áp dụng cho các hàng có giá trị giống nhau trong các cột <code>name</code> và <code>purpose</code>. Do đó, “brian” chỉ có 2 hàng thay vì 3 - cuộc gọi truy vết “liên hệ” <em>đầu tiên</em> và cuộc gọi truy vết “trường hợp” duy nhất của anh ta. Để điều chỉnh sao cho cuộc gọi truy vết <em>mới nhất</em> của brian đối với từng mục đích được lưu giữ, hãy xem mục Cắt theo nhóm.</p>
 <p><em>Cuộn sang trái để xem toàn bộ data frame</em></p>
-<div class="sourceCode" id="cb727"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># added to a chain of pipes (e.g. data cleaning)</span>
-<span class="va">obs</span> <span class="op">%&gt;%</span> 
-  <span class="fu">distinct</span><span class="op">(</span><span class="va">name</span>, <span class="va">purpose</span>, .keep_all <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">%&gt;%</span>  <span class="co"># keep rows unique by name and purpose, retain all columns</span>
-  <span class="fu">arrange</span><span class="op">(</span><span class="va">name</span><span class="op">)</span>                                  <span class="co"># arrange for easier viewing</span></code></pre></div>
-<div id="htmlwidget-0a7f5c95ec076c008788" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-0a7f5c95ec076c008788">{"x":{"filter":"none","data":[[1,11,2,5,7,16,4,12,18,6,9,8],[1,1,2,2,5,5,3,3,8,4,7,6],["adam","adam","amrish","amrish","brian","brian","mariah","mariah","natalie","nikhil","raquel","smita"],["2020-01-01","2020-01-05","2020-01-02","2020-01-05","2020-01-05","2020-01-07","2020-01-05","2020-01-06","2020-01-07","2020-01-05","2020-01-05","2020-01-05"],["09:00","09:40","14:20","16:10","15:20","07:59","12:00","07:25","17:12","13:01","12:30","14:20"],[1,2,1,3,1,3,1,2,1,1,1,1],["contact","case","contact","case","contact","case","case","contact","case","contact","contact","contact"],[null,"No","No","Yes","No","No","No","No","No","Yes",null,"Yes"]],"container":"<table class=\"white-space: nowrap\">\n  <thead>\n    <tr>\n      <th>recordID<\/th>\n      <th>personID<\/th>\n      <th>name<\/th>\n      <th>date<\/th>\n      <th>time<\/th>\n      <th>encounter<\/th>\n      <th>purpose<\/th>\n      <th>symptoms_ever<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":6,"scrollX":true,"columnDefs":[{"className":"dt-right","targets":[0,1,5]}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[6,10,25,50,100]}},"evals":[],"jsHooks":[]}</script><p>Xem <a href="deduplication.html#dedup_data">dữ liệu gốc</a>.</p>
+<div class="sourceCode" id="cb732"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb732-1"><a href="deduplication.html#cb732-1" tabindex="-1"></a><span class="co"># added to a chain of pipes (e.g. data cleaning)</span></span>
+<span id="cb732-2"><a href="deduplication.html#cb732-2" tabindex="-1"></a>obs <span class="sc">%&gt;%</span> </span>
+<span id="cb732-3"><a href="deduplication.html#cb732-3" tabindex="-1"></a>  <span class="fu">distinct</span>(name, purpose, <span class="at">.keep_all =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span>  <span class="co"># keep rows unique by name and purpose, retain all columns</span></span>
+<span id="cb732-4"><a href="deduplication.html#cb732-4" tabindex="-1"></a>  <span class="fu">arrange</span>(name)                                  <span class="co"># arrange for easier viewing</span></span></code></pre></div>
+<div class="datatables html-widget html-fill-item" id="htmlwidget-baa88dcd788ef6b480ab" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-baa88dcd788ef6b480ab">{"x":{"filter":"none","vertical":false,"data":[[1,11,2,5,7,16,4,12,18,6,9,8],[1,1,2,2,5,5,3,3,8,4,7,6],["adam","adam","amrish","amrish","brian","brian","mariah","mariah","natalie","nikhil","raquel","smita"],["2020-01-01","2020-01-05","2020-01-02","2020-01-05","2020-01-05","2020-01-07","2020-01-05","2020-01-06","2020-01-07","2020-01-05","2020-01-05","2020-01-05"],["09:00","09:40","14:20","16:10","15:20","07:59","12:00","07:25","17:12","13:01","12:30","14:20"],[1,2,1,3,1,3,1,2,1,1,1,1],["contact","case","contact","case","contact","case","case","contact","case","contact","contact","contact"],[null,"No","No","Yes","No","No","No","No","No","Yes",null,"Yes"]],"container":"<table class=\"white-space: nowrap\">\n  <thead>\n    <tr>\n      <th>recordID<\/th>\n      <th>personID<\/th>\n      <th>name<\/th>\n      <th>date<\/th>\n      <th>time<\/th>\n      <th>encounter<\/th>\n      <th>purpose<\/th>\n      <th>symptoms_ever<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":6,"scrollX":true,"columnDefs":[{"className":"dt-right","targets":[0,1,5]},{"name":"recordID","targets":0},{"name":"personID","targets":1},{"name":"name","targets":2},{"name":"date","targets":3},{"name":"time","targets":4},{"name":"encounter","targets":5},{"name":"purpose","targets":6},{"name":"symptoms_ever","targets":7}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[6,10,25,50,100]},"selection":{"mode":"multiple","selected":null,"target":"row","selectable":null}},"evals":[],"jsHooks":[]}</script>
+<p>Xem <a href="deduplication.html#dedup_data">dữ liệu gốc</a>.</p>
 <!-- ======================================================= -->
 </div>
 <div id="loại-bỏ-phần-tử-trùng-lặp-trong-một-vectơ" class="section level3 unnumbered">
-<h3>Loại bỏ phần tử trùng lặp trong một vectơ<a class="anchor" aria-label="anchor" href="#lo%E1%BA%A1i-b%E1%BB%8F-ph%E1%BA%A7n-t%E1%BB%AD-tr%C3%B9ng-l%E1%BA%B7p-trong-m%E1%BB%99t-vect%C6%A1"><i class="fas fa-link"></i></a>
-</h3>
-<p>Hàm <code><a href="https://rdrr.io/r/base/duplicated.html">duplicated()</a></code> từ <strong>base</strong> R sẽ đánh giá một vectơ (cột) và trả về một vectơ logic có cùng độ dài (TRUE/FALSE). Lần đầu tiên một giá trị xuất hiện, nó sẽ trả về giá trị FALSE (không phải là một bản trùng lặp) và những lần tiếp theo giá trị đó xuất hiện, nó sẽ trả về giá trị TRUE. Lưu ý giá trị <code>NA</code> được xử lý giống như bất kỳ giá trị nào khác.</p>
-<div class="sourceCode" id="cb728"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">2</span>, <span class="cn">NA</span>, <span class="cn">NA</span>, <span class="fl">4</span>, <span class="fl">5</span>, <span class="fl">4</span>, <span class="fl">4</span>, <span class="fl">1</span>, <span class="fl">2</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/base/duplicated.html">duplicated</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></code></pre></div>
+<h3>Loại bỏ phần tử trùng lặp trong một vectơ</h3>
+<p>Hàm <code>duplicated()</code> từ <strong>base</strong> R sẽ đánh giá một vectơ (cột) và trả về một vectơ logic có cùng độ dài (TRUE/FALSE). Lần đầu tiên một giá trị xuất hiện, nó sẽ trả về giá trị FALSE (không phải là một bản trùng lặp) và những lần tiếp theo giá trị đó xuất hiện, nó sẽ trả về giá trị TRUE. Lưu ý giá trị <code>NA</code> được xử lý giống như bất kỳ giá trị nào khác.</p>
+<div class="sourceCode" id="cb733"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb733-1"><a href="deduplication.html#cb733-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="cn">NA</span>, <span class="cn">NA</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">1</span>, <span class="dv">2</span>)</span>
+<span id="cb733-2"><a href="deduplication.html#cb733-2" tabindex="-1"></a><span class="fu">duplicated</span>(x)</span></code></pre></div>
 <pre><code>##  [1] FALSE  TRUE FALSE FALSE  TRUE FALSE FALSE  TRUE  TRUE  TRUE  TRUE</code></pre>
 <p>Để chỉ trả về các phần tử bị trùng lặp, bạn có thể sử dụng dấu ngoặc để đặt vectơ gốc:</p>
-<div class="sourceCode" id="cb730"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">x</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/duplicated.html">duplicated</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">]</span></code></pre></div>
+<div class="sourceCode" id="cb735"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb735-1"><a href="deduplication.html#cb735-1" tabindex="-1"></a>x[<span class="fu">duplicated</span>(x)]</span></code></pre></div>
 <pre><code>## [1]  1 NA  4  4  1  2</code></pre>
-<p>Để chỉ trả về các phần tử duy nhất, hãy sử dụng hàm <code><a href="https://rdrr.io/r/base/unique.html">unique()</a></code> từ <strong>base</strong> R. Để loại bỏ các <code>NA</code> khỏi kết quả đầu ra, hãy lồng <code><a href="https://rdrr.io/r/stats/na.fail.html">na.omit()</a></code> trong <code><a href="https://rdrr.io/r/base/unique.html">unique()</a></code>.</p>
-<div class="sourceCode" id="cb732"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span>           <span class="co"># alternatively, use x[!duplicated(x)]</span></code></pre></div>
+<p>Để chỉ trả về các phần tử duy nhất, hãy sử dụng hàm <code>unique()</code> từ <strong>base</strong> R. Để loại bỏ các <code>NA</code> khỏi kết quả đầu ra, hãy lồng <code>na.omit()</code> trong <code>unique()</code>.</p>
+<div class="sourceCode" id="cb737"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb737-1"><a href="deduplication.html#cb737-1" tabindex="-1"></a><span class="fu">unique</span>(x)           <span class="co"># alternatively, use x[!duplicated(x)]</span></span></code></pre></div>
 <pre><code>## [1]  1  2 NA  4  5</code></pre>
-<div class="sourceCode" id="cb734"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/na.fail.html">na.omit</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">)</span>  <span class="co"># remove NAs </span></code></pre></div>
+<div class="sourceCode" id="cb739"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb739-1"><a href="deduplication.html#cb739-1" tabindex="-1"></a><span class="fu">unique</span>(<span class="fu">na.omit</span>(x))  <span class="co"># remove NAs </span></span></code></pre></div>
 <pre><code>## [1] 1 2 4 5</code></pre>
 <!-- ======================================================= -->
 </div>
 <div id="sử-dụng-base-r-1" class="section level3 unnumbered">
-<h3>Sử dụng <strong>base</strong> R<a class="anchor" aria-label="anchor" href="#s%E1%BB%AD-d%E1%BB%A5ng-base-r-1"><i class="fas fa-link"></i></a>
-</h3>
+<h3>Sử dụng <strong>base</strong> R</h3>
 <p><strong>Để trả về các hàng trùng lặp</strong></p>
-<p>Trong <strong>base</strong> R, bạn cũng có thể xem những hàng nào là trùng lặp 100% trong data frame <code>df</code> bằng lệnh <code><a href="https://rdrr.io/r/base/duplicated.html">duplicated(df)</a></code> (trả về một vectơ logic của các hàng).</p>
+<p>Trong <strong>base</strong> R, bạn cũng có thể xem những hàng nào là trùng lặp 100% trong data frame <code>df</code> bằng lệnh <code>duplicated(df)</code> (trả về một vectơ logic của các hàng).</p>
 <p>Do đó, bạn cũng có thể sử dụng tập con cơ sở <code>[ ]</code> trên data frame để xem các hàng <em>trùng lặp</em> với <code>df[duplicated(df),]</code> (đừng quên dấu phẩy, điều đó có nghĩa là bạn muốn xem tất cả các cột!).</p>
 <p><strong>Để trả về các hàng duy nhất</strong></p>
-<p>Xem các ghi chú ở trên. Để xem các hàng <em>duy nhất</em>, bạn thêm dấu phủ định logic <code><a href="https://rdrr.io/r/base/Logic.html">!</a></code> ở trước hàm <code><a href="https://rdrr.io/r/base/duplicated.html">duplicated()</a></code>:<br><code>df[!duplicated(df),]</code></p>
+<p>Xem các ghi chú ở trên. Để xem các hàng <em>duy nhất</em>, bạn thêm dấu phủ định logic <code>!</code> ở trước hàm <code>duplicated()</code>:<br />
+<code>df[!duplicated(df),]</code></p>
 <p><strong>Để trả về các hàng trùng lặp chỉ với một số cột nhất định</strong></p>
-<p>Đặt <code>df</code> nằm <em>trong dấu ngoặc đơn hàm</em> <em><code><a href="https://rdrr.io/r/base/duplicated.html">duplicated()</a></code></em>, hàm này sẽ chỉ hoạt động trên một số cột nhất định của <code>df</code>.</p>
-<p>Để xác định các cột, hãy cung cấp số thứ tự hoặc tên cột sau dấu phẩy (nhớ rằng đặt tất cả những thông tin này <em>trong</em> hàm <code><a href="https://rdrr.io/r/base/duplicated.html">duplicated()</a></code>).</p>
-<p>Hãy chắc chắn đặt dấu phẩy <code>,</code> <em>bên ngoài</em> và sau hàm <code><a href="https://rdrr.io/r/base/duplicated.html">duplicated()</a></code>!</p>
-<p>Ví dụ: Để chỉ đánh giá các cột từ 2 đến 5 cho các bản trùng lặp: <code>df[!duplicated(df[, 2:5]),]</code><br>
+<p>Đặt <code>df</code> nằm <em>trong dấu ngoặc đơn hàm</em> <em><code>duplicated()</code></em>, hàm này sẽ chỉ hoạt động trên một số cột nhất định của <code>df</code>.</p>
+<p>Để xác định các cột, hãy cung cấp số thứ tự hoặc tên cột sau dấu phẩy (nhớ rằng đặt tất cả những thông tin này <em>trong</em> hàm <code>duplicated()</code>).</p>
+<p>Hãy chắc chắn đặt dấu phẩy <code>,</code> <em>bên ngoài</em> và sau hàm <code>duplicated()</code>!</p>
+<p>Ví dụ: Để chỉ đánh giá các cột từ 2 đến 5 cho các bản trùng lặp: <code>df[!duplicated(df[, 2:5]),]</code><br />
 Để chỉ đánh giá các cột <code>name</code> và <code>purpose</code> cho các bản trùng lặp: <code>df[!duplicated(df[, c("name", "purpose)]),]</code></p>
 <!-- ======================================================= -->
 </div>
 </div>
 <div id="cắt-dòng" class="section level2" number="15.3">
-<h2>
-<span class="header-section-number">15.3</span> Cắt dòng<a class="anchor" aria-label="anchor" href="#c%E1%BA%AFt-d%C3%B2ng"><i class="fas fa-link"></i></a>
-</h2>
+<h2><span class="header-section-number">15.3</span> Cắt dòng</h2>
 <p>“Cắt” một data frame nhằm áp dụng bộ lọc trên các hàng theo số/vị trí hàng. Điều này trở nên đặc biệt hữu ích nếu bạn có nhiều hàng cho mỗi nhóm chức năng (ví dụ: mỗi “người”) và bạn chỉ muốn giữ một hoặc một số hàng trong số đó.</p>
 <p>Hàm <code>slice()</code> cơ bản chấp nhận các số và trả về các hàng ở những vị trí đó. Nếu các số được cung cấp là số dương, chỉ có chúng được trả về. Nếu là số âm, những hàng đó <em>không</em> được trả về. Tất cả các số đều phải là số dương hoặc đều là số âm.</p>
-<div class="sourceCode" id="cb736"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">obs</span> <span class="op">%&gt;%</span> <span class="fu">slice</span><span class="op">(</span><span class="fl">4</span><span class="op">)</span>  <span class="co"># return the 4th row</span></code></pre></div>
+<div class="sourceCode" id="cb741"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb741-1"><a href="deduplication.html#cb741-1" tabindex="-1"></a>obs <span class="sc">%&gt;%</span> <span class="fu">slice</span>(<span class="dv">4</span>)  <span class="co"># return the 4th row</span></span></code></pre></div>
 <pre><code>##   recordID personID   name       date  time encounter purpose symptoms_ever
 ## 1        3        2 amrish 2020-01-02 14:20         1 contact            No</code></pre>
-<div class="sourceCode" id="cb738"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">obs</span> <span class="op">%&gt;%</span> <span class="fu">slice</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>,<span class="fl">4</span><span class="op">)</span><span class="op">)</span>  <span class="co"># return rows 2 and 4</span></code></pre></div>
+<div class="sourceCode" id="cb743"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb743-1"><a href="deduplication.html#cb743-1" tabindex="-1"></a>obs <span class="sc">%&gt;%</span> <span class="fu">slice</span>(<span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">4</span>))  <span class="co"># return rows 2 and 4</span></span></code></pre></div>
 <pre><code>##   recordID personID   name       date  time encounter purpose symptoms_ever
 ## 1        1        1   adam 2020-01-01 09:00         1 contact          &lt;NA&gt;
 ## 2        3        2 amrish 2020-01-02 14:20         1 contact            No</code></pre>
-<div class="sourceCode" id="cb740"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co">#obs %&gt;% slice(c(2:4))  # return rows 2 through 4</span></code></pre></div>
+<div class="sourceCode" id="cb745"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb745-1"><a href="deduplication.html#cb745-1" tabindex="-1"></a><span class="co">#obs %&gt;% slice(c(2:4))  # return rows 2 through 4</span></span></code></pre></div>
 <p>Xem <a href="deduplication.html#dedup_data">dữ liệu gốc</a>.</p>
 <p>Có một số biến thể: Chúng phải được cung cấp với một cột và một số hàng để trả về (tới <code>n =</code>).</p>
 <ul>
-<li>
-<code>slice_min()</code> và <code>slice_max()</code> chỉ giữ (các) hàng có (các) giá trị nhỏ nhất hoặc lớn nhất của cột được chỉ định. Hàm này cũng hoạt động để trả về “tối thiểu” và “tối đa” của các biến factor có thứ tự.<br>
+<li><code>slice_min()</code> và <code>slice_max()</code> chỉ giữ (các) hàng có (các) giá trị nhỏ nhất hoặc lớn nhất của cột được chỉ định. Hàm này cũng hoạt động để trả về “tối thiểu” và “tối đa” của các biến factor có thứ tự.<br />
 </li>
-<li>
-<code>slice_head()</code> và <code>slice_tail()</code> - chỉ giữ (các) hàng <em>đầu tiên</em> hoặc <em>cuối cùng</em>.<br>
+<li><code>slice_head()</code> và <code>slice_tail()</code> - chỉ giữ (các) hàng <em>đầu tiên</em> hoặc <em>cuối cùng</em>.<br />
 </li>
-<li>
-<code>slice_sample()</code> - chỉ giữ một mẫu ngẫu nhiên của các hàng.</li>
+<li><code>slice_sample()</code> - chỉ giữ một mẫu ngẫu nhiên của các hàng.</li>
 </ul>
-<div class="sourceCode" id="cb741"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">obs</span> <span class="op">%&gt;%</span> <span class="fu">slice_max</span><span class="op">(</span><span class="va">encounter</span>, n <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>  <span class="co"># return rows with the largest encounter number</span></code></pre></div>
+<div class="sourceCode" id="cb746"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb746-1"><a href="deduplication.html#cb746-1" tabindex="-1"></a>obs <span class="sc">%&gt;%</span> <span class="fu">slice_max</span>(encounter, <span class="at">n =</span> <span class="dv">1</span>)  <span class="co"># return rows with the largest encounter number</span></span></code></pre></div>
 <pre><code>##   recordID personID   name       date  time encounter purpose symptoms_ever
 ## 1        5        2 amrish 2020-01-05 16:10         3    case           Yes
 ## 2       13        3 mariah 2020-01-06 08:32         3 contact            No
 ## 3       16        5  brian 2020-01-07 07:59         3    case            No</code></pre>
 <p>Sử dụng đối số <code>n =</code> hoặc <code>prop =</code> để xác định số lượng hoặc tỷ lệ hàng cần giữ. Nếu không sử dụng hàm trong chuỗi pipe, trước tiên hãy cung cấp đối số dữ liệu (ví dụ: <code>slice(data, n = 2)</code>). Xem <code>?slice</code> để biết thêm thông tin.</p>
 <p>Các đối số khác:</p>
-<p><code>.order_by =</code> được sử dụng trong <code>slice_min()</code> và <code>slice_max()</code>, sắp xếp thứ tự theo một cột trước khi cắt.<br><code>with_ties =</code> TRUE theo mặc định, nghĩa là các ràng buộc bị giữ lại.<br><code>.preserve =</code> FALSE theo mặc định. Nếu TRUE thì cấu trúc nhóm được tính toán lại sau khi cắt.<br><code>weight_by =</code> Tùy chọn, cột dữ liệu kiểu số được tính theo trọng số (số lớn hơn có nhiều khả năng được lấy mẫu hơn). Đồng thời <code>replace =</code> cho việc lấy mẫu liệu có được thực hiện mà có/không có sự thay thế.</p>
+<p><code>.order_by =</code> được sử dụng trong <code>slice_min()</code> và <code>slice_max()</code>, sắp xếp thứ tự theo một cột trước khi cắt.<br />
+<code>with_ties =</code> TRUE theo mặc định, nghĩa là các ràng buộc bị giữ lại.<br />
+<code>.preserve =</code> FALSE theo mặc định. Nếu TRUE thì cấu trúc nhóm được tính toán lại sau khi cắt.<br />
+<code>weight_by =</code> Tùy chọn, cột dữ liệu kiểu số được tính theo trọng số (số lớn hơn có nhiều khả năng được lấy mẫu hơn). Đồng thời <code>replace =</code> cho việc lấy mẫu liệu có được thực hiện mà có/không có sự thay thế.</p>
 <p><span style="color: darkgreen;"><strong><em>MẸO:</em></strong> Khi sử dụng <code>slice_max()</code> và <code>slice_min()</code>, hãy chắc chắn bạn cụ thể/ghi <code>n =</code> (ví dụ: <code>n = 2</code>, không chỉ <code>2</code>). Nếu không, bạn có thể gặp lỗi <code>Error:</code>…<code>is not empty</code>.</span></p>
 <p><span style="color: black;"><strong><em>LƯU Ý:</em></strong> Bạn có thể gặp hàm <a href="https://dplyr.tidyverse.org/reference/top_n.html"><code>top_n()</code></a>, hàm mà đã bị thay thế bởi các hàm <code>slice</code>.</span></p>
 <!-- ======================================================= -->
 <div id="cắt-theo-nhóm" class="section level3 unnumbered">
-<h3>Cắt theo nhóm<a class="anchor" aria-label="anchor" href="#c%E1%BA%AFt-theo-nh%C3%B3m"><i class="fas fa-link"></i></a>
-</h3>
+<h3>Cắt theo nhóm</h3>
 <p>Các hàm <code>slice_*()</code> có thể rất hữu ích nếu được áp dụng cho một data frame được nhóm lại vì thao tác cắt được thực hiện trên từng nhóm riêng biệt. Sử dụng <strong>hàm</strong> <code>group_by()</code> kết hợp với <code>slice()</code> nhằm nhóm dữ liệu để lấy một lát cắt từ mỗi nhóm.</p>
 <p>Điều này rất hữu ích cho việc loại bỏ trùng lặp nếu bạn có nhiều hàng cho mỗi người nhưng chỉ muốn giữ một trong số chúng. Trước tiên, bạn sử dụng <code>group_by()</code> với các cột chính mà giống nhau cho mỗi người, sau đó sử dụng một hàm slice trên một cột, điều này sẽ khác nhau giữa các hàng được nhóm.</p>
 <p>Trong ví dụ dưới đây, để chỉ giữ lại cuộc gọi truy vết <em>mới nhất</em> <em>theo mỗi người</em>, chúng ta nhóm các hàng theo cột <code>name</code> và sau đó sử dụng <code>slice_max()</code> với <code>n = 1</code> trên cột <code>date</code>. Hãy lưu ý! Để áp dụng một hàm như <code>slice_max()</code> vào dates (ngày tháng), cột ngày tháng phải thuộc nhóm Date.</p>
 <p>Theo mặc định, “các ràng buộc” (ví dụ: cùng ngày trong trường hợp này) được giữ lại và chúng tôi sẽ vẫn nhận được nhiều hàng cho một số người (ví dụ: adam). Để tránh tình huống này, chúng tôi đặt <code>with_ties = FALSE</code>. Chúng tôi sẽ chỉ nhận lại một hàng cho mỗi người.</p>
 <p><span style="color: orange;"><strong><em>CHÚ Ý:</em></strong> Nếu sử dụng <code>arrange()</code>, xác định <code>.by_group = TRUE</code> để sắp xếp dữ liệu trong mỗi nhóm.</span></p>
 <p><span style="color: red;"><strong><em>THẬN TRỌNG:</em></strong> Nếu <code>with_ties = FALSE</code>, hàng đầu tiên có ràng buộc được giữ lại. Điều này có thể là sự nhầm lẫn. Hãy xem trường hợp của Mariah, cô ấy có hai cuộc gọi truy vết vào ngày gần nhất (ngày 06/01) và cuộc gọi truy vết đầu tiên (sớm nhất) được giữ lại. Rất có thể, chúng ta muốn giữ lại cuộc gọi truy vết muộn hơn của cô ấy vào ngày đó. Xem cách “phá vỡ” những ràng buộc này trong ví dụ tiếp theo.</span></p>
-<div class="sourceCode" id="cb743"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">obs</span> <span class="op">%&gt;%</span> 
-  <span class="fu">group_by</span><span class="op">(</span><span class="va">name</span><span class="op">)</span> <span class="op">%&gt;%</span>       <span class="co"># group the rows by 'name'</span>
-  <span class="fu">slice_max</span><span class="op">(</span><span class="va">date</span>,          <span class="co"># keep row per group with maximum date value </span>
-            n <span class="op">=</span> <span class="fl">1</span>,         <span class="co"># keep only the single highest row </span>
-            with_ties <span class="op">=</span> <span class="cn">F</span><span class="op">)</span> <span class="co"># if there's a tie (of date), take the first row</span></code></pre></div>
-<div id="htmlwidget-d2d1041587452552d52b" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-d2d1041587452552d52b">{"x":{"filter":"none","data":[[11,5,16,12,18,14,17,8],[1,2,5,3,8,4,7,6],["adam","amrish","brian","mariah","natalie","nikhil","raquel","smita"],["2020-01-05","2020-01-05","2020-01-07","2020-01-06","2020-01-07","2020-01-06","2020-01-07","2020-01-05"],["09:40","16:10","07:59","07:25","17:12","15:36","11:13","14:20"],[2,3,3,2,1,2,2,1],["case","case","case","contact","case","contact","contact","contact"],["No","Yes","No","No","No","Yes","No","Yes"]],"container":"<table class=\"white-space: nowrap\">\n  <thead>\n    <tr>\n      <th>recordID<\/th>\n      <th>personID<\/th>\n      <th>name<\/th>\n      <th>date<\/th>\n      <th>time<\/th>\n      <th>encounter<\/th>\n      <th>purpose<\/th>\n      <th>symptoms_ever<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":8,"scrollX":true,"columnDefs":[{"className":"dt-right","targets":[0,1,5]}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[8,10,25,50,100]}},"evals":[],"jsHooks":[]}</script><p>Ví dụ ở trên, chúng ta có thể thấy rằng chỉ hàng của Amrish vào ngày 05/01 được giữ lại và chỉ hàng của Brian vào ngày 07/01 được giữ lại. Xem <a href="deduplication.html#dedup_data">dữ lịệu gốc</a>.</p>
+<div class="sourceCode" id="cb748"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb748-1"><a href="deduplication.html#cb748-1" tabindex="-1"></a>obs <span class="sc">%&gt;%</span> </span>
+<span id="cb748-2"><a href="deduplication.html#cb748-2" tabindex="-1"></a>  <span class="fu">group_by</span>(name) <span class="sc">%&gt;%</span>       <span class="co"># group the rows by &#39;name&#39;</span></span>
+<span id="cb748-3"><a href="deduplication.html#cb748-3" tabindex="-1"></a>  <span class="fu">slice_max</span>(date,          <span class="co"># keep row per group with maximum date value </span></span>
+<span id="cb748-4"><a href="deduplication.html#cb748-4" tabindex="-1"></a>            <span class="at">n =</span> <span class="dv">1</span>,         <span class="co"># keep only the single highest row </span></span>
+<span id="cb748-5"><a href="deduplication.html#cb748-5" tabindex="-1"></a>            <span class="at">with_ties =</span> F) <span class="co"># if there&#39;s a tie (of date), take the first row</span></span></code></pre></div>
+<div class="datatables html-widget html-fill-item" id="htmlwidget-cdea7dfff298fa97c7e0" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-cdea7dfff298fa97c7e0">{"x":{"filter":"none","vertical":false,"data":[[11,5,16,12,18,14,17,8],[1,2,5,3,8,4,7,6],["adam","amrish","brian","mariah","natalie","nikhil","raquel","smita"],["2020-01-05","2020-01-05","2020-01-07","2020-01-06","2020-01-07","2020-01-06","2020-01-07","2020-01-05"],["09:40","16:10","07:59","07:25","17:12","15:36","11:13","14:20"],[2,3,3,2,1,2,2,1],["case","case","case","contact","case","contact","contact","contact"],["No","Yes","No","No","No","Yes","No","Yes"]],"container":"<table class=\"white-space: nowrap\">\n  <thead>\n    <tr>\n      <th>recordID<\/th>\n      <th>personID<\/th>\n      <th>name<\/th>\n      <th>date<\/th>\n      <th>time<\/th>\n      <th>encounter<\/th>\n      <th>purpose<\/th>\n      <th>symptoms_ever<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":8,"scrollX":true,"columnDefs":[{"className":"dt-right","targets":[0,1,5]},{"name":"recordID","targets":0},{"name":"personID","targets":1},{"name":"name","targets":2},{"name":"date","targets":3},{"name":"time","targets":4},{"name":"encounter","targets":5},{"name":"purpose","targets":6},{"name":"symptoms_ever","targets":7}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[8,10,25,50,100]},"selection":{"mode":"multiple","selected":null,"target":"row","selectable":null}},"evals":[],"jsHooks":[]}</script>
+<p>Ví dụ ở trên, chúng ta có thể thấy rằng chỉ hàng của Amrish vào ngày 05/01 được giữ lại và chỉ hàng của Brian vào ngày 07/01 được giữ lại. Xem <a href="deduplication.html#dedup_data">dữ lịệu gốc</a>.</p>
 <p><strong>Phá vỡ “ràng buộc”</strong></p>
-<p>Nhiều câu lệnh cắt (slice) có thể được chạy để “phá vỡ các ràng buộc”. Trong trường hợp này, nếu một người có nhiều cuộc gọi truy vết vào <em>ngày</em> gần nhất, cuộc gọi truy vết với <em>thời gian</em> gần nhất sẽ được giữ lại (<code><a href="https://lubridate.tidyverse.org/reference/hms.html">lubridate::hm()</a></code> được sử dụng để chuyển đổi ký tự thời gian thành một lớp thời gian có thể sắp xếp).<br>
+<p>Nhiều câu lệnh cắt (slice) có thể được chạy để “phá vỡ các ràng buộc”. Trong trường hợp này, nếu một người có nhiều cuộc gọi truy vết vào <em>ngày</em> gần nhất, cuộc gọi truy vết với <em>thời gian</em> gần nhất sẽ được giữ lại (<code>lubridate::hm()</code> được sử dụng để chuyển đổi ký tự thời gian thành một lớp thời gian có thể sắp xếp).<br />
 Lưu ý rằng bây giờ, một hàng được giữ cho “Mariah” vào ngày 06/01 là cuộc gọi truy vết thứ 3 từ 08:32, không phải cuộc gọi truy vết thứ 2 lúc 07:25.</p>
-<div class="sourceCode" id="cb744"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Example of multiple slice statements to "break ties"</span>
-<span class="va">obs</span> <span class="op">%&gt;%</span>
-  <span class="fu">group_by</span><span class="op">(</span><span class="va">name</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  
-  <span class="co"># FIRST - slice by latest date</span>
-  <span class="fu">slice_max</span><span class="op">(</span><span class="va">date</span>, n <span class="op">=</span> <span class="fl">1</span>, with_ties <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">%&gt;%</span> 
-  
-  <span class="co"># SECOND - if there is a tie, select row with latest time; ties prohibited</span>
-  <span class="fu">slice_max</span><span class="op">(</span><span class="fu">lubridate</span><span class="fu">::</span><span class="fu"><a href="https://lubridate.tidyverse.org/reference/hms.html">hm</a></span><span class="op">(</span><span class="va">time</span><span class="op">)</span>, n <span class="op">=</span> <span class="fl">1</span>, with_ties <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></code></pre></div>
-<div id="htmlwidget-5b6929a3f0e8f40bd249" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-5b6929a3f0e8f40bd249">{"x":{"filter":"none","data":[[11,5,16,13,18,14,17,8],[1,2,5,3,8,4,7,6],["adam","amrish","brian","mariah","natalie","nikhil","raquel","smita"],["2020-01-05","2020-01-05","2020-01-07","2020-01-06","2020-01-07","2020-01-06","2020-01-07","2020-01-05"],["09:40","16:10","07:59","08:32","17:12","15:36","11:13","14:20"],[2,3,3,3,1,2,2,1],["case","case","case","contact","case","contact","contact","contact"],["No","Yes","No","No","No","Yes","No","Yes"]],"container":"<table class=\"white-space: nowrap\">\n  <thead>\n    <tr>\n      <th>recordID<\/th>\n      <th>personID<\/th>\n      <th>name<\/th>\n      <th>date<\/th>\n      <th>time<\/th>\n      <th>encounter<\/th>\n      <th>purpose<\/th>\n      <th>symptoms_ever<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":8,"scrollX":true,"columnDefs":[{"className":"dt-right","targets":[0,1,5]}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[8,10,25,50,100]}},"evals":[],"jsHooks":[]}</script><p><em>Trong ví dụ trên, cũng có thể cắt theo số lần <code>encounter</code>, nhưng chúng tôi đã hiển thị cách cắt theo <code>date</code> và <code>time</code> cho mục đích ví dụ.</em></p>
+<div class="sourceCode" id="cb749"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb749-1"><a href="deduplication.html#cb749-1" tabindex="-1"></a><span class="co"># Example of multiple slice statements to &quot;break ties&quot;</span></span>
+<span id="cb749-2"><a href="deduplication.html#cb749-2" tabindex="-1"></a>obs <span class="sc">%&gt;%</span></span>
+<span id="cb749-3"><a href="deduplication.html#cb749-3" tabindex="-1"></a>  <span class="fu">group_by</span>(name) <span class="sc">%&gt;%</span></span>
+<span id="cb749-4"><a href="deduplication.html#cb749-4" tabindex="-1"></a>  </span>
+<span id="cb749-5"><a href="deduplication.html#cb749-5" tabindex="-1"></a>  <span class="co"># FIRST - slice by latest date</span></span>
+<span id="cb749-6"><a href="deduplication.html#cb749-6" tabindex="-1"></a>  <span class="fu">slice_max</span>(date, <span class="at">n =</span> <span class="dv">1</span>, <span class="at">with_ties =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb749-7"><a href="deduplication.html#cb749-7" tabindex="-1"></a>  </span>
+<span id="cb749-8"><a href="deduplication.html#cb749-8" tabindex="-1"></a>  <span class="co"># SECOND - if there is a tie, select row with latest time; ties prohibited</span></span>
+<span id="cb749-9"><a href="deduplication.html#cb749-9" tabindex="-1"></a>  <span class="fu">slice_max</span>(lubridate<span class="sc">::</span><span class="fu">hm</span>(time), <span class="at">n =</span> <span class="dv">1</span>, <span class="at">with_ties =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<div class="datatables html-widget html-fill-item" id="htmlwidget-3472f108fad78bf5f7b8" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-3472f108fad78bf5f7b8">{"x":{"filter":"none","vertical":false,"data":[[11,5,16,13,18,14,17,8],[1,2,5,3,8,4,7,6],["adam","amrish","brian","mariah","natalie","nikhil","raquel","smita"],["2020-01-05","2020-01-05","2020-01-07","2020-01-06","2020-01-07","2020-01-06","2020-01-07","2020-01-05"],["09:40","16:10","07:59","08:32","17:12","15:36","11:13","14:20"],[2,3,3,3,1,2,2,1],["case","case","case","contact","case","contact","contact","contact"],["No","Yes","No","No","No","Yes","No","Yes"]],"container":"<table class=\"white-space: nowrap\">\n  <thead>\n    <tr>\n      <th>recordID<\/th>\n      <th>personID<\/th>\n      <th>name<\/th>\n      <th>date<\/th>\n      <th>time<\/th>\n      <th>encounter<\/th>\n      <th>purpose<\/th>\n      <th>symptoms_ever<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":8,"scrollX":true,"columnDefs":[{"className":"dt-right","targets":[0,1,5]},{"name":"recordID","targets":0},{"name":"personID","targets":1},{"name":"name","targets":2},{"name":"date","targets":3},{"name":"time","targets":4},{"name":"encounter","targets":5},{"name":"purpose","targets":6},{"name":"symptoms_ever","targets":7}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[8,10,25,50,100]},"selection":{"mode":"multiple","selected":null,"target":"row","selectable":null}},"evals":[],"jsHooks":[]}</script>
+<p><em>Trong ví dụ trên, cũng có thể cắt theo số lần <code>encounter</code>, nhưng chúng tôi đã hiển thị cách cắt theo <code>date</code> và <code>time</code> cho mục đích ví dụ.</em></p>
 <p><span style="color: darkgreen;"><strong><em>MẸO:</em></strong> Để sử dụng <code>slice_max()</code> hoặc <code>slice_min()</code> trên một cột “kí tự”, hãy biến đối nó thành một lớp yếu tố <em>được sắp xếp theo thứ tự</em>!</span></p>
 <p>Xem <a href="deduplication.html#dedup_data">dữ liệu gốc</a>.</p>
 <!-- ======================================================= -->
 </div>
 <div id="giữ-lại-tất-cả-nhưng-đánh-dấu-các-dòng" class="section level3 unnumbered">
-<h3>Giữ lại tất cả nhưng đánh dấu các dòng<a class="anchor" aria-label="anchor" href="#gi%E1%BB%AF-l%E1%BA%A1i-t%E1%BA%A5t-c%E1%BA%A3-nh%C6%B0ng-%C4%91%C3%A1nh-d%E1%BA%A5u-c%C3%A1c-d%C3%B2ng"><i class="fas fa-link"></i></a>
-</h3>
+<h3>Giữ lại tất cả nhưng đánh dấu các dòng</h3>
 <p>Nếu bạn muốn giữ lại tất cả các bản ghi nhưng chỉ đánh dấu một số để phân tích, hãy cân nhắc cách tiếp cận hai bước sử dụng một số recordID/encounter duy nhất:</p>
 <ol style="list-style-type: decimal">
-<li>Giảm/cắt data frame gốc thành chỉ bao gồm các hàng cho phân tích. Lưu/giữ lại data frame đã được thu gọn này.<br>
+<li>Giảm/cắt data frame gốc thành chỉ bao gồm các hàng cho phân tích. Lưu/giữ lại data frame đã được thu gọn này.<br />
 </li>
 <li>Trong data frame gốc, hãy đánh dấu các hàng là thích hợp với <code>case_when()</code>, dựa trên việc liệu mã định danh duy nhất của những bản ghi này (recordID trong ví dụ này) có trong data frame thu gọn hay không.</li>
 </ol>
-<div class="sourceCode" id="cb745"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># 1. Define data frame of rows to keep for analysis</span>
-<span class="va">obs_keep</span> <span class="op">&lt;-</span> <span class="va">obs</span> <span class="op">%&gt;%</span>
-  <span class="fu">group_by</span><span class="op">(</span><span class="va">name</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu">slice_max</span><span class="op">(</span><span class="va">encounter</span>, n <span class="op">=</span> <span class="fl">1</span>, with_ties <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> <span class="co"># keep only latest encounter per person</span>
-
-
-<span class="co"># 2. Mark original data frame</span>
-<span class="va">obs_marked</span> <span class="op">&lt;-</span> <span class="va">obs</span> <span class="op">%&gt;%</span>
-
-  <span class="co"># make new dup_record column</span>
-  <span class="fu">mutate</span><span class="op">(</span>dup_record <span class="op">=</span> <span class="fu">case_when</span><span class="op">(</span>
-    
-    <span class="co"># if record is in obs_keep data frame</span>
-    <span class="va">recordID</span> <span class="op">%in%</span> <span class="va">obs_keep</span><span class="op">$</span><span class="va">recordID</span> <span class="op">~</span> <span class="st">"For analysis"</span>, 
-    
-    <span class="co"># all else marked as "Ignore" for analysis purposes</span>
-    <span class="cn">TRUE</span>                            <span class="op">~</span> <span class="st">"Ignore"</span><span class="op">)</span><span class="op">)</span>
-
-<span class="co"># print</span>
-<span class="va">obs_marked</span></code></pre></div>
-<pre><code>##    recordID personID    name       date  time encounter purpose symptoms_ever   dup_record
-## 1         1        1    adam 2020-01-01 09:00         1 contact          &lt;NA&gt;       Ignore
-## 2         1        1    adam 2020-01-01 09:00         1 contact          &lt;NA&gt;       Ignore
-## 3         2        2  amrish 2020-01-02 14:20         1 contact            No       Ignore
-## 4         3        2  amrish 2020-01-02 14:20         1 contact            No       Ignore
-## 5         4        3  mariah 2020-01-05 12:00         1    case            No       Ignore
-## 6         5        2  amrish 2020-01-05 16:10         3    case           Yes For analysis
-## 7         6        4  nikhil 2020-01-05 13:01         1 contact           Yes       Ignore
-## 8         7        5   brian 2020-01-05 15:20         1 contact            No       Ignore
-## 9         8        6   smita 2020-01-05 14:20         1 contact           Yes For analysis
-## 10        9        7  raquel 2020-01-05 12:30         1 contact          &lt;NA&gt;       Ignore
-## 11       10        2  amrish 2020-01-02 10:24         2 contact           Yes       Ignore
-## 12       11        1    adam 2020-01-05 09:40         2    case            No For analysis
-## 13       12        3  mariah 2020-01-06 07:25         2 contact            No       Ignore
-## 14       13        3  mariah 2020-01-06 08:32         3 contact            No For analysis
-## 15       14        4  nikhil 2020-01-06 15:36         2 contact           Yes For analysis
-## 16       15        5   brian 2020-01-06 15:31         2 contact           Yes       Ignore
-## 17       16        5   brian 2020-01-07 07:59         3    case            No For analysis
-## 18       17        7  raquel 2020-01-07 11:13         2 contact            No For analysis
-## 19       18        8 natalie 2020-01-07 17:12         1    case            No For analysis</code></pre>
-<div id="htmlwidget-6195d98c66c34c7532d3" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-6195d98c66c34c7532d3">{"x":{"filter":"none","data":[[1,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18],[1,1,2,2,3,2,4,5,6,7,2,1,3,3,4,5,5,7,8],["adam","adam","amrish","amrish","mariah","amrish","nikhil","brian","smita","raquel","amrish","adam","mariah","mariah","nikhil","brian","brian","raquel","natalie"],["2020-01-01","2020-01-01","2020-01-02","2020-01-02","2020-01-05","2020-01-05","2020-01-05","2020-01-05","2020-01-05","2020-01-05","2020-01-02","2020-01-05","2020-01-06","2020-01-06","2020-01-06","2020-01-06","2020-01-07","2020-01-07","2020-01-07"],["09:00","09:00","14:20","14:20","12:00","16:10","13:01","15:20","14:20","12:30","10:24","09:40","07:25","08:32","15:36","15:31","07:59","11:13","17:12"],[1,1,1,1,1,3,1,1,1,1,2,2,2,3,2,2,3,2,1],["contact","contact","contact","contact","case","case","contact","contact","contact","contact","contact","case","contact","contact","contact","contact","case","contact","case"],[null,null,"No","No","No","Yes","Yes","No","Yes",null,"Yes","No","No","No","Yes","Yes","No","No","No"],["Ignore","Ignore","Ignore","Ignore","Ignore","For analysis","Ignore","Ignore","For analysis","Ignore","Ignore","For analysis","Ignore","For analysis","For analysis","Ignore","For analysis","For analysis","For analysis"]],"container":"<table class=\"white-space: nowrap\">\n  <thead>\n    <tr>\n      <th>recordID<\/th>\n      <th>personID<\/th>\n      <th>name<\/th>\n      <th>date<\/th>\n      <th>time<\/th>\n      <th>encounter<\/th>\n      <th>purpose<\/th>\n      <th>symptoms_ever<\/th>\n      <th>dup_record<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":8,"scrollX":true,"columnDefs":[{"className":"dt-right","targets":[0,1,5]}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[8,10,25,50,100]}},"evals":[],"jsHooks":[]}</script><p>Xem <a href="deduplication.html#dedup_data">dữ liệu gốc</a>.</p>
+<div class="sourceCode" id="cb750"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb750-1"><a href="deduplication.html#cb750-1" tabindex="-1"></a><span class="co"># 1. Define data frame of rows to keep for analysis</span></span>
+<span id="cb750-2"><a href="deduplication.html#cb750-2" tabindex="-1"></a>obs_keep <span class="ot">&lt;-</span> obs <span class="sc">%&gt;%</span></span>
+<span id="cb750-3"><a href="deduplication.html#cb750-3" tabindex="-1"></a>  <span class="fu">group_by</span>(name) <span class="sc">%&gt;%</span></span>
+<span id="cb750-4"><a href="deduplication.html#cb750-4" tabindex="-1"></a>  <span class="fu">slice_max</span>(encounter, <span class="at">n =</span> <span class="dv">1</span>, <span class="at">with_ties =</span> <span class="cn">FALSE</span>) <span class="co"># keep only latest encounter per person</span></span>
+<span id="cb750-5"><a href="deduplication.html#cb750-5" tabindex="-1"></a></span>
+<span id="cb750-6"><a href="deduplication.html#cb750-6" tabindex="-1"></a></span>
+<span id="cb750-7"><a href="deduplication.html#cb750-7" tabindex="-1"></a><span class="co"># 2. Mark original data frame</span></span>
+<span id="cb750-8"><a href="deduplication.html#cb750-8" tabindex="-1"></a>obs_marked <span class="ot">&lt;-</span> obs <span class="sc">%&gt;%</span></span>
+<span id="cb750-9"><a href="deduplication.html#cb750-9" tabindex="-1"></a></span>
+<span id="cb750-10"><a href="deduplication.html#cb750-10" tabindex="-1"></a>  <span class="co"># make new dup_record column</span></span>
+<span id="cb750-11"><a href="deduplication.html#cb750-11" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">dup_record =</span> <span class="fu">case_when</span>(</span>
+<span id="cb750-12"><a href="deduplication.html#cb750-12" tabindex="-1"></a>    </span>
+<span id="cb750-13"><a href="deduplication.html#cb750-13" tabindex="-1"></a>    <span class="co"># if record is in obs_keep data frame</span></span>
+<span id="cb750-14"><a href="deduplication.html#cb750-14" tabindex="-1"></a>    recordID <span class="sc">%in%</span> obs_keep<span class="sc">$</span>recordID <span class="sc">~</span> <span class="st">&quot;For analysis&quot;</span>, </span>
+<span id="cb750-15"><a href="deduplication.html#cb750-15" tabindex="-1"></a>    </span>
+<span id="cb750-16"><a href="deduplication.html#cb750-16" tabindex="-1"></a>    <span class="co"># all else marked as &quot;Ignore&quot; for analysis purposes</span></span>
+<span id="cb750-17"><a href="deduplication.html#cb750-17" tabindex="-1"></a>    <span class="cn">TRUE</span>                            <span class="sc">~</span> <span class="st">&quot;Ignore&quot;</span>))</span>
+<span id="cb750-18"><a href="deduplication.html#cb750-18" tabindex="-1"></a></span>
+<span id="cb750-19"><a href="deduplication.html#cb750-19" tabindex="-1"></a><span class="co"># print</span></span>
+<span id="cb750-20"><a href="deduplication.html#cb750-20" tabindex="-1"></a>obs_marked</span></code></pre></div>
+<pre><code>##    recordID personID    name       date  time encounter purpose symptoms_ever
+## 1         1        1    adam 2020-01-01 09:00         1 contact          &lt;NA&gt;
+## 2         1        1    adam 2020-01-01 09:00         1 contact          &lt;NA&gt;
+## 3         2        2  amrish 2020-01-02 14:20         1 contact            No
+## 4         3        2  amrish 2020-01-02 14:20         1 contact            No
+## 5         4        3  mariah 2020-01-05 12:00         1    case            No
+## 6         5        2  amrish 2020-01-05 16:10         3    case           Yes
+## 7         6        4  nikhil 2020-01-05 13:01         1 contact           Yes
+## 8         7        5   brian 2020-01-05 15:20         1 contact            No
+## 9         8        6   smita 2020-01-05 14:20         1 contact           Yes
+## 10        9        7  raquel 2020-01-05 12:30         1 contact          &lt;NA&gt;
+## 11       10        2  amrish 2020-01-02 10:24         2 contact           Yes
+## 12       11        1    adam 2020-01-05 09:40         2    case            No
+## 13       12        3  mariah 2020-01-06 07:25         2 contact            No
+## 14       13        3  mariah 2020-01-06 08:32         3 contact            No
+## 15       14        4  nikhil 2020-01-06 15:36         2 contact           Yes
+## 16       15        5   brian 2020-01-06 15:31         2 contact           Yes
+## 17       16        5   brian 2020-01-07 07:59         3    case            No
+## 18       17        7  raquel 2020-01-07 11:13         2 contact            No
+## 19       18        8 natalie 2020-01-07 17:12         1    case            No
+##      dup_record
+## 1        Ignore
+## 2        Ignore
+## 3        Ignore
+## 4        Ignore
+## 5        Ignore
+## 6  For analysis
+## 7        Ignore
+## 8        Ignore
+## 9  For analysis
+## 10       Ignore
+## 11       Ignore
+## 12 For analysis
+## 13       Ignore
+## 14 For analysis
+## 15 For analysis
+## 16       Ignore
+## 17 For analysis
+## 18 For analysis
+## 19 For analysis</code></pre>
+<div class="datatables html-widget html-fill-item" id="htmlwidget-18903b6f6e1e2e56db68" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-18903b6f6e1e2e56db68">{"x":{"filter":"none","vertical":false,"data":[[1,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18],[1,1,2,2,3,2,4,5,6,7,2,1,3,3,4,5,5,7,8],["adam","adam","amrish","amrish","mariah","amrish","nikhil","brian","smita","raquel","amrish","adam","mariah","mariah","nikhil","brian","brian","raquel","natalie"],["2020-01-01","2020-01-01","2020-01-02","2020-01-02","2020-01-05","2020-01-05","2020-01-05","2020-01-05","2020-01-05","2020-01-05","2020-01-02","2020-01-05","2020-01-06","2020-01-06","2020-01-06","2020-01-06","2020-01-07","2020-01-07","2020-01-07"],["09:00","09:00","14:20","14:20","12:00","16:10","13:01","15:20","14:20","12:30","10:24","09:40","07:25","08:32","15:36","15:31","07:59","11:13","17:12"],[1,1,1,1,1,3,1,1,1,1,2,2,2,3,2,2,3,2,1],["contact","contact","contact","contact","case","case","contact","contact","contact","contact","contact","case","contact","contact","contact","contact","case","contact","case"],[null,null,"No","No","No","Yes","Yes","No","Yes",null,"Yes","No","No","No","Yes","Yes","No","No","No"],["Ignore","Ignore","Ignore","Ignore","Ignore","For analysis","Ignore","Ignore","For analysis","Ignore","Ignore","For analysis","Ignore","For analysis","For analysis","Ignore","For analysis","For analysis","For analysis"]],"container":"<table class=\"white-space: nowrap\">\n  <thead>\n    <tr>\n      <th>recordID<\/th>\n      <th>personID<\/th>\n      <th>name<\/th>\n      <th>date<\/th>\n      <th>time<\/th>\n      <th>encounter<\/th>\n      <th>purpose<\/th>\n      <th>symptoms_ever<\/th>\n      <th>dup_record<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":8,"scrollX":true,"columnDefs":[{"className":"dt-right","targets":[0,1,5]},{"name":"recordID","targets":0},{"name":"personID","targets":1},{"name":"name","targets":2},{"name":"date","targets":3},{"name":"time","targets":4},{"name":"encounter","targets":5},{"name":"purpose","targets":6},{"name":"symptoms_ever","targets":7},{"name":"dup_record","targets":8}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[8,10,25,50,100]},"selection":{"mode":"multiple","selected":null,"target":"row","selectable":null}},"evals":[],"jsHooks":[]}</script>
+<p>Xem <a href="deduplication.html#dedup_data">dữ liệu gốc</a>.</p>
 <!-- ======================================================= -->
 </div>
 <div id="tính-toán-độ-hoàn-chỉnh-của-hàng" class="section level3 unnumbered">
-<h3>Tính toán độ hoàn chỉnh của hàng<a class="anchor" aria-label="anchor" href="#t%C3%ADnh-to%C3%A1n-%C4%91%E1%BB%99-ho%C3%A0n-ch%E1%BB%89nh-c%E1%BB%A7a-h%C3%A0ng"><i class="fas fa-link"></i></a>
-</h3>
+<h3>Tính toán độ hoàn chỉnh của hàng</h3>
 <p>Tạo một cột chứa số liệu về độ hoàn chỉnh (không bị thiếu) của hàng. Điều này có thể hữu ích khi quyết định ưu tiên hàng nào hơn hàng nào khi loại bỏ trùng lặp/cắt.</p>
 <p>Trong ví dụ này, các cột “chính” mà bạn muốn đo lường mức độ hoàn chỉnh được lưu trong một vectơ tên cột.</p>
 <p>Sau đó, cột mới <code>key_completeness</code> được tạo bằng hàm <code>mutate()</code>. Giá trị mới của mỗi hàng được xác định dưới dạng phân số được tính toán bằng: số giá trị không bị thiếu trong hàng đó trong số các cột chính, chia cho số cột chính.</p>
-<p>Điều này cần thêm hàm <code><a href="https://rdrr.io/r/base/colSums.html">rowSums()</a></code> từ <strong>base</strong> R. Data frame sử dụng được đại diện bởi dấu <code>.</code>, tức là tham chiếu đến data frame nguồn trong một chuỗi pipe (trong trường hợp này, nó sẽ được tách thành tập con với dấu ngoặc vuông <code>[]</code>).</p>
+<p>Điều này cần thêm hàm <code>rowSums()</code> từ <strong>base</strong> R. Data frame sử dụng được đại diện bởi dấu <code>.</code>, tức là tham chiếu đến data frame nguồn trong một chuỗi pipe (trong trường hợp này, nó sẽ được tách thành tập con với dấu ngoặc vuông <code>[]</code>).</p>
 <p><em>Cuộn sang phải để xem các hàng khác</em></p>
-<div class="sourceCode" id="cb747"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># create a "key variable completeness" column</span>
-<span class="co"># this is a *proportion* of the columns designated as "key_cols" that have non-missing values</span>
-
-<span class="va">key_cols</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"personID"</span>, <span class="st">"name"</span>, <span class="st">"symptoms_ever"</span><span class="op">)</span>
-
-<span class="va">obs</span> <span class="op">%&gt;%</span> 
-  <span class="fu">mutate</span><span class="op">(</span>key_completeness <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/colSums.html">rowSums</a></span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">.</span><span class="op">[</span>,<span class="va">key_cols</span><span class="op">]</span><span class="op">)</span><span class="op">)</span><span class="op">/</span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">key_cols</span><span class="op">)</span><span class="op">)</span> </code></pre></div>
-<div id="htmlwidget-b2c99b7d57c3397dfebe" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-b2c99b7d57c3397dfebe">{"x":{"filter":"none","data":[[1,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18],[1,1,2,2,3,2,4,5,6,7,2,1,3,3,4,5,5,7,8],["adam","adam","amrish","amrish","mariah","amrish","nikhil","brian","smita","raquel","amrish","adam","mariah","mariah","nikhil","brian","brian","raquel","natalie"],["2020-01-01","2020-01-01","2020-01-02","2020-01-02","2020-01-05","2020-01-05","2020-01-05","2020-01-05","2020-01-05","2020-01-05","2020-01-02","2020-01-05","2020-01-06","2020-01-06","2020-01-06","2020-01-06","2020-01-07","2020-01-07","2020-01-07"],["09:00","09:00","14:20","14:20","12:00","16:10","13:01","15:20","14:20","12:30","10:24","09:40","07:25","08:32","15:36","15:31","07:59","11:13","17:12"],[1,1,1,1,1,3,1,1,1,1,2,2,2,3,2,2,3,2,1],["contact","contact","contact","contact","case","case","contact","contact","contact","contact","contact","case","contact","contact","contact","contact","case","contact","case"],[null,null,"No","No","No","Yes","Yes","No","Yes",null,"Yes","No","No","No","Yes","Yes","No","No","No"],[0.666666666666667,0.666666666666667,1,1,1,1,1,1,1,0.666666666666667,1,1,1,1,1,1,1,1,1]],"container":"<table class=\"white-space: nowrap\">\n  <thead>\n    <tr>\n      <th>recordID<\/th>\n      <th>personID<\/th>\n      <th>name<\/th>\n      <th>date<\/th>\n      <th>time<\/th>\n      <th>encounter<\/th>\n      <th>purpose<\/th>\n      <th>symptoms_ever<\/th>\n      <th>key_completeness<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":5,"scrollX":true,"columnDefs":[{"className":"dt-right","targets":[0,1,5,8]}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[5,10,25,50,100]}},"evals":[],"jsHooks":[]}</script><p>Xem <a href="deduplication.html#dedup_data">dữ liệu gốc</a>.</p>
+<div class="sourceCode" id="cb752"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb752-1"><a href="deduplication.html#cb752-1" tabindex="-1"></a><span class="co"># create a &quot;key variable completeness&quot; column</span></span>
+<span id="cb752-2"><a href="deduplication.html#cb752-2" tabindex="-1"></a><span class="co"># this is a *proportion* of the columns designated as &quot;key_cols&quot; that have non-missing values</span></span>
+<span id="cb752-3"><a href="deduplication.html#cb752-3" tabindex="-1"></a></span>
+<span id="cb752-4"><a href="deduplication.html#cb752-4" tabindex="-1"></a>key_cols <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;personID&quot;</span>, <span class="st">&quot;name&quot;</span>, <span class="st">&quot;symptoms_ever&quot;</span>)</span>
+<span id="cb752-5"><a href="deduplication.html#cb752-5" tabindex="-1"></a></span>
+<span id="cb752-6"><a href="deduplication.html#cb752-6" tabindex="-1"></a>obs <span class="sc">%&gt;%</span> </span>
+<span id="cb752-7"><a href="deduplication.html#cb752-7" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">key_completeness =</span> <span class="fu">rowSums</span>(<span class="sc">!</span><span class="fu">is.na</span>(.[,key_cols]))<span class="sc">/</span><span class="fu">length</span>(key_cols)) </span></code></pre></div>
+<div class="datatables html-widget html-fill-item" id="htmlwidget-47d830b64a22c15ff06f" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-47d830b64a22c15ff06f">{"x":{"filter":"none","vertical":false,"data":[[1,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18],[1,1,2,2,3,2,4,5,6,7,2,1,3,3,4,5,5,7,8],["adam","adam","amrish","amrish","mariah","amrish","nikhil","brian","smita","raquel","amrish","adam","mariah","mariah","nikhil","brian","brian","raquel","natalie"],["2020-01-01","2020-01-01","2020-01-02","2020-01-02","2020-01-05","2020-01-05","2020-01-05","2020-01-05","2020-01-05","2020-01-05","2020-01-02","2020-01-05","2020-01-06","2020-01-06","2020-01-06","2020-01-06","2020-01-07","2020-01-07","2020-01-07"],["09:00","09:00","14:20","14:20","12:00","16:10","13:01","15:20","14:20","12:30","10:24","09:40","07:25","08:32","15:36","15:31","07:59","11:13","17:12"],[1,1,1,1,1,3,1,1,1,1,2,2,2,3,2,2,3,2,1],["contact","contact","contact","contact","case","case","contact","contact","contact","contact","contact","case","contact","contact","contact","contact","case","contact","case"],[null,null,"No","No","No","Yes","Yes","No","Yes",null,"Yes","No","No","No","Yes","Yes","No","No","No"],[0.6666666666666666,0.6666666666666666,1,1,1,1,1,1,1,0.6666666666666666,1,1,1,1,1,1,1,1,1]],"container":"<table class=\"white-space: nowrap\">\n  <thead>\n    <tr>\n      <th>recordID<\/th>\n      <th>personID<\/th>\n      <th>name<\/th>\n      <th>date<\/th>\n      <th>time<\/th>\n      <th>encounter<\/th>\n      <th>purpose<\/th>\n      <th>symptoms_ever<\/th>\n      <th>key_completeness<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":5,"scrollX":true,"columnDefs":[{"className":"dt-right","targets":[0,1,5,8]},{"name":"recordID","targets":0},{"name":"personID","targets":1},{"name":"name","targets":2},{"name":"date","targets":3},{"name":"time","targets":4},{"name":"encounter","targets":5},{"name":"purpose","targets":6},{"name":"symptoms_ever","targets":7},{"name":"key_completeness","targets":8}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[5,10,25,50,100]},"selection":{"mode":"multiple","selected":null,"target":"row","selectable":null}},"evals":[],"jsHooks":[]}</script>
+<p>Xem <a href="deduplication.html#dedup_data">dữ liệu gốc</a>.</p>
 <!-- ======================================================= -->
 </div>
 </div>
 <div id="str_rollup" class="section level2" number="15.4">
-<h2>
-<span class="header-section-number">15.4</span> Gộp các giá trị<a class="anchor" aria-label="anchor" href="#str_rollup"><i class="fas fa-link"></i></a>
-</h2>
+<h2><span class="header-section-number">15.4</span> Gộp các giá trị</h2>
 <p>Phần này miêu tả:</p>
 <ol style="list-style-type: decimal">
-<li>Cách “gộp (roll-up)” các giá trị từ nhiều hàng chỉ thành một hàng, với một số biến thể<br>
+<li>Cách “gộp (roll-up)” các giá trị từ nhiều hàng chỉ thành một hàng, với một số biến thể<br />
 </li>
 <li>Khi bạn có các giá trị “đã được gộp”, cách để ghi đè/ưu tiên các giá trị trong mỗi ô</li>
 </ol>
 <p>Tab này sử dụng bộ dữ liệu mẫu từ tab Chuẩn bị.</p>
 <!-- ======================================================= -->
 <div id="gộp-các-giá-trị-thành-một-hàng" class="section level3 unnumbered">
-<h3>Gộp các giá trị thành một hàng<a class="anchor" aria-label="anchor" href="#g%E1%BB%99p-c%C3%A1c-gi%C3%A1-tr%E1%BB%8B-th%C3%A0nh-m%E1%BB%99t-h%C3%A0ng"><i class="fas fa-link"></i></a>
-</h3>
+<h3>Gộp các giá trị thành một hàng</h3>
 <p>Code ví dụ bên dưới sử dụng <code>group_by()</code> và <code>summarise()</code> để nhóm các hàng theo từng người, rồi dán (paste) tất cả các giá trị duy nhất trong các hàng được nhóm lại với nhau. Do đó, bạn nhận được một hàng tóm tắt cho mỗi người. Một số lưu ý:</p>
 <ul>
-<li>Một hậu tố được thêm vào tất cả các cột mới (“_roll” trong ví dụ này)<br>
+<li>Một hậu tố được thêm vào tất cả các cột mới (“_roll” trong ví dụ này)<br />
 </li>
-<li>Nếu bạn chỉ muốn hiển thị các giá trị duy nhất trên mỗi ô, thì hãy đặt <code><a href="https://rdrr.io/r/stats/na.fail.html">na.omit()</a></code> trong <code><a href="https://rdrr.io/r/base/unique.html">unique()</a></code><br>
+<li>Nếu bạn chỉ muốn hiển thị các giá trị duy nhất trên mỗi ô, thì hãy đặt <code>na.omit()</code> trong <code>unique()</code><br />
 </li>
-<li>
-<code><a href="https://rdrr.io/r/stats/na.fail.html">na.omit()</a></code> loại bỏ các giá trị <code>NA</code>, nhưng nếu đây là điều không mong muốn, nó có thể bị loại bỏ bởi <code><a href="https://rdrr.io/r/base/paste.html">paste0(.x)</a></code>…</li>
+<li><code>na.omit()</code> loại bỏ các giá trị <code>NA</code>, nhưng nếu đây là điều không mong muốn, nó có thể bị loại bỏ bởi <code>paste0(.x)</code>…</li>
 </ul>
-<div class="sourceCode" id="cb748"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># "Roll-up" values into one row per group (per "personID") </span>
-<span class="va">cases_rolled</span> <span class="op">&lt;-</span> <span class="va">obs</span> <span class="op">%&gt;%</span> 
-  
-  <span class="co"># create groups by name</span>
-  <span class="fu">group_by</span><span class="op">(</span><span class="va">personID</span><span class="op">)</span> <span class="op">%&gt;%</span> 
-  
-  <span class="co"># order the rows within each group (e.g. by date)</span>
-  <span class="fu">arrange</span><span class="op">(</span><span class="va">date</span>, .by_group <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">%&gt;%</span> 
-  
-  <span class="co"># For each column, paste together all values within the grouped rows, separated by ";"</span>
-  <span class="fu">summarise</span><span class="op">(</span>
-    <span class="fu">across</span><span class="op">(</span><span class="fu">everything</span><span class="op">(</span><span class="op">)</span>,                           <span class="co"># apply to all columns</span>
-           <span class="op">~</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/na.fail.html">na.omit</a></span><span class="op">(</span><span class="va">.x</span><span class="op">)</span>, collapse <span class="op">=</span> <span class="st">"; "</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="co"># function is defined which combines non-NA values</span></code></pre></div>
+<div class="sourceCode" id="cb753"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb753-1"><a href="deduplication.html#cb753-1" tabindex="-1"></a><span class="co"># &quot;Roll-up&quot; values into one row per group (per &quot;personID&quot;) </span></span>
+<span id="cb753-2"><a href="deduplication.html#cb753-2" tabindex="-1"></a>cases_rolled <span class="ot">&lt;-</span> obs <span class="sc">%&gt;%</span> </span>
+<span id="cb753-3"><a href="deduplication.html#cb753-3" tabindex="-1"></a>  </span>
+<span id="cb753-4"><a href="deduplication.html#cb753-4" tabindex="-1"></a>  <span class="co"># create groups by name</span></span>
+<span id="cb753-5"><a href="deduplication.html#cb753-5" tabindex="-1"></a>  <span class="fu">group_by</span>(personID) <span class="sc">%&gt;%</span> </span>
+<span id="cb753-6"><a href="deduplication.html#cb753-6" tabindex="-1"></a>  </span>
+<span id="cb753-7"><a href="deduplication.html#cb753-7" tabindex="-1"></a>  <span class="co"># order the rows within each group (e.g. by date)</span></span>
+<span id="cb753-8"><a href="deduplication.html#cb753-8" tabindex="-1"></a>  <span class="fu">arrange</span>(date, <span class="at">.by_group =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb753-9"><a href="deduplication.html#cb753-9" tabindex="-1"></a>  </span>
+<span id="cb753-10"><a href="deduplication.html#cb753-10" tabindex="-1"></a>  <span class="co"># For each column, paste together all values within the grouped rows, separated by &quot;;&quot;</span></span>
+<span id="cb753-11"><a href="deduplication.html#cb753-11" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb753-12"><a href="deduplication.html#cb753-12" tabindex="-1"></a>    <span class="fu">across</span>(<span class="fu">everything</span>(),                           <span class="co"># apply to all columns</span></span>
+<span id="cb753-13"><a href="deduplication.html#cb753-13" tabindex="-1"></a>           <span class="sc">~</span><span class="fu">paste0</span>(<span class="fu">na.omit</span>(.x), <span class="at">collapse =</span> <span class="st">&quot;; &quot;</span>))) <span class="co"># function is defined which combines non-NA values</span></span></code></pre></div>
 <p>Kết quả là một hàng cho mỗi nhóm (<code>ID</code>), với các mục đã nhập được sắp xếp theo ngày và được dán cùng nhau. <em>Cuộn sang trái để xem các hàng khác</em></p>
-<div id="htmlwidget-1b39e66a1fbdb6e46aed" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-1b39e66a1fbdb6e46aed">{"x":{"filter":"none","data":[[1,2,3,4,5,6,7,8],["1; 1; 11","2; 3; 10; 5","4; 12; 13","6; 14","7; 15; 16","8","9; 17","18"],["adam; adam; adam","amrish; amrish; amrish; amrish","mariah; mariah; mariah","nikhil; nikhil","brian; brian; brian","smita","raquel; raquel","natalie"],["2020-01-01; 2020-01-01; 2020-01-05","2020-01-02; 2020-01-02; 2020-01-02; 2020-01-05","2020-01-05; 2020-01-06; 2020-01-06","2020-01-05; 2020-01-06","2020-01-05; 2020-01-06; 2020-01-07","2020-01-05","2020-01-05; 2020-01-07","2020-01-07"],["09:00; 09:00; 09:40","14:20; 14:20; 10:24; 16:10","12:00; 07:25; 08:32","13:01; 15:36","15:20; 15:31; 07:59","14:20","12:30; 11:13","17:12"],["1; 1; 2","1; 1; 2; 3","1; 2; 3","1; 2","1; 2; 3","1","1; 2","1"],["contact; contact; case","contact; contact; contact; case","case; contact; contact","contact; contact","contact; contact; case","contact","contact; contact","case"],["No","No; No; Yes; Yes","No; No; No","Yes; Yes","No; Yes; No","Yes","No","No"]],"container":"<table class=\"white-space: nowrap\">\n  <thead>\n    <tr>\n      <th>personID<\/th>\n      <th>recordID<\/th>\n      <th>name<\/th>\n      <th>date<\/th>\n      <th>time<\/th>\n      <th>encounter<\/th>\n      <th>purpose<\/th>\n      <th>symptoms_ever<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":5,"scrollX":true,"columnDefs":[{"className":"dt-right","targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[5,10,25,50,100]}},"evals":[],"jsHooks":[]}</script><p>Xem <a href="deduplication.html#dedup_data">dữ liệu gốc</a>.</p>
+<div class="datatables html-widget html-fill-item" id="htmlwidget-af5aa9b00315441f0427" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-af5aa9b00315441f0427">{"x":{"filter":"none","vertical":false,"data":[[1,2,3,4,5,6,7,8],["1; 1; 11","2; 3; 10; 5","4; 12; 13","6; 14","7; 15; 16","8","9; 17","18"],["adam; adam; adam","amrish; amrish; amrish; amrish","mariah; mariah; mariah","nikhil; nikhil","brian; brian; brian","smita","raquel; raquel","natalie"],["2020-01-01; 2020-01-01; 2020-01-05","2020-01-02; 2020-01-02; 2020-01-02; 2020-01-05","2020-01-05; 2020-01-06; 2020-01-06","2020-01-05; 2020-01-06","2020-01-05; 2020-01-06; 2020-01-07","2020-01-05","2020-01-05; 2020-01-07","2020-01-07"],["09:00; 09:00; 09:40","14:20; 14:20; 10:24; 16:10","12:00; 07:25; 08:32","13:01; 15:36","15:20; 15:31; 07:59","14:20","12:30; 11:13","17:12"],["1; 1; 2","1; 1; 2; 3","1; 2; 3","1; 2","1; 2; 3","1","1; 2","1"],["contact; contact; case","contact; contact; contact; case","case; contact; contact","contact; contact","contact; contact; case","contact","contact; contact","case"],["No","No; No; Yes; Yes","No; No; No","Yes; Yes","No; Yes; No","Yes","No","No"]],"container":"<table class=\"white-space: nowrap\">\n  <thead>\n    <tr>\n      <th>personID<\/th>\n      <th>recordID<\/th>\n      <th>name<\/th>\n      <th>date<\/th>\n      <th>time<\/th>\n      <th>encounter<\/th>\n      <th>purpose<\/th>\n      <th>symptoms_ever<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":5,"scrollX":true,"columnDefs":[{"className":"dt-right","targets":0},{"name":"personID","targets":0},{"name":"recordID","targets":1},{"name":"name","targets":2},{"name":"date","targets":3},{"name":"time","targets":4},{"name":"encounter","targets":5},{"name":"purpose","targets":6},{"name":"symptoms_ever","targets":7}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[5,10,25,50,100]},"selection":{"mode":"multiple","selected":null,"target":"row","selectable":null}},"evals":[],"jsHooks":[]}</script>
+<p>Xem <a href="deduplication.html#dedup_data">dữ liệu gốc</a>.</p>
 <p><strong>Biến thể này chỉ hiển thị các giá trị duy nhất:</strong></p>
-<div class="sourceCode" id="cb749"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Variation - show unique values only </span>
-<span class="va">cases_rolled</span> <span class="op">&lt;-</span> <span class="va">obs</span> <span class="op">%&gt;%</span> 
-  <span class="fu">group_by</span><span class="op">(</span><span class="va">personID</span><span class="op">)</span> <span class="op">%&gt;%</span> 
-  <span class="fu">arrange</span><span class="op">(</span><span class="va">date</span>, .by_group <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">%&gt;%</span> 
-  <span class="fu">summarise</span><span class="op">(</span>
-    <span class="fu">across</span><span class="op">(</span><span class="fu">everything</span><span class="op">(</span><span class="op">)</span>,                                   <span class="co"># apply to all columns</span>
-           <span class="op">~</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/na.fail.html">na.omit</a></span><span class="op">(</span><span class="va">.x</span><span class="op">)</span><span class="op">)</span>, collapse <span class="op">=</span> <span class="st">"; "</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="co"># function is defined which combines unique non-NA values</span></code></pre></div>
-<div id="htmlwidget-fb94f4f722c9e69a8891" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-fb94f4f722c9e69a8891">{"x":{"filter":"none","data":[[1,2,3,4,5,6,7,8],["1; 11","2; 3; 10; 5","4; 12; 13","6; 14","7; 15; 16","8","9; 17","18"],["adam","amrish","mariah","nikhil","brian","smita","raquel","natalie"],["2020-01-01; 2020-01-05","2020-01-02; 2020-01-05","2020-01-05; 2020-01-06","2020-01-05; 2020-01-06","2020-01-05; 2020-01-06; 2020-01-07","2020-01-05","2020-01-05; 2020-01-07","2020-01-07"],["09:00; 09:40","14:20; 10:24; 16:10","12:00; 07:25; 08:32","13:01; 15:36","15:20; 15:31; 07:59","14:20","12:30; 11:13","17:12"],["1; 2","1; 2; 3","1; 2; 3","1; 2","1; 2; 3","1","1; 2","1"],["contact; case","contact; case","case; contact","contact","contact; case","contact","contact","case"],["No","No; Yes","No","Yes","No; Yes","Yes","No","No"]],"container":"<table class=\"white-space: nowrap\">\n  <thead>\n    <tr>\n      <th>personID<\/th>\n      <th>recordID<\/th>\n      <th>name<\/th>\n      <th>date<\/th>\n      <th>time<\/th>\n      <th>encounter<\/th>\n      <th>purpose<\/th>\n      <th>symptoms_ever<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":5,"scrollX":true,"columnDefs":[{"className":"dt-right","targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[5,10,25,50,100]}},"evals":[],"jsHooks":[]}</script><p><strong>Biến thể này thêm hậu tố vào mỗi cột.</strong><br>
+<div class="sourceCode" id="cb754"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb754-1"><a href="deduplication.html#cb754-1" tabindex="-1"></a><span class="co"># Variation - show unique values only </span></span>
+<span id="cb754-2"><a href="deduplication.html#cb754-2" tabindex="-1"></a>cases_rolled <span class="ot">&lt;-</span> obs <span class="sc">%&gt;%</span> </span>
+<span id="cb754-3"><a href="deduplication.html#cb754-3" tabindex="-1"></a>  <span class="fu">group_by</span>(personID) <span class="sc">%&gt;%</span> </span>
+<span id="cb754-4"><a href="deduplication.html#cb754-4" tabindex="-1"></a>  <span class="fu">arrange</span>(date, <span class="at">.by_group =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb754-5"><a href="deduplication.html#cb754-5" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb754-6"><a href="deduplication.html#cb754-6" tabindex="-1"></a>    <span class="fu">across</span>(<span class="fu">everything</span>(),                                   <span class="co"># apply to all columns</span></span>
+<span id="cb754-7"><a href="deduplication.html#cb754-7" tabindex="-1"></a>           <span class="sc">~</span><span class="fu">paste0</span>(<span class="fu">unique</span>(<span class="fu">na.omit</span>(.x)), <span class="at">collapse =</span> <span class="st">&quot;; &quot;</span>))) <span class="co"># function is defined which combines unique non-NA values</span></span></code></pre></div>
+<div class="datatables html-widget html-fill-item" id="htmlwidget-53b441b2fcbe4e6934f3" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-53b441b2fcbe4e6934f3">{"x":{"filter":"none","vertical":false,"data":[[1,2,3,4,5,6,7,8],["1; 11","2; 3; 10; 5","4; 12; 13","6; 14","7; 15; 16","8","9; 17","18"],["adam","amrish","mariah","nikhil","brian","smita","raquel","natalie"],["2020-01-01; 2020-01-05","2020-01-02; 2020-01-05","2020-01-05; 2020-01-06","2020-01-05; 2020-01-06","2020-01-05; 2020-01-06; 2020-01-07","2020-01-05","2020-01-05; 2020-01-07","2020-01-07"],["09:00; 09:40","14:20; 10:24; 16:10","12:00; 07:25; 08:32","13:01; 15:36","15:20; 15:31; 07:59","14:20","12:30; 11:13","17:12"],["1; 2","1; 2; 3","1; 2; 3","1; 2","1; 2; 3","1","1; 2","1"],["contact; case","contact; case","case; contact","contact","contact; case","contact","contact","case"],["No","No; Yes","No","Yes","No; Yes","Yes","No","No"]],"container":"<table class=\"white-space: nowrap\">\n  <thead>\n    <tr>\n      <th>personID<\/th>\n      <th>recordID<\/th>\n      <th>name<\/th>\n      <th>date<\/th>\n      <th>time<\/th>\n      <th>encounter<\/th>\n      <th>purpose<\/th>\n      <th>symptoms_ever<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":5,"scrollX":true,"columnDefs":[{"className":"dt-right","targets":0},{"name":"personID","targets":0},{"name":"recordID","targets":1},{"name":"name","targets":2},{"name":"date","targets":3},{"name":"time","targets":4},{"name":"encounter","targets":5},{"name":"purpose","targets":6},{"name":"symptoms_ever","targets":7}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[5,10,25,50,100]},"selection":{"mode":"multiple","selected":null,"target":"row","selectable":null}},"evals":[],"jsHooks":[]}</script>
+<p><strong>Biến thể này thêm hậu tố vào mỗi cột.</strong><br />
 Trong trường hợp này, “_roll” được dùng để biểu thị rằng nó đã được gộp:</p>
-<div class="sourceCode" id="cb750"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Variation - suffix added to column names </span>
-<span class="va">cases_rolled</span> <span class="op">&lt;-</span> <span class="va">obs</span> <span class="op">%&gt;%</span> 
-  <span class="fu">group_by</span><span class="op">(</span><span class="va">personID</span><span class="op">)</span> <span class="op">%&gt;%</span> 
-  <span class="fu">arrange</span><span class="op">(</span><span class="va">date</span>, .by_group <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">%&gt;%</span> 
-  <span class="fu">summarise</span><span class="op">(</span>
-    <span class="fu">across</span><span class="op">(</span><span class="fu">everything</span><span class="op">(</span><span class="op">)</span>,                
-           <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>roll <span class="op">=</span> <span class="op">~</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/na.fail.html">na.omit</a></span><span class="op">(</span><span class="va">.x</span><span class="op">)</span>, collapse <span class="op">=</span> <span class="st">"; "</span><span class="op">)</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="co"># _roll is appended to column names</span></code></pre></div>
-<div id="htmlwidget-fb9355349c1c71059e1c" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-fb9355349c1c71059e1c">{"x":{"filter":"none","data":[[1,2,3,4,5,6,7,8],["1; 1; 11","2; 3; 10; 5","4; 12; 13","6; 14","7; 15; 16","8","9; 17","18"],["adam; adam; adam","amrish; amrish; amrish; amrish","mariah; mariah; mariah","nikhil; nikhil","brian; brian; brian","smita","raquel; raquel","natalie"],["2020-01-01; 2020-01-01; 2020-01-05","2020-01-02; 2020-01-02; 2020-01-02; 2020-01-05","2020-01-05; 2020-01-06; 2020-01-06","2020-01-05; 2020-01-06","2020-01-05; 2020-01-06; 2020-01-07","2020-01-05","2020-01-05; 2020-01-07","2020-01-07"],["09:00; 09:00; 09:40","14:20; 14:20; 10:24; 16:10","12:00; 07:25; 08:32","13:01; 15:36","15:20; 15:31; 07:59","14:20","12:30; 11:13","17:12"],["1; 1; 2","1; 1; 2; 3","1; 2; 3","1; 2","1; 2; 3","1","1; 2","1"],["contact; contact; case","contact; contact; contact; case","case; contact; contact","contact; contact","contact; contact; case","contact","contact; contact","case"],["No","No; No; Yes; Yes","No; No; No","Yes; Yes","No; Yes; No","Yes","No","No"]],"container":"<table class=\"white-space: nowrap\">\n  <thead>\n    <tr>\n      <th>personID<\/th>\n      <th>recordID_roll<\/th>\n      <th>name_roll<\/th>\n      <th>date_roll<\/th>\n      <th>time_roll<\/th>\n      <th>encounter_roll<\/th>\n      <th>purpose_roll<\/th>\n      <th>symptoms_ever_roll<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":5,"scrollX":true,"columnDefs":[{"className":"dt-right","targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[5,10,25,50,100]}},"evals":[],"jsHooks":[]}</script><!-- ======================================================= -->
+<div class="sourceCode" id="cb755"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb755-1"><a href="deduplication.html#cb755-1" tabindex="-1"></a><span class="co"># Variation - suffix added to column names </span></span>
+<span id="cb755-2"><a href="deduplication.html#cb755-2" tabindex="-1"></a>cases_rolled <span class="ot">&lt;-</span> obs <span class="sc">%&gt;%</span> </span>
+<span id="cb755-3"><a href="deduplication.html#cb755-3" tabindex="-1"></a>  <span class="fu">group_by</span>(personID) <span class="sc">%&gt;%</span> </span>
+<span id="cb755-4"><a href="deduplication.html#cb755-4" tabindex="-1"></a>  <span class="fu">arrange</span>(date, <span class="at">.by_group =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb755-5"><a href="deduplication.html#cb755-5" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb755-6"><a href="deduplication.html#cb755-6" tabindex="-1"></a>    <span class="fu">across</span>(<span class="fu">everything</span>(),                </span>
+<span id="cb755-7"><a href="deduplication.html#cb755-7" tabindex="-1"></a>           <span class="fu">list</span>(<span class="at">roll =</span> <span class="sc">~</span><span class="fu">paste0</span>(<span class="fu">na.omit</span>(.x), <span class="at">collapse =</span> <span class="st">&quot;; &quot;</span>)))) <span class="co"># _roll is appended to column names</span></span></code></pre></div>
+<div class="datatables html-widget html-fill-item" id="htmlwidget-f68fd4fc0630595be24c" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-f68fd4fc0630595be24c">{"x":{"filter":"none","vertical":false,"data":[[1,2,3,4,5,6,7,8],["1; 1; 11","2; 3; 10; 5","4; 12; 13","6; 14","7; 15; 16","8","9; 17","18"],["adam; adam; adam","amrish; amrish; amrish; amrish","mariah; mariah; mariah","nikhil; nikhil","brian; brian; brian","smita","raquel; raquel","natalie"],["2020-01-01; 2020-01-01; 2020-01-05","2020-01-02; 2020-01-02; 2020-01-02; 2020-01-05","2020-01-05; 2020-01-06; 2020-01-06","2020-01-05; 2020-01-06","2020-01-05; 2020-01-06; 2020-01-07","2020-01-05","2020-01-05; 2020-01-07","2020-01-07"],["09:00; 09:00; 09:40","14:20; 14:20; 10:24; 16:10","12:00; 07:25; 08:32","13:01; 15:36","15:20; 15:31; 07:59","14:20","12:30; 11:13","17:12"],["1; 1; 2","1; 1; 2; 3","1; 2; 3","1; 2","1; 2; 3","1","1; 2","1"],["contact; contact; case","contact; contact; contact; case","case; contact; contact","contact; contact","contact; contact; case","contact","contact; contact","case"],["No","No; No; Yes; Yes","No; No; No","Yes; Yes","No; Yes; No","Yes","No","No"]],"container":"<table class=\"white-space: nowrap\">\n  <thead>\n    <tr>\n      <th>personID<\/th>\n      <th>recordID_roll<\/th>\n      <th>name_roll<\/th>\n      <th>date_roll<\/th>\n      <th>time_roll<\/th>\n      <th>encounter_roll<\/th>\n      <th>purpose_roll<\/th>\n      <th>symptoms_ever_roll<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":5,"scrollX":true,"columnDefs":[{"className":"dt-right","targets":0},{"name":"personID","targets":0},{"name":"recordID_roll","targets":1},{"name":"name_roll","targets":2},{"name":"date_roll","targets":3},{"name":"time_roll","targets":4},{"name":"encounter_roll","targets":5},{"name":"purpose_roll","targets":6},{"name":"symptoms_ever_roll","targets":7}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[5,10,25,50,100]},"selection":{"mode":"multiple","selected":null,"target":"row","selectable":null}},"evals":[],"jsHooks":[]}</script>
+<!-- ======================================================= -->
 </div>
 <div id="ghi-đè-các-giá-trịhệ-thống-phân-cấp" class="section level3 unnumbered">
-<h3>Ghi đè các giá trị/hệ thống phân cấp<a class="anchor" aria-label="anchor" href="#ghi-%C4%91%C3%A8-c%C3%A1c-gi%C3%A1-tr%E1%BB%8Bh%E1%BB%87-th%E1%BB%91ng-ph%C3%A2n-c%E1%BA%A5p"><i class="fas fa-link"></i></a>
-</h3>
+<h3>Ghi đè các giá trị/hệ thống phân cấp</h3>
 <p>Sau đó, nếu bạn muốn đánh giá tất cả các giá trị đã gộp và chỉ giữ một giá trị cụ thể (ví dụ: giá trị “tốt nhất (best)” hoặc “tối đa (maximum)”), bạn có thể sử dụng hàm <code>mutate()</code> trên các cột mong muốn, để triển khai các điều kiện rẽ nhánh với <code>case_when()</code> và <code>str_detect()</code> từ package <strong>stringr</strong> để tìm kiếm tuần tự các mẫu chuỗi và ghi đè nội dung ô.</p>
-<div class="sourceCode" id="cb751"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># CLEAN CASES</span>
-<span class="co">#############</span>
-<span class="va">cases_clean</span> <span class="op">&lt;-</span> <span class="va">cases_rolled</span> <span class="op">%&gt;%</span> 
-    
-    <span class="co"># clean Yes-No-Unknown vars: replace text with "highest" value present in the string</span>
-    <span class="fu">mutate</span><span class="op">(</span><span class="fu">across</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fu">contains</span><span class="op">(</span><span class="st">"symptoms_ever"</span><span class="op">)</span><span class="op">)</span>,                     <span class="co"># operates on specified columns (Y/N/U)</span>
-             <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>mod <span class="op">=</span> <span class="op">~</span><span class="fu">case_when</span><span class="op">(</span>                                 <span class="co"># adds suffix "_mod" to new cols; implements case_when()</span>
-               
-               <span class="fu">str_detect</span><span class="op">(</span><span class="va">.x</span>, <span class="st">"Yes"</span><span class="op">)</span>       <span class="op">~</span> <span class="st">"Yes"</span>,                 <span class="co"># if "Yes" is detected, then cell value converts to yes</span>
-               <span class="fu">str_detect</span><span class="op">(</span><span class="va">.x</span>, <span class="st">"No"</span><span class="op">)</span>        <span class="op">~</span> <span class="st">"No"</span>,                  <span class="co"># then, if "No" is detected, then cell value converts to no</span>
-               <span class="fu">str_detect</span><span class="op">(</span><span class="va">.x</span>, <span class="st">"Unknown"</span><span class="op">)</span>   <span class="op">~</span> <span class="st">"Unknown"</span>,             <span class="co"># then, if "Unknown" is detected, then cell value converts to Unknown</span>
-               <span class="cn">TRUE</span>                        <span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/base/character.html">as.character</a></span><span class="op">(</span><span class="va">.x</span><span class="op">)</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>,   <span class="co"># then, if anything else if it kept as is</span>
-      .keep <span class="op">=</span> <span class="st">"unused"</span><span class="op">)</span>                                             <span class="co"># old columns removed, leaving only _mod columns</span></code></pre></div>
+<div class="sourceCode" id="cb756"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb756-1"><a href="deduplication.html#cb756-1" tabindex="-1"></a><span class="co"># CLEAN CASES</span></span>
+<span id="cb756-2"><a href="deduplication.html#cb756-2" tabindex="-1"></a><span class="do">#############</span></span>
+<span id="cb756-3"><a href="deduplication.html#cb756-3" tabindex="-1"></a>cases_clean <span class="ot">&lt;-</span> cases_rolled <span class="sc">%&gt;%</span> </span>
+<span id="cb756-4"><a href="deduplication.html#cb756-4" tabindex="-1"></a>    </span>
+<span id="cb756-5"><a href="deduplication.html#cb756-5" tabindex="-1"></a>    <span class="co"># clean Yes-No-Unknown vars: replace text with &quot;highest&quot; value present in the string</span></span>
+<span id="cb756-6"><a href="deduplication.html#cb756-6" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">c</span>(<span class="fu">contains</span>(<span class="st">&quot;symptoms_ever&quot;</span>)),                     <span class="co"># operates on specified columns (Y/N/U)</span></span>
+<span id="cb756-7"><a href="deduplication.html#cb756-7" tabindex="-1"></a>             <span class="fu">list</span>(<span class="at">mod =</span> <span class="sc">~</span><span class="fu">case_when</span>(                                 <span class="co"># adds suffix &quot;_mod&quot; to new cols; implements case_when()</span></span>
+<span id="cb756-8"><a href="deduplication.html#cb756-8" tabindex="-1"></a>               </span>
+<span id="cb756-9"><a href="deduplication.html#cb756-9" tabindex="-1"></a>               <span class="fu">str_detect</span>(.x, <span class="st">&quot;Yes&quot;</span>)       <span class="sc">~</span> <span class="st">&quot;Yes&quot;</span>,                 <span class="co"># if &quot;Yes&quot; is detected, then cell value converts to yes</span></span>
+<span id="cb756-10"><a href="deduplication.html#cb756-10" tabindex="-1"></a>               <span class="fu">str_detect</span>(.x, <span class="st">&quot;No&quot;</span>)        <span class="sc">~</span> <span class="st">&quot;No&quot;</span>,                  <span class="co"># then, if &quot;No&quot; is detected, then cell value converts to no</span></span>
+<span id="cb756-11"><a href="deduplication.html#cb756-11" tabindex="-1"></a>               <span class="fu">str_detect</span>(.x, <span class="st">&quot;Unknown&quot;</span>)   <span class="sc">~</span> <span class="st">&quot;Unknown&quot;</span>,             <span class="co"># then, if &quot;Unknown&quot; is detected, then cell value converts to Unknown</span></span>
+<span id="cb756-12"><a href="deduplication.html#cb756-12" tabindex="-1"></a>               <span class="cn">TRUE</span>                        <span class="sc">~</span> <span class="fu">as.character</span>(.x)))),   <span class="co"># then, if anything else if it kept as is</span></span>
+<span id="cb756-13"><a href="deduplication.html#cb756-13" tabindex="-1"></a>      <span class="at">.keep =</span> <span class="st">&quot;unused&quot;</span>)                                             <span class="co"># old columns removed, leaving only _mod columns</span></span></code></pre></div>
 <p>Bây giờ bạn có thể thấy trong cột <code>symptoms_ever</code> rằng nếu người đó TỪNG trả lời “Yes” với các triệu chứng, thì chỉ “Yes” được hiển thị.</p>
-<div id="htmlwidget-25cb65b3880dd698e76f" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-25cb65b3880dd698e76f">{"x":{"filter":"none","data":[[1,2,3,4,5,6,7,8],["1; 11","2; 3; 10; 5","4; 12; 13","6; 14","7; 15; 16","8","9; 17","18"],["adam","amrish","mariah","nikhil","brian","smita","raquel","natalie"],["2020-01-01; 2020-01-05","2020-01-02; 2020-01-05","2020-01-05; 2020-01-06","2020-01-05; 2020-01-06","2020-01-05; 2020-01-06; 2020-01-07","2020-01-05","2020-01-05; 2020-01-07","2020-01-07"],["09:00; 09:40","14:20; 10:24; 16:10","12:00; 07:25; 08:32","13:01; 15:36","15:20; 15:31; 07:59","14:20","12:30; 11:13","17:12"],["1; 2","1; 2; 3","1; 2; 3","1; 2","1; 2; 3","1","1; 2","1"],["contact; case","contact; case","case; contact","contact","contact; case","contact","contact","case"],["No","Yes","No","Yes","Yes","Yes","No","No"]],"container":"<table class=\"white-space: nowrap\">\n  <thead>\n    <tr>\n      <th>personID<\/th>\n      <th>recordID<\/th>\n      <th>name<\/th>\n      <th>date<\/th>\n      <th>time<\/th>\n      <th>encounter<\/th>\n      <th>purpose<\/th>\n      <th>symptoms_ever_mod<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":10,"scrollX":true,"columnDefs":[{"className":"dt-right","targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script><p>Xem <a href="deduplication.html#dedup_data">dữ liệu gốc</a>.</p>
+<div class="datatables html-widget html-fill-item" id="htmlwidget-f8889105c27dc7288c6f" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-f8889105c27dc7288c6f">{"x":{"filter":"none","vertical":false,"data":[[1,2,3,4,5,6,7,8],["1; 11","2; 3; 10; 5","4; 12; 13","6; 14","7; 15; 16","8","9; 17","18"],["adam","amrish","mariah","nikhil","brian","smita","raquel","natalie"],["2020-01-01; 2020-01-05","2020-01-02; 2020-01-05","2020-01-05; 2020-01-06","2020-01-05; 2020-01-06","2020-01-05; 2020-01-06; 2020-01-07","2020-01-05","2020-01-05; 2020-01-07","2020-01-07"],["09:00; 09:40","14:20; 10:24; 16:10","12:00; 07:25; 08:32","13:01; 15:36","15:20; 15:31; 07:59","14:20","12:30; 11:13","17:12"],["1; 2","1; 2; 3","1; 2; 3","1; 2","1; 2; 3","1","1; 2","1"],["contact; case","contact; case","case; contact","contact","contact; case","contact","contact","case"],["No","Yes","No","Yes","Yes","Yes","No","No"]],"container":"<table class=\"white-space: nowrap\">\n  <thead>\n    <tr>\n      <th>personID<\/th>\n      <th>recordID<\/th>\n      <th>name<\/th>\n      <th>date<\/th>\n      <th>time<\/th>\n      <th>encounter<\/th>\n      <th>purpose<\/th>\n      <th>symptoms_ever_mod<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":10,"scrollX":true,"columnDefs":[{"className":"dt-right","targets":0},{"name":"personID","targets":0},{"name":"recordID","targets":1},{"name":"name","targets":2},{"name":"date","targets":3},{"name":"time","targets":4},{"name":"encounter","targets":5},{"name":"purpose","targets":6},{"name":"symptoms_ever_mod","targets":7}],"order":[],"autoWidth":false,"orderClasses":false},"selection":{"mode":"multiple","selected":null,"target":"row","selectable":null}},"evals":[],"jsHooks":[]}</script>
+<p>Xem <a href="deduplication.html#dedup_data">dữ liệu gốc</a>.</p>
 </div>
 </div>
 <div id="loại-bỏ-trùng-lặp-theo-xác-suất-1" class="section level2" number="15.5">
-<h2>
-<span class="header-section-number">15.5</span> Loại bỏ trùng lặp theo xác suất<a class="anchor" aria-label="anchor" href="#lo%E1%BA%A1i-b%E1%BB%8F-tr%C3%B9ng-l%E1%BA%B7p-theo-x%C3%A1c-su%E1%BA%A5t-1"><i class="fas fa-link"></i></a>
-</h2>
+<h2><span class="header-section-number">15.5</span> Loại bỏ trùng lặp theo xác suất</h2>
 <p>Đôi khi, bạn có thể muốn xác định các bản trùng lặp “có khả năng xảy ra” dựa trên sự tương đồng (ví dụ: chuỗi “distance (khoảng cách)”) trên một số cột như name (tên), age (tuổi), sex (giới tính), date of birth (ngày sinh), v.v. Bạn có thể áp dụng thuật toán so khớp theo xác suất để xác định các bản trùng lặp có khả năng xảy ra.</p>
 <p>Xem chương <a href="joining-matching.html#joining-matching">Nối dữ liệu</a> để được giải thích về phương pháp này. Mục So sánh theo xác suất chứa một ví dụ về việc áp dụng các thuật toán này để so sánh một data frame với <em>chính nó</em>, do đó thực hiện loại bỏ trùng lặp theo xác suất.</p>
 <!-- ======================================================= -->
 </div>
 <div id="tài-nguyên-học-liệu-3" class="section level2" number="15.6">
-<h2>
-<span class="header-section-number">15.6</span> Tài nguyên học liệu<a class="anchor" aria-label="anchor" href="#t%C3%A0i-nguy%C3%AAn-h%E1%BB%8Dc-li%E1%BB%87u-3"><i class="fas fa-link"></i></a>
-</h2>
+<h2><span class="header-section-number">15.6</span> Tài nguyên học liệu</h2>
 <p>Phần lớn thông tin trong chương này được điều chỉnh từ các tài nguyên và vignette trực tuyến sau:</p>
 <p><a href="https://www.datanovia.com/en/lessons/identify-and-remove-duplicate-data-in-r/">datanovia</a></p>
 <p><a href="https://dplyr.tidyverse.org/reference/slice.html">dplyr tidyverse reference</a></p>
@@ -559,59 +599,30 @@ Trong trường hợp này, “_roll” được dùng để biểu thị rằng
 
 </div>
 </div>
-  <div class="chapter-nav">
-<div class="prev"><a href="joining-matching.html"><span class="header-section-number">14</span> Nối dữ liệu</a></div>
-<div class="next"><a href="iteration.html"><span class="header-section-number">16</span> Lặp, vòng lặp, và danh sách</a></div>
-</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
-    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
-      <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#deduplication"><span class="header-section-number">15</span> Loại bỏ trùng lặp</a></li>
-<li>
-<a class="nav-link" href="#chu%E1%BA%A9n-b%E1%BB%8B-6"><span class="header-section-number">15.1</span> Chuẩn bị</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#g%E1%BB%8Di-package-4">Gọi package</a></li>
-<li><a class="nav-link" href="#nh%E1%BA%ADp-d%E1%BB%AF-li%E1%BB%87u-8">Nhập dữ liệu</a></li>
-</ul>
-</li>
-<li>
-<a class="nav-link" href="#lo%E1%BA%A1i-b%E1%BB%8F-tr%C3%B9ng-l%E1%BA%B7p-1"><span class="header-section-number">15.2</span> Loại bỏ trùng lặp</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#ki%E1%BB%83m-tra-h%C3%A0ng-tr%C3%B9ng-l%E1%BA%B7p">Kiểm tra hàng trùng lặp</a></li>
-<li><a class="nav-link" href="#ch%E1%BB%89-gi%E1%BB%AF-l%E1%BA%A1i-c%C3%A1c-h%C3%A0ng-duy-nh%E1%BA%A5t">Chỉ giữ lại các hàng duy nhất</a></li>
-<li><a class="nav-link" href="#lo%E1%BA%A1i-b%E1%BB%8F-ph%E1%BA%A7n-t%E1%BB%AD-tr%C3%B9ng-l%E1%BA%B7p-trong-m%E1%BB%99t-vect%C6%A1">Loại bỏ phần tử trùng lặp trong một vectơ</a></li>
-<li><a class="nav-link" href="#s%E1%BB%AD-d%E1%BB%A5ng-base-r-1">Sử dụng base R</a></li>
-</ul>
-</li>
-<li>
-<a class="nav-link" href="#c%E1%BA%AFt-d%C3%B2ng"><span class="header-section-number">15.3</span> Cắt dòng</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#c%E1%BA%AFt-theo-nh%C3%B3m">Cắt theo nhóm</a></li>
-<li><a class="nav-link" href="#gi%E1%BB%AF-l%E1%BA%A1i-t%E1%BA%A5t-c%E1%BA%A3-nh%C6%B0ng-%C4%91%C3%A1nh-d%E1%BA%A5u-c%C3%A1c-d%C3%B2ng">Giữ lại tất cả nhưng đánh dấu các dòng</a></li>
-<li><a class="nav-link" href="#t%C3%ADnh-to%C3%A1n-%C4%91%E1%BB%99-ho%C3%A0n-ch%E1%BB%89nh-c%E1%BB%A7a-h%C3%A0ng">Tính toán độ hoàn chỉnh của hàng</a></li>
-</ul>
-</li>
-<li>
-<a class="nav-link" href="#str_rollup"><span class="header-section-number">15.4</span> Gộp các giá trị</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#g%E1%BB%99p-c%C3%A1c-gi%C3%A1-tr%E1%BB%8B-th%C3%A0nh-m%E1%BB%99t-h%C3%A0ng">Gộp các giá trị thành một hàng</a></li>
-<li><a class="nav-link" href="#ghi-%C4%91%C3%A8-c%C3%A1c-gi%C3%A1-tr%E1%BB%8Bh%E1%BB%87-th%E1%BB%91ng-ph%C3%A2n-c%E1%BA%A5p">Ghi đè các giá trị/hệ thống phân cấp</a></li>
-</ul>
-</li>
-<li><a class="nav-link" href="#lo%E1%BA%A1i-b%E1%BB%8F-tr%C3%B9ng-l%E1%BA%B7p-theo-x%C3%A1c-su%E1%BA%A5t-1"><span class="header-section-number">15.5</span> Loại bỏ trùng lặp theo xác suất</a></li>
-<li><a class="nav-link" href="#t%C3%A0i-nguy%C3%AAn-h%E1%BB%8Dc-li%E1%BB%87u-3"><span class="header-section-number">15.6</span> Tài nguyên học liệu</a></li>
-</ul>
+  </main>
+
+  <div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page">
+      <h2>On this page</h2>
+      <div id="book-on-this-page"></div>
 
       <div class="book-extra">
         <ul class="list-unstyled">
-          
+          <li><a id="book-source" href="#">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="#">Edit this page <i class="fab fa-github"></i></a></li>
         </ul>
-</div>
+      </div>
     </nav>
-</div>
+  </div>
 
 </div>
 </div> <!-- .container -->
 
-<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+<footer class="bg-primary text-light mt-5">
+  <div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Cẩm nang dịch tễ học với R</strong>" was written by the handbook team. It was last built on 2021-11-01.</p>
+    <p>"<strong>Cẩm nang dịch tễ học với R</strong>" was written by the handbook team. It was last built on 2024-02-16.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
@@ -619,12 +630,16 @@ Trong trường hợp này, “_roll” được dùng để biểu thị rằng
   </div>
 
 </div></div>
-</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+</footer>
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');
@@ -632,5 +647,23 @@ Trong trường hợp này, “_roll” được dùng để biểu thị rằng
     document.getElementsByTagName("head")[0].appendChild(script);
   })();
 </script>
+<script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
 </body>
+
 </html>

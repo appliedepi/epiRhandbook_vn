@@ -1,43 +1,153 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>41 Tổ chức báo cáo định kỳ | Cẩm nang dịch tễ học với R</title>
-<meta name="author" content="the handbook team">
-<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.2"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.5.1/tabs.js"></script><script src="libs/bs3compat-0.2.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
-<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/htmlwidgets-1.5.3/htmlwidgets.js"></script><link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet">
-<script src="libs/datatables-binding-0.16/datatables.js"></script><link href="libs/dt-core-1.10.20/css/jquery.dataTables.min.css" rel="stylesheet">
-<link href="libs/dt-core-1.10.20/css/jquery.dataTables.extra.css" rel="stylesheet">
-<script src="libs/dt-core-1.10.20/js/jquery.dataTables.min.js"></script><link href="libs/nouislider-7.0.10/jquery.nouislider.min.css" rel="stylesheet">
-<script src="libs/nouislider-7.0.10/jquery.nouislider.min.js"></script><link href="libs/selectize-0.12.0/selectize.bootstrap3.css" rel="stylesheet">
-<script src="libs/selectize-0.12.0/selectize.min.js"></script><link href="libs/crosstalk-1.1.1/css/crosstalk.css" rel="stylesheet">
-<script src="libs/crosstalk-1.1.1/js/crosstalk.min.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
-<link href="libs/tabwid-1.0.0/tabwid.css" rel="stylesheet">
-<script src="libs/tabwid-1.0.0/tabwid.js"></script><link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet">
-<script src="libs/leaflet-1.3.1/leaflet.js"></script><link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet">
-<script src="libs/Proj4Leaflet-1.0.1/proj4-compressed.js"></script><script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script><link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet">
-<script src="libs/leaflet-binding-2.0.3/leaflet.js"></script><script src="libs/leaflet-providers-1.9.0/leaflet-providers_1.9.0.js"></script><script src="libs/leaflet-providers-plugin-2.0.3/leaflet-providers-plugin.js"></script><script src="libs/viz-1.8.2/viz.js"></script><link href="libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet">
-<script src="libs/grViz-binding-1.0.6.1/grViz.js"></script><script src="libs/d3-4.5.0/d3.min.js"></script><script src="libs/sankey-1/sankey.js"></script><script src="libs/sankeyNetwork-binding-0.4/sankeyNetwork.js"></script><script src="libs/plotly-binding-4.9.2.1/plotly.js"></script><script src="libs/typedarray-0.1/typedarray.min.js"></script><link href="libs/plotly-htmlwidgets-css-1.52.2/plotly-htmlwidgets.css" rel="stylesheet">
-<script src="libs/plotly-main-1.52.2/plotly-latest.min.js"></script><link href="libs/vis-4.20.1/vis.css" rel="stylesheet">
-<script src="libs/vis-4.20.1/vis.min.js"></script><script src="libs/visNetwork-binding-2.0.9/visNetwork.js"></script><link href="libs/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet">
-<script src="libs/plotly-basic-1.52.2/plotly-basic-1.52.2.min.js"></script><script src="libs/plotly-cartesian-1.52.2/plotly-cartesian-1.52.2.min.js"></script><script src="libs/proj4js-2.3.15/proj4.js"></script><link href="libs/highcharts-8.1.2/css/motion.css" rel="stylesheet">
-<script src="libs/highcharts-8.1.2/highcharts.js"></script><script src="libs/highcharts-8.1.2/highcharts-3d.js"></script><script src="libs/highcharts-8.1.2/highcharts-more.js"></script><script src="libs/highcharts-8.1.2/modules/stock.js"></script><script src="libs/highcharts-8.1.2/modules/map.js"></script><script src="libs/highcharts-8.1.2/modules/annotations.js"></script><script src="libs/highcharts-8.1.2/modules/data.js"></script><script src="libs/highcharts-8.1.2/modules/drilldown.js"></script><script src="libs/highcharts-8.1.2/modules/item-series.js"></script><script src="libs/highcharts-8.1.2/modules/offline-exporting.js"></script><script src="libs/highcharts-8.1.2/modules/overlapping-datalabels.js"></script><script src="libs/highcharts-8.1.2/modules/exporting.js"></script><script src="libs/highcharts-8.1.2/modules/export-data.js"></script><script src="libs/highcharts-8.1.2/modules/funnel.js"></script><script src="libs/highcharts-8.1.2/modules/heatmap.js"></script><script src="libs/highcharts-8.1.2/modules/treemap.js"></script><script src="libs/highcharts-8.1.2/modules/sankey.js"></script><script src="libs/highcharts-8.1.2/modules/dependency-wheel.js"></script><script src="libs/highcharts-8.1.2/modules/organization.js"></script><script src="libs/highcharts-8.1.2/modules/solid-gauge.js"></script><script src="libs/highcharts-8.1.2/modules/streamgraph.js"></script><script src="libs/highcharts-8.1.2/modules/sunburst.js"></script><script src="libs/highcharts-8.1.2/modules/vector.js"></script><script src="libs/highcharts-8.1.2/modules/wordcloud.js"></script><script src="libs/highcharts-8.1.2/modules/xrange.js"></script><script src="libs/highcharts-8.1.2/modules/tilemap.js"></script><script src="libs/highcharts-8.1.2/modules/venn.js"></script><script src="libs/highcharts-8.1.2/modules/gantt.js"></script><script src="libs/highcharts-8.1.2/modules/timeline.js"></script><script src="libs/highcharts-8.1.2/modules/parallel-coordinates.js"></script><script src="libs/highcharts-8.1.2/modules/bullet.js"></script><script src="libs/highcharts-8.1.2/modules/coloraxis.js"></script><script src="libs/highcharts-8.1.2/modules/dumbbell.js"></script><script src="libs/highcharts-8.1.2/modules/lollipop.js"></script><script src="libs/highcharts-8.1.2/modules/series-label.js"></script><script src="libs/highcharts-8.1.2/plugins/motion.js"></script><script src="libs/highcharts-8.1.2/custom/reset.js"></script><script src="libs/highcharts-8.1.2/modules/boost.js"></script><script src="libs/highchart-binding-0.8.2/highchart.js"></script><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=G-QXDW878QLX"></script><script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>41 Tổ chức báo cáo định kỳ | Cẩm nang dịch tễ học với R</title>
+
+    <meta name="author" content="the handbook team" />
+  
+   <meta name="description" content="The Epi R Handbook is a R reference manual for applied epidemiology and public health." />
+   <meta name="generator" content="placeholder" />
+  <meta property="og:title" content="41 Tổ chức báo cáo định kỳ | Cẩm nang dịch tễ học với R" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="The Epi R Handbook is a R reference manual for applied epidemiology and public health." />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="41 Tổ chức báo cáo định kỳ | Cẩm nang dịch tễ học với R" />
+  
+  <meta name="twitter:description" content="The Epi R Handbook is a R reference manual for applied epidemiology and public health." />
+  
+  <!-- JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script>
+    <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet" />
+    <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script>
+    <script src="libs/bs3compat-0.6.1/transition.js"></script>
+    <script src="libs/bs3compat-0.6.1/tabs.js"></script>
+    <script src="libs/bs3compat-0.6.1/bs3compat.js"></script>
+    <link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet" />
+    <script src="libs/bs4_book-1.0.0/bs4_book.js"></script>
+    <script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+    <link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+    <script src="libs/datatables-binding-0.31/datatables.js"></script>
+    <link href="libs/dt-core-1.13.6/css/jquery.dataTables.min.css" rel="stylesheet" />
+    <link href="libs/dt-core-1.13.6/css/jquery.dataTables.extra.css" rel="stylesheet" />
+    <script src="libs/dt-core-1.13.6/js/jquery.dataTables.min.js"></script>
+    <link href="libs/nouislider-7.0.10/jquery.nouislider.min.css" rel="stylesheet" />
+    <script src="libs/nouislider-7.0.10/jquery.nouislider.min.js"></script>
+    <link href="libs/selectize-0.12.0/selectize.bootstrap3.css" rel="stylesheet" />
+    <script src="libs/selectize-0.12.0/selectize.min.js"></script>
+    <link href="libs/crosstalk-1.2.1/css/crosstalk.min.css" rel="stylesheet" />
+    <script src="libs/crosstalk-1.2.1/js/crosstalk.min.js"></script>
+    <script src="libs/kePrint-0.0.1/kePrint.js"></script>
+    <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+    <link href="libs/tabwid-1.1.3/tabwid.css" rel="stylesheet" />
+    <script src="libs/tabwid-1.1.3/tabwid.js"></script>
+    <link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet" />
+    <script src="libs/leaflet-1.3.1/leaflet.js"></script>
+    <link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
+    <script src="libs/proj4-2.6.2/proj4.min.js"></script>
+    <script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
+    <link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
+    <script src="libs/leaflet-binding-2.2.1/leaflet.js"></script>
+    <script src="libs/leaflet-providers-2.0.0/leaflet-providers_2.0.0.js"></script>
+    <script src="libs/leaflet-providers-plugin-2.2.1/leaflet-providers-plugin.js"></script>
+    <script src="libs/viz-1.8.2/viz.js"></script>
+    <link href="libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet" />
+    <script src="libs/grViz-binding-1.0.11/grViz.js"></script>
+    <script src="libs/d3-4.5.0/d3.min.js"></script>
+    <script src="libs/sankey-1/sankey.js"></script>
+    <script src="libs/sankeyNetwork-binding-0.4/sankeyNetwork.js"></script>
+    <script src="libs/plotly-binding-4.10.4/plotly.js"></script>
+    <script src="libs/typedarray-0.1/typedarray.min.js"></script>
+    <link href="libs/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet" />
+    <script src="libs/plotly-main-2.11.1/plotly-latest.min.js"></script>
+    <link href="libs/vis-9.1.0/vis-network.min.css" rel="stylesheet" />
+    <script src="libs/vis-9.1.0/vis-network.min.js"></script>
+    <script src="libs/visNetwork-binding-2.1.2/visNetwork.js"></script>
+    <link href="libs/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <script src="libs/plotly-basic-2.11.1/plotly-basic-2.11.1.min.js"></script>
+    <script src="libs/plotly-cartesian-2.11.1/plotly-cartesian-2.11.1.min.js"></script>
+    <script src="libs/proj4js-2.3.15/proj4.js"></script>
+    <link href="libs/highcharts-9.3.1/css/motion.css" rel="stylesheet" />
+    <script src="libs/highcharts-9.3.1/highcharts.js"></script>
+    <script src="libs/highcharts-9.3.1/highcharts-3d.js"></script>
+    <script src="libs/highcharts-9.3.1/highcharts-more.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/stock.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/map.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/data.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/exporting.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/offline-exporting.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/drilldown.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/item-series.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/overlapping-datalabels.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/annotations.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/export-data.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/funnel.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/heatmap.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/treemap.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/sankey.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/dependency-wheel.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/organization.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/solid-gauge.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/streamgraph.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/sunburst.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/vector.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/wordcloud.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/xrange.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/tilemap.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/venn.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/gantt.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/timeline.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/parallel-coordinates.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/bullet.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/coloraxis.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/dumbbell.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/lollipop.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/series-label.js"></script>
+    <script src="libs/highcharts-9.3.1/plugins/motion.js"></script>
+    <script src="libs/highcharts-9.3.1/custom/reset.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/boost.js"></script>
+    <script src="libs/highchart-binding-0.9.4/highchart.js"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QXDW878QLX"></script>
+    <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
 
       gtag('config', 'G-QXDW878QLX');
-    </script><script src="https://cdn.jsdelivr.net/autocomplete.js/0/autocomplete.jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/mark.js@8.11.1/dist/mark.min.js"></script><!-- CSS --><link rel="stylesheet" href="style_bs4.css">
+    </script>
+
+    <div class="alert alert-info alert-dismissible">
+      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+      <strong>Bạn cần trợ giúp khi học R?</strong> Hãy tham gia <a href="https://www.appliedepi.org/live/" class="alert-link">khóa học</a>, trải nghiệm <a href="https://www.appliedepi.org/tutorial/" class="alert-link">các học phần miễn phí</a>, gửi bài viết <a href="https://community.appliedepi.org/" class="alert-link">trên trang Cộng đồng</a>, hoặc liên hệ <a href="mailto:contact@appliedepi.org" class="alert-link">dịch vụ hỗ trợ của chúng tôi</a>.
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script>
+
+  <!-- CSS -->
+  <style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+      <link rel="stylesheet" href="style_bs4.css" />
+  
 </head>
+
 <body data-spy="scroll" data-target="#toc">
 
 <div class="container-fluid">
 <div class="row">
-  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book">
+    <a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
 
     <div class="d-flex align-items-start justify-content-between">
       <h1>
@@ -49,359 +159,235 @@
     <div id="main-nav" class="collapse-lg">
       <form role="search">
         <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
-</form>
+      </form>
 
-      <nav aria-label="Table of contents"><h2>Table of contents</h2>
-        <ul class="book-toc list-unstyled">
-<li><a class="" href="index.html"></a></li>
-<li class="book-part">Về cuốn sách này</li>
-<li><a class="" href="editorial-style.html"><span class="header-section-number">1</span> Biên tập và ghi chú kỹ thuật</a></li>
-<li><a class="" href="data-used.html"><span class="header-section-number">2</span> Tải sách và dữ liệu</a></li>
-<li class="book-part">Nhập môn về R</li>
-<li><a class="" href="basics.html"><span class="header-section-number">3</span> R Cơ bản</a></li>
-<li><a class="" href="transition-to-R.html"><span class="header-section-number">4</span> Chuyển đổi sang R</a></li>
-<li><a class="" href="packages-suggested.html"><span class="header-section-number">5</span> Package đề xuất</a></li>
-<li><a class="" href="r-projects.html"><span class="header-section-number">6</span> Dự án R</a></li>
-<li><a class="" href="importing.html"><span class="header-section-number">7</span> Nhập xuất dữ liệu</a></li>
-<li class="book-part">Quản lý dữ liệu</li>
-<li><a class="" href="cleaning.html"><span class="header-section-number">8</span> Làm sạch số liệu và các hàm quan trọng</a></li>
-<li><a class="" href="dates.html"><span class="header-section-number">9</span> Làm việc với ngày tháng</a></li>
-<li><a class="" href="characters-strings.html"><span class="header-section-number">10</span> Ký tự và chuỗi</a></li>
-<li><a class="" href="factors.html"><span class="header-section-number">11</span> Factors</a></li>
-<li><a class="" href="pivoting.html"><span class="header-section-number">12</span> Xoay trục dữ liệu</a></li>
-<li><a class="" href="grouping.html"><span class="header-section-number">13</span> Nhóm dữ liệu</a></li>
-<li><a class="" href="joining-matching.html"><span class="header-section-number">14</span> Nối dữ liệu</a></li>
-<li><a class="" href="deduplication.html"><span class="header-section-number">15</span> Loại bỏ trùng lặp</a></li>
-<li><a class="" href="iteration.html"><span class="header-section-number">16</span> Lặp, vòng lặp, và danh sách</a></li>
-<li class="book-part">Phân tích dữ liệu</li>
-<li><a class="" href="tables-descriptive.html"><span class="header-section-number">17</span> Bảng mô tả</a></li>
-<li><a class="" href="stat-tests.html"><span class="header-section-number">18</span> Các kiểm định thống kê cơ bản</a></li>
-<li><a class="" href="regression.html"><span class="header-section-number">19</span> Hồi quy đơn và đa biến</a></li>
-<li><a class="" href="missing-data.html"><span class="header-section-number">20</span> Dữ liệu Missing</a></li>
-<li><a class="" href="standardization.html"><span class="header-section-number">21</span> Tỷ suất chuẩn hóa</a></li>
-<li><a class="" href="moving-average.html"><span class="header-section-number">22</span> Đường trung bình động</a></li>
-<li><a class="" href="time-series.html"><span class="header-section-number">23</span> Chuỗi thời gian và phát hiện ổ dịch</a></li>
-<li><a class="" href="epidemic-models.html"><span class="header-section-number">24</span> Mô hình hóa dịch bệnh</a></li>
-<li><a class="" href="contact-tracing.html"><span class="header-section-number">25</span> Truy vết tiếp xúc</a></li>
-<li><a class="" href="survey-analysis.html"><span class="header-section-number">26</span> Phân tích khảo sát</a></li>
-<li><a class="" href="survival-analysis.html"><span class="header-section-number">27</span> Phân tích sống còn</a></li>
-<li><a class="" href="gis.html"><span class="header-section-number">28</span> GIS cơ bản</a></li>
-<li class="book-part">Trực quan hóa dữ liệu</li>
-<li><a class="" href="tables-presentation.html"><span class="header-section-number">29</span> Trình bày bảng</a></li>
-<li><a class="" href="ggplot-basics.html"><span class="header-section-number">30</span> ggplot cơ bản</a></li>
-<li><a class="" href="ggplot-tips.html"><span class="header-section-number">31</span> Các tips với ggplot</a></li>
-<li><a class="" href="epicurves.html"><span class="header-section-number">32</span> Đường cong dịch bệnh</a></li>
-<li><a class="" href="age-pyramid.html"><span class="header-section-number">33</span> Tháp dân số và thang đo Likert</a></li>
-<li><a class="" href="heatmaps.html"><span class="header-section-number">34</span> Biểu đồ nhiệt</a></li>
-<li><a class="" href="diagrams.html"><span class="header-section-number">35</span> Sơ đồ và biểu đồ</a></li>
-<li><a class="" href="combination-analysis.html"><span class="header-section-number">36</span> Biểu đồ kết hợp</a></li>
-<li><a class="" href="transmission-chains.html"><span class="header-section-number">37</span> Chuỗi lây nhiễm</a></li>
-<li><a class="" href="phylogenetic-trees.html"><span class="header-section-number">38</span> Cây phả hệ</a></li>
-<li><a class="" href="interactive-plots.html"><span class="header-section-number">39</span> Biểu đồ tương tác</a></li>
-<li class="book-part">Báo cáo và dashboards</li>
-<li><a class="" href="rmarkdown.html"><span class="header-section-number">40</span> Báo cáo với R Markdown</a></li>
-<li><a class="active" href="reportfactory.html"><span class="header-section-number">41</span> Tổ chức báo cáo định kỳ</a></li>
-<li><a class="" href="flexdashboard.html"><span class="header-section-number">42</span> Dashboards với R Markdown</a></li>
-<li><a class="" href="shiny-basics.html"><span class="header-section-number">43</span> Dashboards với Shiny</a></li>
-<li class="book-part">Tổng hợp</li>
-<li><a class="" href="writing-functions.html"><span class="header-section-number">44</span> Viết hàm</a></li>
-<li><a class="" href="directories.html"><span class="header-section-number">45</span> Tương tác với thư mục làm việc</a></li>
-<li><a class="" href="collaboration.html"><span class="header-section-number">46</span> Version control với Git và Github</a></li>
-<li><a class="" href="errors.html"><span class="header-section-number">47</span> Các lỗi thường gặp</a></li>
-<li><a class="" href="help.html"><span class="header-section-number">48</span> Nhờ sự trợ giúp</a></li>
-<li><a class="" href="network-drives.html"><span class="header-section-number">49</span> R trên ổ cứng mạng</a></li>
-<li><a class="" href="data-table.html"><span class="header-section-number">50</span> Data Table</a></li>
-</ul>
+      <nav aria-label="Table of contents">
+        <h2>Table of contents</h2>
+        <div id="book-toc"></div>
 
         <div class="book-extra">
-          
+          <p><a id="book-repo" href="#">View book source <i class="fab fa-github"></i></a></li></p>
         </div>
       </nav>
-</div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="reportfactory" class="section level1" number="41">
-<h1>
-<span class="header-section-number">41</span> Tổ chức báo cáo định kỳ<a class="anchor" aria-label="anchor" href="#reportfactory"><i class="fas fa-link"></i></a>
-</h1>
+    </div>
+  </header>
+
+  <main class="col-sm-12 col-md-9 col-lg-7" id="content">
+<div id="reportfactory" class="section level1" number="41">
+<h1><span class="header-section-number">41</span> Tổ chức báo cáo định kỳ</h1>
 <p>Chương này bao gồm <strong>reportfactory</strong> package, là một <em>package hỗ trợ việc báo cáo sử dụng R Markdown</em>.</p>
 <p>Trong các tình huống mà bạn chạy báo cáo thường xuyên (hàng ngày, hàng tuần, v.v.), nó giúp giảm bớt việc soạn nhiều tệp R Markdown và tổ chức các kết quả đầu ra của chúng. Về bản chất, nó cung cấp một “nhà máy” mà từ đó bạn có thể chạy các báo cáo R Markdown, nhận các thư mục được đánh dấu ngày tháng và thời gian tự động cho kết quả đầu ra và có quyền kiểm soát phiên bản “nhẹ”.</p>
 <p><strong>reportfactory</strong> là một trong những packages được phát triển bởi RECON (R Epidemics Consortium). Đây là <a href="https://www.repidemicsconsortium.org/">website</a> và <a href="https://github.com/reconverse">Github</a> của họ.</p>
 <div id="chuẩn-bị-33" class="section level2" number="41.1">
-<h2>
-<span class="header-section-number">41.1</span> Chuẩn bị<a class="anchor" aria-label="anchor" href="#chu%E1%BA%A9n-b%E1%BB%8B-33"><i class="fas fa-link"></i></a>
-</h2>
+<h2><span class="header-section-number">41.1</span> Chuẩn bị</h2>
 <div id="tải-packages-1" class="section level3 unnumbered">
-<h3>Tải packages<a class="anchor" aria-label="anchor" href="#t%E1%BA%A3i-packages-1"><i class="fas fa-link"></i></a>
-</h3>
+<h3>Tải packages</h3>
 <p>Từ trong RStudio, hãy cài đặt phiên bản mới nhất của <strong>reportfactory</strong> package từ Github.</p>
-<p>Bạn có thể thực hiện việc này thông qua <strong>pacman</strong> package với <code><a href="https://rdrr.io/pkg/pacman/man/p_load_current_gh.html">p_load_current_gh()</a></code>, lệnh này sẽ buộc nhập phiên bản mới nhất từ Github. Cung cấp chuỗi ký tự “reconverse/reportfactory”, trong đó chỉ định tổ chức Github (reconverse) và kho lưu trữ (reportfactory). Bạn cũng có thể sử dụng <code><a href="https://devtools.r-lib.org//reference/remote-reexports.html">install_github()</a></code> từ <strong>remotes</strong> package để thay thế.</p>
-<div class="sourceCode" id="cb1821"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Install and load the latest version of the package from Github</span>
-<span class="fu">pacman</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/pacman/man/p_load_current_gh.html">p_load_current_gh</a></span><span class="op">(</span><span class="st">"reconverse/reportfactory"</span><span class="op">)</span>
-<span class="co">#remotes::install_github("reconverse/reportfactory") # alternative</span></code></pre></div>
+<p>Bạn có thể thực hiện việc này thông qua <strong>pacman</strong> package với <code>p_load_current_gh()</code>, lệnh này sẽ buộc nhập phiên bản mới nhất từ Github. Cung cấp chuỗi ký tự “reconverse/reportfactory”, trong đó chỉ định tổ chức Github (reconverse) và kho lưu trữ (reportfactory). Bạn cũng có thể sử dụng <code>install_github()</code> từ <strong>remotes</strong> package để thay thế.</p>
+<div class="sourceCode" id="cb1795"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1795-1"><a href="reportfactory.html#cb1795-1" tabindex="-1"></a><span class="co"># Install and load the latest version of the package from Github</span></span>
+<span id="cb1795-2"><a href="reportfactory.html#cb1795-2" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load_current_gh</span>(<span class="st">&quot;reconverse/reportfactory&quot;</span>)</span>
+<span id="cb1795-3"><a href="reportfactory.html#cb1795-3" tabindex="-1"></a><span class="co">#remotes::install_github(&quot;reconverse/reportfactory&quot;) # alternative</span></span></code></pre></div>
 </div>
 </div>
 <div id="nhà-máy-mới" class="section level2" number="41.2">
-<h2>
-<span class="header-section-number">41.2</span> Nhà máy mới<a class="anchor" aria-label="anchor" href="#nh%C3%A0-m%C3%A1y-m%E1%BB%9Bi"><i class="fas fa-link"></i></a>
-</h2>
+<h2><span class="header-section-number">41.2</span> Nhà máy mới</h2>
 <p>Để tạo một nhà máy mới, chạy hàm <code>new_factory()</code>. Thao tác này sẽ tạo một thư mục dự án R độc lập mới. Mặc định là:</p>
 <ul>
-<li>Nhà máy sẽ được thêm vào thư mục làm việc của bạn<br>
+<li>Nhà máy sẽ được thêm vào thư mục làm việc của bạn<br />
 </li>
-<li>Tên của nhà máy dự án R sẽ được gọi là “new_factory.Rproj”<br>
+<li>Tên của nhà máy dự án R sẽ được gọi là “new_factory.Rproj”<br />
 </li>
 <li>Phiên RStudio của bạn sẽ “chuyển sang” dự án R này</li>
 </ul>
-<div class="sourceCode" id="cb1822"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># This will create the factory in the working directory</span>
-<span class="fu">new_factory</span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb1796"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1796-1"><a href="reportfactory.html#cb1796-1" tabindex="-1"></a><span class="co"># This will create the factory in the working directory</span></span>
+<span id="cb1796-2"><a href="reportfactory.html#cb1796-2" tabindex="-1"></a><span class="fu">new_factory</span>()</span></code></pre></div>
 <p>Nhìn vào bên trong nhà máy, bạn có thể thấy rằng các thư mục con và một số tệp đã được tạo tự động.</p>
-<div class="inline-figure"><img src="images/factory_new2.png" width="424"></div>
+<p><img src="images/factory_new2.png" width="424" /></p>
 <ul>
-<li>Thư mục <em>report_sources</em> sẽ chứa các scripts R Markdown của bạn, các scripts này sẽ tạo ra các báo cáo của bạn<br>
+<li>Thư mục <em>report_sources</em> sẽ chứa các scripts R Markdown của bạn, các scripts này sẽ tạo ra các báo cáo của bạn<br />
 </li>
-<li>Thư mục <em>outputs</em> sẽ chứa các kết quả đầu ra của báo cáo (ví dụ: HTML, Word, PDF, v.v.)<br>
+<li>Thư mục <em>outputs</em> sẽ chứa các kết quả đầu ra của báo cáo (ví dụ: HTML, Word, PDF, v.v.)<br />
 </li>
-<li>Thư mục <em>scripts</em> có thể được sử dụng để lưu trữ các scripts R khác (ví dụ: được lấy từ các scripts Rmd của bạn)<br>
+<li>Thư mục <em>scripts</em> có thể được sử dụng để lưu trữ các scripts R khác (ví dụ: được lấy từ các scripts Rmd của bạn)<br />
 </li>
-<li>Thư mục <em>data</em> có thể được sử dụng để chứa dữ liệu của bạn (bao gồm các thư mục con “thô” và “sạch”)<br>
+<li>Thư mục <em>data</em> có thể được sử dụng để chứa dữ liệu của bạn (bao gồm các thư mục con “thô” và “sạch”)<br />
 </li>
 <li>Tệp <em>.here</em>, vì vậy bạn có thể sử dụng <strong>here</strong> package để gọi các tệp trong thư mục con theo mối quan hệ của chúng với thư mục gốc này (xem chương [R projects] để biết thêm chi tiết)</li>
-<li>Tệp <em>gitignore</em> được tạo trong trường hợp bạn liên kết dự án R này với kho lưu trữ Github (xem [Version control and collaboration with Github])<br>
+<li>Tệp <em>gitignore</em> được tạo trong trường hợp bạn liên kết dự án R này với kho lưu trữ Github (xem [Version control and collaboration with Github])<br />
 </li>
 <li>Tệp README trống, nếu bạn sử dụng kho lưu trữ Github</li>
 </ul>
 <p><span style="color: orange;"><strong><em>THẬN TRỌNG:</em></strong> tùy thuộc vào cài đặt máy tính của bạn, các tệp như “.here” có thể tồn tại nhưng ẩn.</span></p>
 <p>Trong số các cài đặt mặc định, dưới đây là một số cài đặt mà bạn có thể điều chỉnh trong lệnh <code>new_factory()</code>:</p>
 <ul>
-<li>
-<code>factory =</code> - Đặt tên cho thư mục gốc (mặc định là “new_factory”)<br>
+<li><code>factory =</code> - Đặt tên cho thư mục gốc (mặc định là “new_factory”)<br />
 </li>
-<li>
-<code>path =</code> - Chỉ định đường dẫn tệp cho nhà máy mới (mặc định là thư mục làm việc)<br>
+<li><code>path =</code> - Chỉ định đường dẫn tệp cho nhà máy mới (mặc định là thư mục làm việc)<br />
 </li>
-<li>
-<code>report_sources =</code> Đặt tên thay thế cho thư mục con chứa các R Markdown scripts (mặc định là “report_sources”)<br>
+<li><code>report_sources =</code> Đặt tên thay thế cho thư mục con chứa các R Markdown scripts (mặc định là “report_sources”)<br />
 </li>
-<li>
-<code>outputs =</code> Đặt tên thay thế cho thư mục chứa kết quả đầu ra báo cáo (mặc định là “outputs”)</li>
+<li><code>outputs =</code> Đặt tên thay thế cho thư mục chứa kết quả đầu ra báo cáo (mặc định là “outputs”)</li>
 </ul>
 <p>Xem <code>?new_factory</code> để biết danh sách đầy đủ các đối số.</p>
 <p>Khi bạn tạo nhà máy mới, phiên R của bạn được chuyển sang dự án R mới, vì vậy bạn nên tải lại package <strong>reportfactory</strong>.</p>
-<div class="sourceCode" id="cb1823"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">pacman</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/pacman/man/p_load.html">p_load</a></span><span class="op">(</span><span class="va">reportfactory</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb1797"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1797-1"><a href="reportfactory.html#cb1797-1" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(reportfactory)</span></code></pre></div>
 <p>Bây giờ bạn có thể chạy lệnh <code>factory_overview()</code> để xem cấu trúc bên trong (tất cả các thư mục và tệp) trong nhà máy.</p>
-<div class="sourceCode" id="cb1824"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">factory_overview</span><span class="op">(</span><span class="op">)</span>            <span class="co"># print overview of the factory to console</span></code></pre></div>
+<div class="sourceCode" id="cb1798"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1798-1"><a href="reportfactory.html#cb1798-1" tabindex="-1"></a><span class="fu">factory_overview</span>()            <span class="co"># print overview of the factory to console</span></span></code></pre></div>
 <p>“Cây” các thư mục và tệp của nhà sản xuất được in ra R console. Lưu ý rằng trong thư mục “data” có các thư mục con cho dữ liệu “raw” (thô) và “clean” (sạch) cũng như dữ liệu CSV mẫu. Ngoài ra còn có “example_report.Rmd” trong thư mục “report_sources”.</p>
-<div class="inline-figure"><img src="images/factory_overview.png" width="202"></div>
+<p><img src="images/factory_overview.png" width="202" /></p>
 </div>
 <div id="tạo-báo-cáo" class="section level2" number="41.3">
-<h2>
-<span class="header-section-number">41.3</span> Tạo báo cáo<a class="anchor" aria-label="anchor" href="#t%E1%BA%A1o-b%C3%A1o-c%C3%A1o"><i class="fas fa-link"></i></a>
-</h2>
+<h2><span class="header-section-number">41.3</span> Tạo báo cáo</h2>
 <p>Từ bên trong dự án R của nhà máy, hãy tạo báo cáo R Markdown giống như bạn thường làm và lưu nó vào thư mục “report_sources”. Xem chương [R Markdown][Reports with R Markdown] để biết hướng dẫn. Để ví dụ, chúng tôi đã thêm những thứ sau vào nhà máy:</p>
 <ul>
-<li>R markdown script mới có tên “daily_sitrep.Rmd”, được lưu trong thư mục “report_sources”<br>
+<li>R markdown script mới có tên “daily_sitrep.Rmd”, được lưu trong thư mục “report_sources”<br />
 </li>
 <li>Dữ liệu cho báo cáo (“linelist_cleaned.rds”), được lưu vào thư mục con “clean” trong thư mục “data”</li>
 </ul>
 <p>Chúng ta có thể thấy bằng cách sử dụng <code>factory_overview()</code> R Markdown trong thư mục “report_sources” và tệp dữ liệu trong thư mục dữ liệu “clean” (được đánh dấu):</p>
-<div class="inline-figure"><img src="images/factory_overview2.png" width="149"></div>
+<p><img src="images/factory_overview2.png" width="149" /></p>
 <p>Dưới đây là ảnh chụp phần đầu của R Markdown “daily_sitrep.Rmd”. Bạn có thể thấy rằng định dạng đầu ra được đặt là HTML, thông qua tiêu đề YAML <code>output: html_document</code>.</p>
-<div class="inline-figure"><img src="images/factory_new_rmd.png" width="420"></div>
+<p><img src="images/factory_new_rmd.png" width="420" /></p>
 <p>Trong script đơn giản này, có các lệnh để:</p>
 <ul>
-<li>Tải các packages cần thiết<br>
+<li>Tải các packages cần thiết<br />
 </li>
 <li>Nhập dữ liệu danh sách dòng bằng đường dẫn tệp từ package <strong>here</strong> (đọc thêm trong chương [Import and export])</li>
 </ul>
-<div class="sourceCode" id="cb1825"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">linelist</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/rio/man/import.html">import</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org//reference/here.html">here</a></span><span class="op">(</span><span class="st">"data"</span>, <span class="st">"clean"</span>, <span class="st">"linelist_cleaned.rds"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb1799"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1799-1"><a href="reportfactory.html#cb1799-1" tabindex="-1"></a>linelist <span class="ot">&lt;-</span> <span class="fu">import</span>(<span class="fu">here</span>(<span class="st">&quot;data&quot;</span>, <span class="st">&quot;clean&quot;</span>, <span class="st">&quot;linelist_cleaned.rds&quot;</span>))</span></code></pre></div>
 <ul>
-<li>In bảng tóm tắt các trường hợp và xuất nó với <code><a href="https://rdrr.io/pkg/plotly/man/export.html">export()</a></code> dưới dạng tệp .csv<br>
+<li>In bảng tóm tắt các trường hợp và xuất nó với <code>export()</code> dưới dạng tệp .csv<br />
 </li>
 <li>In một đường cong dịch tễ và xuất nó bằng <code>ggsave ()</code> dưới dạng tệp .png</li>
 </ul>
 <p>Bạn chỉ có thể xem lại danh sách các báo cáo R Markdown trong thư mục “report_sources” bằng lệnh này:</p>
-<div class="sourceCode" id="cb1826"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">list_reports</span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb1800"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1800-1"><a href="reportfactory.html#cb1800-1" tabindex="-1"></a><span class="fu">list_reports</span>()</span></code></pre></div>
 </div>
 <div id="biên-soạn" class="section level2" number="41.4">
-<h2>
-<span class="header-section-number">41.4</span> Biên soạn<a class="anchor" aria-label="anchor" href="#bi%C3%AAn-so%E1%BA%A1n"><i class="fas fa-link"></i></a>
-</h2>
+<h2><span class="header-section-number">41.4</span> Biên soạn</h2>
 <p>Trong nhà máy báo cáo, để “biên soạn” báo cáo R Markdown có nghĩa là .Rmd script sẽ được chạy và đầu ra sẽ được tạo (như được chỉ định trong script YAML, ví dụ như HTML, Word, PDF, v.v.).</p>
 <p><em>Nhà máy sẽ tự động tạo một thư mục được đánh dấu ngày tháng và thời gian cho các kết quả đầu ra trong thư mục “outputs”.</em></p>
 <p>Bản thân báo cáo và mọi tệp đã xuất do script tạo ra (ví dụ: csv, png, xlsx) sẽ được lưu vào thư mục này. Ngoài ra, bản thân script Rmd sẽ được lưu trong thư mục này, vì vậy bạn có bản ghi của phiên bản script đó.</p>
 <p>Điều này trái ngược với hoạt động bình thường của R Markdown “knitted” (kết hợp), lưu kết quả đầu ra vào vị trí của script Rmd. Hành vi mặc định này có thể dẫn đến các thư mục đông đúc, lộn xộn. Nhà máy nhằm mục đích cải thiện tổ chức khi một người cần chạy báo cáo thường xuyên.</p>
 <div id="biên-soạn-theo-tên" class="section level3 unnumbered">
-<h3>Biên soạn theo tên<a class="anchor" aria-label="anchor" href="#bi%C3%AAn-so%E1%BA%A1n-theo-t%C3%AAn"><i class="fas fa-link"></i></a>
-</h3>
+<h3>Biên soạn theo tên</h3>
 <p>Bạn có thể biên dịch một báo cáo cụ thể bằng cách chạy <code>compile_reports()</code> và đặt tên Rmd script (không có phần mở rộng .Rmd) cho <code>reports =</code>. Để đơn giản hơn, bạn có thể bỏ qua <code>reports =</code> và chỉ cần viết tên R Markdown trong dấu ngoặc kép, như bên dưới.</p>
-<div class="inline-figure"><img src="images/factory_compile1.png" width="271"></div>
+<p><img src="images/factory_compile1.png" width="271" /></p>
 <p>Lệnh này sẽ chỉ biên dịch báo cáo “daily_sitrep.Rmd”, lưu báo cáo HTML, xuất bảng .csv và đường cong dịch bệnh .png vào một thư mục con được đóng dấu ngày và giờ cụ thể cho báo cáo, trong thư mục “outputs” .</p>
 <p>Lưu ý rằng nếu bạn chọn cung cấp phần mở rộng .Rmd, bạn phải nhập chính xác phần mở rộng vì nó được lưu trong tên tệp (.rmd so với .Rmd).</p>
 <p>Cũng lưu ý rằng khi biên soạn, bạn có thể thấy một số tệp tạm thời xuất hiện trong thư mục “report_sources” - nhưng chúng sẽ sớm biến mất khi chúng được chuyển đến đúng thư mục “output”.</p>
 </div>
 <div id="biên-soạn-theo-số" class="section level3 unnumbered">
-<h3>Biên soạn theo số<a class="anchor" aria-label="anchor" href="#bi%C3%AAn-so%E1%BA%A1n-theo-s%E1%BB%91"><i class="fas fa-link"></i></a>
-</h3>
+<h3>Biên soạn theo số</h3>
 <p>Bạn cũng có thể chỉ định Rmd script để biên dịch bằng cách cung cấp một số hoặc vectơ số cho <code>reports =</code>. Các con số phải phù hợp với thứ tự các báo cáo xuất hiện khi bạn chạy <code>list_reports()</code>.</p>
-<div class="sourceCode" id="cb1827"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Compile the second and fourth Rmds in the "report_sources" folder</span>
-<span class="fu">compile_reports</span><span class="op">(</span>reports <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">4</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb1801"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1801-1"><a href="reportfactory.html#cb1801-1" tabindex="-1"></a><span class="co"># Compile the second and fourth Rmds in the &quot;report_sources&quot; folder</span></span>
+<span id="cb1801-2"><a href="reportfactory.html#cb1801-2" tabindex="-1"></a><span class="fu">compile_reports</span>(<span class="at">reports =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>))</span></code></pre></div>
 </div>
 <div id="biên-soạn-tất-cả" class="section level3 unnumbered">
-<h3>Biên soạn tất cả<a class="anchor" aria-label="anchor" href="#bi%C3%AAn-so%E1%BA%A1n-t%E1%BA%A5t-c%E1%BA%A3"><i class="fas fa-link"></i></a>
-</h3>
+<h3>Biên soạn tất cả</h3>
 <p>Bạn có thể biên soạn <em>tất cả</em> báo cáo R Markdown trong thư mục “report_sources” bằng cách đặt đối số <code>report =</code> thành TRUE.</p>
-<div class="inline-figure"><img src="images/factory_compile_all.png" width="268"></div>
+<p><img src="images/factory_compile_all.png" width="268" /></p>
 </div>
 <div id="biên-soạn-từ-thư-mục-con" class="section level3 unnumbered">
-<h3>Biên soạn từ thư mục con<a class="anchor" aria-label="anchor" href="#bi%C3%AAn-so%E1%BA%A1n-t%E1%BB%AB-th%C6%B0-m%E1%BB%A5c-con"><i class="fas fa-link"></i></a>
-</h3>
+<h3>Biên soạn từ thư mục con</h3>
 <p>Bạn có thể thêm các thư mục con vào thư mục “report_sources”. Để chạy báo cáo R Markdown từ một thư mục con, chỉ cần cung cấp tên của thư mục cho <code>subfolder =</code>. Dưới đây là ví dụ về code để biên soạn báo cáo Rmd nằm trong thư mục con của “report_sources”.</p>
-<div class="sourceCode" id="cb1828"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">compile_reports</span><span class="op">(</span>
-     reports <span class="op">=</span> <span class="st">"summary_for_partners.Rmd"</span>,
-     subfolder <span class="op">=</span> <span class="st">"for_partners"</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb1802"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1802-1"><a href="reportfactory.html#cb1802-1" tabindex="-1"></a><span class="fu">compile_reports</span>(</span>
+<span id="cb1802-2"><a href="reportfactory.html#cb1802-2" tabindex="-1"></a>     <span class="at">reports =</span> <span class="st">&quot;summary_for_partners.Rmd&quot;</span>,</span>
+<span id="cb1802-3"><a href="reportfactory.html#cb1802-3" tabindex="-1"></a>     <span class="at">subfolder =</span> <span class="st">&quot;for_partners&quot;</span>)</span></code></pre></div>
 <p>Bạn có thể biên soạn tất cả các báo cáo Rmd trong một thư mục con bằng cách cung cấp tên thư mục con cho <code>reports =</code>, với một dấu gạch chéo ở cuối, như bên dưới.</p>
-<div class="sourceCode" id="cb1829"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">compile_reports</span><span class="op">(</span>reports <span class="op">=</span> <span class="st">"for_partners/"</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb1803"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1803-1"><a href="reportfactory.html#cb1803-1" tabindex="-1"></a><span class="fu">compile_reports</span>(<span class="at">reports =</span> <span class="st">&quot;for_partners/&quot;</span>)</span></code></pre></div>
 </div>
 <div id="tham-số-hóa" class="section level3 unnumbered">
-<h3>Tham số hóa<a class="anchor" aria-label="anchor" href="#tham-s%E1%BB%91-h%C3%B3a"><i class="fas fa-link"></i></a>
-</h3>
+<h3>Tham số hóa</h3>
 <p>Như đã lưu ý trong chương về [Reports with R Markdown], bạn có thể chạy báo cáo với các thông số được chỉ định. Bạn có thể chuyển các tham số này dưới dạng danh sách tới <code>compile_reports ()</code> thông qua đối số <code>params =</code>. Ví dụ, trong báo cáo hư cấu này, có ba tham số được cung cấp cho báo cáo R Markdown.</p>
-<div class="sourceCode" id="cb1830"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">compile_reports</span><span class="op">(</span>
-  reports <span class="op">=</span> <span class="st">"daily_sitrep.Rmd"</span>,
-  params <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>most_recent_data <span class="op">=</span> <span class="cn">TRUE</span>,
-                region <span class="op">=</span> <span class="st">"NORTHERN"</span>,
-                rates_denominator <span class="op">=</span> <span class="fl">10000</span><span class="op">)</span>,
-  subfolder <span class="op">=</span> <span class="st">"regional"</span>
-<span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb1804"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1804-1"><a href="reportfactory.html#cb1804-1" tabindex="-1"></a><span class="fu">compile_reports</span>(</span>
+<span id="cb1804-2"><a href="reportfactory.html#cb1804-2" tabindex="-1"></a>  <span class="at">reports =</span> <span class="st">&quot;daily_sitrep.Rmd&quot;</span>,</span>
+<span id="cb1804-3"><a href="reportfactory.html#cb1804-3" tabindex="-1"></a>  <span class="at">params =</span> <span class="fu">list</span>(<span class="at">most_recent_data =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb1804-4"><a href="reportfactory.html#cb1804-4" tabindex="-1"></a>                <span class="at">region =</span> <span class="st">&quot;NORTHERN&quot;</span>,</span>
+<span id="cb1804-5"><a href="reportfactory.html#cb1804-5" tabindex="-1"></a>                <span class="at">rates_denominator =</span> <span class="dv">10000</span>),</span>
+<span id="cb1804-6"><a href="reportfactory.html#cb1804-6" tabindex="-1"></a>  <span class="at">subfolder =</span> <span class="st">&quot;regional&quot;</span></span>
+<span id="cb1804-7"><a href="reportfactory.html#cb1804-7" tabindex="-1"></a>)</span></code></pre></div>
 </div>
 <div id="dùng-run-file" class="section level3 unnumbered">
-<h3>Dùng “run-file”<a class="anchor" aria-label="anchor" href="#d%C3%B9ng-run-file"><i class="fas fa-link"></i></a>
-</h3>
+<h3>Dùng “run-file”</h3>
 <p>Nếu bạn có nhiều báo cáo cần chạy, hãy cân nhắc tạo R script chứa tất cả các lệnh <code>compile_reports()</code>. Người dùng có thể chỉ cần chạy tất cả các lệnh trong R script này và tất cả các báo cáo sẽ được biên soạn. Bạn có thể lưu “run-file” này vào thư mục “scripts”.</p>
 </div>
 </div>
 <div id="kết-quả-đầu-ra-1" class="section level2" number="41.5">
-<h2>
-<span class="header-section-number">41.5</span> Kết quả đầu ra<a class="anchor" aria-label="anchor" href="#k%E1%BA%BFt-qu%E1%BA%A3-%C4%91%E1%BA%A7u-ra-1"><i class="fas fa-link"></i></a>
-</h2>
+<h2><span class="header-section-number">41.5</span> Kết quả đầu ra</h2>
 <p>Sau khi chúng ta đã biên soạn các báo cáo một vài lần, thư mục “outputs” có thể trông giống như sau (các điểm nổi bật được thêm vào để rõ ràng):</p>
-<div class="inline-figure"><img src="images/factory_overview_all.png" width="350"></div>
+<p><img src="images/factory_overview_all.png" width="350" /></p>
 <ul>
-<li>Trong “outputs”, các thư mục con đã được tạo cho mỗi báo cáo Rmd<br>
+<li>Trong “outputs”, các thư mục con đã được tạo cho mỗi báo cáo Rmd<br />
 </li>
 <li>Trong đó, các thư mục con khác đã được tạo cho mỗi lần biên soạn duy nhất
 <ul>
 <li>Đây là những ngày tháng và thời gian được đóng dấu (“2021-04-23_T11-07-36” có nghĩa là ngày 23 tháng 4 năm 2021 lúc 11:07:36)</li>
-<li>Bạn có thể chỉnh sửa định dạng dấu ngày/giờ. Xem <code>?compile_reports</code><br>
+<li>Bạn có thể chỉnh sửa định dạng dấu ngày/giờ. Xem <code>?compile_reports</code><br />
 </li>
-</ul>
-</li>
+</ul></li>
 <li>Trong mỗi thư mục ngày/giờ được biên soạn, kết quả báo cáo được lưu trữ (ví dụ: HTML, PDF, Word) cùng với tập lệnh Rmd (kiểm soát phiên bản!) Và bất kỳ tệp nào được xuất khác (ví dụ: table.csv, translate_curve.png)</li>
 </ul>
 <p>Đây là chế độ xem bên trong một trong các thư mục được đánh dấu ngày/giờ cho báo cáo “daily_sitrep”. Đường dẫn tệp được đánh dấu bằng màu vàng để nhấn mạnh.</p>
-<div class="inline-figure"><img src="images/factory_compile_folder.png" width="435"></div>
+<p><img src="images/factory_compile_folder.png" width="435" /></p>
 <p>Cuối cùng, bên dưới là ảnh chụp màn hình của kết quả báo cáo HTML.</p>
-<div class="inline-figure"><img src="images/factory_html.png" width="452"></div>
+<p><img src="images/factory_html.png" width="452" /></p>
 <p>Bạn có thể sử dụng <code>list_outputs()</code> để xem lại danh sách các kết quả đầu ra.</p>
 </div>
 <div id="mục-khác" class="section level2" number="41.6">
-<h2>
-<span class="header-section-number">41.6</span> Mục khác<a class="anchor" aria-label="anchor" href="#m%E1%BB%A5c-kh%C3%A1c"><i class="fas fa-link"></i></a>
-</h2>
+<h2><span class="header-section-number">41.6</span> Mục khác</h2>
 <div id="knit" class="section level3 unnumbered">
-<h3>Knit<a class="anchor" aria-label="anchor" href="#knit"><i class="fas fa-link"></i></a>
-</h3>
+<h3>Knit</h3>
 <p>Bạn vẫn có thể “knit” một trong các báo cáo R Markdown của mình bằng cách nhấn nút “Knit” nếu muốn. Nếu bạn làm điều này, theo mặc định, kết quả đầu ra sẽ xuất hiện trong thư mục lưu Rmd - thư mục “report_sources”. Trong các phiên bản trước của <strong>reportfactory</strong>, việc có bất kỳ tệp nào không phải Rmd trong “report_sources” sẽ ngăn việc biên dịch, nhưng trường hợp này không còn nữa. Bạn có thể chạy <code>compile_reports()</code> và không có lỗi nào xảy ra.</p>
 </div>
 <div id="scripts-1" class="section level3 unnumbered">
-<h3>Scripts<a class="anchor" aria-label="anchor" href="#scripts-1"><i class="fas fa-link"></i></a>
-</h3>
+<h3>Scripts</h3>
 <p>Chúng tôi khuyến khích bạn sử dụng thư mục “scripts” để lưu trữ “runfiles” hoặc các .R scripts được lấy từ các .R scripts của bạn. Xem trang trên [R Markdown][Reports with R Markdown] để biết các mẹo về cách cấu trúc code của bạn trên một số tệp.</p>
 </div>
 <div id="thêm" class="section level3 unnumbered">
-<h3>Thêm<a class="anchor" aria-label="anchor" href="#th%C3%AAm"><i class="fas fa-link"></i></a>
-</h3>
+<h3>Thêm</h3>
 <ul>
 <li><p>Với <strong>reportfactory</strong>, bạn có thể sử dụng hàm <code>list_deps()</code> để liệt kê tất cả các packages được yêu cầu trên tất cả các báo cáo trong toàn bộ nhà máy.</p></li>
-<li>
-<p>Có một package đi kèm trong quá trình phát triển được gọi là <strong>rfextras</strong> cung cấp nhiều chức năng trợ giúp hơn để hỗ trợ bạn trong việc xây dựng báo cáo, chẳng hạn như:</p>
+<li><p>Có một package đi kèm trong quá trình phát triển được gọi là <strong>rfextras</strong> cung cấp nhiều chức năng trợ giúp hơn để hỗ trợ bạn trong việc xây dựng báo cáo, chẳng hạn như:</p>
 <ul>
-<li>
-<code>load_scripts()</code> - dẫn nguồn/tải tất cả các .R scripts trong một thư mục nhất định (thư mục “scripts” theo mặc định)</li>
-<li>
-<code>find_latest()</code> - tìm phiên bản mới nhất của tệp (ví dụ: tập dữ liệu mới nhất)</li>
-</ul>
-</li>
+<li><code>load_scripts()</code> - dẫn nguồn/tải tất cả các .R scripts trong một thư mục nhất định (thư mục “scripts” theo mặc định)</li>
+<li><code>find_latest()</code> - tìm phiên bản mới nhất của tệp (ví dụ: tập dữ liệu mới nhất)</li>
+</ul></li>
 </ul>
 <!-- ======================================================= -->
 </div>
 </div>
 <div id="tài-nguyên-1" class="section level2" number="41.7">
-<h2>
-<span class="header-section-number">41.7</span> Tài nguyên<a class="anchor" aria-label="anchor" href="#t%C3%A0i-nguy%C3%AAn-1"><i class="fas fa-link"></i></a>
-</h2>
+<h2><span class="header-section-number">41.7</span> Tài nguyên</h2>
 <p>Xem <a href="https://github.com/reconverse/reportfactory">Github page</a> của <strong>reportfactory</strong> package</p>
 <p>Xem <a href="https://github.com/reconhub/rfextras">Github page</a> của <strong>rfextras</strong> package</p>
 
 </div>
 </div>
-  <div class="chapter-nav">
-<div class="prev"><a href="rmarkdown.html"><span class="header-section-number">40</span> Báo cáo với R Markdown</a></div>
-<div class="next"><a href="flexdashboard.html"><span class="header-section-number">42</span> Dashboards với R Markdown</a></div>
-</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
-    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
-      <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#reportfactory"><span class="header-section-number">41</span> Tổ chức báo cáo định kỳ</a></li>
-<li>
-<a class="nav-link" href="#chu%E1%BA%A9n-b%E1%BB%8B-33"><span class="header-section-number">41.1</span> Chuẩn bị</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#t%E1%BA%A3i-packages-1">Tải packages</a></li></ul>
-</li>
-<li><a class="nav-link" href="#nh%C3%A0-m%C3%A1y-m%E1%BB%9Bi"><span class="header-section-number">41.2</span> Nhà máy mới</a></li>
-<li><a class="nav-link" href="#t%E1%BA%A1o-b%C3%A1o-c%C3%A1o"><span class="header-section-number">41.3</span> Tạo báo cáo</a></li>
-<li>
-<a class="nav-link" href="#bi%C3%AAn-so%E1%BA%A1n"><span class="header-section-number">41.4</span> Biên soạn</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#bi%C3%AAn-so%E1%BA%A1n-theo-t%C3%AAn">Biên soạn theo tên</a></li>
-<li><a class="nav-link" href="#bi%C3%AAn-so%E1%BA%A1n-theo-s%E1%BB%91">Biên soạn theo số</a></li>
-<li><a class="nav-link" href="#bi%C3%AAn-so%E1%BA%A1n-t%E1%BA%A5t-c%E1%BA%A3">Biên soạn tất cả</a></li>
-<li><a class="nav-link" href="#bi%C3%AAn-so%E1%BA%A1n-t%E1%BB%AB-th%C6%B0-m%E1%BB%A5c-con">Biên soạn từ thư mục con</a></li>
-<li><a class="nav-link" href="#tham-s%E1%BB%91-h%C3%B3a">Tham số hóa</a></li>
-<li><a class="nav-link" href="#d%C3%B9ng-run-file">Dùng “run-file”</a></li>
-</ul>
-</li>
-<li><a class="nav-link" href="#k%E1%BA%BFt-qu%E1%BA%A3-%C4%91%E1%BA%A7u-ra-1"><span class="header-section-number">41.5</span> Kết quả đầu ra</a></li>
-<li>
-<a class="nav-link" href="#m%E1%BB%A5c-kh%C3%A1c"><span class="header-section-number">41.6</span> Mục khác</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#knit">Knit</a></li>
-<li><a class="nav-link" href="#scripts-1">Scripts</a></li>
-<li><a class="nav-link" href="#th%C3%AAm">Thêm</a></li>
-</ul>
-</li>
-<li><a class="nav-link" href="#t%C3%A0i-nguy%C3%AAn-1"><span class="header-section-number">41.7</span> Tài nguyên</a></li>
-</ul>
+  </main>
+
+  <div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page">
+      <h2>On this page</h2>
+      <div id="book-on-this-page"></div>
 
       <div class="book-extra">
         <ul class="list-unstyled">
-          
+          <li><a id="book-source" href="#">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="#">Edit this page <i class="fab fa-github"></i></a></li>
         </ul>
-</div>
+      </div>
     </nav>
-</div>
+  </div>
 
 </div>
 </div> <!-- .container -->
 
-<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+<footer class="bg-primary text-light mt-5">
+  <div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Cẩm nang dịch tễ học với R</strong>" was written by the handbook team. It was last built on 2021-11-01.</p>
+    <p>"<strong>Cẩm nang dịch tễ học với R</strong>" was written by the handbook team. It was last built on 2024-02-16.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
@@ -409,12 +395,16 @@
   </div>
 
 </div></div>
-</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+</footer>
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');
@@ -422,5 +412,23 @@
     document.getElementsByTagName("head")[0].appendChild(script);
   })();
 </script>
+<script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
 </body>
+
 </html>

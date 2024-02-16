@@ -1,43 +1,153 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>11 Factors | Cẩm nang dịch tễ học với R</title>
-<meta name="author" content="the handbook team">
-<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.2"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.5.1/tabs.js"></script><script src="libs/bs3compat-0.2.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
-<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/htmlwidgets-1.5.3/htmlwidgets.js"></script><link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet">
-<script src="libs/datatables-binding-0.16/datatables.js"></script><link href="libs/dt-core-1.10.20/css/jquery.dataTables.min.css" rel="stylesheet">
-<link href="libs/dt-core-1.10.20/css/jquery.dataTables.extra.css" rel="stylesheet">
-<script src="libs/dt-core-1.10.20/js/jquery.dataTables.min.js"></script><link href="libs/nouislider-7.0.10/jquery.nouislider.min.css" rel="stylesheet">
-<script src="libs/nouislider-7.0.10/jquery.nouislider.min.js"></script><link href="libs/selectize-0.12.0/selectize.bootstrap3.css" rel="stylesheet">
-<script src="libs/selectize-0.12.0/selectize.min.js"></script><link href="libs/crosstalk-1.1.1/css/crosstalk.css" rel="stylesheet">
-<script src="libs/crosstalk-1.1.1/js/crosstalk.min.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
-<link href="libs/tabwid-1.0.0/tabwid.css" rel="stylesheet">
-<script src="libs/tabwid-1.0.0/tabwid.js"></script><link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet">
-<script src="libs/leaflet-1.3.1/leaflet.js"></script><link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet">
-<script src="libs/Proj4Leaflet-1.0.1/proj4-compressed.js"></script><script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script><link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet">
-<script src="libs/leaflet-binding-2.0.3/leaflet.js"></script><script src="libs/leaflet-providers-1.9.0/leaflet-providers_1.9.0.js"></script><script src="libs/leaflet-providers-plugin-2.0.3/leaflet-providers-plugin.js"></script><script src="libs/viz-1.8.2/viz.js"></script><link href="libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet">
-<script src="libs/grViz-binding-1.0.6.1/grViz.js"></script><script src="libs/d3-4.5.0/d3.min.js"></script><script src="libs/sankey-1/sankey.js"></script><script src="libs/sankeyNetwork-binding-0.4/sankeyNetwork.js"></script><script src="libs/plotly-binding-4.9.2.1/plotly.js"></script><script src="libs/typedarray-0.1/typedarray.min.js"></script><link href="libs/plotly-htmlwidgets-css-1.52.2/plotly-htmlwidgets.css" rel="stylesheet">
-<script src="libs/plotly-main-1.52.2/plotly-latest.min.js"></script><link href="libs/vis-4.20.1/vis.css" rel="stylesheet">
-<script src="libs/vis-4.20.1/vis.min.js"></script><script src="libs/visNetwork-binding-2.0.9/visNetwork.js"></script><link href="libs/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet">
-<script src="libs/plotly-basic-1.52.2/plotly-basic-1.52.2.min.js"></script><script src="libs/plotly-cartesian-1.52.2/plotly-cartesian-1.52.2.min.js"></script><script src="libs/proj4js-2.3.15/proj4.js"></script><link href="libs/highcharts-8.1.2/css/motion.css" rel="stylesheet">
-<script src="libs/highcharts-8.1.2/highcharts.js"></script><script src="libs/highcharts-8.1.2/highcharts-3d.js"></script><script src="libs/highcharts-8.1.2/highcharts-more.js"></script><script src="libs/highcharts-8.1.2/modules/stock.js"></script><script src="libs/highcharts-8.1.2/modules/map.js"></script><script src="libs/highcharts-8.1.2/modules/annotations.js"></script><script src="libs/highcharts-8.1.2/modules/data.js"></script><script src="libs/highcharts-8.1.2/modules/drilldown.js"></script><script src="libs/highcharts-8.1.2/modules/item-series.js"></script><script src="libs/highcharts-8.1.2/modules/offline-exporting.js"></script><script src="libs/highcharts-8.1.2/modules/overlapping-datalabels.js"></script><script src="libs/highcharts-8.1.2/modules/exporting.js"></script><script src="libs/highcharts-8.1.2/modules/export-data.js"></script><script src="libs/highcharts-8.1.2/modules/funnel.js"></script><script src="libs/highcharts-8.1.2/modules/heatmap.js"></script><script src="libs/highcharts-8.1.2/modules/treemap.js"></script><script src="libs/highcharts-8.1.2/modules/sankey.js"></script><script src="libs/highcharts-8.1.2/modules/dependency-wheel.js"></script><script src="libs/highcharts-8.1.2/modules/organization.js"></script><script src="libs/highcharts-8.1.2/modules/solid-gauge.js"></script><script src="libs/highcharts-8.1.2/modules/streamgraph.js"></script><script src="libs/highcharts-8.1.2/modules/sunburst.js"></script><script src="libs/highcharts-8.1.2/modules/vector.js"></script><script src="libs/highcharts-8.1.2/modules/wordcloud.js"></script><script src="libs/highcharts-8.1.2/modules/xrange.js"></script><script src="libs/highcharts-8.1.2/modules/tilemap.js"></script><script src="libs/highcharts-8.1.2/modules/venn.js"></script><script src="libs/highcharts-8.1.2/modules/gantt.js"></script><script src="libs/highcharts-8.1.2/modules/timeline.js"></script><script src="libs/highcharts-8.1.2/modules/parallel-coordinates.js"></script><script src="libs/highcharts-8.1.2/modules/bullet.js"></script><script src="libs/highcharts-8.1.2/modules/coloraxis.js"></script><script src="libs/highcharts-8.1.2/modules/dumbbell.js"></script><script src="libs/highcharts-8.1.2/modules/lollipop.js"></script><script src="libs/highcharts-8.1.2/modules/series-label.js"></script><script src="libs/highcharts-8.1.2/plugins/motion.js"></script><script src="libs/highcharts-8.1.2/custom/reset.js"></script><script src="libs/highcharts-8.1.2/modules/boost.js"></script><script src="libs/highchart-binding-0.8.2/highchart.js"></script><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=G-QXDW878QLX"></script><script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>11 Factors | Cẩm nang dịch tễ học với R</title>
+
+    <meta name="author" content="the handbook team" />
+  
+   <meta name="description" content="The Epi R Handbook is a R reference manual for applied epidemiology and public health." />
+   <meta name="generator" content="placeholder" />
+  <meta property="og:title" content="11 Factors | Cẩm nang dịch tễ học với R" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="The Epi R Handbook is a R reference manual for applied epidemiology and public health." />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="11 Factors | Cẩm nang dịch tễ học với R" />
+  
+  <meta name="twitter:description" content="The Epi R Handbook is a R reference manual for applied epidemiology and public health." />
+  
+  <!-- JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script>
+    <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet" />
+    <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script>
+    <script src="libs/bs3compat-0.6.1/transition.js"></script>
+    <script src="libs/bs3compat-0.6.1/tabs.js"></script>
+    <script src="libs/bs3compat-0.6.1/bs3compat.js"></script>
+    <link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet" />
+    <script src="libs/bs4_book-1.0.0/bs4_book.js"></script>
+    <script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+    <link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+    <script src="libs/datatables-binding-0.31/datatables.js"></script>
+    <link href="libs/dt-core-1.13.6/css/jquery.dataTables.min.css" rel="stylesheet" />
+    <link href="libs/dt-core-1.13.6/css/jquery.dataTables.extra.css" rel="stylesheet" />
+    <script src="libs/dt-core-1.13.6/js/jquery.dataTables.min.js"></script>
+    <link href="libs/nouislider-7.0.10/jquery.nouislider.min.css" rel="stylesheet" />
+    <script src="libs/nouislider-7.0.10/jquery.nouislider.min.js"></script>
+    <link href="libs/selectize-0.12.0/selectize.bootstrap3.css" rel="stylesheet" />
+    <script src="libs/selectize-0.12.0/selectize.min.js"></script>
+    <link href="libs/crosstalk-1.2.1/css/crosstalk.min.css" rel="stylesheet" />
+    <script src="libs/crosstalk-1.2.1/js/crosstalk.min.js"></script>
+    <script src="libs/kePrint-0.0.1/kePrint.js"></script>
+    <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+    <link href="libs/tabwid-1.1.3/tabwid.css" rel="stylesheet" />
+    <script src="libs/tabwid-1.1.3/tabwid.js"></script>
+    <link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet" />
+    <script src="libs/leaflet-1.3.1/leaflet.js"></script>
+    <link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
+    <script src="libs/proj4-2.6.2/proj4.min.js"></script>
+    <script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
+    <link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
+    <script src="libs/leaflet-binding-2.2.1/leaflet.js"></script>
+    <script src="libs/leaflet-providers-2.0.0/leaflet-providers_2.0.0.js"></script>
+    <script src="libs/leaflet-providers-plugin-2.2.1/leaflet-providers-plugin.js"></script>
+    <script src="libs/viz-1.8.2/viz.js"></script>
+    <link href="libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet" />
+    <script src="libs/grViz-binding-1.0.11/grViz.js"></script>
+    <script src="libs/d3-4.5.0/d3.min.js"></script>
+    <script src="libs/sankey-1/sankey.js"></script>
+    <script src="libs/sankeyNetwork-binding-0.4/sankeyNetwork.js"></script>
+    <script src="libs/plotly-binding-4.10.4/plotly.js"></script>
+    <script src="libs/typedarray-0.1/typedarray.min.js"></script>
+    <link href="libs/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet" />
+    <script src="libs/plotly-main-2.11.1/plotly-latest.min.js"></script>
+    <link href="libs/vis-9.1.0/vis-network.min.css" rel="stylesheet" />
+    <script src="libs/vis-9.1.0/vis-network.min.js"></script>
+    <script src="libs/visNetwork-binding-2.1.2/visNetwork.js"></script>
+    <link href="libs/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <script src="libs/plotly-basic-2.11.1/plotly-basic-2.11.1.min.js"></script>
+    <script src="libs/plotly-cartesian-2.11.1/plotly-cartesian-2.11.1.min.js"></script>
+    <script src="libs/proj4js-2.3.15/proj4.js"></script>
+    <link href="libs/highcharts-9.3.1/css/motion.css" rel="stylesheet" />
+    <script src="libs/highcharts-9.3.1/highcharts.js"></script>
+    <script src="libs/highcharts-9.3.1/highcharts-3d.js"></script>
+    <script src="libs/highcharts-9.3.1/highcharts-more.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/stock.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/map.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/data.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/exporting.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/offline-exporting.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/drilldown.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/item-series.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/overlapping-datalabels.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/annotations.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/export-data.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/funnel.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/heatmap.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/treemap.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/sankey.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/dependency-wheel.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/organization.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/solid-gauge.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/streamgraph.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/sunburst.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/vector.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/wordcloud.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/xrange.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/tilemap.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/venn.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/gantt.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/timeline.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/parallel-coordinates.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/bullet.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/coloraxis.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/dumbbell.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/lollipop.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/series-label.js"></script>
+    <script src="libs/highcharts-9.3.1/plugins/motion.js"></script>
+    <script src="libs/highcharts-9.3.1/custom/reset.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/boost.js"></script>
+    <script src="libs/highchart-binding-0.9.4/highchart.js"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QXDW878QLX"></script>
+    <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
 
       gtag('config', 'G-QXDW878QLX');
-    </script><script src="https://cdn.jsdelivr.net/autocomplete.js/0/autocomplete.jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/mark.js@8.11.1/dist/mark.min.js"></script><!-- CSS --><link rel="stylesheet" href="style_bs4.css">
+    </script>
+
+    <div class="alert alert-info alert-dismissible">
+      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+      <strong>Bạn cần trợ giúp khi học R?</strong> Hãy tham gia <a href="https://www.appliedepi.org/live/" class="alert-link">khóa học</a>, trải nghiệm <a href="https://www.appliedepi.org/tutorial/" class="alert-link">các học phần miễn phí</a>, gửi bài viết <a href="https://community.appliedepi.org/" class="alert-link">trên trang Cộng đồng</a>, hoặc liên hệ <a href="mailto:contact@appliedepi.org" class="alert-link">dịch vụ hỗ trợ của chúng tôi</a>.
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script>
+
+  <!-- CSS -->
+  <style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+      <link rel="stylesheet" href="style_bs4.css" />
+  
 </head>
+
 <body data-spy="scroll" data-target="#toc">
 
 <div class="container-fluid">
 <div class="row">
-  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book">
+    <a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
 
     <div class="d-flex align-items-start justify-content-between">
       <h1>
@@ -49,188 +159,108 @@
     <div id="main-nav" class="collapse-lg">
       <form role="search">
         <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
-</form>
+      </form>
 
-      <nav aria-label="Table of contents"><h2>Table of contents</h2>
-        <ul class="book-toc list-unstyled">
-<li><a class="" href="index.html"></a></li>
-<li class="book-part">Về cuốn sách này</li>
-<li><a class="" href="editorial-style.html"><span class="header-section-number">1</span> Biên tập và ghi chú kỹ thuật</a></li>
-<li><a class="" href="data-used.html"><span class="header-section-number">2</span> Tải sách và dữ liệu</a></li>
-<li class="book-part">Nhập môn về R</li>
-<li><a class="" href="basics.html"><span class="header-section-number">3</span> R Cơ bản</a></li>
-<li><a class="" href="transition-to-R.html"><span class="header-section-number">4</span> Chuyển đổi sang R</a></li>
-<li><a class="" href="packages-suggested.html"><span class="header-section-number">5</span> Package đề xuất</a></li>
-<li><a class="" href="r-projects.html"><span class="header-section-number">6</span> Dự án R</a></li>
-<li><a class="" href="importing.html"><span class="header-section-number">7</span> Nhập xuất dữ liệu</a></li>
-<li class="book-part">Quản lý dữ liệu</li>
-<li><a class="" href="cleaning.html"><span class="header-section-number">8</span> Làm sạch số liệu và các hàm quan trọng</a></li>
-<li><a class="" href="dates.html"><span class="header-section-number">9</span> Làm việc với ngày tháng</a></li>
-<li><a class="" href="characters-strings.html"><span class="header-section-number">10</span> Ký tự và chuỗi</a></li>
-<li><a class="active" href="factors.html"><span class="header-section-number">11</span> Factors</a></li>
-<li><a class="" href="pivoting.html"><span class="header-section-number">12</span> Xoay trục dữ liệu</a></li>
-<li><a class="" href="grouping.html"><span class="header-section-number">13</span> Nhóm dữ liệu</a></li>
-<li><a class="" href="joining-matching.html"><span class="header-section-number">14</span> Nối dữ liệu</a></li>
-<li><a class="" href="deduplication.html"><span class="header-section-number">15</span> Loại bỏ trùng lặp</a></li>
-<li><a class="" href="iteration.html"><span class="header-section-number">16</span> Lặp, vòng lặp, và danh sách</a></li>
-<li class="book-part">Phân tích dữ liệu</li>
-<li><a class="" href="tables-descriptive.html"><span class="header-section-number">17</span> Bảng mô tả</a></li>
-<li><a class="" href="stat-tests.html"><span class="header-section-number">18</span> Các kiểm định thống kê cơ bản</a></li>
-<li><a class="" href="regression.html"><span class="header-section-number">19</span> Hồi quy đơn và đa biến</a></li>
-<li><a class="" href="missing-data.html"><span class="header-section-number">20</span> Dữ liệu Missing</a></li>
-<li><a class="" href="standardization.html"><span class="header-section-number">21</span> Tỷ suất chuẩn hóa</a></li>
-<li><a class="" href="moving-average.html"><span class="header-section-number">22</span> Đường trung bình động</a></li>
-<li><a class="" href="time-series.html"><span class="header-section-number">23</span> Chuỗi thời gian và phát hiện ổ dịch</a></li>
-<li><a class="" href="epidemic-models.html"><span class="header-section-number">24</span> Mô hình hóa dịch bệnh</a></li>
-<li><a class="" href="contact-tracing.html"><span class="header-section-number">25</span> Truy vết tiếp xúc</a></li>
-<li><a class="" href="survey-analysis.html"><span class="header-section-number">26</span> Phân tích khảo sát</a></li>
-<li><a class="" href="survival-analysis.html"><span class="header-section-number">27</span> Phân tích sống còn</a></li>
-<li><a class="" href="gis.html"><span class="header-section-number">28</span> GIS cơ bản</a></li>
-<li class="book-part">Trực quan hóa dữ liệu</li>
-<li><a class="" href="tables-presentation.html"><span class="header-section-number">29</span> Trình bày bảng</a></li>
-<li><a class="" href="ggplot-basics.html"><span class="header-section-number">30</span> ggplot cơ bản</a></li>
-<li><a class="" href="ggplot-tips.html"><span class="header-section-number">31</span> Các tips với ggplot</a></li>
-<li><a class="" href="epicurves.html"><span class="header-section-number">32</span> Đường cong dịch bệnh</a></li>
-<li><a class="" href="age-pyramid.html"><span class="header-section-number">33</span> Tháp dân số và thang đo Likert</a></li>
-<li><a class="" href="heatmaps.html"><span class="header-section-number">34</span> Biểu đồ nhiệt</a></li>
-<li><a class="" href="diagrams.html"><span class="header-section-number">35</span> Sơ đồ và biểu đồ</a></li>
-<li><a class="" href="combination-analysis.html"><span class="header-section-number">36</span> Biểu đồ kết hợp</a></li>
-<li><a class="" href="transmission-chains.html"><span class="header-section-number">37</span> Chuỗi lây nhiễm</a></li>
-<li><a class="" href="phylogenetic-trees.html"><span class="header-section-number">38</span> Cây phả hệ</a></li>
-<li><a class="" href="interactive-plots.html"><span class="header-section-number">39</span> Biểu đồ tương tác</a></li>
-<li class="book-part">Báo cáo và dashboards</li>
-<li><a class="" href="rmarkdown.html"><span class="header-section-number">40</span> Báo cáo với R Markdown</a></li>
-<li><a class="" href="reportfactory.html"><span class="header-section-number">41</span> Tổ chức báo cáo định kỳ</a></li>
-<li><a class="" href="flexdashboard.html"><span class="header-section-number">42</span> Dashboards với R Markdown</a></li>
-<li><a class="" href="shiny-basics.html"><span class="header-section-number">43</span> Dashboards với Shiny</a></li>
-<li class="book-part">Tổng hợp</li>
-<li><a class="" href="writing-functions.html"><span class="header-section-number">44</span> Viết hàm</a></li>
-<li><a class="" href="directories.html"><span class="header-section-number">45</span> Tương tác với thư mục làm việc</a></li>
-<li><a class="" href="collaboration.html"><span class="header-section-number">46</span> Version control với Git và Github</a></li>
-<li><a class="" href="errors.html"><span class="header-section-number">47</span> Các lỗi thường gặp</a></li>
-<li><a class="" href="help.html"><span class="header-section-number">48</span> Nhờ sự trợ giúp</a></li>
-<li><a class="" href="network-drives.html"><span class="header-section-number">49</span> R trên ổ cứng mạng</a></li>
-<li><a class="" href="data-table.html"><span class="header-section-number">50</span> Data Table</a></li>
-</ul>
+      <nav aria-label="Table of contents">
+        <h2>Table of contents</h2>
+        <div id="book-toc"></div>
 
         <div class="book-extra">
-          
+          <p><a id="book-repo" href="#">View book source <i class="fab fa-github"></i></a></li></p>
         </div>
       </nav>
-</div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="factors" class="section level1" number="11">
-<h1>
-<span class="header-section-number">11</span> Factors<a class="anchor" aria-label="anchor" href="#factors"><i class="fas fa-link"></i></a>
-</h1>
-<div class="inline-figure"><img src="images/Factors_1500x500.png" width="100%"></div>
+    </div>
+  </header>
+
+  <main class="col-sm-12 col-md-9 col-lg-7" id="content">
+<div id="factors" class="section level1" number="11">
+<h1><span class="header-section-number">11</span> Factors</h1>
+<p><img src="images/Factors_1500x500.png" width="100%" /></p>
 <p>Trong R, <em>factors</em> là một kiểu dữ liệu cho phép sắp xếp các danh mục với một tập hợp các giá trị có thể chấp nhận.</p>
 <p>Thông thường, bạn sẽ chuyển đổi một cột từ dạng ký tự hoặc dạng số thành dạng factor khi bạn muốn sắp xếp một thứ tự đặc biệt cho các giá trị (“<em>levels</em>”) để chúng không hiển thị mặc định theo thứ tự bảng chữ cái trong các biểu đồ và bảng. Một cách sử dụng phổ biến khác của factor là chuẩn hóa các chú thích của biểu đồ để chúng không thay đổi nếu một giá trị tạm thời không có trong dữ liệu.</p>
 <p>Chương này giới thiệu cách sử dụng các hàm từ package <strong>forcats</strong> (tên viết tắt của “<strong>For</strong> <strong>categorical variables</strong>”) và một số hàm <strong>base</strong> R. Chúng tôi cũng đề cập đến việc sử dụng <strong>lubridate</strong> và <strong>aweek</strong> cho các trường hợp factor đặc biệt liên quan đến tuần dịch tễ học.</p>
 <p>Bạn có thể tìm thấy danh sách đầy đủ các hàm của package <strong>forcats</strong> trực tuyến tại đường <a href="https://forcats.tidyverse.org/reference/index.html">link này</a>. Sau đây, chúng tôi sẽ chỉ trình bày một số hàm phổ biến nhất.</p>
 <!-- ======================================================= -->
 <div id="chuẩn-bị-2" class="section level2" number="11.1">
-<h2>
-<span class="header-section-number">11.1</span> Chuẩn bị<a class="anchor" aria-label="anchor" href="#chu%E1%BA%A9n-b%E1%BB%8B-2"><i class="fas fa-link"></i></a>
-</h2>
+<h2><span class="header-section-number">11.1</span> Chuẩn bị</h2>
 <div id="gọi-packages-2" class="section level3 unnumbered">
-<h3>Gọi packages<a class="anchor" aria-label="anchor" href="#g%E1%BB%8Di-packages-2"><i class="fas fa-link"></i></a>
-</h3>
-<p>Đoạn code dưới đây hiển thị cách gọi các package cần thiết cho việc phân tích. Trong sách này, chúng tôi nhấn mạnh đến việc sử dụng hàm <code><a href="https://rdrr.io/pkg/pacman/man/p_load.html">p_load()</a></code> từ package <strong>pacman</strong>, giúp cài đặt package nếu nó chưa được cài <em>và</em> gọi nó ra cho phiên làm việc. Bạn cũng có thể gọi các package đã được cài đặt bằng hàm <code><a href="https://rdrr.io/r/base/library.html">library()</a></code> từ <strong>base</strong> R. Xem chương <a href="basics.html#basics">R cơ bản</a> để biết thêm thông tin về các package trong R.</p>
-<div class="sourceCode" id="cb541"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">pacman</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/pacman/man/p_load.html">p_load</a></span><span class="op">(</span>
-  <span class="va">rio</span>,           <span class="co"># import/export</span>
-  <span class="va">here</span>,          <span class="co"># filepaths</span>
-  <span class="va">lubridate</span>,     <span class="co"># working with dates</span>
-  <span class="va">forcats</span>,       <span class="co"># factors</span>
-  <span class="va">aweek</span>,         <span class="co"># create epiweeks with automatic factor levels</span>
-  <span class="va">janitor</span>,       <span class="co"># tables</span>
-  <span class="va">tidyverse</span>      <span class="co"># data mgmt and viz</span>
-  <span class="op">)</span></code></pre></div>
+<h3>Gọi packages</h3>
+<p>Đoạn code dưới đây hiển thị cách gọi các package cần thiết cho việc phân tích. Trong sách này, chúng tôi nhấn mạnh đến việc sử dụng hàm <code>p_load()</code> từ package <strong>pacman</strong>, giúp cài đặt package nếu nó chưa được cài <em>và</em> gọi nó ra cho phiên làm việc. Bạn cũng có thể gọi các package đã được cài đặt bằng hàm <code>library()</code> từ <strong>base</strong> R. Xem chương <a href="basics.html#basics">R cơ bản</a> để biết thêm thông tin về các package trong R.</p>
+<div class="sourceCode" id="cb540"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb540-1"><a href="factors.html#cb540-1" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(</span>
+<span id="cb540-2"><a href="factors.html#cb540-2" tabindex="-1"></a>  rio,           <span class="co"># import/export</span></span>
+<span id="cb540-3"><a href="factors.html#cb540-3" tabindex="-1"></a>  here,          <span class="co"># filepaths</span></span>
+<span id="cb540-4"><a href="factors.html#cb540-4" tabindex="-1"></a>  lubridate,     <span class="co"># working with dates</span></span>
+<span id="cb540-5"><a href="factors.html#cb540-5" tabindex="-1"></a>  forcats,       <span class="co"># factors</span></span>
+<span id="cb540-6"><a href="factors.html#cb540-6" tabindex="-1"></a>  aweek,         <span class="co"># create epiweeks with automatic factor levels</span></span>
+<span id="cb540-7"><a href="factors.html#cb540-7" tabindex="-1"></a>  janitor,       <span class="co"># tables</span></span>
+<span id="cb540-8"><a href="factors.html#cb540-8" tabindex="-1"></a>  tidyverse      <span class="co"># data mgmt and viz</span></span>
+<span id="cb540-9"><a href="factors.html#cb540-9" tabindex="-1"></a>  )</span></code></pre></div>
 </div>
 <div id="nhập-dữ-liệu-4" class="section level3 unnumbered">
-<h3>Nhập dữ liệu<a class="anchor" aria-label="anchor" href="#nh%E1%BA%ADp-d%E1%BB%AF-li%E1%BB%87u-4"><i class="fas fa-link"></i></a>
-</h3>
-<p>Chúng ta sẽ nhập bộ dữ liệu về các trường hợp từ một vụ dịch Ebola mô phỏng. Để tiện muốn theo dõi, <a href="https://github.com/appliedepi/epirhandbook_eng/raw/master/data/case_linelists/linelist_cleaned.rds" class="download-button">bấm để tải bộ dữ liệu linelist “đã được làm sạch”</a> (dưới dạng tệp .rds). Nhập dữ liệu bằng hàm <code><a href="https://rdrr.io/pkg/rio/man/import.html">import()</a></code> từ package <strong>rio</strong> (hàm có thể áp dụng với nhiều loại dữ liệu như .xlsx, .rds, .csv - Xem chương <a href="importing.html#importing">Nhập xuất dữ liệu</a> để biết thêm chi tiết).</p>
-<div class="sourceCode" id="cb542"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># import your dataset</span>
-<span class="va">linelist</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/rio/man/import.html">import</a></span><span class="op">(</span><span class="st">"linelist_cleaned.rds"</span><span class="op">)</span></code></pre></div>
+<h3>Nhập dữ liệu</h3>
+<p>Chúng ta sẽ nhập bộ dữ liệu về các trường hợp từ một vụ dịch Ebola mô phỏng. Để tiện muốn theo dõi, <a href='https://github.com/appliedepi/epirhandbook_eng/raw/master/data/case_linelists/linelist_cleaned.rds' class='download-button'>bấm để tải bộ dữ liệu linelist “đã được làm sạch”</a> (dưới dạng tệp .rds). Nhập dữ liệu bằng hàm <code>import()</code> từ package <strong>rio</strong> (hàm có thể áp dụng với nhiều loại dữ liệu như .xlsx, .rds, .csv - Xem chương <a href="importing.html#importing">Nhập xuất dữ liệu</a> để biết thêm chi tiết).</p>
+<div class="sourceCode" id="cb541"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb541-1"><a href="factors.html#cb541-1" tabindex="-1"></a><span class="co"># import your dataset</span></span>
+<span id="cb541-2"><a href="factors.html#cb541-2" tabindex="-1"></a>linelist <span class="ot">&lt;-</span> <span class="fu">import</span>(<span class="st">&quot;linelist_cleaned.rds&quot;</span>)</span></code></pre></div>
 </div>
 <div id="fct_newcat" class="section level3 unnumbered">
-<h3>Thêm biến danh mục mới<a class="anchor" aria-label="anchor" href="#fct_newcat"><i class="fas fa-link"></i></a>
-</h3>
+<h3>Thêm biến danh mục mới</h3>
 <p>Trong chương này, chúng tôi sẽ minh họa một trường hợp thường gặp, đó là tạo ra một biến danh mục mới.</p>
 <p>Lưu ý rằng khi bạn chuyển đổi một cột dạng số thành dạng factor, bạn sẽ không thể thực hiện các tính toán thống kê đối với dữ liệu dạng số trên cột đó nữa.</p>
 <div id="tạo-biến" class="section level4 unnumbered">
-<h4>Tạo biến<a class="anchor" aria-label="anchor" href="#t%E1%BA%A1o-bi%E1%BA%BFn"><i class="fas fa-link"></i></a>
-</h4>
+<h4>Tạo biến</h4>
 <p>Chúng ta sẽ sử dụng một biến có sẵn, tên là <code>days_onset_hosp</code> (số ngày, tính từ khi bắt đầu có triệu chứng cho đến khi nhập viện) và tạo một biến mới có tên <code>delay_cat</code> bằng cách phân loại các giá trị trong mỗi hàng của biến có sẵn đó thành một số nhóm khác nhau. Chúng ta sẽ thực hiện việc này bằng hàm <code>case_when()</code> trong package <strong>dplyr</strong>, hàm này sẽ giúp áp dụng tuần tự các tiêu chí logic (phía bên phải) cho mỗi giá trị của biễn có sẵn và trả về giá trị bên trái tương ứng ở biến mới <code>delay_cat</code>. Đọc thêm về <code>case_when()</code> tại chương <a href="cleaning.html#cleaning">Làm sạch số liệu và các hàm quan trọng</a>.</p>
-<div class="sourceCode" id="cb543"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">linelist</span> <span class="op">&lt;-</span> <span class="va">linelist</span> <span class="op">%&gt;%</span> 
-  <span class="fu">mutate</span><span class="op">(</span>delay_cat <span class="op">=</span> <span class="fu">case_when</span><span class="op">(</span>
-    <span class="co"># criteria                                   # new value if TRUE</span>
-    <span class="va">days_onset_hosp</span> <span class="op">&lt;</span> <span class="fl">2</span>                        <span class="op">~</span> <span class="st">"&lt;2 days"</span>,
-    <span class="va">days_onset_hosp</span> <span class="op">&gt;=</span> <span class="fl">2</span> <span class="op">&amp;</span> <span class="va">days_onset_hosp</span> <span class="op">&lt;</span> <span class="fl">5</span> <span class="op">~</span> <span class="st">"2-5 days"</span>,
-    <span class="va">days_onset_hosp</span> <span class="op">&gt;=</span> <span class="fl">5</span>                       <span class="op">~</span> <span class="st">"&gt;5 days"</span>,
-    <span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">days_onset_hosp</span><span class="op">)</span>                     <span class="op">~</span> <span class="cn">NA_character_</span>,
-    <span class="cn">TRUE</span>                                       <span class="op">~</span> <span class="st">"Check me"</span><span class="op">)</span><span class="op">)</span>  </code></pre></div>
+<div class="sourceCode" id="cb542"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb542-1"><a href="factors.html#cb542-1" tabindex="-1"></a>linelist <span class="ot">&lt;-</span> linelist <span class="sc">%&gt;%</span> </span>
+<span id="cb542-2"><a href="factors.html#cb542-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">delay_cat =</span> <span class="fu">case_when</span>(</span>
+<span id="cb542-3"><a href="factors.html#cb542-3" tabindex="-1"></a>    <span class="co"># criteria                                   # new value if TRUE</span></span>
+<span id="cb542-4"><a href="factors.html#cb542-4" tabindex="-1"></a>    days_onset_hosp <span class="sc">&lt;</span> <span class="dv">2</span>                        <span class="sc">~</span> <span class="st">&quot;&lt;2 days&quot;</span>,</span>
+<span id="cb542-5"><a href="factors.html#cb542-5" tabindex="-1"></a>    days_onset_hosp <span class="sc">&gt;=</span> <span class="dv">2</span> <span class="sc">&amp;</span> days_onset_hosp <span class="sc">&lt;</span> <span class="dv">5</span> <span class="sc">~</span> <span class="st">&quot;2-5 days&quot;</span>,</span>
+<span id="cb542-6"><a href="factors.html#cb542-6" tabindex="-1"></a>    days_onset_hosp <span class="sc">&gt;=</span> <span class="dv">5</span>                       <span class="sc">~</span> <span class="st">&quot;&gt;5 days&quot;</span>,</span>
+<span id="cb542-7"><a href="factors.html#cb542-7" tabindex="-1"></a>    <span class="fu">is.na</span>(days_onset_hosp)                     <span class="sc">~</span> <span class="cn">NA_character_</span>,</span>
+<span id="cb542-8"><a href="factors.html#cb542-8" tabindex="-1"></a>    <span class="cn">TRUE</span>                                       <span class="sc">~</span> <span class="st">&quot;Check me&quot;</span>))  </span></code></pre></div>
 </div>
 <div id="thứ-tự-mặc-định-của-các-giá-trị" class="section level4 unnumbered">
-<h4>Thứ tự mặc định của các giá trị<a class="anchor" aria-label="anchor" href="#th%E1%BB%A9-t%E1%BB%B1-m%E1%BA%B7c-%C4%91%E1%BB%8Bnh-c%E1%BB%A7a-c%C3%A1c-gi%C3%A1-tr%E1%BB%8B"><i class="fas fa-link"></i></a>
-</h4>
+<h4>Thứ tự mặc định của các giá trị</h4>
 <p>Khi sử dụng hàm <code>case_when()</code>, biến mới <code>delay_cat</code> tạo ra sẽ là một biến danh mục với kiểu dữ liệu là ký tự - <em>chưa</em> phải là một factor. Do đó, trong bảng tần suất dưới đây, chúng ta thấy rằng các giá trị xuất hiện theo thứ tự mặc định của bảng chữ cái, điều này không có nhiều ý nghĩa trực quan:</p>
-<div class="sourceCode" id="cb544"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">linelist</span><span class="op">$</span><span class="va">delay_cat</span>, useNA <span class="op">=</span> <span class="st">"always"</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb543"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb543-1"><a href="factors.html#cb543-1" tabindex="-1"></a><span class="fu">table</span>(linelist<span class="sc">$</span>delay_cat, <span class="at">useNA =</span> <span class="st">&quot;always&quot;</span>)</span></code></pre></div>
 <pre><code>## 
 ##  &lt;2 days  &gt;5 days 2-5 days     &lt;NA&gt; 
 ##     2990      602     2040      256</code></pre>
 <p>Tương tự như vậy, nếu chúng ta tạo biểu đồ cột, các giá trị cũng xuất hiện theo thứ tự này trên trục x (xem chương <a href="ggplot-basics.html#ggplot-basics">ggplot cơ bản</a> để hiểu thêm về package <strong>ggplot2</strong> - package giúp trực quan hóa dữ liệu phổ biến nhất trong R).</p>
-<div class="sourceCode" id="cb546"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">ggplot</span><span class="op">(</span>data <span class="op">=</span> <span class="va">linelist</span><span class="op">)</span><span class="op">+</span>
-  <span class="fu">geom_bar</span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">delay_cat</span><span class="op">)</span><span class="op">)</span></code></pre></div>
-<div class="inline-figure"><img src="_main_files/figure-html/unnamed-chunk-376-1.png" width="672"></div>
+<div class="sourceCode" id="cb545"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb545-1"><a href="factors.html#cb545-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> linelist)<span class="sc">+</span></span>
+<span id="cb545-2"><a href="factors.html#cb545-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> delay_cat))</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-402-1.png" width="672" /></p>
 </div>
 </div>
 </div>
 <div id="chuyển-đổi-sang-factor" class="section level2" number="11.2">
-<h2>
-<span class="header-section-number">11.2</span> Chuyển đổi sang factor<a class="anchor" aria-label="anchor" href="#chuy%E1%BB%83n-%C4%91%E1%BB%95i-sang-factor"><i class="fas fa-link"></i></a>
-</h2>
+<h2><span class="header-section-number">11.2</span> Chuyển đổi sang factor</h2>
 <p>Để chuyển đổi một biến dạng ký tự hoặc dạng số sang dạng <em>factor</em>, bạn có thể sử dụng bất kỳ hàm nào trong package <strong>forcats</strong> (nhiều hàm được nêu chi tiết tại <a href="factors.html#fct_adjust">mục dưới đây</a>). Các biến sẽ chuyển đổi sang dạng factor và sau đó cũng thực hiện hoặc sắp xếp theo một thứ tự nhất định của các levels - ví dụ: hàm <code>fct_relevel()</code> cho phép bạn chỉ định thứ tự levels theo cách thủ công. Hàm <code>as_factor()</code> chỉ đơn giản là chuyển đổi biến sang dạng factor mà không có thêm bất kỳ chức năng nào khác.</p>
-<p>Hàm <code><a href="https://rdrr.io/r/base/factor.html">factor()</a></code> trong <strong>base</strong> R chuyển đổi một biến thành factor và cho phép bạn tự sắp xếp thứ tự của các nhóm giá trị, dưới dạng một vectơ ký tự của đối số <code>levels =</code>.</p>
+<p>Hàm <code>factor()</code> trong <strong>base</strong> R chuyển đổi một biến thành factor và cho phép bạn tự sắp xếp thứ tự của các nhóm giá trị, dưới dạng một vectơ ký tự của đối số <code>levels =</code>.</p>
 <p>Dưới đây, chúng tôi sử dụng hàm <code>mutate()</code> và hàm <code>fct_relevel()</code> để chuyển đối biến có sẵn <code>delay_cat</code> từ dạng ký tự sang dạng factor. Biến <code>delay_cat</code> đã được tạo ở phần <a href="factors.html#fct_newcat">Chuẩn bị</a> bên trên.</p>
-<div class="sourceCode" id="cb547"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">linelist</span> <span class="op">&lt;-</span> <span class="va">linelist</span> <span class="op">%&gt;%</span>
-  <span class="fu">mutate</span><span class="op">(</span>delay_cat <span class="op">=</span> <span class="fu">fct_relevel</span><span class="op">(</span><span class="va">delay_cat</span><span class="op">)</span><span class="op">)</span></code></pre></div>
-<p><em>Các “giá trị” duy nhất trong biến số được gọi là các “thứ bậc” của biến factor.</em> Các thứ bậc này được sắp xếp <em>theo một trật tự nhất định</em> và có thể được in ra bằng hàm <code><a href="https://rdrr.io/r/base/levels.html">levels()</a></code> từ <strong>base</strong> R, hoặc bạn có thể xem nó bằng một bảng đếm thông qua hàm <code><a href="https://rdrr.io/r/base/table.html">table()</a></code>từ <strong>base</strong> R, hoặc hàm <code>tabyl()</code> từ package <strong>janitor</strong>. Trật tự này sẽ được hiển thị theo thứ tự của bảng chữ cái. Lưu ý rằng <code>NA</code> không được xem là một thứ bậc trong factor.</p>
-<div class="sourceCode" id="cb548"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/levels.html">levels</a></span><span class="op">(</span><span class="va">linelist</span><span class="op">$</span><span class="va">delay_cat</span><span class="op">)</span></code></pre></div>
-<pre><code>## [1] "&lt;2 days"  "&gt;5 days"  "2-5 days"</code></pre>
+<div class="sourceCode" id="cb546"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb546-1"><a href="factors.html#cb546-1" tabindex="-1"></a>linelist <span class="ot">&lt;-</span> linelist <span class="sc">%&gt;%</span></span>
+<span id="cb546-2"><a href="factors.html#cb546-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">delay_cat =</span> <span class="fu">fct_relevel</span>(delay_cat))</span></code></pre></div>
+<p><em>Các “giá trị” duy nhất trong biến số được gọi là các “thứ bậc” của biến factor.</em> Các thứ bậc này được sắp xếp <em>theo một trật tự nhất định</em> và có thể được in ra bằng hàm <code>levels()</code> từ <strong>base</strong> R, hoặc bạn có thể xem nó bằng một bảng đếm thông qua hàm <code>table()</code>từ <strong>base</strong> R, hoặc hàm <code>tabyl()</code> từ package <strong>janitor</strong>. Trật tự này sẽ được hiển thị theo thứ tự của bảng chữ cái. Lưu ý rằng <code>NA</code> không được xem là một thứ bậc trong factor.</p>
+<div class="sourceCode" id="cb547"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb547-1"><a href="factors.html#cb547-1" tabindex="-1"></a><span class="fu">levels</span>(linelist<span class="sc">$</span>delay_cat)</span></code></pre></div>
+<pre><code>## [1] &quot;&lt;2 days&quot;  &quot;&gt;5 days&quot;  &quot;2-5 days&quot;</code></pre>
 <p>Hàm <code>fct_relevel()</code> có thêm chức năng cho phép bạn có thể tự sắp xếp trật tự của các thứ bậc trong factor. Đơn giản, bạn chỉ cần viết các thứ bậc theo thứ tự bạn muốn, để chúng trong dấu ngoặc kép, được phân tách bằng dấu phẩy, như được hiển thị bên dưới. Lưu ý rằng chính tả phải khớp chính xác với tên các thứ bậc. Nếu bạn muốn tạo các thứ bậc không tồn tại trong dữ liệu, hãy sử dụng hàm <a href="factors.html#fct_add"><code>fct_expand()</code></a> nhé.</p>
-<div class="sourceCode" id="cb550"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">linelist</span> <span class="op">&lt;-</span> <span class="va">linelist</span> <span class="op">%&gt;%</span>
-  <span class="fu">mutate</span><span class="op">(</span>delay_cat <span class="op">=</span> <span class="fu">fct_relevel</span><span class="op">(</span><span class="va">delay_cat</span>, <span class="st">"&lt;2 days"</span>, <span class="st">"2-5 days"</span>, <span class="st">"&gt;5 days"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb549"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb549-1"><a href="factors.html#cb549-1" tabindex="-1"></a>linelist <span class="ot">&lt;-</span> linelist <span class="sc">%&gt;%</span></span>
+<span id="cb549-2"><a href="factors.html#cb549-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">delay_cat =</span> <span class="fu">fct_relevel</span>(delay_cat, <span class="st">&quot;&lt;2 days&quot;</span>, <span class="st">&quot;2-5 days&quot;</span>, <span class="st">&quot;&gt;5 days&quot;</span>))</span></code></pre></div>
 <p>Bây giờ chúng ta có thể thấy rằng các thứ bậc đã được sắp xếp theo một thứ tự hợp lý.</p>
-<div class="sourceCode" id="cb551"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/levels.html">levels</a></span><span class="op">(</span><span class="va">linelist</span><span class="op">$</span><span class="va">delay_cat</span><span class="op">)</span></code></pre></div>
-<pre><code>## [1] "&lt;2 days"  "2-5 days" "&gt;5 days"</code></pre>
+<div class="sourceCode" id="cb550"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb550-1"><a href="factors.html#cb550-1" tabindex="-1"></a><span class="fu">levels</span>(linelist<span class="sc">$</span>delay_cat)</span></code></pre></div>
+<pre><code>## [1] &quot;&lt;2 days&quot;  &quot;2-5 days&quot; &quot;&gt;5 days&quot;</code></pre>
 <p>Bây giờ trật tự các cột trong biểu đồ cũng trực quan hơn.</p>
-<div class="sourceCode" id="cb553"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">ggplot</span><span class="op">(</span>data <span class="op">=</span> <span class="va">linelist</span><span class="op">)</span><span class="op">+</span>
-  <span class="fu">geom_bar</span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">delay_cat</span><span class="op">)</span><span class="op">)</span></code></pre></div>
-<div class="inline-figure"><img src="_main_files/figure-html/unnamed-chunk-381-1.png" width="672"></div>
+<div class="sourceCode" id="cb552"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb552-1"><a href="factors.html#cb552-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> linelist)<span class="sc">+</span></span>
+<span id="cb552-2"><a href="factors.html#cb552-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> delay_cat))</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-407-1.png" width="672" /></p>
 </div>
 <div id="thêm-hoặc-xóa-thứ-bậc" class="section level2" number="11.3">
-<h2>
-<span class="header-section-number">11.3</span> Thêm hoặc xóa thứ bậc<a class="anchor" aria-label="anchor" href="#th%C3%AAm-ho%E1%BA%B7c-x%C3%B3a-th%E1%BB%A9-b%E1%BA%ADc"><i class="fas fa-link"></i></a>
-</h2>
+<h2><span class="header-section-number">11.3</span> Thêm hoặc xóa thứ bậc</h2>
 <div id="fct_add" class="section level3 unnumbered">
-<h3>Thêm thứ bậc<a class="anchor" aria-label="anchor" href="#fct_add"><i class="fas fa-link"></i></a>
-</h3>
-<p>Nếu bạn cần thêm thứ bậc trong factor, bạn có thể sử dụng hàm <code>fct_expand()</code>. Bạn chỉ cần viết tên biến và theo sau là tên các thứ bậc mới (phân tách bằng dấu phẩy). Bằng cách lập bảng, chúng ta có thể thấy các thứ bậc mới xuất hiện và chưa nhận giá trị nào. Bạn có thể sử dụng hàm <code><a href="https://rdrr.io/r/base/table.html">table()</a></code> trong <strong>base</strong> R, hoặc hàm <code>tabyl()</code> trong package <strong>janitor</strong>:</p>
-<div class="sourceCode" id="cb554"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">linelist</span> <span class="op">%&gt;%</span> 
-  <span class="fu">mutate</span><span class="op">(</span>delay_cat <span class="op">=</span> <span class="fu">fct_expand</span><span class="op">(</span><span class="va">delay_cat</span>, <span class="st">"Not admitted to hospital"</span>, <span class="st">"Transfer to other jurisdiction"</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> 
-  <span class="fu">tabyl</span><span class="op">(</span><span class="va">delay_cat</span><span class="op">)</span>   <span class="co"># print table</span></code></pre></div>
+<h3>Thêm thứ bậc</h3>
+<p>Nếu bạn cần thêm thứ bậc trong factor, bạn có thể sử dụng hàm <code>fct_expand()</code>. Bạn chỉ cần viết tên biến và theo sau là tên các thứ bậc mới (phân tách bằng dấu phẩy). Bằng cách lập bảng, chúng ta có thể thấy các thứ bậc mới xuất hiện và chưa nhận giá trị nào. Bạn có thể sử dụng hàm <code>table()</code> trong <strong>base</strong> R, hoặc hàm <code>tabyl()</code> trong package <strong>janitor</strong>:</p>
+<div class="sourceCode" id="cb553"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb553-1"><a href="factors.html#cb553-1" tabindex="-1"></a>linelist <span class="sc">%&gt;%</span> </span>
+<span id="cb553-2"><a href="factors.html#cb553-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">delay_cat =</span> <span class="fu">fct_expand</span>(delay_cat, <span class="st">&quot;Not admitted to hospital&quot;</span>, <span class="st">&quot;Transfer to other jurisdiction&quot;</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb553-3"><a href="factors.html#cb553-3" tabindex="-1"></a>  <span class="fu">tabyl</span>(delay_cat)   <span class="co"># print table</span></span></code></pre></div>
 <pre><code>##                       delay_cat    n    percent valid_percent
 ##                         &lt;2 days 2990 0.50781250     0.5308949
 ##                        2-5 days 2040 0.34646739     0.3622159
@@ -241,13 +271,11 @@
 <p>Lưu ý: Package <strong>forcats</strong> có thể dễ dàng thêm các giá trị missing (<code>NA</code>) như là một thứ bậc. Bạn có thể xem thêm tại mục <a href="factors.html#fct_missing">Giá trị Missing</a> dưới đây.</p>
 </div>
 <div id="xóa-thứ-bậc" class="section level3 unnumbered">
-<h3>Xóa thứ bậc<a class="anchor" aria-label="anchor" href="#x%C3%B3a-th%E1%BB%A9-b%E1%BA%ADc"><i class="fas fa-link"></i></a>
-</h3>
+<h3>Xóa thứ bậc</h3>
 <p>Nếu bạn sử dụng hàm <code>fct_drop()</code>, các thứ bậc “không được sử dụng” và không có quan sát nào sẽ bị loại bỏ khỏi factors. Thứ bậc mà chúng ta đã thêm ở trên (“Not admitted to a hospital”) có tồn tại nhưng thực tế không có dòng nào chứa giá trị này. Vì vậy, chúng sẽ bị loại bỏ khỏi biến factor của chúng ta bằng cách sử dụng hàm <code>fct_drop()</code> như sau:</p>
-<div class="sourceCode" id="cb556"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">linelist</span> <span class="op">%&gt;%</span> 
-  <span class="fu">mutate</span><span class="op">(</span>delay_cat <span class="op">=</span> <span class="fu">fct_drop</span><span class="op">(</span><span class="va">delay_cat</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> 
-  <span class="fu">tabyl</span><span class="op">(</span><span class="va">delay_cat</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb555"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb555-1"><a href="factors.html#cb555-1" tabindex="-1"></a>linelist <span class="sc">%&gt;%</span> </span>
+<span id="cb555-2"><a href="factors.html#cb555-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">delay_cat =</span> <span class="fu">fct_drop</span>(delay_cat)) <span class="sc">%&gt;%</span> </span>
+<span id="cb555-3"><a href="factors.html#cb555-3" tabindex="-1"></a>  <span class="fu">tabyl</span>(delay_cat)</span></code></pre></div>
 <pre><code>##  delay_cat    n    percent valid_percent
 ##    &lt;2 days 2990 0.50781250     0.5308949
 ##   2-5 days 2040 0.34646739     0.3622159
@@ -256,150 +284,130 @@
 </div>
 </div>
 <div id="fct_adjust" class="section level2" number="11.4">
-<h2>
-<span class="header-section-number">11.4</span> Thay đổi trật tự của các thứ bậc<a class="anchor" aria-label="anchor" href="#fct_adjust"><i class="fas fa-link"></i></a>
-</h2>
+<h2><span class="header-section-number">11.4</span> Thay đổi trật tự của các thứ bậc</h2>
 <p>Package <strong>forcats</strong> cung cấp các hàm hữu ích để dễ dàng thay đổi trật tự của các thứ bậc trong một biến kiểu factor (sau khi một biến số được định nghĩa là một factor):</p>
 <p>Các hàm trong package này có thể được áp dụng cho biến dạng factor trong hai trường hợp dưới đây:</p>
 <ol style="list-style-type: decimal">
 <li>Đối với cột trong một data frame, thông thường, việc thay đổi sẽ được giữ nguyên cho các lần sử dụng dữ liệu tiếp theo</li>
-<li>
-<em>Trong một biểu đồ</em>, sự thay đổi trật tự chỉ được áp dụng cho biểu đồ đó</li>
+<li><em>Trong một biểu đồ</em>, sự thay đổi trật tự chỉ được áp dụng cho biểu đồ đó</li>
 </ol>
 <div id="thay-đổi-thủ-công" class="section level3 unnumbered">
-<h3>Thay đổi thủ công<a class="anchor" aria-label="anchor" href="#thay-%C4%91%E1%BB%95i-th%E1%BB%A7-c%C3%B4ng"><i class="fas fa-link"></i></a>
-</h3>
+<h3>Thay đổi thủ công</h3>
 <p>Hàm này được sử dụng để thay đổi trật tự của các thứ bậc trong một biến dạng factor theo cách thủ công. Nếu hàm này được sử dụng trên một biến dạng khác, không phải factor, hàm sẽ giúp chuyển biến đó sang dạng factor trước.</p>
 <p>Trong dấu ngoặc đơn trước tiên điền tên của biến factor, sau đó điền:</p>
 <ul>
-<li>Tất cả các thứ bậc trong biến factor mà bạn mong muốn thay đổi trật tự (dưới dạng vector ký tự <code><a href="https://rdrr.io/r/base/c.html">c()</a></code>), hoặc</li>
-<li>Chỉ một giá trị thứ bậc với vị trí tương ứng mong muốn, sử dụng đối số <code>after =</code>
-</li>
+<li>Tất cả các thứ bậc trong biến factor mà bạn mong muốn thay đổi trật tự (dưới dạng vector ký tự <code>c()</code>), hoặc</li>
+<li>Chỉ một giá trị thứ bậc với vị trí tương ứng mong muốn, sử dụng đối số <code>after =</code></li>
 </ul>
 <p>Dưới đây là một ví dụ về chuyển biến <code>delay_cat</code> thành dạng factor (mặc dù biến này đã ở dạng Factor rồi) và sắp xếp lại các thứ bậc theo thứ tự mong muốn.</p>
-<div class="sourceCode" id="cb558"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># re-define level order</span>
-<span class="va">linelist</span> <span class="op">&lt;-</span> <span class="va">linelist</span> <span class="op">%&gt;%</span> 
-  <span class="fu">mutate</span><span class="op">(</span>delay_cat <span class="op">=</span> <span class="fu">fct_relevel</span><span class="op">(</span><span class="va">delay_cat</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"&lt;2 days"</span>, <span class="st">"2-5 days"</span>, <span class="st">"&gt;5 days"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb557"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb557-1"><a href="factors.html#cb557-1" tabindex="-1"></a><span class="co"># re-define level order</span></span>
+<span id="cb557-2"><a href="factors.html#cb557-2" tabindex="-1"></a>linelist <span class="ot">&lt;-</span> linelist <span class="sc">%&gt;%</span> </span>
+<span id="cb557-3"><a href="factors.html#cb557-3" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">delay_cat =</span> <span class="fu">fct_relevel</span>(delay_cat, <span class="fu">c</span>(<span class="st">&quot;&lt;2 days&quot;</span>, <span class="st">&quot;2-5 days&quot;</span>, <span class="st">&quot;&gt;5 days&quot;</span>)))</span></code></pre></div>
 <p>Nếu bạn chỉ muốn chỉ định vị trí cho một thứ bậc, bạn có thể dùng hàm <code>fct_relevel()</code> và sử dụng đối số <code>after =</code> để chỉ định một giá trị thứ bậc với vị trí tương ứng mong muốn. Ví dụ: lệnh dưới đây chuyển thứ bậc “&lt;2 days” sang vị trí thứ hai:</p>
-<div class="sourceCode" id="cb559"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># re-define level order</span>
-<span class="va">linelist</span> <span class="op">%&gt;%</span> 
-  <span class="fu">mutate</span><span class="op">(</span>delay_cat <span class="op">=</span> <span class="fu">fct_relevel</span><span class="op">(</span><span class="va">delay_cat</span>, <span class="st">"&lt;2 days"</span>, after <span class="op">=</span> <span class="fl">1</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> 
-  <span class="fu">tabyl</span><span class="op">(</span><span class="va">delay_cat</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb558"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb558-1"><a href="factors.html#cb558-1" tabindex="-1"></a><span class="co"># re-define level order</span></span>
+<span id="cb558-2"><a href="factors.html#cb558-2" tabindex="-1"></a>linelist <span class="sc">%&gt;%</span> </span>
+<span id="cb558-3"><a href="factors.html#cb558-3" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">delay_cat =</span> <span class="fu">fct_relevel</span>(delay_cat, <span class="st">&quot;&lt;2 days&quot;</span>, <span class="at">after =</span> <span class="dv">1</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb558-4"><a href="factors.html#cb558-4" tabindex="-1"></a>  <span class="fu">tabyl</span>(delay_cat)</span></code></pre></div>
 </div>
 <div id="đối-với-biểu-đồ" class="section level3 unnumbered">
-<h3>Đối với biểu đồ<a class="anchor" aria-label="anchor" href="#%C4%91%E1%BB%91i-v%E1%BB%9Bi-bi%E1%BB%83u-%C4%91%E1%BB%93"><i class="fas fa-link"></i></a>
-</h3>
+<h3>Đối với biểu đồ</h3>
 <p>Các lệnh trong package <strong>forcats</strong> có thể được sử dụng để thay đổi trật tự của biến trong data frame hoặc trong biểu đồ. Bằng cách sử dụng các lệnh để “gói” tên biến vào <em>trong</em> các lệnh vẽ biểu đồ của package <code>ggplot()</code>, bạn có thể dảo ngược/thay đổi một trật tự có sẵn của biến. Sự thay đổi này chỉ áp dụng trong biểu đồ đang vẽ.</p>
 <p>Dưới đây, hai biểu đồ đều được vẽ bởi hàm <code>ggplot()</code> (xem thêm tại chương <a href="ggplot-basics.html#ggplot-basics">ggplot cơ bản</a>). Trong biểu đồ đầu tiên, biến <code>delay_cat</code> được vẽ trên trục x của biểu đồ với thứ tự các thứ bậc là mặc định trong dữ liệu <code>linelist</code>. Trong biểu đồ thứ hai, biến được đặt trong bởi hàm <code>fct_relevel()</code> và trật tự của các thứ bậc đã được sắp xếp lại.</p>
-<div class="sourceCode" id="cb560"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Alpha-numeric default order - no adjustment within ggplot</span>
-<span class="fu">ggplot</span><span class="op">(</span>data <span class="op">=</span> <span class="va">linelist</span><span class="op">)</span><span class="op">+</span>
-    <span class="fu">geom_bar</span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">delay_cat</span><span class="op">)</span><span class="op">)</span>
-
-<span class="co"># Factor level order adjusted within ggplot</span>
-<span class="fu">ggplot</span><span class="op">(</span>data <span class="op">=</span> <span class="va">linelist</span><span class="op">)</span><span class="op">+</span>
-  <span class="fu">geom_bar</span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="fu">fct_relevel</span><span class="op">(</span><span class="va">delay_cat</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"&lt;2 days"</span>, <span class="st">"2-5 days"</span>, <span class="st">"&gt;5 days"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-387-1.png" width="50%"><img src="_main_files/figure-html/unnamed-chunk-387-2.png" width="50%"></p>
+<div class="sourceCode" id="cb559"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb559-1"><a href="factors.html#cb559-1" tabindex="-1"></a><span class="co"># Alpha-numeric default order - no adjustment within ggplot</span></span>
+<span id="cb559-2"><a href="factors.html#cb559-2" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> linelist)<span class="sc">+</span></span>
+<span id="cb559-3"><a href="factors.html#cb559-3" tabindex="-1"></a>    <span class="fu">geom_bar</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> delay_cat))</span>
+<span id="cb559-4"><a href="factors.html#cb559-4" tabindex="-1"></a></span>
+<span id="cb559-5"><a href="factors.html#cb559-5" tabindex="-1"></a><span class="co"># Factor level order adjusted within ggplot</span></span>
+<span id="cb559-6"><a href="factors.html#cb559-6" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> linelist)<span class="sc">+</span></span>
+<span id="cb559-7"><a href="factors.html#cb559-7" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">fct_relevel</span>(delay_cat, <span class="fu">c</span>(<span class="st">&quot;&lt;2 days&quot;</span>, <span class="st">&quot;2-5 days&quot;</span>, <span class="st">&quot;&gt;5 days&quot;</span>))))</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-413-1.png" width="50%" /><img src="_main_files/figure-html/unnamed-chunk-413-2.png" width="50%" /></p>
 <p>Lưu ý rằng, ở biểu đồ thứ hai, tiêu đề mặc định của trục x được hiện khá phức tạp - bạn có thể sử tiêu đề này bằng đối số <code>labs()</code> trong <strong>ggplot2</strong>.</p>
 </div>
 <div id="đảo-ngược-thứ-tự" class="section level3 unnumbered">
-<h3>Đảo ngược thứ tự<a class="anchor" aria-label="anchor" href="#%C4%91%E1%BA%A3o-ng%C6%B0%E1%BB%A3c-th%E1%BB%A9-t%E1%BB%B1"><i class="fas fa-link"></i></a>
-</h3>
+<h3>Đảo ngược thứ tự</h3>
 <p>Bạn sẽ thường xuyên cần đảo ngược trật tự của các thứ bậc trong một biến. Đơn giản, bạn chỉ cần thêm tên biến vào bên trong hàm <code>fct_rev()</code>.</p>
 <p>Lưu ý rằng, nếu bạn <em>chỉ</em> muốn đảo ngược thứ tự trong một biểu đồ chứ không phải thứ tự của biến đó, bạn có thể thực hiện điều đó với hàm <code>guides()</code> (Xem thêm tại chương <a href="ggplot-tips.html#ggplot-tips">Các tips với ggplot</a>).</p>
 </div>
 <div id="theo-tần-suất" class="section level3 unnumbered">
-<h3>Theo tần suất<a class="anchor" aria-label="anchor" href="#theo-t%E1%BA%A7n-su%E1%BA%A5t"><i class="fas fa-link"></i></a>
-</h3>
+<h3>Theo tần suất</h3>
 <p>Để sắp xếp trật tự các thứ bậc theo tần suất mà nó xuất hiện trong dữ liệu, hãy sử dụng hàm <code>fct_infreq()</code>. Tất cả các giá trị mising (<code>NA</code>) sẽ tự động được đưa xuống cuối, trừ khi chúng được chuyển sang một thứ bậc khác (xem thêm ở <a href="factors.html#fct_missing">mục này</a>). Bạn có thể đảo ngược trật tự bằng cách thêm hàm <code>fct_rev()</code> vào câu lệnh.</p>
 <p>Hàm này có thể được sử dụng trong <code>ggplot()</code>, như hình bên dưới.</p>
-<div class="sourceCode" id="cb561"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># ordered by frequency</span>
-<span class="fu">ggplot</span><span class="op">(</span>data <span class="op">=</span> <span class="va">linelist</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="fu">fct_infreq</span><span class="op">(</span><span class="va">delay_cat</span><span class="op">)</span><span class="op">)</span><span class="op">)</span><span class="op">+</span>
-  <span class="fu">geom_bar</span><span class="op">(</span><span class="op">)</span><span class="op">+</span>
-  <span class="fu">labs</span><span class="op">(</span>x <span class="op">=</span> <span class="st">"Delay onset to admission (days)"</span>,
-       title <span class="op">=</span> <span class="st">"Ordered by frequency"</span><span class="op">)</span>
-
-<span class="co"># reversed frequency</span>
-<span class="fu">ggplot</span><span class="op">(</span>data <span class="op">=</span> <span class="va">linelist</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="fu">fct_rev</span><span class="op">(</span><span class="fu">fct_infreq</span><span class="op">(</span><span class="va">delay_cat</span><span class="op">)</span><span class="op">)</span><span class="op">)</span><span class="op">)</span><span class="op">+</span>
-  <span class="fu">geom_bar</span><span class="op">(</span><span class="op">)</span><span class="op">+</span>
-  <span class="fu">labs</span><span class="op">(</span>x <span class="op">=</span> <span class="st">"Delay onset to admission (days)"</span>,
-       title <span class="op">=</span> <span class="st">"Reverse of order by frequency"</span><span class="op">)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-388-1.png" width="50%"><img src="_main_files/figure-html/unnamed-chunk-388-2.png" width="50%"></p>
+<div class="sourceCode" id="cb560"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb560-1"><a href="factors.html#cb560-1" tabindex="-1"></a><span class="co"># ordered by frequency</span></span>
+<span id="cb560-2"><a href="factors.html#cb560-2" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> linelist, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">fct_infreq</span>(delay_cat)))<span class="sc">+</span></span>
+<span id="cb560-3"><a href="factors.html#cb560-3" tabindex="-1"></a>  <span class="fu">geom_bar</span>()<span class="sc">+</span></span>
+<span id="cb560-4"><a href="factors.html#cb560-4" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Delay onset to admission (days)&quot;</span>,</span>
+<span id="cb560-5"><a href="factors.html#cb560-5" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">&quot;Ordered by frequency&quot;</span>)</span>
+<span id="cb560-6"><a href="factors.html#cb560-6" tabindex="-1"></a></span>
+<span id="cb560-7"><a href="factors.html#cb560-7" tabindex="-1"></a><span class="co"># reversed frequency</span></span>
+<span id="cb560-8"><a href="factors.html#cb560-8" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> linelist, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">fct_rev</span>(<span class="fu">fct_infreq</span>(delay_cat))))<span class="sc">+</span></span>
+<span id="cb560-9"><a href="factors.html#cb560-9" tabindex="-1"></a>  <span class="fu">geom_bar</span>()<span class="sc">+</span></span>
+<span id="cb560-10"><a href="factors.html#cb560-10" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Delay onset to admission (days)&quot;</span>,</span>
+<span id="cb560-11"><a href="factors.html#cb560-11" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">&quot;Reverse of order by frequency&quot;</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-414-1.png" width="50%" /><img src="_main_files/figure-html/unnamed-chunk-414-2.png" width="50%" /></p>
 </div>
 <div id="theo-sự-xuất-hiện" class="section level3 unnumbered">
-<h3>Theo sự xuất hiện<a class="anchor" aria-label="anchor" href="#theo-s%E1%BB%B1-xu%E1%BA%A5t-hi%E1%BB%87n"><i class="fas fa-link"></i></a>
-</h3>
+<h3>Theo sự xuất hiện</h3>
 <p>Sử dụng hàm <code>fct_inorder()</code> để thiết lập thứ bậc tương tự với thứ tự xuất hiện của các giá trị trong dữ liệu, bắt đầu từ hàng đầu tiên. Điều này có thể hữu ích nếu trước đó bạn đã cẩn thận sắp xếp dữ liệu trong data frame bằng hàm <code>arrange()</code>, sau đó sử dụng điều này để đặt trật tự các thứ bậc của biến facror.</p>
 </div>
 <div id="theo-thống-kê-tóm-tắt-của-một-cột-khác" class="section level3 unnumbered">
-<h3>Theo thống kê tóm tắt của một cột khác<a class="anchor" aria-label="anchor" href="#theo-th%E1%BB%91ng-k%C3%AA-t%C3%B3m-t%E1%BA%AFt-c%E1%BB%A7a-m%E1%BB%99t-c%E1%BB%99t-kh%C3%A1c"><i class="fas fa-link"></i></a>
-</h3>
+<h3>Theo thống kê tóm tắt của một cột khác</h3>
 <p>Bạn có thể sử dụng hàm <code>fct_reorder()</code> để sắp xếp các thứ bậc của một biến <em>theo thống kê tóm tắt của một biến khác</em>. Về mặt trực quan, điều này có cho kết quả là các biểu đồ như ý bạn, có các cột/điểm lên hoặc xuống theo một chiều trong toàn bộ biểu đồ.</p>
 <p>Trong các ví dụ bên dưới, trục x là <code>delay_cat</code>, và trục y là <code>ct_blood</code> (giá trị ngưỡng chu kỳ). Biểu đồ hộp (Box plot) hiển thị phân bố của giá trị CT theo nhóm <code>delay_cat</code>. Chúng ta cần sắp xếp các hộp theo thứ tự tăng dần của giá trị trung vị CT của nhóm.</p>
 <p>Trong ví dụ đầu tiên bên dưới, các thứ bậc được sắp xếp một cách mặc định. Bạn có thể thấy các chiều cao của hộp bị lộn xộn và không theo bất kỳ thứ tự cụ thể nào. Trong ví dụ thứ hai, cột <code>delay_cat</code> (được sắp xếp theo trục x) đã được viết lệnh với hàm <code>fct_reorder()</code>, cột <code>ct_blood</code> được đưa ra làm đối số thứ hai và “trung vị” được đưa ra làm đối số thứ ba (bạn cũng có thể sử dụng “max”, “mean”, “min”, v.v.). Do đó, thứ tự các thứ bậc của biến <code>delay_cat</code> bây giờ sẽ phản ánh các giá trị trung vị CT tăng dần theo nhóm <code>delay_cat</code>. Điều này được trình bày trong biểu đồ thứ hai - các hộp đã được sắp xếp lại theo chiều tăng dần. Lưu ý giá trị missing <code>NA</code> sẽ luôn xuất hiện ở cuối, trừ khi được chuyển đổi thành một thứ bậc khác.</p>
-<div class="sourceCode" id="cb562"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># boxplots ordered by original factor levels</span>
-<span class="fu">ggplot</span><span class="op">(</span>data <span class="op">=</span> <span class="va">linelist</span><span class="op">)</span><span class="op">+</span>
-  <span class="fu">geom_boxplot</span><span class="op">(</span>
-    <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">delay_cat</span>,
-        y <span class="op">=</span> <span class="va">ct_blood</span>, 
-        fill <span class="op">=</span> <span class="va">delay_cat</span><span class="op">)</span><span class="op">)</span><span class="op">+</span>
-  <span class="fu">labs</span><span class="op">(</span>x <span class="op">=</span> <span class="st">"Delay onset to admission (days)"</span>,
-       title <span class="op">=</span> <span class="st">"Ordered by original alpha-numeric levels"</span><span class="op">)</span><span class="op">+</span>
-  <span class="fu">theme_classic</span><span class="op">(</span><span class="op">)</span><span class="op">+</span>
-  <span class="fu">theme</span><span class="op">(</span>legend.position <span class="op">=</span> <span class="st">"none"</span><span class="op">)</span>
-
-
-<span class="co"># boxplots ordered by median CT value</span>
-<span class="fu">ggplot</span><span class="op">(</span>data <span class="op">=</span> <span class="va">linelist</span><span class="op">)</span><span class="op">+</span>
-  <span class="fu">geom_boxplot</span><span class="op">(</span>
-    <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="fu">fct_reorder</span><span class="op">(</span><span class="va">delay_cat</span>, <span class="va">ct_blood</span>, <span class="st">"median"</span><span class="op">)</span>,
-        y <span class="op">=</span> <span class="va">ct_blood</span>,
-        fill <span class="op">=</span> <span class="va">delay_cat</span><span class="op">)</span><span class="op">)</span><span class="op">+</span>
-  <span class="fu">labs</span><span class="op">(</span>x <span class="op">=</span> <span class="st">"Delay onset to admission (days)"</span>,
-       title <span class="op">=</span> <span class="st">"Ordered by median CT value in group"</span><span class="op">)</span><span class="op">+</span>
-  <span class="fu">theme_classic</span><span class="op">(</span><span class="op">)</span><span class="op">+</span>
-  <span class="fu">theme</span><span class="op">(</span>legend.position <span class="op">=</span> <span class="st">"none"</span><span class="op">)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-389-1.png" width="50%"><img src="_main_files/figure-html/unnamed-chunk-389-2.png" width="50%"></p>
+<div class="sourceCode" id="cb561"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb561-1"><a href="factors.html#cb561-1" tabindex="-1"></a><span class="co"># boxplots ordered by original factor levels</span></span>
+<span id="cb561-2"><a href="factors.html#cb561-2" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> linelist)<span class="sc">+</span></span>
+<span id="cb561-3"><a href="factors.html#cb561-3" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(</span>
+<span id="cb561-4"><a href="factors.html#cb561-4" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">x =</span> delay_cat,</span>
+<span id="cb561-5"><a href="factors.html#cb561-5" tabindex="-1"></a>        <span class="at">y =</span> ct_blood, </span>
+<span id="cb561-6"><a href="factors.html#cb561-6" tabindex="-1"></a>        <span class="at">fill =</span> delay_cat))<span class="sc">+</span></span>
+<span id="cb561-7"><a href="factors.html#cb561-7" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Delay onset to admission (days)&quot;</span>,</span>
+<span id="cb561-8"><a href="factors.html#cb561-8" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">&quot;Ordered by original alpha-numeric levels&quot;</span>)<span class="sc">+</span></span>
+<span id="cb561-9"><a href="factors.html#cb561-9" tabindex="-1"></a>  <span class="fu">theme_classic</span>()<span class="sc">+</span></span>
+<span id="cb561-10"><a href="factors.html#cb561-10" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;none&quot;</span>)</span>
+<span id="cb561-11"><a href="factors.html#cb561-11" tabindex="-1"></a></span>
+<span id="cb561-12"><a href="factors.html#cb561-12" tabindex="-1"></a></span>
+<span id="cb561-13"><a href="factors.html#cb561-13" tabindex="-1"></a><span class="co"># boxplots ordered by median CT value</span></span>
+<span id="cb561-14"><a href="factors.html#cb561-14" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> linelist)<span class="sc">+</span></span>
+<span id="cb561-15"><a href="factors.html#cb561-15" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(</span>
+<span id="cb561-16"><a href="factors.html#cb561-16" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">fct_reorder</span>(delay_cat, ct_blood, <span class="st">&quot;median&quot;</span>),</span>
+<span id="cb561-17"><a href="factors.html#cb561-17" tabindex="-1"></a>        <span class="at">y =</span> ct_blood,</span>
+<span id="cb561-18"><a href="factors.html#cb561-18" tabindex="-1"></a>        <span class="at">fill =</span> delay_cat))<span class="sc">+</span></span>
+<span id="cb561-19"><a href="factors.html#cb561-19" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Delay onset to admission (days)&quot;</span>,</span>
+<span id="cb561-20"><a href="factors.html#cb561-20" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">&quot;Ordered by median CT value in group&quot;</span>)<span class="sc">+</span></span>
+<span id="cb561-21"><a href="factors.html#cb561-21" tabindex="-1"></a>  <span class="fu">theme_classic</span>()<span class="sc">+</span></span>
+<span id="cb561-22"><a href="factors.html#cb561-22" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;none&quot;</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-415-1.png" width="50%" /><img src="_main_files/figure-html/unnamed-chunk-415-2.png" width="50%" /></p>
 <p>Lưu ý trong ví dụ bên trên không có bước nào được yêu cầu cần thực hiện trước khi gọi hàm <code>ggplot()</code> - việc nhóm và tính toán đều được thực hiện bên trong hàm ggplot.</p>
 </div>
 <div id="theo-giá-trị-cuối" class="section level3 unnumbered">
-<h3>Theo giá trị cuối<a class="anchor" aria-label="anchor" href="#theo-gi%C3%A1-tr%E1%BB%8B-cu%E1%BB%91i"><i class="fas fa-link"></i></a>
-</h3>
+<h3>Theo giá trị cuối</h3>
 <p>Sử dụng hàm <code>fct_reorder2()</code> cho biểu đồ đường theo nhóm. Hàm sẽ sắp xếp thứ tự xuất hiện các nhóm (bao gồm cả phần <em>chú giải</em>) dọc theo biểu đồ. Nói về mặt kỹ thuật, nó “sắp xếp theo các giá trị y tương ứng với các giá trị x lớn nhất.”</p>
 <p>Ví dụ, nếu bạn có các dòng hiển thị số lượng trường hợp theo bệnh viện và thời gian, bạn có thể áp dụng hàm <code>fct_reorder2()</code> cho đối số <code>color =</code> trong <code>aes()</code>, sao cho thứ tự của các bệnh viện xuất hiện trong phần chú giải tương đương với thứ tự xuất hiện của các đường trong biểu đồ. Đọc thêm trong <a href="https://forcats.tidyverse.org/reference/fct_reorder.html">tài liệu trực tuyến sau đây</a>.</p>
-<div class="sourceCode" id="cb563"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">epidemic_data</span> <span class="op">&lt;-</span> <span class="va">linelist</span> <span class="op">%&gt;%</span>         <span class="co"># begin with the linelist   </span>
-    <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="va">date_onset</span> <span class="op">&lt;</span> <span class="fu"><a href="https://rdrr.io/r/base/as.Date.html">as.Date</a></span><span class="op">(</span><span class="st">"2014-09-21"</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span>    <span class="co"># cut-off date, for visual clarity</span>
-    <span class="fu">count</span><span class="op">(</span>                                            <span class="co"># get case counts per week and by hospital</span>
-      epiweek <span class="op">=</span> <span class="fu">lubridate</span><span class="fu">::</span><span class="fu"><a href="https://lubridate.tidyverse.org/reference/round_date.html">floor_date</a></span><span class="op">(</span><span class="va">date_onset</span>, <span class="st">"week"</span><span class="op">)</span>,  
-      <span class="va">hospital</span>                                            
-    <span class="op">)</span> 
-  
-<span class="fu">ggplot</span><span class="op">(</span>data <span class="op">=</span> <span class="va">epidemic_data</span><span class="op">)</span><span class="op">+</span>                       <span class="co"># start plot</span>
-  <span class="fu">geom_line</span><span class="op">(</span>                                        <span class="co"># make lines</span>
-    <span class="fu">aes</span><span class="op">(</span>
-      x <span class="op">=</span> <span class="va">epiweek</span>,                                  <span class="co"># x-axis epiweek</span>
-      y <span class="op">=</span> <span class="va">n</span>,                                        <span class="co"># height is number of cases per week</span>
-      color <span class="op">=</span> <span class="fu">fct_reorder2</span><span class="op">(</span><span class="va">hospital</span>, <span class="va">epiweek</span>, <span class="va">n</span><span class="op">)</span><span class="op">)</span><span class="op">)</span><span class="op">+</span> <span class="co"># data grouped and colored by hospital, with factor order by height at end of plot</span>
-  <span class="fu">labs</span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Factor levels (and legend display) by line height at end of plot"</span>,
-       color <span class="op">=</span> <span class="st">"Hospital"</span><span class="op">)</span>                          <span class="co"># change legend title</span></code></pre></div>
-<div class="inline-figure"><img src="_main_files/figure-html/unnamed-chunk-390-1.png" width="672"></div>
+<div class="sourceCode" id="cb562"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb562-1"><a href="factors.html#cb562-1" tabindex="-1"></a>epidemic_data <span class="ot">&lt;-</span> linelist <span class="sc">%&gt;%</span>         <span class="co"># begin with the linelist   </span></span>
+<span id="cb562-2"><a href="factors.html#cb562-2" tabindex="-1"></a>    <span class="fu">filter</span>(date_onset <span class="sc">&lt;</span> <span class="fu">as.Date</span>(<span class="st">&quot;2014-09-21&quot;</span>)) <span class="sc">%&gt;%</span>    <span class="co"># cut-off date, for visual clarity</span></span>
+<span id="cb562-3"><a href="factors.html#cb562-3" tabindex="-1"></a>    <span class="fu">count</span>(                                            <span class="co"># get case counts per week and by hospital</span></span>
+<span id="cb562-4"><a href="factors.html#cb562-4" tabindex="-1"></a>      <span class="at">epiweek =</span> lubridate<span class="sc">::</span><span class="fu">floor_date</span>(date_onset, <span class="st">&quot;week&quot;</span>),  </span>
+<span id="cb562-5"><a href="factors.html#cb562-5" tabindex="-1"></a>      hospital                                            </span>
+<span id="cb562-6"><a href="factors.html#cb562-6" tabindex="-1"></a>    ) </span>
+<span id="cb562-7"><a href="factors.html#cb562-7" tabindex="-1"></a>  </span>
+<span id="cb562-8"><a href="factors.html#cb562-8" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> epidemic_data)<span class="sc">+</span>                       <span class="co"># start plot</span></span>
+<span id="cb562-9"><a href="factors.html#cb562-9" tabindex="-1"></a>  <span class="fu">geom_line</span>(                                        <span class="co"># make lines</span></span>
+<span id="cb562-10"><a href="factors.html#cb562-10" tabindex="-1"></a>    <span class="fu">aes</span>(</span>
+<span id="cb562-11"><a href="factors.html#cb562-11" tabindex="-1"></a>      <span class="at">x =</span> epiweek,                                  <span class="co"># x-axis epiweek</span></span>
+<span id="cb562-12"><a href="factors.html#cb562-12" tabindex="-1"></a>      <span class="at">y =</span> n,                                        <span class="co"># height is number of cases per week</span></span>
+<span id="cb562-13"><a href="factors.html#cb562-13" tabindex="-1"></a>      <span class="at">color =</span> <span class="fu">fct_reorder2</span>(hospital, epiweek, n)))<span class="sc">+</span> <span class="co"># data grouped and colored by hospital, with factor order by height at end of plot</span></span>
+<span id="cb562-14"><a href="factors.html#cb562-14" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Factor levels (and legend display) by line height at end of plot&quot;</span>,</span>
+<span id="cb562-15"><a href="factors.html#cb562-15" tabindex="-1"></a>       <span class="at">color =</span> <span class="st">&quot;Hospital&quot;</span>)                          <span class="co"># change legend title</span></span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-416-1.png" width="672" /></p>
 </div>
 </div>
 <div id="fct_missing" class="section level2" number="11.5">
-<h2>
-<span class="header-section-number">11.5</span> Giá trị Missing<a class="anchor" aria-label="anchor" href="#fct_missing"><i class="fas fa-link"></i></a>
-</h2>
+<h2><span class="header-section-number">11.5</span> Giá trị Missing</h2>
 <p>Nếu có giá trị missing <code>NA</code> trong biến factor của bạn, bạn có thể dễ dàng chuyển đổi chúng thành một thứ bậc được đặt tên với hàm <code>fct_explicit_na()</code>. Giá trị missing <code>NA</code> được chuyển đổi thành “(Missing)” mặc định sẽ được xếp cuối cùng. Bạn có thể điều chỉnh tên thứ bậc bằng đối số <code>na_level =</code>.</p>
 <p>Ví dụ dưới đây được thực hiện trên biến <code>delay_cat</code> và một bảng được in bằng<code>tabyl()</code>với các giá trị missing <code>NA</code> được chuyển thành “Missing delay”.</p>
-<div class="sourceCode" id="cb564"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">linelist</span> <span class="op">%&gt;%</span> 
-  <span class="fu">mutate</span><span class="op">(</span>delay_cat <span class="op">=</span> <span class="fu">fct_explicit_na</span><span class="op">(</span><span class="va">delay_cat</span>, na_level <span class="op">=</span> <span class="st">"Missing delay"</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> 
-  <span class="fu">tabyl</span><span class="op">(</span><span class="va">delay_cat</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb563"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb563-1"><a href="factors.html#cb563-1" tabindex="-1"></a>linelist <span class="sc">%&gt;%</span> </span>
+<span id="cb563-2"><a href="factors.html#cb563-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">delay_cat =</span> <span class="fu">fct_explicit_na</span>(delay_cat, <span class="at">na_level =</span> <span class="st">&quot;Missing delay&quot;</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb563-3"><a href="factors.html#cb563-3" tabindex="-1"></a>  <span class="fu">tabyl</span>(delay_cat)</span></code></pre></div>
 <pre><code>##      delay_cat    n    percent
 ##       2-5 days 2040 0.34646739
 ##        &lt;2 days 2990 0.50781250
@@ -407,66 +415,57 @@
 ##  Missing delay  256 0.04347826</code></pre>
 </div>
 <div id="kết-hợp-các-thứ-bậc-trong-biến-factor" class="section level2" number="11.6">
-<h2>
-<span class="header-section-number">11.6</span> Kết hợp các thứ bậc trong biến factor<a class="anchor" aria-label="anchor" href="#k%E1%BA%BFt-h%E1%BB%A3p-c%C3%A1c-th%E1%BB%A9-b%E1%BA%ADc-trong-bi%E1%BA%BFn-factor"><i class="fas fa-link"></i></a>
-</h2>
+<h2><span class="header-section-number">11.6</span> Kết hợp các thứ bậc trong biến factor</h2>
 <div id="kết-hợp-thủ-công" class="section level3 unnumbered">
-<h3>Kết hợp thủ công<a class="anchor" aria-label="anchor" href="#k%E1%BA%BFt-h%E1%BB%A3p-th%E1%BB%A7-c%C3%B4ng"><i class="fas fa-link"></i></a>
-</h3>
+<h3>Kết hợp thủ công</h3>
 <p>Bạn có thể điều chỉnh cách hiển thị của các thứ bậc theo cách thủ công với hàm <code>fct_recode()</code>. Điều này giống như hàm <code>recode()</code> trong package <strong>dplyr</strong> (xem thêm tại chương <a href="cleaning.html#cleaning">Làm sạch số liệu và các hàm quan trọng</a>), nhưng nó cho phép tạo các thứ bậc mới trong factor. Nếu bạn đơn giản chỉ sử dụng hàm <code>recode()</code> trên một factor, các giá trị được mã hóa mới sẽ bị từ chối trừ khi chúng đã được đặt ở thứ bậc cho phép.</p>
 <p>Công cụ này cũng có thể được sử dụng để “kết hợp” các thứ bậc trong factor, bằng cách gán cho nhiều thứ bậc cùng một giá trị được mã hóa lại. Bạn cần cẩn thận để không bị mất thông tin! Cân nhắc thực hiện các bước kết hợp này trong một biến mới (không ghi đè lên biến hiện tại).</p>
 <p>Hàm <code>fct_recode()</code> có cú pháp khác với hàm <code>recode()</code>. Hàm <code>recode()</code> sử dụng câu lệnh <code>OLD = NEW</code>, trong khi hàm <code>fct_recode()</code> sửu dụng câu lệnh <code>NEW = OLD</code>.</p>
 <p>Những thứ bậc sẵn có của biến <code>delay_cat</code> như sau:</p>
-<div class="sourceCode" id="cb566"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/levels.html">levels</a></span><span class="op">(</span><span class="va">linelist</span><span class="op">$</span><span class="va">delay_cat</span><span class="op">)</span></code></pre></div>
-<pre><code>## [1] "&lt;2 days"  "2-5 days" "&gt;5 days"</code></pre>
+<div class="sourceCode" id="cb565"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb565-1"><a href="factors.html#cb565-1" tabindex="-1"></a><span class="fu">levels</span>(linelist<span class="sc">$</span>delay_cat)</span></code></pre></div>
+<pre><code>## [1] &quot;&lt;2 days&quot;  &quot;2-5 days&quot; &quot;&gt;5 days&quot;</code></pre>
 <p>Để tạo một thứ bậc mới, bạn sử dụng câu lệnh sau <code>fct_recode(column, "new" = "old", "new" = "old", "new" = "old")</code> và in ra như sau:</p>
-<div class="sourceCode" id="cb568"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">linelist</span> <span class="op">%&gt;%</span> 
-  <span class="fu">mutate</span><span class="op">(</span>delay_cat <span class="op">=</span> <span class="fu">fct_recode</span><span class="op">(</span>
-    <span class="va">delay_cat</span>,
-    <span class="st">"Less than 2 days"</span> <span class="op">=</span> <span class="st">"&lt;2 days"</span>,
-    <span class="st">"2 to 5 days"</span>      <span class="op">=</span> <span class="st">"2-5 days"</span>,
-    <span class="st">"More than 5 days"</span> <span class="op">=</span> <span class="st">"&gt;5 days"</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> 
-  <span class="fu">tabyl</span><span class="op">(</span><span class="va">delay_cat</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb567"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb567-1"><a href="factors.html#cb567-1" tabindex="-1"></a>linelist <span class="sc">%&gt;%</span> </span>
+<span id="cb567-2"><a href="factors.html#cb567-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">delay_cat =</span> <span class="fu">fct_recode</span>(</span>
+<span id="cb567-3"><a href="factors.html#cb567-3" tabindex="-1"></a>    delay_cat,</span>
+<span id="cb567-4"><a href="factors.html#cb567-4" tabindex="-1"></a>    <span class="st">&quot;Less than 2 days&quot;</span> <span class="ot">=</span> <span class="st">&quot;&lt;2 days&quot;</span>,</span>
+<span id="cb567-5"><a href="factors.html#cb567-5" tabindex="-1"></a>    <span class="st">&quot;2 to 5 days&quot;</span>      <span class="ot">=</span> <span class="st">&quot;2-5 days&quot;</span>,</span>
+<span id="cb567-6"><a href="factors.html#cb567-6" tabindex="-1"></a>    <span class="st">&quot;More than 5 days&quot;</span> <span class="ot">=</span> <span class="st">&quot;&gt;5 days&quot;</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb567-7"><a href="factors.html#cb567-7" tabindex="-1"></a>  <span class="fu">tabyl</span>(delay_cat)</span></code></pre></div>
 <pre><code>##         delay_cat    n    percent valid_percent
 ##  Less than 2 days 2990 0.50781250     0.5308949
 ##       2 to 5 days 2040 0.34646739     0.3622159
 ##  More than 5 days  602 0.10224185     0.1068892
 ##              &lt;NA&gt;  256 0.04347826            NA</code></pre>
 <p>Ở đây các thứ bậc cũ được kết hợp theo cách thủ công với <code>fct_recode()</code>. Lưu ý rằng không có lỗi phát sinh khi tạo thứ bậc mới “Less tham 5 days”.</p>
-<div class="sourceCode" id="cb570"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">linelist</span> <span class="op">%&gt;%</span> 
-  <span class="fu">mutate</span><span class="op">(</span>delay_cat <span class="op">=</span> <span class="fu">fct_recode</span><span class="op">(</span>
-    <span class="va">delay_cat</span>,
-    <span class="st">"Less than 5 days"</span> <span class="op">=</span> <span class="st">"&lt;2 days"</span>,
-    <span class="st">"Less than 5 days"</span> <span class="op">=</span> <span class="st">"2-5 days"</span>,
-    <span class="st">"More than 5 days"</span> <span class="op">=</span> <span class="st">"&gt;5 days"</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> 
-  <span class="fu">tabyl</span><span class="op">(</span><span class="va">delay_cat</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb569"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb569-1"><a href="factors.html#cb569-1" tabindex="-1"></a>linelist <span class="sc">%&gt;%</span> </span>
+<span id="cb569-2"><a href="factors.html#cb569-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">delay_cat =</span> <span class="fu">fct_recode</span>(</span>
+<span id="cb569-3"><a href="factors.html#cb569-3" tabindex="-1"></a>    delay_cat,</span>
+<span id="cb569-4"><a href="factors.html#cb569-4" tabindex="-1"></a>    <span class="st">&quot;Less than 5 days&quot;</span> <span class="ot">=</span> <span class="st">&quot;&lt;2 days&quot;</span>,</span>
+<span id="cb569-5"><a href="factors.html#cb569-5" tabindex="-1"></a>    <span class="st">&quot;Less than 5 days&quot;</span> <span class="ot">=</span> <span class="st">&quot;2-5 days&quot;</span>,</span>
+<span id="cb569-6"><a href="factors.html#cb569-6" tabindex="-1"></a>    <span class="st">&quot;More than 5 days&quot;</span> <span class="ot">=</span> <span class="st">&quot;&gt;5 days&quot;</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb569-7"><a href="factors.html#cb569-7" tabindex="-1"></a>  <span class="fu">tabyl</span>(delay_cat)</span></code></pre></div>
 <pre><code>##         delay_cat    n    percent valid_percent
 ##  Less than 5 days 5030 0.85427989     0.8931108
 ##  More than 5 days  602 0.10224185     0.1068892
 ##              &lt;NA&gt;  256 0.04347826            NA</code></pre>
 </div>
 <div id="rút-gọn-thành-other" class="section level3 unnumbered">
-<h3>Rút gọn thành “Other”<a class="anchor" aria-label="anchor" href="#r%C3%BAt-g%E1%BB%8Dn-th%C3%A0nh-other"><i class="fas fa-link"></i></a>
-</h3>
+<h3>Rút gọn thành “Other”</h3>
 <p>Bạn có thể sử dụng hàm <code>fct_other()</code> để gán các thứ bậc của factor theo cách thủ công cho thứ bậc “Other”. Dưới đây, tất cả các thứ bậc trong biến <code>hospital</code>, ngoại trừ “Port Hospital” và “Central Hospital”, được gộp chung thành “Other”. Bạn có thể cung cấp một vectơ để giữ <code>keep =</code>, hoặc loại bỏ <code>drop =</code>. Bạn có thể thay đổi cách hiển thị của thứ bậc “Other” bằng hàm <code>other_level =</code>.</p>
-<div class="sourceCode" id="cb572"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">linelist</span> <span class="op">%&gt;%</span>    
-  <span class="fu">mutate</span><span class="op">(</span>hospital <span class="op">=</span> <span class="fu">fct_other</span><span class="op">(</span>                      <span class="co"># adjust levels</span>
-    <span class="va">hospital</span>,
-    keep <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Port Hospital"</span>, <span class="st">"Central Hospital"</span><span class="op">)</span>,  <span class="co"># keep these separate</span>
-    other_level <span class="op">=</span> <span class="st">"Other Hospital"</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span>            <span class="co"># All others as "Other Hospital"</span>
-  <span class="fu">tabyl</span><span class="op">(</span><span class="va">hospital</span><span class="op">)</span>                                   <span class="co"># print table</span></code></pre></div>
+<div class="sourceCode" id="cb571"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb571-1"><a href="factors.html#cb571-1" tabindex="-1"></a>linelist <span class="sc">%&gt;%</span>    </span>
+<span id="cb571-2"><a href="factors.html#cb571-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">hospital =</span> <span class="fu">fct_other</span>(                      <span class="co"># adjust levels</span></span>
+<span id="cb571-3"><a href="factors.html#cb571-3" tabindex="-1"></a>    hospital,</span>
+<span id="cb571-4"><a href="factors.html#cb571-4" tabindex="-1"></a>    <span class="at">keep =</span> <span class="fu">c</span>(<span class="st">&quot;Port Hospital&quot;</span>, <span class="st">&quot;Central Hospital&quot;</span>),  <span class="co"># keep these separate</span></span>
+<span id="cb571-5"><a href="factors.html#cb571-5" tabindex="-1"></a>    <span class="at">other_level =</span> <span class="st">&quot;Other Hospital&quot;</span>)) <span class="sc">%&gt;%</span>            <span class="co"># All others as &quot;Other Hospital&quot;</span></span>
+<span id="cb571-6"><a href="factors.html#cb571-6" tabindex="-1"></a>  <span class="fu">tabyl</span>(hospital)                                   <span class="co"># print table</span></span></code></pre></div>
 <pre><code>##          hospital    n    percent
 ##  Central Hospital  454 0.07710598
 ##     Port Hospital 1762 0.29925272
 ##    Other Hospital 3672 0.62364130</code></pre>
 </div>
 <div id="rút-gọn-theo-tần-suất" class="section level3 unnumbered">
-<h3>Rút gọn theo tần suất<a class="anchor" aria-label="anchor" href="#r%C3%BAt-g%E1%BB%8Dn-theo-t%E1%BA%A7n-su%E1%BA%A5t"><i class="fas fa-link"></i></a>
-</h3>
+<h3>Rút gọn theo tần suất</h3>
 <p>Bạn có thể tự động kết hợp các thứ bậc trong biến factor có tần suất ít nhất bằng cách sử dụng hàm <code>fct_lump()</code>.</p>
 <p>Để “gộp” nhiều giá trị tần suất thấp lại thành một nhóm khác “Other”, hãy thực hiện một trong các thao tác sau:</p>
 <ul>
@@ -474,13 +473,12 @@
 <li>Đặt <code>prop =</code> là ngưỡng tỷ lệ cho các thứ bậc bạn muốn giữ ở trên. Tất cả các giá trị khác sẽ kết hợp thành nhóm “Other”.</li>
 </ul>
 <p>Bạn có thể thay đổi cách hiển thị của thứ bậc “Other” bằng hàm <code>other_level =</code>. Dưới đây, tất cả các giá trị ngoài hai bệnh viện phổ biến nhất đều được kết hợp thành nhóm “Other Hospital”.</p>
-<div class="sourceCode" id="cb574"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">linelist</span> <span class="op">%&gt;%</span>    
-  <span class="fu">mutate</span><span class="op">(</span>hospital <span class="op">=</span> <span class="fu">fct_lump</span><span class="op">(</span>                      <span class="co"># adjust levels</span>
-    <span class="va">hospital</span>,
-    n <span class="op">=</span> <span class="fl">2</span>,                                          <span class="co"># keep top 2 levels</span>
-    other_level <span class="op">=</span> <span class="st">"Other Hospital"</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span>            <span class="co"># all others as "Other Hospital"</span>
-  <span class="fu">tabyl</span><span class="op">(</span><span class="va">hospital</span><span class="op">)</span>                                   <span class="co"># print table</span></code></pre></div>
+<div class="sourceCode" id="cb573"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb573-1"><a href="factors.html#cb573-1" tabindex="-1"></a>linelist <span class="sc">%&gt;%</span>    </span>
+<span id="cb573-2"><a href="factors.html#cb573-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">hospital =</span> <span class="fu">fct_lump</span>(                      <span class="co"># adjust levels</span></span>
+<span id="cb573-3"><a href="factors.html#cb573-3" tabindex="-1"></a>    hospital,</span>
+<span id="cb573-4"><a href="factors.html#cb573-4" tabindex="-1"></a>    <span class="at">n =</span> <span class="dv">2</span>,                                          <span class="co"># keep top 2 levels</span></span>
+<span id="cb573-5"><a href="factors.html#cb573-5" tabindex="-1"></a>    <span class="at">other_level =</span> <span class="st">&quot;Other Hospital&quot;</span>)) <span class="sc">%&gt;%</span>            <span class="co"># all others as &quot;Other Hospital&quot;</span></span>
+<span id="cb573-6"><a href="factors.html#cb573-6" tabindex="-1"></a>  <span class="fu">tabyl</span>(hospital)                                   <span class="co"># print table</span></span></code></pre></div>
 <pre><code>##        hospital    n   percent
 ##         Missing 1469 0.2494905
 ##   Port Hospital 1762 0.2992527
@@ -488,168 +486,110 @@
 </div>
 </div>
 <div id="hiển-thị-tất-cả-thứ-bậc" class="section level2" number="11.7">
-<h2>
-<span class="header-section-number">11.7</span> Hiển thị tất cả thứ bậc<a class="anchor" aria-label="anchor" href="#hi%E1%BB%83n-th%E1%BB%8B-t%E1%BA%A5t-c%E1%BA%A3-th%E1%BB%A9-b%E1%BA%ADc"><i class="fas fa-link"></i></a>
-</h2>
+<h2><span class="header-section-number">11.7</span> Hiển thị tất cả thứ bậc</h2>
 <p>Một lợi ích của việc sử dụng factors là chuẩn hóa sự xuất hiện của các chú thích trong biểu đồ và bảng, bất kể giá trị nào thực sự có trong tập dữ liệu.</p>
 <p>Nếu bạn đang chuẩn bị nhiều bảng biểu (ví dụ: cho nhiều khu vực pháp lý), bạn sẽ muốn các chú giải và bảng xuất hiện giống hệt nhau ngay cả với các mức độ hoàn thành dữ liệu hoặc thành phần dữ liệu khác nhau.</p>
 <div id="trong-biểu-đồ" class="section level3 unnumbered">
-<h3>Trong biểu đồ<a class="anchor" aria-label="anchor" href="#trong-bi%E1%BB%83u-%C4%91%E1%BB%93"><i class="fas fa-link"></i></a>
-</h3>
+<h3>Trong biểu đồ</h3>
 <p>Trong hàm vẽ biểu đồ <code>ggplot ()</code>, chỉ cần thêm đối số <code>drop = FALSE</code> trong hàm liên quan <code>scale_xxxx()</code>. Tất cả các thứ bậc trong biến factor sẽ được hiển thị, bất kể chúng có trong dữ liệu hay không. Nếu các thứ bậc trong biến factor của bạn được hiển thị bằng cách sử dụng <code>fill =</code>, thì trong <code>scale_fill_discrete ()</code>, bạn cần thêm <code>drop = FALSE</code>, như được trình bày bên dưới. Nếu các thứ bậc trong biến factor của bạn được hiển thị với <code>x =</code> (đến trục x) <code>color =</code> hoặc <code>size =</code>, bạn sẽ cung cấp chúng tới <code>scale_color_discrete()</code> hoặc <code>scale_size_discrete()</code>.</p>
 <p>Ví dụ này là một biểu đồ cột chồng của nhóm tuổi, theo bệnh viện. Việc thêm <code>scale_fill_discrete (drop = FALSE)</code> đảm bảo rằng tất cả các nhóm tuổi đều xuất hiện trong chú giải, ngay cả khi không có trong dữ liệu.</p>
-<div class="sourceCode" id="cb576"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">ggplot</span><span class="op">(</span>data <span class="op">=</span> <span class="va">linelist</span><span class="op">)</span><span class="op">+</span>
-  <span class="fu">geom_bar</span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">hospital</span>, fill <span class="op">=</span> <span class="va">age_cat</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">scale_fill_discrete</span><span class="op">(</span>drop <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span><span class="op">+</span>                        <span class="co"># show all age groups in the legend, even those not present</span>
-  <span class="fu">labs</span><span class="op">(</span>
-    title <span class="op">=</span> <span class="st">"All age groups will appear in legend, even if not present in data"</span><span class="op">)</span></code></pre></div>
-<div class="inline-figure"><img src="_main_files/figure-html/unnamed-chunk-398-1.png" width="672"></div>
+<div class="sourceCode" id="cb575"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb575-1"><a href="factors.html#cb575-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> linelist)<span class="sc">+</span></span>
+<span id="cb575-2"><a href="factors.html#cb575-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> hospital, <span class="at">fill =</span> age_cat)) <span class="sc">+</span></span>
+<span id="cb575-3"><a href="factors.html#cb575-3" tabindex="-1"></a>  <span class="fu">scale_fill_discrete</span>(<span class="at">drop =</span> <span class="cn">FALSE</span>)<span class="sc">+</span>                        <span class="co"># show all age groups in the legend, even those not present</span></span>
+<span id="cb575-4"><a href="factors.html#cb575-4" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb575-5"><a href="factors.html#cb575-5" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">&quot;All age groups will appear in legend, even if not present in data&quot;</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-424-1.png" width="672" /></p>
 </div>
 <div id="trong-bảng" class="section level3 unnumbered">
-<h3>Trong bảng<a class="anchor" aria-label="anchor" href="#trong-b%E1%BA%A3ng"><i class="fas fa-link"></i></a>
-</h3>
-<p>Cả hàm <code><a href="https://rdrr.io/r/base/table.html">table()</a></code> trong <strong>base</strong> R và hàm <code>tabyl()</code> trong package <strong>janitor</strong> đều sẽ hiển thị tất cả các thứ bậc trong factor (ngay cả các thứ bậc không sử dụng).</p>
+<h3>Trong bảng</h3>
+<p>Cả hàm <code>table()</code> trong <strong>base</strong> R và hàm <code>tabyl()</code> trong package <strong>janitor</strong> đều sẽ hiển thị tất cả các thứ bậc trong factor (ngay cả các thứ bậc không sử dụng).</p>
 <p>Nếu bạn sử dụng hàm <code>count()</code> hoặc <code>summarise()</code> từ package <strong>dplyr</strong> để tạo bảng, hãy thêm đối số <code>.drop = FALSE</code> để hiển thị số lượng cho tất cả các thứ bậc trong factor ngay cả các thứ bậc không sử dụng.</p>
-<p>Đọc thêm tại chương <a href="tables-descriptive.html#tables-descriptive">Bảng mô tả</a>,hoặc tại các link sau <a href="https://ggplot2.tidyverse.org/reference/scale_discrete.html">scale_discrete documentation</a>, hoặc <a href="https://dplyr.tidyverse.org/reference/count.html">count() documentation</a>. Bạn có thể tìm các ví dụ khác tại chương <a href="contact-tracing.html#contact-tracing">Truy vết tiếp xúc</a>.</p>
+<p>Đọc thêm tại chương <a href="tables-descriptive.html#tables-descriptive">Bảng mô tả</a>,hoặc tại các link sau <a href="https://ggplot2.tidyverse.org/reference/scale_discrete.html">scale_discrete documentation</a>, hoặc <a href="https://dplyr.tidyverse.org/reference/count.html">count() documentation</a>. Bạn có thể tìm các ví dụ khác tại chương <a href="data-used.html#truy-vết-tiếp-xúc">Truy vết tiếp xúc</a>.</p>
 </div>
 </div>
 <div id="tuần-dịch-tễ" class="section level2" number="11.8">
-<h2>
-<span class="header-section-number">11.8</span> Tuần dịch tễ<a class="anchor" aria-label="anchor" href="#tu%E1%BA%A7n-d%E1%BB%8Bch-t%E1%BB%85"><i class="fas fa-link"></i></a>
-</h2>
-<p>Vui lòng xem phần thảo luận đầy đủ về cách tạo các tuần dịch tễ trong chương <a href="grouping.html#grouping">Nhóm dữ liệu</a>.<br>
+<h2><span class="header-section-number">11.8</span> Tuần dịch tễ</h2>
+<p>Vui lòng xem phần thảo luận đầy đủ về cách tạo các tuần dịch tễ trong chương <a href="grouping.html#grouping">Nhóm dữ liệu</a>.<br />
 Vui lòng xem chương <a href="dates.html#dates">Làm việc với ngày tháng</a> để biết các mẹo về cách tạo và định dạng các tuần dịch tễ học.</p>
 <div id="tuần-dịch-tễ-trong-biểu-đồ" class="section level3 unnumbered">
-<h3>Tuần dịch tễ trong biểu đồ<a class="anchor" aria-label="anchor" href="#tu%E1%BA%A7n-d%E1%BB%8Bch-t%E1%BB%85-trong-bi%E1%BB%83u-%C4%91%E1%BB%93"><i class="fas fa-link"></i></a>
-</h3>
+<h3>Tuần dịch tễ trong biểu đồ</h3>
 <p>Nếu mục tiêu của bạn là tạo các tuần dịch tễ học để hiển thị trong một biểu đồ, bạn có thể thực hiện việc này đơn giản với hàm <code>floor_date()</code> trong package <strong>lubridate</strong>, như được giải thích trong chương <a href="grouping.html#grouping">Nhóm dữ liệu</a>. Các giá trị trả về sẽ thuộc loại Ngày tháng với định dạng YYYY-MM-DD. Nếu bạn sử dụng cột này trong một biểu đồ, ngày tháng sẽ tự nhiên được sắp xếp chính xác và bạn không cần phải lo lắng về thứ bậc hoặc chuyển đổi sang dạng factor. Xem biểu đồ histogram trong hàm <code>ggplot()</code> về các ngày khởi phát bên dưới.</p>
 <p>Trong cách tiếp cận này, bạn có thể điều chỉnh <em>việc hiển thị</em> của ngày tháng trên trục với <code>scale_x_date()</code>. Xem thêm tại trang <a href="epicurves.html#epicurves">Đường cong dịch bệnh</a> để biết thêm thông tin. Bạn có thể chỉ định định dạng hiển thị <code>date_labels =</code> cho đối số <code>scale_x_date()</code>. Sử dụng “% Y” để đại diện cho năm có 4 chữ số và “% W” hoặc “% U” để đại diện cho số tuần (các tuần thứ Hai hoặc Chủ Nhật tương ứng).</p>
-<div class="sourceCode" id="cb577"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">linelist</span> <span class="op">%&gt;%</span> 
-  <span class="fu">mutate</span><span class="op">(</span>epiweek_date <span class="op">=</span> <span class="fu">floor_date</span><span class="op">(</span><span class="va">date_onset</span>, <span class="st">"week"</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span>  <span class="co"># create week column</span>
-  <span class="fu">ggplot</span><span class="op">(</span><span class="op">)</span><span class="op">+</span>                                                  <span class="co"># begin ggplot</span>
-  <span class="fu">geom_histogram</span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">epiweek_date</span><span class="op">)</span><span class="op">)</span><span class="op">+</span>           <span class="co"># histogram of date of onset</span>
-  <span class="fu">scale_x_date</span><span class="op">(</span>date_labels <span class="op">=</span> <span class="st">"%Y-W%W"</span><span class="op">)</span>                       <span class="co"># adjust disply of dates to be YYYY-WWw</span></code></pre></div>
-<div class="inline-figure"><img src="_main_files/figure-html/unnamed-chunk-399-1.png" width="672"></div>
+<div class="sourceCode" id="cb576"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb576-1"><a href="factors.html#cb576-1" tabindex="-1"></a>linelist <span class="sc">%&gt;%</span> </span>
+<span id="cb576-2"><a href="factors.html#cb576-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">epiweek_date =</span> <span class="fu">floor_date</span>(date_onset, <span class="st">&quot;week&quot;</span>)) <span class="sc">%&gt;%</span>  <span class="co"># create week column</span></span>
+<span id="cb576-3"><a href="factors.html#cb576-3" tabindex="-1"></a>  <span class="fu">ggplot</span>()<span class="sc">+</span>                                                  <span class="co"># begin ggplot</span></span>
+<span id="cb576-4"><a href="factors.html#cb576-4" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> epiweek_date))<span class="sc">+</span>           <span class="co"># histogram of date of onset</span></span>
+<span id="cb576-5"><a href="factors.html#cb576-5" tabindex="-1"></a>  <span class="fu">scale_x_date</span>(<span class="at">date_labels =</span> <span class="st">&quot;%Y-W%W&quot;</span>)                       <span class="co"># adjust disply of dates to be YYYY-WWw</span></span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-425-1.png" width="672" /></p>
 </div>
 <div id="tuần-dịch-tễ-trong-dữ-liệu" class="section level3 unnumbered">
-<h3>Tuần dịch tễ trong dữ liệu<a class="anchor" aria-label="anchor" href="#tu%E1%BA%A7n-d%E1%BB%8Bch-t%E1%BB%85-trong-d%E1%BB%AF-li%E1%BB%87u"><i class="fas fa-link"></i></a>
-</h3>
+<h3>Tuần dịch tễ trong dữ liệu</h3>
 <p>Tuy nhiên, nếu mục đích của bạn với biến factor <em>không phải</em> để lập biểu đồ, bạn có thể tiếp cận theo một trong hai cách:</p>
 <ol style="list-style-type: decimal">
-<li>
-<em>Để kiểm soát tốt việc hiển thị</em>, hãy chuyển đổi cột <strong>lubridate</strong> tuần dịch tễ (YYYY-MM-DD) sang định dạng hiển thị mong muốn (YYYY-WWw) <em>trong chính data frame</em>, rồi chuyển đổi nó thành dạng factor.</li>
+<li><em>Để kiểm soát tốt việc hiển thị</em>, hãy chuyển đổi cột <strong>lubridate</strong> tuần dịch tễ (YYYY-MM-DD) sang định dạng hiển thị mong muốn (YYYY-WWw) <em>trong chính data frame</em>, rồi chuyển đổi nó thành dạng factor.</li>
 </ol>
-<p>Đầu tiên, sử dụng hàm <code><a href="https://rdrr.io/r/base/format.html">format()</a></code> từ <strong>base</strong> R để chuyển đổi hiển thị ngày từ hiển thị YYYY-MM-DD sang hiển thị YYYY-Www (xem thêm tại chương <a href="dates.html#dates">Làm việc với ngày tháng</a>). Trong quá trình này, kiểu của biến số sẽ được chuyển đổi thành ký tự. Sau đó, chuyển đổi từ kiểu ký tự sang kiểu Factor với hàm <code><a href="https://rdrr.io/r/base/factor.html">factor()</a></code>.</p>
-<div class="sourceCode" id="cb578"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">linelist</span> <span class="op">&lt;-</span> <span class="va">linelist</span> <span class="op">%&gt;%</span> 
-  <span class="fu">mutate</span><span class="op">(</span>epiweek_date <span class="op">=</span> <span class="fu">floor_date</span><span class="op">(</span><span class="va">date_onset</span>, <span class="st">"week"</span><span class="op">)</span>,       <span class="co"># create epiweeks (YYYY-MM-DD)</span>
-         epiweek_formatted <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/format.html">format</a></span><span class="op">(</span><span class="va">epiweek_date</span>, <span class="st">"%Y-W%W"</span><span class="op">)</span>,  <span class="co"># Convert to display (YYYY-WWw)</span>
-         epiweek_formatted <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">epiweek_formatted</span><span class="op">)</span><span class="op">)</span>       <span class="co"># Convert to factor</span>
-
-<span class="co"># Display levels</span>
-<span class="fu"><a href="https://rdrr.io/r/base/levels.html">levels</a></span><span class="op">(</span><span class="va">linelist</span><span class="op">$</span><span class="va">epiweek_formatted</span><span class="op">)</span></code></pre></div>
-<pre><code>##  [1] "2014-W13" "2014-W14" "2014-W15" "2014-W16" "2014-W17" "2014-W18" "2014-W19" "2014-W20" "2014-W21" "2014-W22" "2014-W23" "2014-W24" "2014-W25"
-## [14] "2014-W26" "2014-W27" "2014-W28" "2014-W29" "2014-W30" "2014-W31" "2014-W32" "2014-W33" "2014-W34" "2014-W35" "2014-W36" "2014-W37" "2014-W38"
-## [27] "2014-W39" "2014-W40" "2014-W41" "2014-W42" "2014-W43" "2014-W44" "2014-W45" "2014-W46" "2014-W47" "2014-W48" "2014-W49" "2014-W50" "2014-W51"
-## [40] "2015-W00" "2015-W01" "2015-W02" "2015-W03" "2015-W04" "2015-W05" "2015-W06" "2015-W07" "2015-W08" "2015-W09" "2015-W10" "2015-W11" "2015-W12"
-## [53] "2015-W13" "2015-W14" "2015-W15" "2015-W16"</code></pre>
+<p>Đầu tiên, sử dụng hàm <code>format()</code> từ <strong>base</strong> R để chuyển đổi hiển thị ngày từ hiển thị YYYY-MM-DD sang hiển thị YYYY-Www (xem thêm tại chương <a href="dates.html#dates">Làm việc với ngày tháng</a>). Trong quá trình này, kiểu của biến số sẽ được chuyển đổi thành ký tự. Sau đó, chuyển đổi từ kiểu ký tự sang kiểu Factor với hàm <code>factor()</code>.</p>
+<div class="sourceCode" id="cb577"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb577-1"><a href="factors.html#cb577-1" tabindex="-1"></a>linelist <span class="ot">&lt;-</span> linelist <span class="sc">%&gt;%</span> </span>
+<span id="cb577-2"><a href="factors.html#cb577-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">epiweek_date =</span> <span class="fu">floor_date</span>(date_onset, <span class="st">&quot;week&quot;</span>),       <span class="co"># create epiweeks (YYYY-MM-DD)</span></span>
+<span id="cb577-3"><a href="factors.html#cb577-3" tabindex="-1"></a>         <span class="at">epiweek_formatted =</span> <span class="fu">format</span>(epiweek_date, <span class="st">&quot;%Y-W%W&quot;</span>),  <span class="co"># Convert to display (YYYY-WWw)</span></span>
+<span id="cb577-4"><a href="factors.html#cb577-4" tabindex="-1"></a>         <span class="at">epiweek_formatted =</span> <span class="fu">factor</span>(epiweek_formatted))       <span class="co"># Convert to factor</span></span>
+<span id="cb577-5"><a href="factors.html#cb577-5" tabindex="-1"></a></span>
+<span id="cb577-6"><a href="factors.html#cb577-6" tabindex="-1"></a><span class="co"># Display levels</span></span>
+<span id="cb577-7"><a href="factors.html#cb577-7" tabindex="-1"></a><span class="fu">levels</span>(linelist<span class="sc">$</span>epiweek_formatted)</span></code></pre></div>
+<pre><code>##  [1] &quot;2014-W13&quot; &quot;2014-W14&quot; &quot;2014-W15&quot; &quot;2014-W16&quot; &quot;2014-W17&quot; &quot;2014-W18&quot; &quot;2014-W19&quot;
+##  [8] &quot;2014-W20&quot; &quot;2014-W21&quot; &quot;2014-W22&quot; &quot;2014-W23&quot; &quot;2014-W24&quot; &quot;2014-W25&quot; &quot;2014-W26&quot;
+## [15] &quot;2014-W27&quot; &quot;2014-W28&quot; &quot;2014-W29&quot; &quot;2014-W30&quot; &quot;2014-W31&quot; &quot;2014-W32&quot; &quot;2014-W33&quot;
+## [22] &quot;2014-W34&quot; &quot;2014-W35&quot; &quot;2014-W36&quot; &quot;2014-W37&quot; &quot;2014-W38&quot; &quot;2014-W39&quot; &quot;2014-W40&quot;
+## [29] &quot;2014-W41&quot; &quot;2014-W42&quot; &quot;2014-W43&quot; &quot;2014-W44&quot; &quot;2014-W45&quot; &quot;2014-W46&quot; &quot;2014-W47&quot;
+## [36] &quot;2014-W48&quot; &quot;2014-W49&quot; &quot;2014-W50&quot; &quot;2014-W51&quot; &quot;2015-W00&quot; &quot;2015-W01&quot; &quot;2015-W02&quot;
+## [43] &quot;2015-W03&quot; &quot;2015-W04&quot; &quot;2015-W05&quot; &quot;2015-W06&quot; &quot;2015-W07&quot; &quot;2015-W08&quot; &quot;2015-W09&quot;
+## [50] &quot;2015-W10&quot; &quot;2015-W11&quot; &quot;2015-W12&quot; &quot;2015-W13&quot; &quot;2015-W14&quot; &quot;2015-W15&quot; &quot;2015-W16&quot;</code></pre>
 <p><span style="color: red;"><strong>Nguy hiểm:</strong> Nếu bạn đặt các tuần trước các năm (“Www-YYYY”) (“%W-%Y”), thứ tự các thứ bậc sẽ sắp xếp mặc định theo bảng chữ cái và điều này là không chính xác (ví dụ: 01-2015 sẽ là trước 35-2014). Bạn có thể cần phải điều chỉnh thứ tự theo cách thủ công, đây sẽ là một quá trình dài khó khăn .</span></p>
 <ol start="2" style="list-style-type: decimal">
-<li>
-<em>Để hiển thị nhanh theo mặc định</em>, sử dụng hàm <code>date2week()</code> trong package <strong>aweek</strong>. Bạn có thể đặt ngày theo hàm <code>week_start =</code>, và nếu bạn đặt đối số <code>factor = TRUE</code> thì cột đầu ra là một factor có thứ tự. Factor sẽ bao gồm các thứ bậc cho <em>tất cả</em> các tuần có thể có trong khoảng thời gian - ngay cả khi không có trường hợp nào xuất hiện trong tuần đó.</li>
+<li><em>Để hiển thị nhanh theo mặc định</em>, sử dụng hàm <code>date2week()</code> trong package <strong>aweek</strong>. Bạn có thể đặt ngày theo hàm <code>week_start =</code>, và nếu bạn đặt đối số <code>factor = TRUE</code> thì cột đầu ra là một factor có thứ tự. Factor sẽ bao gồm các thứ bậc cho <em>tất cả</em> các tuần có thể có trong khoảng thời gian - ngay cả khi không có trường hợp nào xuất hiện trong tuần đó.</li>
 </ol>
-<div class="sourceCode" id="cb580"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">df</span> <span class="op">&lt;-</span> <span class="va">linelist</span> <span class="op">%&gt;%</span> 
-  <span class="fu">mutate</span><span class="op">(</span>epiweek <span class="op">=</span> <span class="fu">date2week</span><span class="op">(</span><span class="va">date_onset</span>, week_start <span class="op">=</span> <span class="st">"Monday"</span>, factor <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span>
-
-<span class="fu"><a href="https://rdrr.io/r/base/levels.html">levels</a></span><span class="op">(</span><span class="va">df</span><span class="op">$</span><span class="va">epiweek</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb579"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb579-1"><a href="factors.html#cb579-1" tabindex="-1"></a>df <span class="ot">&lt;-</span> linelist <span class="sc">%&gt;%</span> </span>
+<span id="cb579-2"><a href="factors.html#cb579-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">epiweek =</span> <span class="fu">date2week</span>(date_onset, <span class="at">week_start =</span> <span class="st">&quot;Monday&quot;</span>, <span class="at">factor =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb579-3"><a href="factors.html#cb579-3" tabindex="-1"></a></span>
+<span id="cb579-4"><a href="factors.html#cb579-4" tabindex="-1"></a><span class="fu">levels</span>(df<span class="sc">$</span>epiweek)</span></code></pre></div>
 <p>Xem chương <a href="dates.html#dates">Làm việc với ngày tháng</a> để biết thêm thông tin về package <strong>aweek</strong>. Nó cũng cung cấp thông tin về hàm đảo ngược <code>week2date()</code>.</p>
 <!-- ======================================================= -->
 </div>
 </div>
 <div id="nguồn-tham-khảo" class="section level2" number="11.9">
-<h2>
-<span class="header-section-number">11.9</span> Nguồn tham khảo<a class="anchor" aria-label="anchor" href="#ngu%E1%BB%93n-tham-kh%E1%BA%A3o"><i class="fas fa-link"></i></a>
-</h2>
-<p>R trong Khoa học dữ liệu, chương <a href="https://r4ds.had.co.nz/factors.html">factors</a><br><a href="https://cran.r-project.org/web/packages/aweek/vignettes/introduction.html">aweek package vignette</a></p>
+<h2><span class="header-section-number">11.9</span> Nguồn tham khảo</h2>
+<p>R trong Khoa học dữ liệu, chương <a href="https://r4ds.had.co.nz/factors.html">factors</a><br />
+<a href="https://cran.r-project.org/web/packages/aweek/vignettes/introduction.html">aweek package vignette</a></p>
 
 <!-- ======================================================= -->
 <!-- ======================================================= -->
 <!-- ======================================================= -->
 </div>
 </div>
-  <div class="chapter-nav">
-<div class="prev"><a href="characters-strings.html"><span class="header-section-number">10</span> Ký tự và chuỗi</a></div>
-<div class="next"><a href="pivoting.html"><span class="header-section-number">12</span> Xoay trục dữ liệu</a></div>
-</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
-    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
-      <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#factors"><span class="header-section-number">11</span> Factors</a></li>
-<li>
-<a class="nav-link" href="#chu%E1%BA%A9n-b%E1%BB%8B-2"><span class="header-section-number">11.1</span> Chuẩn bị</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#g%E1%BB%8Di-packages-2">Gọi packages</a></li>
-<li><a class="nav-link" href="#nh%E1%BA%ADp-d%E1%BB%AF-li%E1%BB%87u-4">Nhập dữ liệu</a></li>
-<li><a class="nav-link" href="#fct_newcat">Thêm biến danh mục mới</a></li>
-</ul>
-</li>
-<li><a class="nav-link" href="#chuy%E1%BB%83n-%C4%91%E1%BB%95i-sang-factor"><span class="header-section-number">11.2</span> Chuyển đổi sang factor</a></li>
-<li>
-<a class="nav-link" href="#th%C3%AAm-ho%E1%BA%B7c-x%C3%B3a-th%E1%BB%A9-b%E1%BA%ADc"><span class="header-section-number">11.3</span> Thêm hoặc xóa thứ bậc</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#fct_add">Thêm thứ bậc</a></li>
-<li><a class="nav-link" href="#x%C3%B3a-th%E1%BB%A9-b%E1%BA%ADc">Xóa thứ bậc</a></li>
-</ul>
-</li>
-<li>
-<a class="nav-link" href="#fct_adjust"><span class="header-section-number">11.4</span> Thay đổi trật tự của các thứ bậc</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#thay-%C4%91%E1%BB%95i-th%E1%BB%A7-c%C3%B4ng">Thay đổi thủ công</a></li>
-<li><a class="nav-link" href="#%C4%91%E1%BB%91i-v%E1%BB%9Bi-bi%E1%BB%83u-%C4%91%E1%BB%93">Đối với biểu đồ</a></li>
-<li><a class="nav-link" href="#%C4%91%E1%BA%A3o-ng%C6%B0%E1%BB%A3c-th%E1%BB%A9-t%E1%BB%B1">Đảo ngược thứ tự</a></li>
-<li><a class="nav-link" href="#theo-t%E1%BA%A7n-su%E1%BA%A5t">Theo tần suất</a></li>
-<li><a class="nav-link" href="#theo-s%E1%BB%B1-xu%E1%BA%A5t-hi%E1%BB%87n">Theo sự xuất hiện</a></li>
-<li><a class="nav-link" href="#theo-th%E1%BB%91ng-k%C3%AA-t%C3%B3m-t%E1%BA%AFt-c%E1%BB%A7a-m%E1%BB%99t-c%E1%BB%99t-kh%C3%A1c">Theo thống kê tóm tắt của một cột khác</a></li>
-<li><a class="nav-link" href="#theo-gi%C3%A1-tr%E1%BB%8B-cu%E1%BB%91i">Theo giá trị cuối</a></li>
-</ul>
-</li>
-<li><a class="nav-link" href="#fct_missing"><span class="header-section-number">11.5</span> Giá trị Missing</a></li>
-<li>
-<a class="nav-link" href="#k%E1%BA%BFt-h%E1%BB%A3p-c%C3%A1c-th%E1%BB%A9-b%E1%BA%ADc-trong-bi%E1%BA%BFn-factor"><span class="header-section-number">11.6</span> Kết hợp các thứ bậc trong biến factor</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#k%E1%BA%BFt-h%E1%BB%A3p-th%E1%BB%A7-c%C3%B4ng">Kết hợp thủ công</a></li>
-<li><a class="nav-link" href="#r%C3%BAt-g%E1%BB%8Dn-th%C3%A0nh-other">Rút gọn thành “Other”</a></li>
-<li><a class="nav-link" href="#r%C3%BAt-g%E1%BB%8Dn-theo-t%E1%BA%A7n-su%E1%BA%A5t">Rút gọn theo tần suất</a></li>
-</ul>
-</li>
-<li>
-<a class="nav-link" href="#hi%E1%BB%83n-th%E1%BB%8B-t%E1%BA%A5t-c%E1%BA%A3-th%E1%BB%A9-b%E1%BA%ADc"><span class="header-section-number">11.7</span> Hiển thị tất cả thứ bậc</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#trong-bi%E1%BB%83u-%C4%91%E1%BB%93">Trong biểu đồ</a></li>
-<li><a class="nav-link" href="#trong-b%E1%BA%A3ng">Trong bảng</a></li>
-</ul>
-</li>
-<li>
-<a class="nav-link" href="#tu%E1%BA%A7n-d%E1%BB%8Bch-t%E1%BB%85"><span class="header-section-number">11.8</span> Tuần dịch tễ</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#tu%E1%BA%A7n-d%E1%BB%8Bch-t%E1%BB%85-trong-bi%E1%BB%83u-%C4%91%E1%BB%93">Tuần dịch tễ trong biểu đồ</a></li>
-<li><a class="nav-link" href="#tu%E1%BA%A7n-d%E1%BB%8Bch-t%E1%BB%85-trong-d%E1%BB%AF-li%E1%BB%87u">Tuần dịch tễ trong dữ liệu</a></li>
-</ul>
-</li>
-<li><a class="nav-link" href="#ngu%E1%BB%93n-tham-kh%E1%BA%A3o"><span class="header-section-number">11.9</span> Nguồn tham khảo</a></li>
-</ul>
+  </main>
+
+  <div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page">
+      <h2>On this page</h2>
+      <div id="book-on-this-page"></div>
 
       <div class="book-extra">
         <ul class="list-unstyled">
-          
+          <li><a id="book-source" href="#">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="#">Edit this page <i class="fab fa-github"></i></a></li>
         </ul>
-</div>
+      </div>
     </nav>
-</div>
+  </div>
 
 </div>
 </div> <!-- .container -->
 
-<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+<footer class="bg-primary text-light mt-5">
+  <div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Cẩm nang dịch tễ học với R</strong>" was written by the handbook team. It was last built on 2021-11-01.</p>
+    <p>"<strong>Cẩm nang dịch tễ học với R</strong>" was written by the handbook team. It was last built on 2024-02-16.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
@@ -657,12 +597,16 @@ Vui lòng xem chương <a href="dates.html#dates">Làm việc với ngày tháng
   </div>
 
 </div></div>
-</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+</footer>
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');
@@ -670,5 +614,23 @@ Vui lòng xem chương <a href="dates.html#dates">Làm việc với ngày tháng
     document.getElementsByTagName("head")[0].appendChild(script);
   })();
 </script>
+<script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
 </body>
+
 </html>

@@ -1,43 +1,153 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>46 Version control với Git và Github | Cẩm nang dịch tễ học với R</title>
-<meta name="author" content="the handbook team">
-<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.2"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.5.1/tabs.js"></script><script src="libs/bs3compat-0.2.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
-<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/htmlwidgets-1.5.3/htmlwidgets.js"></script><link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet">
-<script src="libs/datatables-binding-0.16/datatables.js"></script><link href="libs/dt-core-1.10.20/css/jquery.dataTables.min.css" rel="stylesheet">
-<link href="libs/dt-core-1.10.20/css/jquery.dataTables.extra.css" rel="stylesheet">
-<script src="libs/dt-core-1.10.20/js/jquery.dataTables.min.js"></script><link href="libs/nouislider-7.0.10/jquery.nouislider.min.css" rel="stylesheet">
-<script src="libs/nouislider-7.0.10/jquery.nouislider.min.js"></script><link href="libs/selectize-0.12.0/selectize.bootstrap3.css" rel="stylesheet">
-<script src="libs/selectize-0.12.0/selectize.min.js"></script><link href="libs/crosstalk-1.1.1/css/crosstalk.css" rel="stylesheet">
-<script src="libs/crosstalk-1.1.1/js/crosstalk.min.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
-<link href="libs/tabwid-1.0.0/tabwid.css" rel="stylesheet">
-<script src="libs/tabwid-1.0.0/tabwid.js"></script><link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet">
-<script src="libs/leaflet-1.3.1/leaflet.js"></script><link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet">
-<script src="libs/Proj4Leaflet-1.0.1/proj4-compressed.js"></script><script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script><link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet">
-<script src="libs/leaflet-binding-2.0.3/leaflet.js"></script><script src="libs/leaflet-providers-1.9.0/leaflet-providers_1.9.0.js"></script><script src="libs/leaflet-providers-plugin-2.0.3/leaflet-providers-plugin.js"></script><script src="libs/viz-1.8.2/viz.js"></script><link href="libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet">
-<script src="libs/grViz-binding-1.0.6.1/grViz.js"></script><script src="libs/d3-4.5.0/d3.min.js"></script><script src="libs/sankey-1/sankey.js"></script><script src="libs/sankeyNetwork-binding-0.4/sankeyNetwork.js"></script><script src="libs/plotly-binding-4.9.2.1/plotly.js"></script><script src="libs/typedarray-0.1/typedarray.min.js"></script><link href="libs/plotly-htmlwidgets-css-1.52.2/plotly-htmlwidgets.css" rel="stylesheet">
-<script src="libs/plotly-main-1.52.2/plotly-latest.min.js"></script><link href="libs/vis-4.20.1/vis.css" rel="stylesheet">
-<script src="libs/vis-4.20.1/vis.min.js"></script><script src="libs/visNetwork-binding-2.0.9/visNetwork.js"></script><link href="libs/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet">
-<script src="libs/plotly-basic-1.52.2/plotly-basic-1.52.2.min.js"></script><script src="libs/plotly-cartesian-1.52.2/plotly-cartesian-1.52.2.min.js"></script><script src="libs/proj4js-2.3.15/proj4.js"></script><link href="libs/highcharts-8.1.2/css/motion.css" rel="stylesheet">
-<script src="libs/highcharts-8.1.2/highcharts.js"></script><script src="libs/highcharts-8.1.2/highcharts-3d.js"></script><script src="libs/highcharts-8.1.2/highcharts-more.js"></script><script src="libs/highcharts-8.1.2/modules/stock.js"></script><script src="libs/highcharts-8.1.2/modules/map.js"></script><script src="libs/highcharts-8.1.2/modules/annotations.js"></script><script src="libs/highcharts-8.1.2/modules/data.js"></script><script src="libs/highcharts-8.1.2/modules/drilldown.js"></script><script src="libs/highcharts-8.1.2/modules/item-series.js"></script><script src="libs/highcharts-8.1.2/modules/offline-exporting.js"></script><script src="libs/highcharts-8.1.2/modules/overlapping-datalabels.js"></script><script src="libs/highcharts-8.1.2/modules/exporting.js"></script><script src="libs/highcharts-8.1.2/modules/export-data.js"></script><script src="libs/highcharts-8.1.2/modules/funnel.js"></script><script src="libs/highcharts-8.1.2/modules/heatmap.js"></script><script src="libs/highcharts-8.1.2/modules/treemap.js"></script><script src="libs/highcharts-8.1.2/modules/sankey.js"></script><script src="libs/highcharts-8.1.2/modules/dependency-wheel.js"></script><script src="libs/highcharts-8.1.2/modules/organization.js"></script><script src="libs/highcharts-8.1.2/modules/solid-gauge.js"></script><script src="libs/highcharts-8.1.2/modules/streamgraph.js"></script><script src="libs/highcharts-8.1.2/modules/sunburst.js"></script><script src="libs/highcharts-8.1.2/modules/vector.js"></script><script src="libs/highcharts-8.1.2/modules/wordcloud.js"></script><script src="libs/highcharts-8.1.2/modules/xrange.js"></script><script src="libs/highcharts-8.1.2/modules/tilemap.js"></script><script src="libs/highcharts-8.1.2/modules/venn.js"></script><script src="libs/highcharts-8.1.2/modules/gantt.js"></script><script src="libs/highcharts-8.1.2/modules/timeline.js"></script><script src="libs/highcharts-8.1.2/modules/parallel-coordinates.js"></script><script src="libs/highcharts-8.1.2/modules/bullet.js"></script><script src="libs/highcharts-8.1.2/modules/coloraxis.js"></script><script src="libs/highcharts-8.1.2/modules/dumbbell.js"></script><script src="libs/highcharts-8.1.2/modules/lollipop.js"></script><script src="libs/highcharts-8.1.2/modules/series-label.js"></script><script src="libs/highcharts-8.1.2/plugins/motion.js"></script><script src="libs/highcharts-8.1.2/custom/reset.js"></script><script src="libs/highcharts-8.1.2/modules/boost.js"></script><script src="libs/highchart-binding-0.8.2/highchart.js"></script><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=G-QXDW878QLX"></script><script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>46 Version control với Git và Github | Cẩm nang dịch tễ học với R</title>
+
+    <meta name="author" content="the handbook team" />
+  
+   <meta name="description" content="The Epi R Handbook is a R reference manual for applied epidemiology and public health." />
+   <meta name="generator" content="placeholder" />
+  <meta property="og:title" content="46 Version control với Git và Github | Cẩm nang dịch tễ học với R" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="The Epi R Handbook is a R reference manual for applied epidemiology and public health." />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="46 Version control với Git và Github | Cẩm nang dịch tễ học với R" />
+  
+  <meta name="twitter:description" content="The Epi R Handbook is a R reference manual for applied epidemiology and public health." />
+  
+  <!-- JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script>
+    <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet" />
+    <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script>
+    <script src="libs/bs3compat-0.6.1/transition.js"></script>
+    <script src="libs/bs3compat-0.6.1/tabs.js"></script>
+    <script src="libs/bs3compat-0.6.1/bs3compat.js"></script>
+    <link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet" />
+    <script src="libs/bs4_book-1.0.0/bs4_book.js"></script>
+    <script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+    <link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+    <script src="libs/datatables-binding-0.31/datatables.js"></script>
+    <link href="libs/dt-core-1.13.6/css/jquery.dataTables.min.css" rel="stylesheet" />
+    <link href="libs/dt-core-1.13.6/css/jquery.dataTables.extra.css" rel="stylesheet" />
+    <script src="libs/dt-core-1.13.6/js/jquery.dataTables.min.js"></script>
+    <link href="libs/nouislider-7.0.10/jquery.nouislider.min.css" rel="stylesheet" />
+    <script src="libs/nouislider-7.0.10/jquery.nouislider.min.js"></script>
+    <link href="libs/selectize-0.12.0/selectize.bootstrap3.css" rel="stylesheet" />
+    <script src="libs/selectize-0.12.0/selectize.min.js"></script>
+    <link href="libs/crosstalk-1.2.1/css/crosstalk.min.css" rel="stylesheet" />
+    <script src="libs/crosstalk-1.2.1/js/crosstalk.min.js"></script>
+    <script src="libs/kePrint-0.0.1/kePrint.js"></script>
+    <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+    <link href="libs/tabwid-1.1.3/tabwid.css" rel="stylesheet" />
+    <script src="libs/tabwid-1.1.3/tabwid.js"></script>
+    <link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet" />
+    <script src="libs/leaflet-1.3.1/leaflet.js"></script>
+    <link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
+    <script src="libs/proj4-2.6.2/proj4.min.js"></script>
+    <script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
+    <link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
+    <script src="libs/leaflet-binding-2.2.1/leaflet.js"></script>
+    <script src="libs/leaflet-providers-2.0.0/leaflet-providers_2.0.0.js"></script>
+    <script src="libs/leaflet-providers-plugin-2.2.1/leaflet-providers-plugin.js"></script>
+    <script src="libs/viz-1.8.2/viz.js"></script>
+    <link href="libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet" />
+    <script src="libs/grViz-binding-1.0.11/grViz.js"></script>
+    <script src="libs/d3-4.5.0/d3.min.js"></script>
+    <script src="libs/sankey-1/sankey.js"></script>
+    <script src="libs/sankeyNetwork-binding-0.4/sankeyNetwork.js"></script>
+    <script src="libs/plotly-binding-4.10.4/plotly.js"></script>
+    <script src="libs/typedarray-0.1/typedarray.min.js"></script>
+    <link href="libs/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet" />
+    <script src="libs/plotly-main-2.11.1/plotly-latest.min.js"></script>
+    <link href="libs/vis-9.1.0/vis-network.min.css" rel="stylesheet" />
+    <script src="libs/vis-9.1.0/vis-network.min.js"></script>
+    <script src="libs/visNetwork-binding-2.1.2/visNetwork.js"></script>
+    <link href="libs/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <script src="libs/plotly-basic-2.11.1/plotly-basic-2.11.1.min.js"></script>
+    <script src="libs/plotly-cartesian-2.11.1/plotly-cartesian-2.11.1.min.js"></script>
+    <script src="libs/proj4js-2.3.15/proj4.js"></script>
+    <link href="libs/highcharts-9.3.1/css/motion.css" rel="stylesheet" />
+    <script src="libs/highcharts-9.3.1/highcharts.js"></script>
+    <script src="libs/highcharts-9.3.1/highcharts-3d.js"></script>
+    <script src="libs/highcharts-9.3.1/highcharts-more.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/stock.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/map.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/data.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/exporting.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/offline-exporting.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/drilldown.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/item-series.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/overlapping-datalabels.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/annotations.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/export-data.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/funnel.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/heatmap.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/treemap.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/sankey.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/dependency-wheel.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/organization.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/solid-gauge.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/streamgraph.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/sunburst.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/vector.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/wordcloud.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/xrange.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/tilemap.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/venn.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/gantt.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/timeline.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/parallel-coordinates.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/bullet.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/coloraxis.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/dumbbell.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/lollipop.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/series-label.js"></script>
+    <script src="libs/highcharts-9.3.1/plugins/motion.js"></script>
+    <script src="libs/highcharts-9.3.1/custom/reset.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/boost.js"></script>
+    <script src="libs/highchart-binding-0.9.4/highchart.js"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QXDW878QLX"></script>
+    <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
 
       gtag('config', 'G-QXDW878QLX');
-    </script><script src="https://cdn.jsdelivr.net/autocomplete.js/0/autocomplete.jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/mark.js@8.11.1/dist/mark.min.js"></script><!-- CSS --><link rel="stylesheet" href="style_bs4.css">
+    </script>
+
+    <div class="alert alert-info alert-dismissible">
+      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+      <strong>Bạn cần trợ giúp khi học R?</strong> Hãy tham gia <a href="https://www.appliedepi.org/live/" class="alert-link">khóa học</a>, trải nghiệm <a href="https://www.appliedepi.org/tutorial/" class="alert-link">các học phần miễn phí</a>, gửi bài viết <a href="https://community.appliedepi.org/" class="alert-link">trên trang Cộng đồng</a>, hoặc liên hệ <a href="mailto:contact@appliedepi.org" class="alert-link">dịch vụ hỗ trợ của chúng tôi</a>.
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script>
+
+  <!-- CSS -->
+  <style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+      <link rel="stylesheet" href="style_bs4.css" />
+  
 </head>
+
 <body data-spy="scroll" data-target="#toc">
 
 <div class="container-fluid">
 <div class="row">
-  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book">
+    <a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
 
     <div class="d-flex align-items-start justify-content-between">
       <h1>
@@ -49,84 +159,25 @@
     <div id="main-nav" class="collapse-lg">
       <form role="search">
         <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
-</form>
+      </form>
 
-      <nav aria-label="Table of contents"><h2>Table of contents</h2>
-        <ul class="book-toc list-unstyled">
-<li><a class="" href="index.html"></a></li>
-<li class="book-part">Về cuốn sách này</li>
-<li><a class="" href="editorial-style.html"><span class="header-section-number">1</span> Biên tập và ghi chú kỹ thuật</a></li>
-<li><a class="" href="data-used.html"><span class="header-section-number">2</span> Tải sách và dữ liệu</a></li>
-<li class="book-part">Nhập môn về R</li>
-<li><a class="" href="basics.html"><span class="header-section-number">3</span> R Cơ bản</a></li>
-<li><a class="" href="transition-to-R.html"><span class="header-section-number">4</span> Chuyển đổi sang R</a></li>
-<li><a class="" href="packages-suggested.html"><span class="header-section-number">5</span> Package đề xuất</a></li>
-<li><a class="" href="r-projects.html"><span class="header-section-number">6</span> Dự án R</a></li>
-<li><a class="" href="importing.html"><span class="header-section-number">7</span> Nhập xuất dữ liệu</a></li>
-<li class="book-part">Quản lý dữ liệu</li>
-<li><a class="" href="cleaning.html"><span class="header-section-number">8</span> Làm sạch số liệu và các hàm quan trọng</a></li>
-<li><a class="" href="dates.html"><span class="header-section-number">9</span> Làm việc với ngày tháng</a></li>
-<li><a class="" href="characters-strings.html"><span class="header-section-number">10</span> Ký tự và chuỗi</a></li>
-<li><a class="" href="factors.html"><span class="header-section-number">11</span> Factors</a></li>
-<li><a class="" href="pivoting.html"><span class="header-section-number">12</span> Xoay trục dữ liệu</a></li>
-<li><a class="" href="grouping.html"><span class="header-section-number">13</span> Nhóm dữ liệu</a></li>
-<li><a class="" href="joining-matching.html"><span class="header-section-number">14</span> Nối dữ liệu</a></li>
-<li><a class="" href="deduplication.html"><span class="header-section-number">15</span> Loại bỏ trùng lặp</a></li>
-<li><a class="" href="iteration.html"><span class="header-section-number">16</span> Lặp, vòng lặp, và danh sách</a></li>
-<li class="book-part">Phân tích dữ liệu</li>
-<li><a class="" href="tables-descriptive.html"><span class="header-section-number">17</span> Bảng mô tả</a></li>
-<li><a class="" href="stat-tests.html"><span class="header-section-number">18</span> Các kiểm định thống kê cơ bản</a></li>
-<li><a class="" href="regression.html"><span class="header-section-number">19</span> Hồi quy đơn và đa biến</a></li>
-<li><a class="" href="missing-data.html"><span class="header-section-number">20</span> Dữ liệu Missing</a></li>
-<li><a class="" href="standardization.html"><span class="header-section-number">21</span> Tỷ suất chuẩn hóa</a></li>
-<li><a class="" href="moving-average.html"><span class="header-section-number">22</span> Đường trung bình động</a></li>
-<li><a class="" href="time-series.html"><span class="header-section-number">23</span> Chuỗi thời gian và phát hiện ổ dịch</a></li>
-<li><a class="" href="epidemic-models.html"><span class="header-section-number">24</span> Mô hình hóa dịch bệnh</a></li>
-<li><a class="" href="contact-tracing.html"><span class="header-section-number">25</span> Truy vết tiếp xúc</a></li>
-<li><a class="" href="survey-analysis.html"><span class="header-section-number">26</span> Phân tích khảo sát</a></li>
-<li><a class="" href="survival-analysis.html"><span class="header-section-number">27</span> Phân tích sống còn</a></li>
-<li><a class="" href="gis.html"><span class="header-section-number">28</span> GIS cơ bản</a></li>
-<li class="book-part">Trực quan hóa dữ liệu</li>
-<li><a class="" href="tables-presentation.html"><span class="header-section-number">29</span> Trình bày bảng</a></li>
-<li><a class="" href="ggplot-basics.html"><span class="header-section-number">30</span> ggplot cơ bản</a></li>
-<li><a class="" href="ggplot-tips.html"><span class="header-section-number">31</span> Các tips với ggplot</a></li>
-<li><a class="" href="epicurves.html"><span class="header-section-number">32</span> Đường cong dịch bệnh</a></li>
-<li><a class="" href="age-pyramid.html"><span class="header-section-number">33</span> Tháp dân số và thang đo Likert</a></li>
-<li><a class="" href="heatmaps.html"><span class="header-section-number">34</span> Biểu đồ nhiệt</a></li>
-<li><a class="" href="diagrams.html"><span class="header-section-number">35</span> Sơ đồ và biểu đồ</a></li>
-<li><a class="" href="combination-analysis.html"><span class="header-section-number">36</span> Biểu đồ kết hợp</a></li>
-<li><a class="" href="transmission-chains.html"><span class="header-section-number">37</span> Chuỗi lây nhiễm</a></li>
-<li><a class="" href="phylogenetic-trees.html"><span class="header-section-number">38</span> Cây phả hệ</a></li>
-<li><a class="" href="interactive-plots.html"><span class="header-section-number">39</span> Biểu đồ tương tác</a></li>
-<li class="book-part">Báo cáo và dashboards</li>
-<li><a class="" href="rmarkdown.html"><span class="header-section-number">40</span> Báo cáo với R Markdown</a></li>
-<li><a class="" href="reportfactory.html"><span class="header-section-number">41</span> Tổ chức báo cáo định kỳ</a></li>
-<li><a class="" href="flexdashboard.html"><span class="header-section-number">42</span> Dashboards với R Markdown</a></li>
-<li><a class="" href="shiny-basics.html"><span class="header-section-number">43</span> Dashboards với Shiny</a></li>
-<li class="book-part">Tổng hợp</li>
-<li><a class="" href="writing-functions.html"><span class="header-section-number">44</span> Viết hàm</a></li>
-<li><a class="" href="directories.html"><span class="header-section-number">45</span> Tương tác với thư mục làm việc</a></li>
-<li><a class="active" href="collaboration.html"><span class="header-section-number">46</span> Version control với Git và Github</a></li>
-<li><a class="" href="errors.html"><span class="header-section-number">47</span> Các lỗi thường gặp</a></li>
-<li><a class="" href="help.html"><span class="header-section-number">48</span> Nhờ sự trợ giúp</a></li>
-<li><a class="" href="network-drives.html"><span class="header-section-number">49</span> R trên ổ cứng mạng</a></li>
-<li><a class="" href="data-table.html"><span class="header-section-number">50</span> Data Table</a></li>
-</ul>
+      <nav aria-label="Table of contents">
+        <h2>Table of contents</h2>
+        <div id="book-toc"></div>
 
         <div class="book-extra">
-          
+          <p><a id="book-repo" href="#">View book source <i class="fab fa-github"></i></a></li></p>
         </div>
       </nav>
-</div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="collaboration" class="section level1" number="46">
-<h1>
-<span class="header-section-number">46</span> Version control với Git và Github<a class="anchor" aria-label="anchor" href="#collaboration"><i class="fas fa-link"></i></a>
-</h1>
+    </div>
+  </header>
+
+  <main class="col-sm-12 col-md-9 col-lg-7" id="content">
+<div id="collaboration" class="section level1" number="46">
+<h1><span class="header-section-number">46</span> Version control với Git và Github</h1>
 <p>Chương này trình bày tổng quan về việc sử dụng Git để làm việc nhóm với những người khác. Bạn có thể tìm các hướng dẫn nâng cao hơn ở trong phần Tài nguyên học liệu.</p>
 <div id="git-là-gì" class="section level2" number="46.1">
-<h2>
-<span class="header-section-number">46.1</span> Git là gì?<a class="anchor" aria-label="anchor" href="#git-l%C3%A0-g%C3%AC"><i class="fas fa-link"></i></a>
-</h2>
+<h2><span class="header-section-number">46.1</span> Git là gì?</h2>
 <p>Git là một phần mềm <strong>kiểm soát phiên bản</strong> cho phép theo dõi các thay đổi trong một thư mục. Nó có thể được sử dụng như tùy chọn “track change” trong Word, LibreOffice hoặc Google docs, nhưng dành cho tất cả các loại tệp. Nó là một trong những công cụ mạnh mẽ nhất và được sử dụng nhiều nhất để kiểm soát phiên bản.</p>
 <p><strong>Tại sao tôi chưa bao giờ nghe nói về Git? -</strong> Trong khi hầu hết những nhà lập trình thường xuyên phải học cách sử dụng phần mềm để kiểm soát phiên bản (Git, Mercurial, Subversion hoặc những phần mềm khác), ít người trong chúng ta xuất thân từ các ngành định lượng được dạy các kỹ năng này. Do đó, hầu hết các nhà dịch tễ học không bao giờ nghe nói về nó trong các nghiên cứu của họ, và phải tìm hiểu nó một cách nhanh chóng.</p>
 <p><strong>Chờ đã, tôi có nghe nói về Github, chúng có giống nhau không?</strong> - Không hoàn toàn, nhưng bạn thường sử dụng chúng cùng nhau và chúng tôi sẽ hướng dẫn bạn cách thực hiện. Nói ngắn gọn như sau:</p>
@@ -138,9 +189,7 @@
 <p>Vì vậy, bạn có thể sử dụng ứng dụng/giao diện <strong>Github Desktop</strong>, sử dụng <strong>Git</strong> trong nền để quản lý các tệp của bạn, cả cục bộ trên máy tính của bạn và từ xa trên máy chủ <strong>Github</strong>.</p>
 </div>
 <div id="tại-sao-lại-sử-dụng-combo-git-và-github" class="section level2" number="46.2">
-<h2>
-<span class="header-section-number">46.2</span> Tại sao lại sử dụng combo Git và Github?<a class="anchor" aria-label="anchor" href="#t%E1%BA%A1i-sao-l%E1%BA%A1i-s%E1%BB%AD-d%E1%BB%A5ng-combo-git-v%C3%A0-github"><i class="fas fa-link"></i></a>
-</h2>
+<h2><span class="header-section-number">46.2</span> Tại sao lại sử dụng combo Git và Github?</h2>
 <p>Sử dụng <strong>Git</strong> để:</p>
 <ol style="list-style-type: decimal">
 <li>Lưu trữ các phiên bản của tài liệu với sự ghi nhận các thay đổi để bạn có thể dễ dàng chuyển lại về bất kỳ trạng thái nào trước đó</li>
@@ -156,31 +205,27 @@
 <p>Git sẽ giúp bạn giải quyết tất cả vấn đề trên, và đây cũng là những thứ rất đáng để học.</p>
 <p>Tuy nhiên, nó thậm chí còn trở nên mạnh mẽ hơn khi được sử dụng với kho lưu trữ trực tuyến chẳng hạn như Github để hỗ trợ <strong>các dự án hợp tác</strong>. Điều này tạo điều kiện cho việc:</p>
 <ul>
-<li><p>Cộng tác: những người khác có thể đánh giá, nhận xét và chấp nhận/từ chối các thay đổi<br></p></li>
+<li><p>Cộng tác: những người khác có thể đánh giá, nhận xét và chấp nhận/từ chối các thay đổi<br />
+</p></li>
 <li><p>Chia sẻ mã, dữ liệu và kết quả đầu ra của bạn và mời phản hồi từ công chúng (hoặc riêng tư, với nhóm của bạn) và tránh:</p></li>
 <li><p>“Rất tiếc, tôi đã quên gửi phiên bản cuối cùng và bây giờ bạn cần làm lại tệp mới này trong hai ngày làm việc”</p></li>
 <li><p>Mina, Henry và Oumar đều làm việc cùng lúc trên một script và cần phải hợp nhất các thay đổi của họ theo cách thủ công</p></li>
 <li><p>Hai người cố gắng sửa đổi cùng một tệp trên Dropbox và Sharepoint và điều này tạo ra một lỗi đồng bộ hóa.</p></li>
 </ul>
 <div id="điều-này-nghe-có-vẻ-phức-tạp-tôi-không-phải-là-một-lập-trình-viên" class="section level3 unnumbered">
-<h3>Điều này nghe có vẻ phức tạp, tôi không phải là một lập trình viên<a class="anchor" aria-label="anchor" href="#%C4%91i%E1%BB%81u-n%C3%A0y-nghe-c%C3%B3-v%E1%BA%BB-ph%E1%BB%A9c-t%E1%BA%A1p-t%C3%B4i-kh%C3%B4ng-ph%E1%BA%A3i-l%C3%A0-m%E1%BB%99t-l%E1%BA%ADp-tr%C3%ACnh-vi%C3%AAn"><i class="fas fa-link"></i></a>
-</h3>
+<h3>Điều này nghe có vẻ phức tạp, tôi không phải là một lập trình viên</h3>
 <p>Bạn hoàn toàn có thể. Ví dụ về cách sử dụng nâng cao có thể khá đáng sợ. Tuy nhiên, giống với như R, hoặc thậm chí là Excel, bạn không cần phải trở thành một chuyên gia để tận dụng lợi ích của công cụ. Học <em>một số nhỏ các hàm và khái niệm</em> cho phép bạn theo dõi các thay đổi của mình, đồng bộ hóa các tệp của bạn trên kho lưu trữ trực tuyến và cộng tác với đồng nghiệp của bạn với thời gian ngắn.</p>
 <p>Do tiến trình học tập, khi bạn cần hoàn thiện một công viêc trong trường hợp khẩn cấp, đó có thể không phải là thời điểm tốt nhất để tìm hiểu các công cụ này. Nhưng việc học có thể đạt được theo từng bước. Một khi bạn có được một vài khái niệm, quy trình làm việc của bạn có thể khá hiệu quả và nhanh chóng. Nếu bạn chưa làm việc trong một dự án cộng tác với mọi người và buộc phải sử dụng qua Git, <strong>đó thực sự là thời điểm tốt để có được sự tự tin khi sử dụng Git</strong> trước khi bắt tay vào cộng tác với người khác.</p>
 </div>
 </div>
 <div id="cài-đặt-2" class="section level2" number="46.3">
-<h2>
-<span class="header-section-number">46.3</span> Cài đặt<a class="anchor" aria-label="anchor" href="#c%C3%A0i-%C4%91%E1%BA%B7t-2"><i class="fas fa-link"></i></a>
-</h2>
+<h2><span class="header-section-number">46.3</span> Cài đặt</h2>
 <div id="cài-đặt-git" class="section level3 unnumbered">
-<h3>Cài đặt Git<a class="anchor" aria-label="anchor" href="#c%C3%A0i-%C4%91%E1%BA%B7t-git"><i class="fas fa-link"></i></a>
-</h3>
+<h3>Cài đặt Git</h3>
 <p><em>Git</em> là công cụ phía sau hậu trường trên máy tính của bạn, theo dõi các thay đổi, các nhánh (phiên bản), hợp nhất và hoàn nguyên. <strong>Đầu tiên bạn phải cài đặt <em>Git</em> từ đường link sau <a href="https://git-scm.com/downloads" class="uri">https://git-scm.com/downloads</a>.</strong></p>
 </div>
 <div id="cài-đặt-giao-diện-tùy-chọn-nhưng-được-khuyến-nghị" class="section level3 unnumbered">
-<h3>Cài đặt giao diện (tùy chọn nhưng được khuyến nghị)<a class="anchor" aria-label="anchor" href="#c%C3%A0i-%C4%91%E1%BA%B7t-giao-di%E1%BB%87n-t%C3%B9y-ch%E1%BB%8Dn-nh%C6%B0ng-%C4%91%C6%B0%E1%BB%A3c-khuy%E1%BA%BFn-ngh%E1%BB%8B"><i class="fas fa-link"></i></a>
-</h3>
+<h3>Cài đặt giao diện (tùy chọn nhưng được khuyến nghị)</h3>
 <p>Git có ngôn ngữ lệnh riêng, có thể được nhập vào terminal. Tuy nhiên, có nhiều phần mềm/giao diện và với tư cách không phải là một lập trình viên, trong quá trình sử dụng hàng ngày, bạn sẽ hiếm khi <em>cần</em> tương tác trực tiếp với Git và giao diện người dùng thường cung cấp các công cụ trực quan đẹp mắt để sửa đổi tệp hoặc các nhánh.</p>
 <p>Có nhiều tùy chọn, trên tất cả các hệ điều hành, từ thân thiện với người mới bắt đầu đến những tùy chọn phức tạp hơn. Các tùy chọn tốt cho người mới bắt đầu bao gồm cửa sổ RStudio Git và <a href="https://desktop.github.com/">Github Desktop</a>, mà chúng tôi sẽ giới thiệu trong chương này. Các tùy chọn trung gian (tiện ích hơn nhưng phức tạp hơn) bao gồm Source Tree, Gitkracken, Smart Git và những tùy chọn khác.</p>
 <p>Giải thích ngắn gọn về <a href="-%09https:/happygitwithr.com/git-client.html#git-client">Git clients</a> ở đây.</p>
@@ -188,41 +233,34 @@
 <p>Như đã lưu ý bên dưới, đôi khi bạn có thể phải viết các lệnh Git trong termial chẳng hạn như cửa sổ Ternmial trong RStudio (một tab liền kề với R Console) hoặc terminal của Git Bash.</p>
 </div>
 <div id="tài-khoản-github" class="section level3 unnumbered">
-<h3>Tài khoản Github<a class="anchor" aria-label="anchor" href="#t%C3%A0i-kho%E1%BA%A3n-github"><i class="fas fa-link"></i></a>
-</h3>
+<h3>Tài khoản Github</h3>
 <p>Đăng ký tài khoản miễn phí tại <a href="github.com">github.com</a>.</p>
 <p>Bạn có thể được đề nghị thiết lập xác thực hai yếu tố với một ứng dụng trên điện thoại của bạn. Đọc thêm trong <a href="https://docs.github.com/en/github/authenticating-to-github/securing-your-account-with-two-factor-authentication-2fa">tài liệu trợ giúp</a> của Github .</p>
 <p>Nếu bạn sử dụng Github Desktop, bạn có thể nhập thông tin đăng nhập Gitub của mình sau khi cài đặt <a href="https://docs.github.com/en/desktop/installing-and-configuring-github-desktop/authenticating-to-github">các bước sau</a>. Nếu bạn không biết, thông tin đăng nhập sẽ được hỏi sau khi bạn cố gắng clone một dự án từ Github.</p>
 </div>
 </div>
 <div id="thuật-ngữ-khái-niệm-và-các-hàm-cơ-bản" class="section level2" number="46.4">
-<h2>
-<span class="header-section-number">46.4</span> Thuật ngữ, khái niệm và các hàm cơ bản<a class="anchor" aria-label="anchor" href="#thu%E1%BA%ADt-ng%E1%BB%AF-kh%C3%A1i-ni%E1%BB%87m-v%C3%A0-c%C3%A1c-h%C3%A0m-c%C6%A1-b%E1%BA%A3n"><i class="fas fa-link"></i></a>
-</h2>
+<h2><span class="header-section-number">46.4</span> Thuật ngữ, khái niệm và các hàm cơ bản</h2>
 <p>Giống như khi học R, bạn cần nhớ một chút thuật ngữ để hiểu Git. Đây là <a href="https://www.freecodecamp.org/news/an-introduction-to-git-for-absolute-beginners-86fa1d32ff71/">những điều cơ bản giúp bạn làm việc</a> / <a href="learningngitbranching.js.org">hướng dẫn tương tác</a>. Ở phần tiếp theo, chúng tôi sẽ chỉ ra cách sử dụng các giao diện, nhưng tốt hơn là bạn nên có một số thuật ngữ và khái niệm trong đầu, để xây dựng mô hình tinh thần của bạn, và vì bạn sẽ cần chúng khi sử dụng các giao diện.</p>
 <div id="kho-lưu-trữ-repository" class="section level3 unnumbered">
-<h3>Kho lưu trữ (Repository)<a class="anchor" aria-label="anchor" href="#kho-l%C6%B0u-tr%E1%BB%AF-repository"><i class="fas fa-link"></i></a>
-</h3>
+<h3>Kho lưu trữ (Repository)</h3>
 <p>Kho <em>lưu trữ Git</em> (“<em>repo</em>”) là một thư mục chứa tất cả các thư mục con và tệp cho dự án của bạn (dữ liệu, mã code, hình ảnh, v.v.) và lịch sử sửa đổi của chúng. Khi bạn bắt đầu theo dõi những thay đổi trong kho lưu trữ, Git sẽ tạo một thư mục ẩn chứa tất cả các thông tin theo dõi. Một kho lưu trữ Git điển hình là thư mục <em>Dự án R</em> của bạn (xem thêm chương <a href="r-projects.html#r-projects">Dự án R</a> để biết thêm chi tiết).</p>
 <p>Chúng tôi sẽ hướng dẫn bạn cách tạo (<em>initialize</em>) một kho lưu trữ Git từ Github, Github Desktop hoặc Rstudio trong phần tiếp theo của chương này.</p>
 </div>
 <div id="commits" class="section level3 unnumbered">
-<h3>Commits<a class="anchor" aria-label="anchor" href="#commits"><i class="fas fa-link"></i></a>
-</h3>
+<h3>Commits</h3>
 <p>Một <em>commit</em> là một <strong>ảnh chụp nhanh</strong> của dự án tại một thời điểm xác định. Khi bạn thực hiện một thay đổi đối với dự án, bạn sẽ tạo một commit mới để theo dõi những thay đổi (the delta) được thực hiện đối với các tập tin của bạn. Ví dụ: bạn đã chỉnh sửa một vài dòng lệnh và cập nhật bộ dữ liệu liên quan. Sau khi các thay đổi của bạn được lưu, bạn có đóng gói các thay đổi cùng nhau tạo thành một “commit”.</p>
 <p>Mỗi commit có một ID duy nhất (một <em>hash</em>). Đối với mục tiêu kiểm soát phiên bản, bạn có thể khôi phục dự án của mình theo thời gian dựa trên các commit, vì vậy tốt nhất là bạn nên tạo các commit tương đối nhỏ và mạch lạc. Bạn cũng sẽ đính kèm một bản tóm tắt mô tả về những thay đổi được gọi là “commit message”.</p>
 <p><em>Tổ chức các thay đổi (Staged change)</em>? Tổ chức các thay đổi nghĩa là thêm chúng vào một <em>staging area - khu vực sân khẩu</em> để chuẩn bị cho lần commit tiếp theo. Ý tưởng là bạn có thể quyết định rõ ràng những thay đổi nào sẽ bao gồm trong một commit cụ thể. Ví dụ, nếu bạn đã làm việc với mô hình trong một script và sau đó làm việc với một biểu đồ trong một script khác, sẽ hợp lý nếu có hai commit khác nhau (sẽ dễ dàng hơn trong trường hợp bạn muốn khôi phục các thay đổi trên biểu đồ nhưng không phải trên mô hình).</p>
 </div>
 <div id="branches" class="section level3 unnumbered">
-<h3>Branches<a class="anchor" aria-label="anchor" href="#branches"><i class="fas fa-link"></i></a>
-</h3>
+<h3>Branches</h3>
 <p>Một nhánh (branch) đại diện cho một <em>con đường độc lập</em> chứa các thay đổi trong kho lưu trữ (repo) của bạn. Nó là một phiên bản song song của các tệp dự án của bạn.</p>
 <p>Các nhánh rất hữu ích để thử nghiệm các thay đổi trước khi chúng được tích hợp vào nhánh <em>chính (main branch)</em>, thường là phiên bản chính/cuối cùng/“live” của dự án của bạn. Khi bạn hoàn thành việc thử nghiệm trên một nhánh, bạn có thể <em>hợp nhất</em> những thay đổi đó vào nhánh <em>chính</em> của bạn, hoặc xóa những thay đổi không thành công.</p>
 <p><em>Lưu ý: bạn không cần phải cộng tác với người khác để sử dụng các nhánh, cũng như không cần phải có một kho lưu trữ trực tuyến từ xa.</em></p>
 </div>
 <div id="kho-lưu-trữ-cục-bộ-và-từ-xa" class="section level3 unnumbered">
-<h3>Kho lưu trữ cục bộ và từ xa<a class="anchor" aria-label="anchor" href="#kho-l%C6%B0u-tr%E1%BB%AF-c%E1%BB%A5c-b%E1%BB%99-v%C3%A0-t%E1%BB%AB-xa"><i class="fas fa-link"></i></a>
-</h3>
+<h3>Kho lưu trữ cục bộ và từ xa</h3>
 <p><em>Clone (Nhân bản)</em> là tạo một bản sao của kho lưu trữ Git ở một nơi khác.</p>
 <p>Ví dụ: bạn có thể <em>clone</em> một kho lưu trữ trực tuyến <em>từ</em> Github xuống máy tính của bạn hoặc bắt đầu với một kho lưu trữ cục bộ (local repository) và clone nó <em>trực tuyến</em> lên Github.</p>
 <p>Khi bạn đã clone một kho lưu trữ, các tệp dự án tồn tại ở hai nơi:</p>
@@ -239,9 +277,7 @@
 </div>
 </div>
 <div id="bắt-đầu-tạo-một-kho-lưu-trữ-mới" class="section level2" number="46.5">
-<h2>
-<span class="header-section-number">46.5</span> Bắt đầu: tạo một kho lưu trữ mới<a class="anchor" aria-label="anchor" href="#b%E1%BA%AFt-%C4%91%E1%BA%A7u-t%E1%BA%A1o-m%E1%BB%99t-kho-l%C6%B0u-tr%E1%BB%AF-m%E1%BB%9Bi"><i class="fas fa-link"></i></a>
-</h2>
+<h2><span class="header-section-number">46.5</span> Bắt đầu: tạo một kho lưu trữ mới</h2>
 <p>Có nhiều cách để tạo kho lưu trữ mới. Bạn có thể làm điều đó từ R console, từ Github, hoặc thông qua giao diện người dùng.</p>
 <p>Hai cách tiếp cận thường dùng để tạo một kho lưu trữ là:</p>
 <ul>
@@ -249,8 +285,7 @@
 <li>Tạo kho lưu trữ Github cho một dự án R hiện có</li>
 </ul>
 <div id="các-tệp-khởi-động" class="section level3 unnumbered">
-<h3>Các tệp khởi động<a class="anchor" aria-label="anchor" href="#c%C3%A1c-t%E1%BB%87p-kh%E1%BB%9Fi-%C4%91%E1%BB%99ng"><i class="fas fa-link"></i></a>
-</h3>
+<h3>Các tệp khởi động</h3>
 <p>Khi bạn tạo một kho lưu trữ mới, bạn có thể tùy chọn tạo tất cả các tệp bên dưới hoặc bạn có thể thêm chúng vào kho lưu trữ của mình ở giai đoạn sau. Chúng thường nằm trong thư mục “gốc” của kho lưu trữ.</p>
 <ul>
 <li><p>Tệp <em>README</em> là tệp mà người khác có thể đọc để hiểu tại sao dự án của bạn tồn tại và những điều họ nên biết để sử dụng nó. Tệp này ban đầu sẽ trống, nhưng bạn có thể hoàn thiện nó sau đó.</p></li>
@@ -259,38 +294,34 @@
 </ul>
 </div>
 <div id="tạo-một-kho-lưu-trữ-mới-trong-github" class="section level3 unnumbered">
-<h3>Tạo một kho lưu trữ mới trong Github<a class="anchor" aria-label="anchor" href="#t%E1%BA%A1o-m%E1%BB%99t-kho-l%C6%B0u-tr%E1%BB%AF-m%E1%BB%9Bi-trong-github"><i class="fas fa-link"></i></a>
-</h3>
+<h3>Tạo một kho lưu trữ mới trong Github</h3>
 <p>Để tạo một kho lưu trữ mới, hãy đăng nhập vào Github và tìm một nút màu xanh lục để tạo một kho lưu trữ mới. Một kho lưu trữ trống được tạo ra và có thể được clone xuống máy tính của bạn (xem phần tiếp theo để biết thêm chi tiết).</p>
-<div class="inline-figure"><img src="images/github_new.png" width="276" style="display: block; margin: auto;"></div>
+<p><img src="images/github_new.png" width="276" style="display: block; margin: auto;" /></p>
 <p>Bạn phải chọn nếu bạn muốn kho lưu trữ của mình ở dạng <strong>công khai</strong> (hiển thị với mọi người trên internet) hoặc <strong>riêng tư</strong> (chỉ hiển thị với những người trong sự cho phép của bạn). Điều này có ý nghĩa quan trọng nếu dữ liệu của bạn nhạy cảm. Nếu kho lưu trữ của bạn là riêng tư, bạn sẽ gặp phải một số giới hạn trong các trường hợp đặc biệt, chẳng hạn như nếu bạn đang sử dụng <em>actions</em> trong Github để tự động chạy code trên cloud.</p>
 </div>
 <div id="clone-từ-kho-lưu-trữ-github" class="section level3 unnumbered">
-<h3>Clone từ kho lưu trữ Github<a class="anchor" aria-label="anchor" href="#clone-t%E1%BB%AB-kho-l%C6%B0u-tr%E1%BB%AF-github"><i class="fas fa-link"></i></a>
-</h3>
+<h3>Clone từ kho lưu trữ Github</h3>
 <p>Bạn có thể <em>clone</em> một kho lưu trữ Github có sẵn để tạo một dự án R mới cục bộ trên máy tính của bạn.</p>
 <p>Kho lưu trữ Github có thể là một kho lưu trữ đã tồn tại và chứa nội dung, hoặc có thể là một kho lưu trữ trống mà bạn vừa tạo. Trong trường hợp thứ hai, về cơ bản bạn đang tạo một repo Github và dự án R cục bộ trên máy tính của bạn cùng một lúc (xem hướng dẫn ở trên)</p>
 <p><em>Lưu ý</em>: nếu bạn không có quyền đóng góp trên kho lưu trữ Github, trước tiên bạn có thể <em>fork</em> kho lưu trữ đó vào hồ sơ riêng của bạn, và sau đó tiếp tục với các hành động khác. Forking được giải thích ở phần cuối của chương này nhưng chúng tôi khuyên bạn nên đọc các phần khác trước.</p>
 <p>Bước 1: Điều hướng trong Github đến kho lưu trữ, nhấp vào nút màu xanh lá cây “<strong>Code</strong>” và sao chép <strong>HTTPS clone URL</strong> (xem hình ảnh minh họa bên dưới)</p>
-<div class="inline-figure"><img src="images/github_clone.png" width="100%" height="100%" style="display: block; margin: auto;"></div>
+<p><img src="images/github_clone.png" width="100%" height="100%" style="display: block; margin: auto;" /></p>
 <p>Bước tiếp theo có thể được thực hiện trong bất kỳ giao diện người dùng nào. Chúng tôi sẽ minh họa bằng Rstudio và Github desktop.</p>
 <div id="trong-rstudio" class="section level4 unnumbered">
-<h4>Trong Rstudio<a class="anchor" aria-label="anchor" href="#trong-rstudio"><i class="fas fa-link"></i></a>
-</h4>
+<h4>Trong Rstudio</h4>
 <p>Trong RStudio, để bắt đầu một dự án R mới, bạn cần nhấp vào <em>File &gt; New Project &gt; Version Control &gt; Git</em></p>
 <ul>
 <li>Khi được yêu cầu nhập “Repository URL”, hãy dán URL HTTPS từ Github </li>
-<li>Gán cho dự án R một cái tên ngắn gọn, đầy đủ thông tin<br>
+<li>Gán cho dự án R một cái tên ngắn gọn, đầy đủ thông tin<br />
 </li>
-<li>Chọn nơi Dự án R mới sẽ được lưu cục bộ trên máy tính của bạn<br>
+<li>Chọn nơi Dự án R mới sẽ được lưu cục bộ trên máy tính của bạn<br />
 </li>
 <li>Chọn “Open in new session” và nhấp vào mục “Create project”</li>
 </ul>
 <p>Bạn hiện đang trong một dự án RStudio mới, cục bộ trên máy tính của bạn, là một bản sao của kho lưu trữ online trên Github. Dự án cục bộ này và kho lưu trữ Github hiện đã được liên kết.</p>
 </div>
 <div id="trong-github-desktop" class="section level4 unnumbered">
-<h4>Trong Github Desktop<a class="anchor" aria-label="anchor" href="#trong-github-desktop"><i class="fas fa-link"></i></a>
-</h4>
+<h4>Trong Github Desktop</h4>
 <ul>
 <li><p>Nhấn vào <em>File &gt; Clone a repository</em></p></li>
 <li><p>Chọn tab URL</p></li>
@@ -298,59 +329,51 @@
 <li><p>Chọn thư mục mà bạn muốn lưu kho lưu trữ cục bộ của mình</p></li>
 <li><p>Nhấn vào “CLONE”</p></li>
 </ul>
-<div class="inline-figure"><img src="images/github_clone_desktop.png" width="100%" height="100%" style="display: block; margin: auto;"></div>
+<p><img src="images/github_clone_desktop.png" width="100%" height="100%" style="display: block; margin: auto;" /></p>
 </div>
 </div>
 <div id="tạo-một-github-repo-mới-từ-dự-án-r-đã-có-sẵn" class="section level3 unnumbered">
-<h3>Tạo một Github repo mới từ dự án R đã có sẵn<a class="anchor" aria-label="anchor" href="#t%E1%BA%A1o-m%E1%BB%99t-github-repo-m%E1%BB%9Bi-t%E1%BB%AB-d%E1%BB%B1-%C3%A1n-r-%C4%91%C3%A3-c%C3%B3-s%E1%BA%B5n"><i class="fas fa-link"></i></a>
-</h3>
+<h3>Tạo một Github repo mới từ dự án R đã có sẵn</h3>
 <p>Một kịch bản khác là bạn có một dự án R đã tồn tại với các nội dung và bạn muốn tạo một kho lưu trữ Github cho nó.</p>
 <ol style="list-style-type: decimal">
-<li>Tạo một kho lưu trữ Github mới, trống cho dự án (Xem hướng dẫn ở trên)<br>
+<li>Tạo một kho lưu trữ Github mới, trống cho dự án (Xem hướng dẫn ở trên)<br />
 </li>
-<li>Clone cục bộ kho lưu trữ này (Xem hướng dẫn về HTTPS ở trên)<br>
+<li>Clone cục bộ kho lưu trữ này (Xem hướng dẫn về HTTPS ở trên)<br />
 </li>
-<li>Sao chép tất cả nội dung từ dự án R đã có từ trước của bạn (mã, dữ liệu, v.v.) vào kho lưu trữ trống, cục bộ, mới này (ví dụ: sử dụng sao chép và dán).<br>
+<li>Sao chép tất cả nội dung từ dự án R đã có từ trước của bạn (mã, dữ liệu, v.v.) vào kho lưu trữ trống, cục bộ, mới này (ví dụ: sử dụng sao chép và dán).<br />
 </li>
 <li>Mở dự án mới của bạn trong RStudio và chuyển đến cửa sổ Git. Các tệp mới sẽ được đăng ký dưới dạng tệp có thay đổi, và hiện được theo dõi bởi Git. Do đó, bạn có thể đóng gói những thay đổi này dưới dạng một <em>commit</em> và <em>push</em> chúng lên Github. Sau khi <em>được push</em>, kho lưu trữ trên Github của bạn sẽ theo dõi sự thay đổi của tất cả các tệp.</li>
 </ol>
 <p>Xem phần quy trình làm việc Github bên dưới để biết chi tiết về quy trình này.</p>
 </div>
 <div id="bây-giờ-nó-trông-như-thế-nào" class="section level3 unnumbered">
-<h3>Bây giờ, nó trông như thế nào?<a class="anchor" aria-label="anchor" href="#b%C3%A2y-gi%E1%BB%9D-n%C3%B3-tr%C3%B4ng-nh%C6%B0-th%E1%BA%BF-n%C3%A0o"><i class="fas fa-link"></i></a>
-</h3>
+<h3>Bây giờ, nó trông như thế nào?</h3>
 <div id="trong-rstudio-1" class="section level4 unnumbered">
-<h4>Trong RStudio<a class="anchor" aria-label="anchor" href="#trong-rstudio-1"><i class="fas fa-link"></i></a>
-</h4>
+<h4>Trong RStudio</h4>
 <p>Khi bạn đã clone kho lưu trữ Github sang một dự án R mới, bây giờ bạn sẽ thấy trong RStudio có một tab “Git”. Tab này xuất hiện bên cạnh cửa sổ RStudio Environment của bạn:</p>
-<div class="inline-figure"><img src="images/Git_console.png" width="75%" height="75%" style="display: block; margin: auto;"></div>
+<p><img src="images/Git_console.png" width="75%" height="75%" style="display: block; margin: auto;" /></p>
 <p>Lưu ý các nút được khoanh tròn trong hình trên, vì chúng sẽ được giới thiệu dưới đây (từ trái sang phải):</p>
 <ul>
 <li>Nút để <em>commit</em> những tệp có thay đổi đã được lưu tới nhánh cục bộ “local branch” (sẽ mở ra một cửa sổ mới)</li>
 <li>Mũi lên màu xanh lam hướng lên để <em>pull</em> (cập nhật phiên bản của nhánh cục bộ với bất kỳ các thay đổi được thực hiện trên phiên bản từ xa/Github của nhánh đó)</li>
 <li>Mũi tên màu xanh lục hướng xuống <em>push</em> (gửi bất kỳ các commits/thay đổi nào trong phiên bản cục bộ lên phiên bản từ xa/Github của nhánh đó)</li>
 <li>Tab Git trong RStudio</li>
-<li>Nút để tạo một nhánh MỚI bằng cách sử dụng bất kỳ nhánh cục bộ nào được hiển thị bên phải làm cơ sở. <em>Bạn hầu như luôn muốn tách khỏi nhánh chính (sau khi bạn pull lần đầu tiên để cập nhật nhánh chính)</em>
-</li>
+<li>Nút để tạo một nhánh MỚI bằng cách sử dụng bất kỳ nhánh cục bộ nào được hiển thị bên phải làm cơ sở. <em>Bạn hầu như luôn muốn tách khỏi nhánh chính (sau khi bạn pull lần đầu tiên để cập nhật nhánh chính)</em></li>
 <li>Nhánh bạn hiện đang làm việc</li>
 <li>Những thay đổi bạn đã thực hiện đối với code hoặc các tệp khác sẽ xuất hiện bên dưới</li>
 </ul>
 </div>
 <div id="trong-github-desktop-1" class="section level4 unnumbered">
-<h4>Trong Github Desktop<a class="anchor" aria-label="anchor" href="#trong-github-desktop-1"><i class="fas fa-link"></i></a>
-</h4>
+<h4>Trong Github Desktop</h4>
 <p>Github Desktop là một ứng dụng độc lập trong máy tính cho phép bạn quản lý tất cả các kho lưu trữ của bạn. Khi bạn mở nó, giao diện của nó cho phép bạn chọn kho lưu trữ bạn muốn làm việc và sau đó thực hiện các thao tác Git cơ bản tại đây.</p>
-<div class="inline-figure"><img src="images/github_desktop_interface.png" width="75%" height="75%" style="display: block; margin: auto;"></div>
+<p><img src="images/github_desktop_interface.png" width="75%" height="75%" style="display: block; margin: auto;" /></p>
 </div>
 </div>
 </div>
 <div id="quy-trình-làm-việc-với-git-github" class="section level2" number="46.6">
-<h2>
-<span class="header-section-number">46.6</span> Quy trình làm việc với Git + Github<a class="anchor" aria-label="anchor" href="#quy-tr%C3%ACnh-l%C3%A0m-vi%E1%BB%87c-v%E1%BB%9Bi-git-github"><i class="fas fa-link"></i></a>
-</h2>
+<h2><span class="header-section-number">46.6</span> Quy trình làm việc với Git + Github</h2>
 <div id="tổng-quan-về-quy-trình" class="section level3 unnumbered">
-<h3>Tổng quan về quy trình<a class="anchor" aria-label="anchor" href="#t%E1%BB%95ng-quan-v%E1%BB%81-quy-tr%C3%ACnh"><i class="fas fa-link"></i></a>
-</h3>
+<h3>Tổng quan về quy trình</h3>
 <p>Khi bạn đã hoàn tất các bước thiết lập (được mô tả ở trên), bạn sẽ có một Github repo được kết nối (<em>cloned</em>) với một dự án R cục bộ. Nhánh <em>chính</em> (được tạo theo mặc định) còn được gọi là phiên bản “live” của <em>tất cả</em> các tệp tin. Khi bạn muốn sửa đổi, một thực hành tốt đó là tạo một <em>nhánh mới</em> từ nhánh <em>chính</em> (giống như “Tạo một bản sao”). Đây là quy trình làm việc điển hình trong Git vì việc tạo một nhánh là dễ dàng và nhanh chóng.</p>
 <p>Quy trình làm việc điển hình như sau:</p>
 <ol style="list-style-type: decimal">
@@ -362,21 +385,18 @@
 </ol>
 <p>Các thành viên khác trong nhóm có thể đang làm điều tương tự với các nhánh của riêng họ, hoặc cũng có thể đóng góp các commits vào nhánh làm việc của bạn.</p>
 <p>Chúng ta sẽ đi qua một cách chi tiết hơn từng bước của quá trình trên ở phần sau. Đây là một giản đồ mà chúng tôi đã phát triển - nó ở định dạng bảng hai chiều vì vậy nó sẽ giúp các nhà dịch tễ học dễ dàng hiểu được.</p>
-<div class="inline-figure"><img src="images/github_table.png" width="100%" height="150%" style="display: block; margin: auto;"></div>
+<p><img src="images/github_table.png" width="100%" height="150%" style="display: block; margin: auto;" /></p>
 <p>Dây là <a href="https://build5nines.com/introduction-to-git-version-control-workflow/">một sơ đồ khác</a>.</p>
 <p><em>Lưu ý: cho đến gần đây, thuật ngữ nhánh “master” vẫn được sử dụng, nhưng bây giờ thuật ngữ này được gọi là nhánh “main (chính)”.</em></p>
-<div class="inline-figure"><img src="images/GitHub-Flow.png" width="100%" height="100%" style="display: block; margin: auto;"></div>
+<p><img src="images/GitHub-Flow.png" width="100%" height="100%" style="display: block; margin: auto;" /></p>
 <p>Nguồn <a href="https://build5nines.com/introduction-to-git-version-control-workflow/">hình ảnh</a></p>
 </div>
 </div>
 <div id="tạo-một-nhánh-mới" class="section level2" number="46.7">
-<h2>
-<span class="header-section-number">46.7</span> Tạo một nhánh mới<a class="anchor" aria-label="anchor" href="#t%E1%BA%A1o-m%E1%BB%99t-nh%C3%A1nh-m%E1%BB%9Bi"><i class="fas fa-link"></i></a>
-</h2>
+<h2><span class="header-section-number">46.7</span> Tạo một nhánh mới</h2>
 <p>Khi bạn chọn một nhánh để làm việc, <strong>Git đặt lại trạng thái thư mục làm việc của bạn trở lại lần cuối cùng bạn ở trên nhánh này</strong>.</p>
 <div id="trong-cửa-sổ-rstudio-git" class="section level3 unnumbered">
-<h3>Trong cửa sổ Rstudio Git<a class="anchor" aria-label="anchor" href="#trong-c%E1%BB%ADa-s%E1%BB%95-rstudio-git"><i class="fas fa-link"></i></a>
-</h3>
+<h3>Trong cửa sổ Rstudio Git</h3>
 <p>Đảm bảo bạn đang ở trong nhánh “chính”, sau đó nhấp vào biểu tượng màu tím để tạo một nhánh mới (xem hình trên).</p>
 <ul>
 <li>Bạn sẽ được yêu cầu đặt tên nhánh của mình trong một từ (có thể sử dụng dấu gạch dưới nếu cần).</li>
@@ -384,39 +404,34 @@
 <li>Sau khi được tạo, nhánh mới cũng sẽ xuất hiện trên trang web Github dưới dạng một nhánh.</li>
 </ul>
 <p>Bạn có thể xem các nhánh tại cửa sổ Git trong Rstudio bằng cách nhấp vào “History”</p>
-<div class="inline-figure"><img src="images/github_rstudio_branchs.png" width="100%" height="100%" style="display: block; margin: auto;"></div>
+<p><img src="images/github_rstudio_branchs.png" width="100%" height="100%" style="display: block; margin: auto;" /></p>
 </div>
 <div id="trong-github-desktop-2" class="section level3 unnumbered">
-<h3>Trong Github Desktop<a class="anchor" aria-label="anchor" href="#trong-github-desktop-2"><i class="fas fa-link"></i></a>
-</h3>
+<h3>Trong Github Desktop</h3>
 <p>Quy trình tương tự bên trên, bạn được yêu cầu đặt tên cho nhánh làm việc của mình. Sau đó, bạn sẽ được yeu cầu “Publish your branch to Github - Xuất bản nhánh làm việc của bạn lên Github” để làm cho nhánh mới cũng xuất hiện trong kho lưu trữ từ xa.</p>
-<div class="inline-figure"><img src="images/github_desktop_new_branch.png" width="100%" height="100%" style="display: block; margin: auto;"></div>
+<p><img src="images/github_desktop_new_branch.png" width="100%" height="100%" style="display: block; margin: auto;" /></p>
 </div>
 <div id="trong-console" class="section level3 unnumbered">
-<h3>Trong console<a class="anchor" aria-label="anchor" href="#trong-console"><i class="fas fa-link"></i></a>
-</h3>
+<h3>Trong console</h3>
 <p>Điều thực sự đang xảy ra ẩn phía sau là bạn tạo ra một nhánh với lệnh <code>git branch</code>, sau đó chuyển đến nhánh đó bằng lệnh <code>git checkout</code> (<em>vd:</em> nói cho Git biết rằng các commit tiếp theo của bạn sẽ xảy ra trên nhánh đó). Từ kho lưu trữ git của bạn, hãy gõ:</p>
-<div class="sourceCode" id="cb1947"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1947-1"><a href="collaboration.html#cb1947-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> branch my-new-branch  <span class="co"># Create the new branch branch</span></span>
-<span id="cb1947-2"><a href="collaboration.html#cb1947-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout my-new-branch <span class="co"># Go to the branch</span></span>
-<span id="cb1947-3"><a href="collaboration.html#cb1947-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout <span class="at">-b</span> my-new-branch <span class="co"># Both at once (shortcut)</span></span></code></pre></div>
+<div class="sourceCode" id="cb1921"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1921-1"><a href="collaboration.html#cb1921-1" tabindex="-1"></a><span class="fu">git</span> branch my-new-branch  <span class="co"># Create the new branch branch</span></span>
+<span id="cb1921-2"><a href="collaboration.html#cb1921-2" tabindex="-1"></a><span class="fu">git</span> checkout my-new-branch <span class="co"># Go to the branch</span></span>
+<span id="cb1921-3"><a href="collaboration.html#cb1921-3" tabindex="-1"></a><span class="fu">git</span> checkout <span class="at">-b</span> my-new-branch <span class="co"># Both at once (shortcut)</span></span></code></pre></div>
 <p>Để biết thêm thông tin về cách sử dụng bảng console, hãy xem phần Lệnh Git ở cuối.</p>
 </div>
 </div>
 <div id="commit-các-thay-đổi" class="section level2" number="46.8">
-<h2>
-<span class="header-section-number">46.8</span> Commit các thay đổi<a class="anchor" aria-label="anchor" href="#commit-c%C3%A1c-thay-%C4%91%E1%BB%95i"><i class="fas fa-link"></i></a>
-</h2>
+<h2><span class="header-section-number">46.8</span> Commit các thay đổi</h2>
 <p>Giờ đây, bạn có thể chỉnh sửa code, thêm tệp mới, cập nhật bộ dữ liệu, v.v.</p>
 <p>Mọi thay đổi của bạn đều được theo dõi, <em>sau khi tệp tương ứng được lưu</em>. Các tệp đã thay đổi sẽ xuất hiện trong tab RStudio Git, trong Github Desktop hoặc sử dụng lệnh <code>git status</code> trong terminal (xem bên dưới).</p>
 <p>Bất cứ khi nào bạn thực hiện các thay đổi quan trọng (ví dụ: thêm hoặc cập nhật một phần của code), bạn hãy tạm dừng việc thay đổi và <em>commit</em> những thay đổi đó. Hãy tưởng tượng mỗi một commit là một “lô (batch)” của các thay đổi cùng hướng tới một mục đích chung. Bạn sẽ luôn có thể tiếp tục sửa đổi tệp sau khi đã commit các thay đổi trên đó.</p>
 <p><em>Lời khuyên về cách commit</em>: nói chung, tốt hơn là bạn nên tạo các commit nhỏ để có thể dễ dàng khôi phục các chỉnh sửa nếu có vấn đề phát sinh, sau đó commit chúng cùng nhau. Để làm được điều này, <em>bạn sẽ cần phải commit thường xuyên</em>. Khi mới bắt đầu, bạn có thể sẽ quên commit thường xuyên, nhưng sau đó thói quen commit thường xuyên bắt đầu xuất hiện.</p>
 <div id="trong-rstudio-2" class="section level3 unnumbered">
-<h3>Trong Rstudio<a class="anchor" aria-label="anchor" href="#trong-rstudio-2"><i class="fas fa-link"></i></a>
-</h3>
+<h3>Trong Rstudio</h3>
 <p>Ví dụ dưới đây cho thấy rằng, kể từ lần commit cuối cùng, tập lệnh R Markdown “collab.Rmd” đã thay đổi, và một số hình ảnh PNG đã được thêm vào.</p>
-<div class="inline-figure"><img src="images/github_tracking2.png" width="232" style="display: block; margin: auto;"></div>
+<p><img src="images/github_tracking2.png" width="232" style="display: block; margin: auto;" /></p>
 <p>Bạn có thể tự hỏi những hình vuông màu vàng, xanh lam, xanh lá cây và đỏ bên cạnh tên tệp có ý nghĩa gì. Đây là ảnh chụp nhanh từ <a href="https://www.rstudio.com/wp-content/uploads/2016/01/rstudio-IDE-cheatsheet.pdf">RStudio cheatsheet</a> trong đó giải thích ý nghĩa của chúng. Lưu ý rằng các thay đổi với màu vàng “?” có thể hoặc là staged, commited và pushed.</p>
-<div class="inline-figure"><img src="images/github_tracking.png" width="90" style="display: block; margin: auto;"></div>
+<p><img src="images/github_tracking.png" width="90" style="display: block; margin: auto;" /></p>
 <ul>
 <li><p>Nhấn vào nút “Commit” trong cửa sổ Git, nút này sẽ mở ra một cửa sổ mới (hiển thị bên dưới)</p></li>
 <li><p>Nhấp vào tên tệp trong hộp phía trên bên trái</p></li>
@@ -426,46 +441,41 @@
 <li><p>Ấn vào nút “Commit”. Một hộp thoại xuất hiện cho biết lệnh commit được thực hiện thành công hoặc một thông báo về thực hiện lỗi.</p></li>
 </ul>
 <p>Giờ đây, bạn có thể thực hiện nhiều thay đổi hơn và nhiều lần commit hơn, bao nhiêu lần tùy ý</p>
-<div class="inline-figure"><img src="images/github_commit.png" width="100%" height="200%" style="display: block; margin: auto;"></div>
+<p><img src="images/github_commit.png" width="100%" height="200%" style="display: block; margin: auto;" /></p>
 </div>
 <div id="trong-github-desktop-3" class="section level3 unnumbered">
-<h3>Trong Github Desktop<a class="anchor" aria-label="anchor" href="#trong-github-desktop-3"><i class="fas fa-link"></i></a>
-</h3>
+<h3>Trong Github Desktop</h3>
 <p>Bạn có thể xem danh sách các tệp đã được thay đổi ở bên trái. Nếu như bạn chọn một tệp văn bản, bạn sẽ thấy một bản tóm tắt về các sửa đổi đã được thực hiện trong ngăn bên phải (chế độ xem sẽ không hoạt động trên các tệp phức tạp hơn như .docs hoặc .xlsx).</p>
 <p>Để stage các thay đổi, chỉ cần đánh dấu vào ô nhỏ gần tên tệp. Khi bạn đã chọn các tệp bạn muốn thêm vào lần commit này, hãy đặt một cái tên cho commit và mô tả (tùy chọn) và sau đó nhấp vào nút <strong>commit</strong>.</p>
-<div class="inline-figure"><img src="images/github_desktop_commit.png" width="988" style="display: block; margin: auto;"></div>
+<p><img src="images/github_desktop_commit.png" width="988" style="display: block; margin: auto;" /></p>
 </div>
 <div id="trong-console-1" class="section level3 unnumbered">
-<h3>Trong console<a class="anchor" aria-label="anchor" href="#trong-console-1"><i class="fas fa-link"></i></a>
-</h3>
+<h3>Trong console</h3>
 <p>Hai hàm thực sự thực hiện các thao tác trên là <code>git add</code> để chọn/stage tệp và <code>git commit</code> để thực hiện commit.</p>
-<div class="sourceCode" id="cb1948"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1948-1"><a href="collaboration.html#cb1948-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status <span class="co"># see the changes </span></span>
-<span id="cb1948-2"><a href="collaboration.html#cb1948-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1948-3"><a href="collaboration.html#cb1948-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add new_pages/collaboration.Rmd  <span class="co"># select files to commit (= stage the changes)</span></span>
-<span id="cb1948-4"><a href="collaboration.html#cb1948-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1948-5"><a href="collaboration.html#cb1948-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Describe commit from Github Desktop"</span> <span class="co"># commit the changes with a message</span></span>
-<span id="cb1948-6"><a href="collaboration.html#cb1948-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1948-7"><a href="collaboration.html#cb1948-7" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> log  <span class="co"># view information on past commits</span></span></code></pre></div>
+<div class="sourceCode" id="cb1922"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1922-1"><a href="collaboration.html#cb1922-1" tabindex="-1"></a><span class="fu">git</span> status <span class="co"># see the changes </span></span>
+<span id="cb1922-2"><a href="collaboration.html#cb1922-2" tabindex="-1"></a></span>
+<span id="cb1922-3"><a href="collaboration.html#cb1922-3" tabindex="-1"></a><span class="fu">git</span> add new_pages/collaboration.Rmd  <span class="co"># select files to commit (= stage the changes)</span></span>
+<span id="cb1922-4"><a href="collaboration.html#cb1922-4" tabindex="-1"></a></span>
+<span id="cb1922-5"><a href="collaboration.html#cb1922-5" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">&quot;Describe commit from Github Desktop&quot;</span> <span class="co"># commit the changes with a message</span></span>
+<span id="cb1922-6"><a href="collaboration.html#cb1922-6" tabindex="-1"></a></span>
+<span id="cb1922-7"><a href="collaboration.html#cb1922-7" tabindex="-1"></a><span class="fu">git</span> log  <span class="co"># view information on past commits</span></span></code></pre></div>
 </div>
 <div id="thêm-vào-một-commit-trước-đó" class="section level3 unnumbered">
-<h3>Thêm vào một commit trước đó<a class="anchor" aria-label="anchor" href="#th%C3%AAm-v%C3%A0o-m%E1%BB%99t-commit-tr%C6%B0%E1%BB%9Bc-%C4%91%C3%B3"><i class="fas fa-link"></i></a>
-</h3>
+<h3>Thêm vào một commit trước đó</h3>
 <p>Điều gì sẽ xảy ra nếu bạn đã commit một số thay đổi, tiếp tục làm việc và nhận ra rằng bạn đã thực hiện các thay đổi mà lẽ ra “thuộc về” lần commit trước đó (theo ý kiến của bạn). Đừng sợ! Bạn có thể nối những thay đổi này vào lần commit trước đó của mình.</p>
 <p>Trong Rstudio, nó sẽ khá rõ ràng vì có một hộp kiểm “Thêm vào commit trước - Amend previous commit” trên cùng dòng với nút COMMIT.</p>
 <p>Vì một số lý do không rõ ràng, chức năng này không có sẵn trong Github Desktop, nhưng vẫn có cách (khó hiểu về mặt khái niệm nhưng dễ dàng). Nếu bạn đã commit <strong>nhưng chưa đẩy</strong> các thay đổi của bạn lên nhánh chính, nút “UNDO” xuất hiện ngay dưới nút COMMIT. Nhấp vào nó và nó sẽ khôi phục commit của bạn (nhưng vẫn giữ các staged files và thông điệp commit). Lưu các thay đổi của bạn, thêm tệp mới vào commit nếu cần và commit lại.</p>
 <p>Trong cửa số console:</p>
-<div class="sourceCode" id="cb1949"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1949-1"><a href="collaboration.html#cb1949-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add [YOUR FILES] <span class="co"># Stage your new changes</span></span>
-<span id="cb1949-2"><a href="collaboration.html#cb1949-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1949-3"><a href="collaboration.html#cb1949-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">--amend</span>  <span class="co"># Amend the previous commit</span></span>
-<span id="cb1949-4"><a href="collaboration.html#cb1949-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1949-5"><a href="collaboration.html#cb1949-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">--amend</span> <span class="at">-m</span> <span class="st">"An updated commit message"</span>  <span class="co"># Amend the previous commit AND update the commit message</span></span></code></pre></div>
+<div class="sourceCode" id="cb1923"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1923-1"><a href="collaboration.html#cb1923-1" tabindex="-1"></a><span class="fu">git</span> add [YOUR FILES] <span class="co"># Stage your new changes</span></span>
+<span id="cb1923-2"><a href="collaboration.html#cb1923-2" tabindex="-1"></a></span>
+<span id="cb1923-3"><a href="collaboration.html#cb1923-3" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">--amend</span>  <span class="co"># Amend the previous commit</span></span>
+<span id="cb1923-4"><a href="collaboration.html#cb1923-4" tabindex="-1"></a></span>
+<span id="cb1923-5"><a href="collaboration.html#cb1923-5" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">--amend</span> <span class="at">-m</span> <span class="st">&quot;An updated commit message&quot;</span>  <span class="co"># Amend the previous commit AND update the commit message</span></span></code></pre></div>
 <p><em>Lưu ý: hãy suy nghĩ trước khi sửa đổi các commit đã được công khai và chia sẻ với các cộng tác viên của bạn</em>.</p>
 </div>
 </div>
 <div id="pull-và-push-các-thay-đổi-lên-github" class="section level2" number="46.9">
-<h2>
-<span class="header-section-number">46.9</span> Pull và push các thay đổi lên Github<a class="anchor" aria-label="anchor" href="#pull-v%C3%A0-push-c%C3%A1c-thay-%C4%91%E1%BB%95i-l%C3%AAn-github"><i class="fas fa-link"></i></a>
-</h2>
+<h2><span class="header-section-number">46.9</span> Pull và push các thay đổi lên Github</h2>
 <p>“PULL trước, PUSH sau”</p>
 <p>Một thực hành tốt đố là <em>fetch</em> và <em>pull</em> trước khi bạn bắt đầu làm việc dự án của bạn, để cập nhật phiên bản nhánh trên máy tính của bạn với bất kỳ thay đổi nào đã được thực hiện trên nhanh đó ở phiên bản từ xa/Github.</p>
 <p>Đừng ngần ngại PULL thường xuyên. <em>Luôn nhớ pull trước khi push</em>.</p>
@@ -473,13 +483,11 @@
 <p>Kiểm tra và lặp lại trong khi bạn đang làm việc trên kho lưu trữ.</p>
 <p><strong>Lưu ý:</strong> việc khôi phục các thay đổi đã được commit nhưng chưa push lên Github (tức là vẫn còn ở local) dễ dàng hơn nhiều so với các commit đã được push lên kho lưu trữ từ xa (và có thể đã được ai đó pull xuống), vì vậy tốt nhất là bạn nên push những thay đổi khi bạn hoàn thành nó và giới thiệu về các thay đổi mà bạn đã thực hiện.</p>
 <div id="trong-rstudio-3" class="section level4 unnumbered">
-<h4>Trong Rstudio<a class="anchor" aria-label="anchor" href="#trong-rstudio-3"><i class="fas fa-link"></i></a>
-</h4>
+<h4>Trong Rstudio</h4>
 <p><em>PULL</em> - Đầu tiên, ấn vào biểu tượng “Pull” (mũi tên hướng xuống) để fetch và pull cùng một lúc.</p>
 <p><em>PUSH</em> - Ấn vào icon màu xanh “Push” (mũi tên hướng lên). Bạn có thể được yêu cầu nhập tên người dùng và mật khẩu Github của bạn. Trong lần đầu tiên được hỏi, bạn có thể cần nhập hai dòng lệnh Git sau vào <em>Terminal</em>:</p>
 <ul>
-<li>
-<strong>git config –global user.email “<a href="mailto:you@example.com" class="email">you@example.com</a>”</strong> (Địa chỉ email Github của bạn), và<br>
+<li><strong>git config –global user.email “<a href="mailto:you@example.com" class="email">you@example.com</a>”</strong> (Địa chỉ email Github của bạn), và<br />
 </li>
 <li><strong>git config –global user.name “Tên đăng nhập Github của bạn”</strong></li>
 </ul>
@@ -487,28 +495,25 @@
 <p><strong><em>MẸO:</em></strong> Bị yêu cầu cung cấp mật khẩu quá nhiều? Xem các chương 10 &amp; 11 trong <a href="https://happygitwithr.com/credential-caching.html#credential-caching">hướng dẫn này</a> để kết nối với kho lưu trữ bằng khóa SSH (phức tạp hơn)</p>
 </div>
 <div id="trong-github-desktop-4" class="section level4 unnumbered">
-<h4>Trong Github Desktop<a class="anchor" aria-label="anchor" href="#trong-github-desktop-4"><i class="fas fa-link"></i></a>
-</h4>
+<h4>Trong Github Desktop</h4>
 <p>Nhấp vào nút “Fetch origin” để kiểm tra xem có commit mới nào trên kho lưu trữ từ xa hay không.</p>
-<div class="inline-figure"><img src="images/github_desktop_fetch_button.png" width="817" style="display: block; margin: auto;"></div>
+<p><img src="images/github_desktop_fetch_button.png" width="817" style="display: block; margin: auto;" /></p>
 <p>Nếu Git tìm thấy các commit mới trên kho lưu trữ từ xa, nút commit sẽ thay đổi thành nút “Push”. Bởi vì cùng một nút được sử dụng để push và pull, bạn không thể push các thay đổi của mình nếu bạn không pull trước đó.</p>
-<div class="inline-figure"><img src="images/github_desktop_pull_button.png" width="496" style="display: block; margin: auto;"></div>
+<p><img src="images/github_desktop_pull_button.png" width="496" style="display: block; margin: auto;" /></p>
 <p>Bạn có thể chuyển đến tab “History” (gần tab “Changes”) để xem tất cả các commits (của bạn và những người khác). Đây là một cách tốt để tự làm quen với những gì những người cộng tác với bạn đã làm. Bạn có thể đọc các thông điệp commit, các mô tả nếu có và so sánh code của hai tệp bằng cách sử dụng cửa sổ <em>diff</em>.</p>
-<div class="inline-figure"><img src="images/github_desktop_history.png" width="993" style="display: block; margin: auto;"></div>
+<p><img src="images/github_desktop_history.png" width="993" style="display: block; margin: auto;" /></p>
 <p>Khi tất cả các thay đổi từ xa đã được pull và ít nhất một thay đổi cục bộ đã được commit, bạn có thể push bằng cách nhấp trên cùng một nút.</p>
-<div class="inline-figure"><img src="images/github_desktop_push_button.png" width="816" style="display: block; margin: auto;"></div>
+<p><img src="images/github_desktop_push_button.png" width="816" style="display: block; margin: auto;" /></p>
 </div>
 <div id="console" class="section level4 unnumbered">
-<h4>Console<a class="anchor" aria-label="anchor" href="#console"><i class="fas fa-link"></i></a>
-</h4>
+<h4>Console</h4>
 <p>Không có gì ngạc nhiên, các lệnh là <em>fetch</em>, <em>pull</em> và <em>push</em>.</p>
-<div class="sourceCode" id="cb1950"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1950-1"><a href="collaboration.html#cb1950-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> fetch  <span class="co"># are there new commits in the remote directory?</span></span>
-<span id="cb1950-2"><a href="collaboration.html#cb1950-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> pull   <span class="co"># Bring remote commits into your local branch</span></span>
-<span id="cb1950-3"><a href="collaboration.html#cb1950-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push   <span class="co"># Puch local commits of this branch to the remote branch</span></span></code></pre></div>
+<div class="sourceCode" id="cb1924"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1924-1"><a href="collaboration.html#cb1924-1" tabindex="-1"></a><span class="fu">git</span> fetch  <span class="co"># are there new commits in the remote directory?</span></span>
+<span id="cb1924-2"><a href="collaboration.html#cb1924-2" tabindex="-1"></a><span class="fu">git</span> pull   <span class="co"># Bring remote commits into your local branch</span></span>
+<span id="cb1924-3"><a href="collaboration.html#cb1924-3" tabindex="-1"></a><span class="fu">git</span> push   <span class="co"># Puch local commits of this branch to the remote branch</span></span></code></pre></div>
 </div>
 <div id="tôi-muốn-pull-nhưng-tôi-cũng-có-các-chỉnh-sửa-trong-local" class="section level3 unnumbered">
-<h3>Tôi muốn pull nhưng tôi cũng có các chỉnh sửa trong local<a class="anchor" aria-label="anchor" href="#t%C3%B4i-mu%E1%BB%91n-pull-nh%C6%B0ng-t%C3%B4i-c%C5%A9ng-c%C3%B3-c%C3%A1c-ch%E1%BB%89nh-s%E1%BB%ADa-trong-local"><i class="fas fa-link"></i></a>
-</h3>
+<h3>Tôi muốn pull nhưng tôi cũng có các chỉnh sửa trong local</h3>
 <p>Điều này đôi khi có thể xảy ra: khi bạn đã thực hiện một số thay đổi trên kho lưu trữ cục bộ của mình, nhưng kho lưu trữ từ xa có các commit mà bạn đã không pull.</p>
 <p>Git sẽ từ chối pull vì nó có thể ghi đè các thay đổi của bạn. Có một số chiến lược để giữ các thay đổi của bạn, được mô tả tốt trong trang <a href="https://happygitwithr.com/pull-tricky.html">Happy Git with R</a>, trong đó có hai điểm chính sau:</p>
 <ul>
@@ -517,31 +522,26 @@
 </ul>
 <p>Nếu các tệp có thay đổi từ remote và hay đổi bởi local không trùng lặp, Git có thể tự động giải quyết các xung đột.</p>
 <p>Trong Github Desktop, việc này có thể được thực hiện với các nút bấm. Để stash, hãy truy cập <em>Branch &gt; Stash all changes</em>.</p>
-<div class="inline-figure"><img src="images/github_desktop_stash.png" width="922" style="display: block; margin: auto;"></div>
+<p><img src="images/github_desktop_stash.png" width="922" style="display: block; margin: auto;" /></p>
 </div>
 </div>
 <div id="hợp-nhất-nhánh-vào-nhánh-chính" class="section level2" number="46.10">
-<h2>
-<span class="header-section-number">46.10</span> Hợp nhất nhánh vào Nhánh chính<a class="anchor" aria-label="anchor" href="#h%E1%BB%A3p-nh%E1%BA%A5t-nh%C3%A1nh-v%C3%A0o-nh%C3%A1nh-ch%C3%ADnh"><i class="fas fa-link"></i></a>
-</h2>
+<h2><span class="header-section-number">46.10</span> Hợp nhất nhánh vào Nhánh chính</h2>
 <p>Nếu bạn đã thực hiện xong các thay đổi, bạn có thể bắt đầu quá trình hợp nhất những thay đổi đó vào nhánh chính. Tùy thuộc vào tình huống của bạn, việc này có thể nhanh hoặc bạn có thể cần sự xem xét và phê duyệt của các thành viên trong nhóm.</p>
 <div id="hợp-nhất-cục-bộ-bằng-github-desktop" class="section level3 unnumbered">
-<h3>Hợp nhất cục bộ bằng Github Desktop<a class="anchor" aria-label="anchor" href="#h%E1%BB%A3p-nh%E1%BA%A5t-c%E1%BB%A5c-b%E1%BB%99-b%E1%BA%B1ng-github-desktop"><i class="fas fa-link"></i></a>
-</h3>
+<h3>Hợp nhất cục bộ bằng Github Desktop</h3>
 <p>Bạn có thể hợp nhất các nhánh bằng Github Desktop. Đầu tiên, hãy truy cập (checkout) nhánh sẽ là nơi tiếp nhận các commit, nói cách khác, nhánh bạn muốn cập nhật. Sau đó vào menu và lựa chọn <em>Branch &gt; Merge into current branch</em>. Một hộp thoại sẽ cho phép bạn chọn nhánh bạn muốn nhập vào.</p>
-<div class="inline-figure"><img src="images/github_desktop_merge.png" width="623" style="display: block; margin: auto;"></div>
+<p><img src="images/github_desktop_merge.png" width="623" style="display: block; margin: auto;" /></p>
 </div>
 <div id="trong-console-2" class="section level3 unnumbered">
-<h3>Trong console<a class="anchor" aria-label="anchor" href="#trong-console-2"><i class="fas fa-link"></i></a>
-</h3>
+<h3>Trong console</h3>
 <p>Đầu tiên hãy quay lại nhánh sẽ nhận các thay đổi. Nó thường là nhánh có tên <em>master</em>, nhưng nó cũng có thể là một nhánh khác. Sau đó hợp nhất nhánh làm việc của bạn vào master.</p>
-<div class="sourceCode" id="cb1951"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1951-1"><a href="collaboration.html#cb1951-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout master  <span class="co"># Go back to master (or to the branch you want to move your )</span></span>
-<span id="cb1951-2"><a href="collaboration.html#cb1951-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> merge this_fancy_new_branch</span></code></pre></div>
+<div class="sourceCode" id="cb1925"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1925-1"><a href="collaboration.html#cb1925-1" tabindex="-1"></a><span class="fu">git</span> checkout master  <span class="co"># Go back to master (or to the branch you want to move your )</span></span>
+<span id="cb1925-2"><a href="collaboration.html#cb1925-2" tabindex="-1"></a><span class="fu">git</span> merge this_fancy_new_branch</span></code></pre></div>
 <p><a href="https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging">Trang này</a> trình bày một ví dụ nâng cao hơn về phân nhánh và giải thích sơ bộ về cơ chế của nó.</p>
 </div>
 <div id="trong-github-gửi-một-pull-requests" class="section level3 unnumbered">
-<h3>Trong Github: gửi một pull requests<a class="anchor" aria-label="anchor" href="#trong-github-g%E1%BB%ADi-m%E1%BB%99t-pull-requests"><i class="fas fa-link"></i></a>
-</h3>
+<h3>Trong Github: gửi một pull requests</h3>
 <p>Mặc dù hoàn toàn có thể hợp nhất hai nhánh một cách cục bộ, hoặc không thông báo cho bất kỳ ai, thì việc hợp nhất có thể được thảo luận hoặc kiểm tra bởi một số người trước khi được tích hợp vào nhánh master. Để giúp đỡ quá trình này, Github cung cấp một số tính năng thảo luận cho việc hợp nhất có tên là: <strong>pull request</strong>.</p>
 <p>Một pull request (một “PR”) là một yêu cầu hợp nhất một nhánh vào một nhánh khác (nói cách khác, một yêu cầu <em>nhánh làm việc của bạn được pull vào nhánh “chính”</em>). Một pull request thường bao gồm nhiều lần commit. Một pull request thường bắt đầu một cuộc thảo luận và quá trình review trước khi nó được chấp nhận và được hợp nhất vào nhánh chính. Ví dụ, bạn có thể đọc các cuộc thảo luận về pull request trên <a href="https://github.com/tidyverse/dplyr/pulls">trang github của package dplyr</a>.</p>
 <p>Bạn có thể gửi một pull request (PR) trực tiếp từ trang web (như minh họa bên dưới) hoặc từ Github Desktop.</p>
@@ -552,27 +552,26 @@
 <li>Viết chi tiết bình luận cho Pull Request và ấn vào “Create Pull Request”.</li>
 </ul>
 <p>Trong ảnh dưới đây, nhánh “forest” được chọn để hợp nhất vào nhánh “chính” (main):</p>
-<div class="inline-figure"><img src="images/github_pull_request2.png" width="100%" height="150%" style="display: block; margin: auto;"></div>
+<p><img src="images/github_pull_request2.png" width="100%" height="150%" style="display: block; margin: auto;" /></p>
 <p>Bây giờ bạn đã có thể xem một pull request (ảnh minh họa bên dưới):</p>
 <ul>
-<li>Kiểm tra tab “Files changed” để xem nhánh “chính” sẽ thay đổi như thế nào nếu được hợp nhất.<br>
+<li>Kiểm tra tab “Files changed” để xem nhánh “chính” sẽ thay đổi như thế nào nếu được hợp nhất.<br />
 </li>
-<li>Ở phía bên phải, bạn có thể yêu cầu một thành viên trong nhóm review bằng cách gắn thẻ (tag) ID Github của họ. Nếu bạn muốn, bạn có thể thiết lập các cài đặt cho repository để yêu cầu một ai đó chấp thuận trước khi hợp nhất vào nhánh chính.<br>
+<li>Ở phía bên phải, bạn có thể yêu cầu một thành viên trong nhóm review bằng cách gắn thẻ (tag) ID Github của họ. Nếu bạn muốn, bạn có thể thiết lập các cài đặt cho repository để yêu cầu một ai đó chấp thuận trước khi hợp nhất vào nhánh chính.<br />
 </li>
-<li>Khi pull request được chấp thuận, nút “Merge pull request” sẽ được active. Hãy ấn vào đó.<br>
+<li>Khi pull request được chấp thuận, nút “Merge pull request” sẽ được active. Hãy ấn vào đó.<br />
 </li>
 <li>Khi hợp nhất thành công, xóa nhánh của bạn như được giải thích bên dưới.</li>
 </ul>
-<div class="inline-figure"><img src="images/github_pull_request.png" width="100%" height="200%" style="display: block; margin: auto;"></div>
+<p><img src="images/github_pull_request.png" width="100%" height="200%" style="display: block; margin: auto;" /></p>
 </div>
 <div id="giải-quyết-xung-đột" class="section level3 unnumbered">
-<h3>Giải quyết xung đột<a class="anchor" aria-label="anchor" href="#gi%E1%BA%A3i-quy%E1%BA%BFt-xung-%C4%91%E1%BB%99t"><i class="fas fa-link"></i></a>
-</h3>
+<h3>Giải quyết xung đột</h3>
 <p>Khi hai người cùng thay đổi code trên cùng một (hoặc nhiều) dòng, thì xung đột khi hợp nhất sẽ xảy ra. Thực tế là Git sẽ từ chối việc đưa ra quyết định phiên bản nào sẽ được giữ, nhưng nó cho phép bạn tìm kiếm nơi xảy ra xung đột. <strong>ĐỪNG HOẢNG LẠN</strong>. Hầu hết các trường hợp khá dễ dàng để giải quyết.</p>
 <p>Ví dụ, trên Github:</p>
-<div class="inline-figure"><img src="images/github_conflict2.png" width="100%" height="200%" style="display: block; margin: auto;"></div>
+<p><img src="images/github_conflict2.png" width="100%" height="200%" style="display: block; margin: auto;" /></p>
 <p>Sau khi việc hợp nhất nhắc nhở về có xung đột, hãy mở tệp trong trình chỉnh sửa ưa thích của bạn. Xung đột sẽ được đánh dấu bằng một chuỗi các ký tự như sau:</p>
-<div class="inline-figure"><img src="images/github_conflict3.png" width="100%" height="200%" style="display: block; margin: auto;"></div>
+<p><img src="images/github_conflict3.png" width="100%" height="200%" style="display: block; margin: auto;" /></p>
 <p>Đoạn văn bản nằm giữa <em>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</em> và <em>=======</em> đến từ local repository của bạn, và đoạn văn bản nằm giữa <em>=======</em> và <em>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</em> đến từ một nhánh khác (có thể là bản gốc, master hoặc bất kỳ nhánh nào theo lựa chọn của bạn).</p>
 <p>Bạn phải quyết định phiên bản nào của code bạn muốn giữ (hoặc thậm chí viết một phiên bản thứ ba, bao gồm các thay đổi từ cả hai phía), xóa phần còn lại và loại bỏ tất cả các ký tự đánh dấu mà Git đã thêm vào <em>(&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD, =======, &gt;&gt;&gt;&gt;&gt;&gt;&gt; origin/master/your_branch_name</em>).</p>
 <p>Sau đó, lưu tệp, stage và commit nó: Đây là commit để tạo phiên bản hợp nhất “chính thức”. Đừng quên push sau đó.</p>
@@ -580,13 +579,10 @@
 <p><em>Lưu ý: Nếu bạn tự tin tương tác với console, có nhiều <a href="https://git-scm.com/book/en/v2/Git-Tools-Advanced-Merging">lựa chọn hợp nhất nâng cao</a> (ví dụ: bỏ qua khoảng trống, cho người cộng tác quyền ưu tiên, v.v.).</em></p>
 </div>
 <div id="xóa-nhánh-của-bạn" class="section level3 unnumbered">
-<h3>Xóa nhánh của bạn<a class="anchor" aria-label="anchor" href="#x%C3%B3a-nh%C3%A1nh-c%E1%BB%A7a-b%E1%BA%A1n"><i class="fas fa-link"></i></a>
-</h3>
+<h3>Xóa nhánh của bạn</h3>
 <p>Khi một nhánh đã được hợp nhất vào master và bạn không cần đến nó nữa, bạn có thể xóa nó.</p>
 <div id="github-rstudio" class="section level4" number="46.10.0.1">
-<h4>
-<span class="header-section-number">46.10.0.1</span> Github + Rstudio<a class="anchor" aria-label="anchor" href="#github-rstudio"><i class="fas fa-link"></i></a>
-</h4>
+<h4><span class="header-section-number">46.10.0.1</span> Github + Rstudio</h4>
 <p>Đi tới thư mục lưu trữ trên Github và nhấn nút để xem toàn bộ các nhánh hiện có (cạnh mũi tên trỏ xuống để lựa chọn nhánh). Bây giờ tìm nhánh của bạn và nhấn biểu tượng thúng rác bên cạnh nó. Đọc thêm về cách xóa một nhánh <a href="https://docs.github.com/en/free-pro-team@latest/github/collaborating-with-issues-and-pull-requests/creating-and-deleting-branches-within-your-repository#deleting-a-branch">tại đây</a>.</p>
 <p>Hãy chắc chắn là bạn cũng đã xóa nhánh trong máy tính của mình bởi vì quá trình này không được diễn ra một cách tự động.</p>
 <ul>
@@ -596,18 +592,15 @@
 </ul>
 </div>
 <div id="trong-github-desktop-5" class="section level4" number="46.10.0.2">
-<h4>
-<span class="header-section-number">46.10.0.2</span> Trong Github Desktop<a class="anchor" aria-label="anchor" href="#trong-github-desktop-5"><i class="fas fa-link"></i></a>
-</h4>
+<h4><span class="header-section-number">46.10.0.2</span> Trong Github Desktop</h4>
 <p>Đơn giản chỉ cần checkout tới nhánh bạn muốn xóa, và đi tới menu <em>Branch &gt; Delete</em>.</p>
 </div>
 </div>
 <div id="forking" class="section level3 unnumbered">
-<h3>Forking<a class="anchor" aria-label="anchor" href="#forking"><i class="fas fa-link"></i></a>
-</h3>
+<h3>Forking</h3>
 <p>Bạn có thể fork một dự án nếu bạn muốn đóng góp cho nó nhưng không có quyền để thực hiện, hoặc chỉ là bạn muốn chỉnh sửa cho mục đích sử dụng cá nhân. Một mô tả ngắn về forking có thể xem <a href="https://guides.github.com/activities/forking/">tại đây</a>.</p>
 <p>Trong Github, nhấp vào nút “Fork”:</p>
-<div class="inline-figure"><img src="images/github_fork_1.png" width="100%" height="200%" style="display: block; margin: auto;"></div>
+<p><img src="images/github_fork_1.png" width="100%" height="200%" style="display: block; margin: auto;" /></p>
 <p>Thao tác này sẽ clone kho lưu trữ gốc, nhưng được lưu trong hồ sơ của bạn. Do đó, bây giờ có hai phiển bản của kho lưu trữ <strong>trong Github</strong>: phiên bản gốc mà bạn không thể chỉnh sửa, và phiên bản clone trong hồ sơ của bạn.</p>
 <p>Sau đó, bạn có thể tiếp tục clone phiên bản trực tuyến xuống máy tính của bạn, sử dụng bất kỳ phương pháp nào đã được mô tả bên trên. Tiếp theo, bạn có thể tạo một nhánh mới, tạo các thay đổi, commit và push chúng <em>lên kho lưu trữ từ xa của bạn</em>.</p>
 <p>Khi bạn hài lòng với các kết quả, bạn có thể tạo một Pull Request từ Github hoặc Github Desktop để bắt đầu một cuộc thảo luận với chủ sở hữu/người bảo trì của kho lưu trữ gốc.</p>
@@ -615,35 +608,33 @@
 <p>hãy tưởng tượng ai đó đã tạo một thay đổi quan trọng trong kho lưu trữ gốc, và bạn muốn thêm những thay đổi đó vào kho lưu trữ của mình. Điều này là khả thi để đồng bộ hóa kho lưu trữ bạn đã fork với kho lưu trữ gốc. Nó yêu cầu sử dụng terminal, nhưng không quá phức tạp. Bạn chỉ cần nhớ rằng: - <em>upstream (thượng nguồn)</em> = kho lưu trữ gốc, là cái mà bạn không thể chỉnh sửa - <em>origin (bản gốc)</em> = phiên bản kho lưu trữ trong hồ sơ Github của bạn</p>
 <p>Bạn có thể đọc <a href="https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/syncing-a-fork">tutorial này</a> hoặc theo dõi các bước dưới đây:</p>
 <p>Đầu tiên, gõ vào Git terminal (bên trong repo của bạn):</p>
-<div class="sourceCode" id="cb1952"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1952-1"><a href="collaboration.html#cb1952-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> remote <span class="at">-v</span></span></code></pre></div>
+<div class="sourceCode" id="cb1926"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1926-1"><a href="collaboration.html#cb1926-1" tabindex="-1"></a><span class="fu">git</span> remote <span class="at">-v</span></span></code></pre></div>
 <p>Nếu bạn chưa từng cấu hình upstream repository (kho lưu trữ gốc), bạn sẽ thấy hai dòng, bắt đầu bởi từ <em>origin</em>. Chúng hiển thị kho lưu trữ từ xa để <code>fetch</code> và <code>push</code> các điểm vào. Hãy nhớ, <em>origin</em> là biệt danh thường dùng cho phiên bản kho lưu trữ của chính bạn trên Github. Ví dụ:</p>
-<div class="inline-figure"><img src="images/github_fork_2.png" width="100%" height="200%" style="display: block; margin: auto;"></div>
+<p><img src="images/github_fork_2.png" width="100%" height="200%" style="display: block; margin: auto;" /></p>
 <p>Bây giờ, thêm một kho lưu trữ từ xa:</p>
-<div class="sourceCode" id="cb1953"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1953-1"><a href="collaboration.html#cb1953-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> remote add upstream https://github.com/appliedepi/epirhandbook_eng.git</span></code></pre></div>
+<div class="sourceCode" id="cb1927"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1927-1"><a href="collaboration.html#cb1927-1" tabindex="-1"></a><span class="fu">git</span> remote add upstream https://github.com/appliedepi/epirhandbook_eng.git</span></code></pre></div>
 <p>Địa chỉ ở đây là địa chỉ mà Github tạo ra khi bạn clone một repository (xem mục về cloning). Bây giờ bạn sẽ có bốn điểm từ xa:</p>
-<div class="inline-figure"><img src="images/github_fork_3.png" width="100%" height="200%" style="display: block; margin: auto;"></div>
+<p><img src="images/github_fork_3.png" width="100%" height="200%" style="display: block; margin: auto;" /></p>
 <p>Quá trình thiết lập đã xong. Bất cứ khi nào bạn muốn lấy các sự thay đổi từ kho lưu trữ gốc (<em>upstream</em>), bạn chỉ cần đi tới (<em>checkout</em>) nhánh bạn muốn cập nhật và gõ:</p>
-<div class="sourceCode" id="cb1954"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1954-1"><a href="collaboration.html#cb1954-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> fetch upstream <span class="co"># Get the new commits from the remote repository</span></span>
-<span id="cb1954-2"><a href="collaboration.html#cb1954-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout the_branch_you_want_to_update</span>
-<span id="cb1954-3"><a href="collaboration.html#cb1954-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> merge upstream/the_branch_you_want_to_update  <span class="co"># Merge the upstream branch into your branch.</span></span>
-<span id="cb1954-4"><a href="collaboration.html#cb1954-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push <span class="co"># Update your own version of the remote repo</span></span></code></pre></div>
+<div class="sourceCode" id="cb1928"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1928-1"><a href="collaboration.html#cb1928-1" tabindex="-1"></a><span class="fu">git</span> fetch upstream <span class="co"># Get the new commits from the remote repository</span></span>
+<span id="cb1928-2"><a href="collaboration.html#cb1928-2" tabindex="-1"></a><span class="fu">git</span> checkout the_branch_you_want_to_update</span>
+<span id="cb1928-3"><a href="collaboration.html#cb1928-3" tabindex="-1"></a><span class="fu">git</span> merge upstream/the_branch_you_want_to_update  <span class="co"># Merge the upstream branch into your branch.</span></span>
+<span id="cb1928-4"><a href="collaboration.html#cb1928-4" tabindex="-1"></a><span class="fu">git</span> push <span class="co"># Update your own version of the remote repo</span></span></code></pre></div>
 <p>Nếu có xung đột, bạn sẽ phải giải quyết chúng như đã trình bày ở bên trên.</p>
 <p><strong>Tổng kết</strong>: forking là cloning, nhưng chỉ trên phía máy chủ của Github. Các hành động còn lại là điển hình của mô quy trình cộng tác(clone, push, pull, commit, merge, gửi pull requests…).</p>
 <p><em>Lưu ý: trong khi forking là một khái niệm, không phải là một lệnh Git, nó cũng tồn tại ở các nền tảng khác, chẳng hạn như <a href="https://www.atlassian.com/git/tutorials/comparing-workflows/forking-workflow">Bitbucket</a>.</em></p>
-<div class="inline-figure"><img src="images/github_fork_4.png" width="100%" height="200%" style="display: block; margin: auto;"></div>
+<p><img src="images/github_fork_4.png" width="100%" height="200%" style="display: block; margin: auto;" /></p>
 </div>
 </div>
 <div id="chúng-ta-đã-học-được-những-gì" class="section level2" number="46.11">
-<h2>
-<span class="header-section-number">46.11</span> Chúng ta đã học được những gì<a class="anchor" aria-label="anchor" href="#ch%C3%BAng-ta-%C4%91%C3%A3-h%E1%BB%8Dc-%C4%91%C6%B0%E1%BB%A3c-nh%E1%BB%AFng-g%C3%AC"><i class="fas fa-link"></i></a>
-</h2>
+<h2><span class="header-section-number">46.11</span> Chúng ta đã học được những gì</h2>
 <p>Bạn đã học được cách:</p>
 <ul>
-<li>thiết lập Git để theo dõi sự thay đổi trong thư mục của bạn,<br>
+<li>thiết lập Git để theo dõi sự thay đổi trong thư mục của bạn,<br />
 </li>
-<li>kết nối kho lưu trữ cục bộ và từ xa,<br>
+<li>kết nối kho lưu trữ cục bộ và từ xa,<br />
 </li>
-<li>commit các thay đổi,<br>
+<li>commit các thay đổi,<br />
 </li>
 <li>đồng bộ kho lưu trữ cục bộ và từ xa.</li>
 </ul>
@@ -653,47 +644,42 @@
 <p>Hãy nhớ là bạn có thể sử dụng bất kỳ công cụ nào tại mọi thời điểm để theo dõi kho lưu trữ của mình, do đó bạn có thể cài đặt một giao diện để thỉnh thoảng sử dụng, hoặc thực hiện những tác vụ không phiỉ biến, trong khi lựa chọn một giao diện đơn giản hầu hết thời gian (vd: sử dụng Github Desktop phần lớn thời gian, và chuyển qua phần mềm SourceTree hoặc Gitbash cho những tác vụ cụ thể).</p>
 </div>
 <div id="git" class="section level2" number="46.12">
-<h2>
-<span class="header-section-number">46.12</span> Các lệnh Git<a class="anchor" aria-label="anchor" href="#git"><i class="fas fa-link"></i></a>
-</h2>
+<h2><span class="header-section-number">46.12</span> Các lệnh Git</h2>
 <div id="được-khuyến-khích-học" class="section level3 unnumbered">
-<h3>Được khuyến khích học<a class="anchor" aria-label="anchor" href="#%C4%91%C6%B0%E1%BB%A3c-khuy%E1%BA%BFn-kh%C3%ADch-h%E1%BB%8Dc"><i class="fas fa-link"></i></a>
-</h3>
+<h3>Được khuyến khích học</h3>
 <p>Để học các lệnh Git một cách tương tác, xem <a href="https://learngitbranching.js.org/">trang web này</a>.</p>
 </div>
 <div id="gõ-lệnh-vào-đâu" class="section level3 unnumbered">
-<h3>Gõ lệnh vào đâu<a class="anchor" aria-label="anchor" href="#g%C3%B5-l%E1%BB%87nh-v%C3%A0o-%C4%91%C3%A2u"><i class="fas fa-link"></i></a>
-</h3>
+<h3>Gõ lệnh vào đâu</h3>
 <p>Bạn gõ lệnh vào Git shell.</p>
 <p><em>Lựa chọn 1</em> Bạn mở một Terminal mới trong RStudio. Tab này ở bên cạnh R Console. Nếu bạn không thể gõ trên đó, nhấp vào menu thả xuống ở dưới chữ “Terminal” và chọn “New terminal”. Gõ lệnh ở khoảng trống phía sau ký tự dollar “$”.</p>
-<div class="inline-figure"><img src="images/github_terminal.png" width="100%" height="200%" style="display: block; margin: auto;"></div>
+<p><img src="images/github_terminal.png" width="100%" height="200%" style="display: block; margin: auto;" /></p>
 <p><em>Lựa chọn 2</em> Bạn cũng có thể mở một <em>shell</em> (một terminal để gõ lệnh) bằng cách nhấp vào biểu tượng “bánh răng” màu xanh trong cửa sổ Git (bên cạnh cửa sổ RStudio Environment). Chọn “Shell” từ menu thả xuống. Một cửa sổ mới sẽ mở ra nơi mà bạn có thể gõ các lệnh sau ký tự dollar “$”.</p>
 <p><em>Lựa chọn 3</em> Nháy chuột phải để mở “Git Bash here”, cho phép mở một cửa sổ terminal tương tự, hoặc mở <em>Git Bash</em> từ danh sách ứng dụng của bạn. <a href="https://happygitwithr.com/shell.html">Các thông tin về Git Bash cho người mới bắt đầu</a>, cách tìm nó và một số lệnh bash bạn sẽ cần.</p>
 </div>
 <div id="một-số-lệnh-mẫu" class="section level3 unnumbered">
-<h3>Một số lệnh mẫu<a class="anchor" aria-label="anchor" href="#m%E1%BB%99t-s%E1%BB%91-l%E1%BB%87nh-m%E1%BA%ABu"><i class="fas fa-link"></i></a>
-</h3>
+<h3>Một số lệnh mẫu</h3>
 <p>Sau đây chúng tôi sẽ trình bày một số lệnh git phổ biến. Khi bạn sử dụng chúng, hãy chú ý nhánh nào đang được active (checked-out), bởi vì điều này sẽ quyết định hành động nào được thực hiện!</p>
-<p>Trong các lệnh dưới đây, <name> đại diện cho tên nhánh. <commit_hash> đại diện cho hash ID của một commit cụ thể. <num> đại diện cho một số. Bạn không cần gõ ký tự &lt; hoặc &gt;.</num></commit_hash></name></p>
-<div class="inline-table"><table class="table table-sm">
+<p>Trong các lệnh dưới đây, <name> đại diện cho tên nhánh. <commit_hash> đại diện cho hash ID của một commit cụ thể. <num> đại diện cho một số. Bạn không cần gõ ký tự &lt; hoặc &gt;.</p>
+<table>
 <colgroup>
-<col width="30%">
-<col width="69%">
+<col width="30%" />
+<col width="69%" />
 </colgroup>
-<thead><tr class="header">
+<thead>
+<tr class="header">
 <th>Lệnh Git</th>
 <th>Hành động</th>
-</tr></thead>
+</tr>
+</thead>
 <tbody>
 <tr class="odd">
 <td><code>git branch &lt;name&gt;</code></td>
-<td>Tạo một nhánh mới có tên <name></name>
-</td>
+<td>Tạo một nhánh mới có tên <name></td>
 </tr>
 <tr class="even">
 <td><code>git checkout &lt;name&gt;</code></td>
-<td>Chuyển từ nhánh hiện tại sang nhánh có tên <name></name>
-</td>
+<td>Chuyển từ nhánh hiện tại sang nhánh có tên <name></td>
 </tr>
 <tr class="odd">
 <td><code>git checkout -b &lt;name&gt;</code></td>
@@ -725,28 +711,23 @@
 </tr>
 <tr class="even">
 <td><code>git switch</code></td>
-<td>Cách khác của <code>git checkout</code>
-</td>
+<td>Cách khác của <code>git checkout</code></td>
 </tr>
 <tr class="odd">
 <td><code>git merge &lt;name&gt;</code></td>
-<td>Hợp nhất nhánh có tên <name> vào nhánh hiện tại</name>
-</td>
+<td>Hợp nhất nhánh có tên <name> vào nhánh hiện tại</td>
 </tr>
 <tr class="even">
 <td><code>git rebase &lt;name&gt;</code></td>
-<td>Thêm các commit từ nhánh hiện tại vào nhánh có tên <name></name>
-</td>
+<td>Thêm các commit từ nhánh hiện tại vào nhánh có tên <name></td>
 </tr>
 </tbody>
-</table></div>
+</table>
 <!-- ======================================================= -->
 </div>
 </div>
 <div id="tài-nguyên-học-liệu-16" class="section level2" number="46.13">
-<h2>
-<span class="header-section-number">46.13</span> Tài nguyên học liệu<a class="anchor" aria-label="anchor" href="#t%C3%A0i-nguy%C3%AAn-h%E1%BB%8Dc-li%E1%BB%87u-16"><i class="fas fa-link"></i></a>
-</h2>
+<h2><span class="header-section-number">46.13</span> Tài nguyên học liệu</h2>
 <p>Phần lớn chương này lấy thông tin từ <a href="https://happygitwithr.com/">trang web “Happy Git with R”</a> viết bởi Jenny Bryan. Có một chuyên mục rất hữu ích trong trang web đó có thể giúp bạn giải quyết những lỗi phổ biến về Git và các lỗi liên quan tới R.</p>
 <p>Tài liệu <a href="https://docs.github.com/en/github">Github.com documentation and start guide</a>.</p>
 <p>RStudio <a href="https://www.rstudio.com/wp-content/uploads/2016/01/rstudio-IDE-cheatsheet.pdf">“IDE” cheatsheet</a> bao gồm các mẹo về Git với RStudio.</p>
@@ -762,98 +743,30 @@
 
 </div>
 </div>
-  <div class="chapter-nav">
-<div class="prev"><a href="directories.html"><span class="header-section-number">45</span> Tương tác với thư mục làm việc</a></div>
-<div class="next"><a href="errors.html"><span class="header-section-number">47</span> Các lỗi thường gặp</a></div>
-</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
-    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
-      <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#collaboration"><span class="header-section-number">46</span> Version control với Git và Github</a></li>
-<li><a class="nav-link" href="#git-l%C3%A0-g%C3%AC"><span class="header-section-number">46.1</span> Git là gì?</a></li>
-<li>
-<a class="nav-link" href="#t%E1%BA%A1i-sao-l%E1%BA%A1i-s%E1%BB%AD-d%E1%BB%A5ng-combo-git-v%C3%A0-github"><span class="header-section-number">46.2</span> Tại sao lại sử dụng combo Git và Github?</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#%C4%91i%E1%BB%81u-n%C3%A0y-nghe-c%C3%B3-v%E1%BA%BB-ph%E1%BB%A9c-t%E1%BA%A1p-t%C3%B4i-kh%C3%B4ng-ph%E1%BA%A3i-l%C3%A0-m%E1%BB%99t-l%E1%BA%ADp-tr%C3%ACnh-vi%C3%AAn">Điều này nghe có vẻ phức tạp, tôi không phải là một lập trình viên</a></li></ul>
-</li>
-<li>
-<a class="nav-link" href="#c%C3%A0i-%C4%91%E1%BA%B7t-2"><span class="header-section-number">46.3</span> Cài đặt</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#c%C3%A0i-%C4%91%E1%BA%B7t-git">Cài đặt Git</a></li>
-<li><a class="nav-link" href="#c%C3%A0i-%C4%91%E1%BA%B7t-giao-di%E1%BB%87n-t%C3%B9y-ch%E1%BB%8Dn-nh%C6%B0ng-%C4%91%C6%B0%E1%BB%A3c-khuy%E1%BA%BFn-ngh%E1%BB%8B">Cài đặt giao diện (tùy chọn nhưng được khuyến nghị)</a></li>
-<li><a class="nav-link" href="#t%C3%A0i-kho%E1%BA%A3n-github">Tài khoản Github</a></li>
-</ul>
-</li>
-<li>
-<a class="nav-link" href="#thu%E1%BA%ADt-ng%E1%BB%AF-kh%C3%A1i-ni%E1%BB%87m-v%C3%A0-c%C3%A1c-h%C3%A0m-c%C6%A1-b%E1%BA%A3n"><span class="header-section-number">46.4</span> Thuật ngữ, khái niệm và các hàm cơ bản</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#kho-l%C6%B0u-tr%E1%BB%AF-repository">Kho lưu trữ (Repository)</a></li>
-<li><a class="nav-link" href="#commits">Commits</a></li>
-<li><a class="nav-link" href="#branches">Branches</a></li>
-<li><a class="nav-link" href="#kho-l%C6%B0u-tr%E1%BB%AF-c%E1%BB%A5c-b%E1%BB%99-v%C3%A0-t%E1%BB%AB-xa">Kho lưu trữ cục bộ và từ xa</a></li>
-</ul>
-</li>
-<li>
-<a class="nav-link" href="#b%E1%BA%AFt-%C4%91%E1%BA%A7u-t%E1%BA%A1o-m%E1%BB%99t-kho-l%C6%B0u-tr%E1%BB%AF-m%E1%BB%9Bi"><span class="header-section-number">46.5</span> Bắt đầu: tạo một kho lưu trữ mới</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#c%C3%A1c-t%E1%BB%87p-kh%E1%BB%9Fi-%C4%91%E1%BB%99ng">Các tệp khởi động</a></li>
-<li><a class="nav-link" href="#t%E1%BA%A1o-m%E1%BB%99t-kho-l%C6%B0u-tr%E1%BB%AF-m%E1%BB%9Bi-trong-github">Tạo một kho lưu trữ mới trong Github</a></li>
-<li><a class="nav-link" href="#clone-t%E1%BB%AB-kho-l%C6%B0u-tr%E1%BB%AF-github">Clone từ kho lưu trữ Github</a></li>
-<li><a class="nav-link" href="#t%E1%BA%A1o-m%E1%BB%99t-github-repo-m%E1%BB%9Bi-t%E1%BB%AB-d%E1%BB%B1-%C3%A1n-r-%C4%91%C3%A3-c%C3%B3-s%E1%BA%B5n">Tạo một Github repo mới từ dự án R đã có sẵn</a></li>
-<li><a class="nav-link" href="#b%C3%A2y-gi%E1%BB%9D-n%C3%B3-tr%C3%B4ng-nh%C6%B0-th%E1%BA%BF-n%C3%A0o">Bây giờ, nó trông như thế nào?</a></li>
-</ul>
-</li>
-<li>
-<a class="nav-link" href="#quy-tr%C3%ACnh-l%C3%A0m-vi%E1%BB%87c-v%E1%BB%9Bi-git-github"><span class="header-section-number">46.6</span> Quy trình làm việc với Git + Github</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#t%E1%BB%95ng-quan-v%E1%BB%81-quy-tr%C3%ACnh">Tổng quan về quy trình</a></li></ul>
-</li>
-<li>
-<a class="nav-link" href="#t%E1%BA%A1o-m%E1%BB%99t-nh%C3%A1nh-m%E1%BB%9Bi"><span class="header-section-number">46.7</span> Tạo một nhánh mới</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#trong-c%E1%BB%ADa-s%E1%BB%95-rstudio-git">Trong cửa sổ Rstudio Git</a></li>
-<li><a class="nav-link" href="#trong-github-desktop-2">Trong Github Desktop</a></li>
-<li><a class="nav-link" href="#trong-console">Trong console</a></li>
-</ul>
-</li>
-<li>
-<a class="nav-link" href="#commit-c%C3%A1c-thay-%C4%91%E1%BB%95i"><span class="header-section-number">46.8</span> Commit các thay đổi</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#trong-rstudio-2">Trong Rstudio</a></li>
-<li><a class="nav-link" href="#trong-github-desktop-3">Trong Github Desktop</a></li>
-<li><a class="nav-link" href="#trong-console-1">Trong console</a></li>
-<li><a class="nav-link" href="#th%C3%AAm-v%C3%A0o-m%E1%BB%99t-commit-tr%C6%B0%E1%BB%9Bc-%C4%91%C3%B3">Thêm vào một commit trước đó</a></li>
-</ul>
-</li>
-<li>
-<a class="nav-link" href="#pull-v%C3%A0-push-c%C3%A1c-thay-%C4%91%E1%BB%95i-l%C3%AAn-github"><span class="header-section-number">46.9</span> Pull và push các thay đổi lên Github</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#t%C3%B4i-mu%E1%BB%91n-pull-nh%C6%B0ng-t%C3%B4i-c%C5%A9ng-c%C3%B3-c%C3%A1c-ch%E1%BB%89nh-s%E1%BB%ADa-trong-local">Tôi muốn pull nhưng tôi cũng có các chỉnh sửa trong local</a></li></ul>
-</li>
-<li>
-<a class="nav-link" href="#h%E1%BB%A3p-nh%E1%BA%A5t-nh%C3%A1nh-v%C3%A0o-nh%C3%A1nh-ch%C3%ADnh"><span class="header-section-number">46.10</span> Hợp nhất nhánh vào Nhánh chính</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#h%E1%BB%A3p-nh%E1%BA%A5t-c%E1%BB%A5c-b%E1%BB%99-b%E1%BA%B1ng-github-desktop">Hợp nhất cục bộ bằng Github Desktop</a></li>
-<li><a class="nav-link" href="#trong-console-2">Trong console</a></li>
-<li><a class="nav-link" href="#trong-github-g%E1%BB%ADi-m%E1%BB%99t-pull-requests">Trong Github: gửi một pull requests</a></li>
-<li><a class="nav-link" href="#gi%E1%BA%A3i-quy%E1%BA%BFt-xung-%C4%91%E1%BB%99t">Giải quyết xung đột</a></li>
-<li><a class="nav-link" href="#x%C3%B3a-nh%C3%A1nh-c%E1%BB%A7a-b%E1%BA%A1n">Xóa nhánh của bạn</a></li>
-<li><a class="nav-link" href="#forking">Forking</a></li>
-</ul>
-</li>
-<li><a class="nav-link" href="#ch%C3%BAng-ta-%C4%91%C3%A3-h%E1%BB%8Dc-%C4%91%C6%B0%E1%BB%A3c-nh%E1%BB%AFng-g%C3%AC"><span class="header-section-number">46.11</span> Chúng ta đã học được những gì</a></li>
-<li>
-<a class="nav-link" href="#git"><span class="header-section-number">46.12</span> Các lệnh Git</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#%C4%91%C6%B0%E1%BB%A3c-khuy%E1%BA%BFn-kh%C3%ADch-h%E1%BB%8Dc">Được khuyến khích học</a></li>
-<li><a class="nav-link" href="#g%C3%B5-l%E1%BB%87nh-v%C3%A0o-%C4%91%C3%A2u">Gõ lệnh vào đâu</a></li>
-<li><a class="nav-link" href="#m%E1%BB%99t-s%E1%BB%91-l%E1%BB%87nh-m%E1%BA%ABu">Một số lệnh mẫu</a></li>
-</ul>
-</li>
-<li><a class="nav-link" href="#t%C3%A0i-nguy%C3%AAn-h%E1%BB%8Dc-li%E1%BB%87u-16"><span class="header-section-number">46.13</span> Tài nguyên học liệu</a></li>
-</ul>
+  </main>
+
+  <div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page">
+      <h2>On this page</h2>
+      <div id="book-on-this-page"></div>
 
       <div class="book-extra">
         <ul class="list-unstyled">
-          
+          <li><a id="book-source" href="#">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="#">Edit this page <i class="fab fa-github"></i></a></li>
         </ul>
-</div>
+      </div>
     </nav>
-</div>
+  </div>
 
 </div>
 </div> <!-- .container -->
 
-<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+<footer class="bg-primary text-light mt-5">
+  <div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Cẩm nang dịch tễ học với R</strong>" was written by the handbook team. It was last built on 2021-11-01.</p>
+    <p>"<strong>Cẩm nang dịch tễ học với R</strong>" was written by the handbook team. It was last built on 2024-02-16.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
@@ -861,12 +774,16 @@
   </div>
 
 </div></div>
-</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+</footer>
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');
@@ -874,5 +791,23 @@
     document.getElementsByTagName("head")[0].appendChild(script);
   })();
 </script>
+<script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
 </body>
+
 </html>

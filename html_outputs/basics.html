@@ -6,35 +6,51 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>3 R Cơ bản | Cẩm nang dịch tễ học với R</title>
 <meta name="author" content="the handbook team">
-<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.2"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="Chào mừng bạn! Chương này sẽ mô tả những kỹ thuật cơ bản của R. Đây không phải là hướng dẫn sử dụng toàn diện, nhưng sẽ cung cấp những kiến thức cơ bản và có thể hữu ích trong việc làm mới hiểu...">
+<meta name="generator" content="bookdown 0.37 with bs4_book()">
+<meta property="og:title" content="3 R Cơ bản | Cẩm nang dịch tễ học với R">
+<meta property="og:type" content="book">
+<meta property="og:description" content="Chào mừng bạn! Chương này sẽ mô tả những kỹ thuật cơ bản của R. Đây không phải là hướng dẫn sử dụng toàn diện, nhưng sẽ cung cấp những kiến thức cơ bản và có thể hữu ích trong việc làm mới hiểu...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="3 R Cơ bản | Cẩm nang dịch tễ học với R">
+<meta name="twitter:description" content="Chào mừng bạn! Chương này sẽ mô tả những kỹ thuật cơ bản của R. Đây không phải là hướng dẫn sử dụng toàn diện, nhưng sẽ cung cấp những kiến thức cơ bản và có thể hữu ích trong việc làm mới hiểu...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.5.1/tabs.js"></script><script src="libs/bs3compat-0.2.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
-<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/htmlwidgets-1.5.3/htmlwidgets.js"></script><link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet">
-<script src="libs/datatables-binding-0.16/datatables.js"></script><link href="libs/dt-core-1.10.20/css/jquery.dataTables.min.css" rel="stylesheet">
-<link href="libs/dt-core-1.10.20/css/jquery.dataTables.extra.css" rel="stylesheet">
-<script src="libs/dt-core-1.10.20/js/jquery.dataTables.min.js"></script><link href="libs/nouislider-7.0.10/jquery.nouislider.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.6.1/transition.js"></script><script src="libs/bs3compat-0.6.1/tabs.js"></script><script src="libs/bs3compat-0.6.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script><link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet">
+<script src="libs/datatables-binding-0.31/datatables.js"></script><link href="libs/dt-core-1.13.6/css/jquery.dataTables.min.css" rel="stylesheet">
+<link href="libs/dt-core-1.13.6/css/jquery.dataTables.extra.css" rel="stylesheet">
+<script src="libs/dt-core-1.13.6/js/jquery.dataTables.min.js"></script><link href="libs/nouislider-7.0.10/jquery.nouislider.min.css" rel="stylesheet">
 <script src="libs/nouislider-7.0.10/jquery.nouislider.min.js"></script><link href="libs/selectize-0.12.0/selectize.bootstrap3.css" rel="stylesheet">
-<script src="libs/selectize-0.12.0/selectize.min.js"></script><link href="libs/crosstalk-1.1.1/css/crosstalk.css" rel="stylesheet">
-<script src="libs/crosstalk-1.1.1/js/crosstalk.min.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
-<link href="libs/tabwid-1.0.0/tabwid.css" rel="stylesheet">
-<script src="libs/tabwid-1.0.0/tabwid.js"></script><link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet">
+<script src="libs/selectize-0.12.0/selectize.min.js"></script><link href="libs/crosstalk-1.2.1/css/crosstalk.min.css" rel="stylesheet">
+<script src="libs/crosstalk-1.2.1/js/crosstalk.min.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+<link href="libs/tabwid-1.1.3/tabwid.css" rel="stylesheet">
+<script src="libs/tabwid-1.1.3/tabwid.js"></script><link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet">
 <script src="libs/leaflet-1.3.1/leaflet.js"></script><link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet">
-<script src="libs/Proj4Leaflet-1.0.1/proj4-compressed.js"></script><script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script><link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet">
-<script src="libs/leaflet-binding-2.0.3/leaflet.js"></script><script src="libs/leaflet-providers-1.9.0/leaflet-providers_1.9.0.js"></script><script src="libs/leaflet-providers-plugin-2.0.3/leaflet-providers-plugin.js"></script><script src="libs/viz-1.8.2/viz.js"></script><link href="libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet">
-<script src="libs/grViz-binding-1.0.6.1/grViz.js"></script><script src="libs/d3-4.5.0/d3.min.js"></script><script src="libs/sankey-1/sankey.js"></script><script src="libs/sankeyNetwork-binding-0.4/sankeyNetwork.js"></script><script src="libs/plotly-binding-4.9.2.1/plotly.js"></script><script src="libs/typedarray-0.1/typedarray.min.js"></script><link href="libs/plotly-htmlwidgets-css-1.52.2/plotly-htmlwidgets.css" rel="stylesheet">
-<script src="libs/plotly-main-1.52.2/plotly-latest.min.js"></script><link href="libs/vis-4.20.1/vis.css" rel="stylesheet">
-<script src="libs/vis-4.20.1/vis.min.js"></script><script src="libs/visNetwork-binding-2.0.9/visNetwork.js"></script><link href="libs/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet">
-<script src="libs/plotly-basic-1.52.2/plotly-basic-1.52.2.min.js"></script><script src="libs/plotly-cartesian-1.52.2/plotly-cartesian-1.52.2.min.js"></script><script src="libs/proj4js-2.3.15/proj4.js"></script><link href="libs/highcharts-8.1.2/css/motion.css" rel="stylesheet">
-<script src="libs/highcharts-8.1.2/highcharts.js"></script><script src="libs/highcharts-8.1.2/highcharts-3d.js"></script><script src="libs/highcharts-8.1.2/highcharts-more.js"></script><script src="libs/highcharts-8.1.2/modules/stock.js"></script><script src="libs/highcharts-8.1.2/modules/map.js"></script><script src="libs/highcharts-8.1.2/modules/annotations.js"></script><script src="libs/highcharts-8.1.2/modules/data.js"></script><script src="libs/highcharts-8.1.2/modules/drilldown.js"></script><script src="libs/highcharts-8.1.2/modules/item-series.js"></script><script src="libs/highcharts-8.1.2/modules/offline-exporting.js"></script><script src="libs/highcharts-8.1.2/modules/overlapping-datalabels.js"></script><script src="libs/highcharts-8.1.2/modules/exporting.js"></script><script src="libs/highcharts-8.1.2/modules/export-data.js"></script><script src="libs/highcharts-8.1.2/modules/funnel.js"></script><script src="libs/highcharts-8.1.2/modules/heatmap.js"></script><script src="libs/highcharts-8.1.2/modules/treemap.js"></script><script src="libs/highcharts-8.1.2/modules/sankey.js"></script><script src="libs/highcharts-8.1.2/modules/dependency-wheel.js"></script><script src="libs/highcharts-8.1.2/modules/organization.js"></script><script src="libs/highcharts-8.1.2/modules/solid-gauge.js"></script><script src="libs/highcharts-8.1.2/modules/streamgraph.js"></script><script src="libs/highcharts-8.1.2/modules/sunburst.js"></script><script src="libs/highcharts-8.1.2/modules/vector.js"></script><script src="libs/highcharts-8.1.2/modules/wordcloud.js"></script><script src="libs/highcharts-8.1.2/modules/xrange.js"></script><script src="libs/highcharts-8.1.2/modules/tilemap.js"></script><script src="libs/highcharts-8.1.2/modules/venn.js"></script><script src="libs/highcharts-8.1.2/modules/gantt.js"></script><script src="libs/highcharts-8.1.2/modules/timeline.js"></script><script src="libs/highcharts-8.1.2/modules/parallel-coordinates.js"></script><script src="libs/highcharts-8.1.2/modules/bullet.js"></script><script src="libs/highcharts-8.1.2/modules/coloraxis.js"></script><script src="libs/highcharts-8.1.2/modules/dumbbell.js"></script><script src="libs/highcharts-8.1.2/modules/lollipop.js"></script><script src="libs/highcharts-8.1.2/modules/series-label.js"></script><script src="libs/highcharts-8.1.2/plugins/motion.js"></script><script src="libs/highcharts-8.1.2/custom/reset.js"></script><script src="libs/highcharts-8.1.2/modules/boost.js"></script><script src="libs/highchart-binding-0.8.2/highchart.js"></script><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=G-QXDW878QLX"></script><script>
+<script src="libs/proj4-2.6.2/proj4.min.js"></script><script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script><link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet">
+<script src="libs/leaflet-binding-2.2.1/leaflet.js"></script><script src="libs/leaflet-providers-2.0.0/leaflet-providers_2.0.0.js"></script><script src="libs/leaflet-providers-plugin-2.2.1/leaflet-providers-plugin.js"></script><script src="libs/viz-1.8.2/viz.js"></script><link href="libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet">
+<script src="libs/grViz-binding-1.0.11/grViz.js"></script><script src="libs/d3-4.5.0/d3.min.js"></script><script src="libs/sankey-1/sankey.js"></script><script src="libs/sankeyNetwork-binding-0.4/sankeyNetwork.js"></script><script src="libs/plotly-binding-4.10.4/plotly.js"></script><script src="libs/typedarray-0.1/typedarray.min.js"></script><link href="libs/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet">
+<script src="libs/plotly-main-2.11.1/plotly-latest.min.js"></script><link href="libs/vis-9.1.0/vis-network.min.css" rel="stylesheet">
+<script src="libs/vis-9.1.0/vis-network.min.js"></script><script src="libs/visNetwork-binding-2.1.2/visNetwork.js"></script><link href="libs/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<script src="libs/plotly-basic-2.11.1/plotly-basic-2.11.1.min.js"></script><script src="libs/plotly-cartesian-2.11.1/plotly-cartesian-2.11.1.min.js"></script><script src="libs/proj4js-2.3.15/proj4.js"></script><link href="libs/highcharts-9.3.1/css/motion.css" rel="stylesheet">
+<script src="libs/highcharts-9.3.1/highcharts.js"></script><script src="libs/highcharts-9.3.1/highcharts-3d.js"></script><script src="libs/highcharts-9.3.1/highcharts-more.js"></script><script src="libs/highcharts-9.3.1/modules/stock.js"></script><script src="libs/highcharts-9.3.1/modules/map.js"></script><script src="libs/highcharts-9.3.1/modules/data.js"></script><script src="libs/highcharts-9.3.1/modules/exporting.js"></script><script src="libs/highcharts-9.3.1/modules/offline-exporting.js"></script><script src="libs/highcharts-9.3.1/modules/drilldown.js"></script><script src="libs/highcharts-9.3.1/modules/item-series.js"></script><script src="libs/highcharts-9.3.1/modules/overlapping-datalabels.js"></script><script src="libs/highcharts-9.3.1/modules/annotations.js"></script><script src="libs/highcharts-9.3.1/modules/export-data.js"></script><script src="libs/highcharts-9.3.1/modules/funnel.js"></script><script src="libs/highcharts-9.3.1/modules/heatmap.js"></script><script src="libs/highcharts-9.3.1/modules/treemap.js"></script><script src="libs/highcharts-9.3.1/modules/sankey.js"></script><script src="libs/highcharts-9.3.1/modules/dependency-wheel.js"></script><script src="libs/highcharts-9.3.1/modules/organization.js"></script><script src="libs/highcharts-9.3.1/modules/solid-gauge.js"></script><script src="libs/highcharts-9.3.1/modules/streamgraph.js"></script><script src="libs/highcharts-9.3.1/modules/sunburst.js"></script><script src="libs/highcharts-9.3.1/modules/vector.js"></script><script src="libs/highcharts-9.3.1/modules/wordcloud.js"></script><script src="libs/highcharts-9.3.1/modules/xrange.js"></script><script src="libs/highcharts-9.3.1/modules/tilemap.js"></script><script src="libs/highcharts-9.3.1/modules/venn.js"></script><script src="libs/highcharts-9.3.1/modules/gantt.js"></script><script src="libs/highcharts-9.3.1/modules/timeline.js"></script><script src="libs/highcharts-9.3.1/modules/parallel-coordinates.js"></script><script src="libs/highcharts-9.3.1/modules/bullet.js"></script><script src="libs/highcharts-9.3.1/modules/coloraxis.js"></script><script src="libs/highcharts-9.3.1/modules/dumbbell.js"></script><script src="libs/highcharts-9.3.1/modules/lollipop.js"></script><script src="libs/highcharts-9.3.1/modules/series-label.js"></script><script src="libs/highcharts-9.3.1/plugins/motion.js"></script><script src="libs/highcharts-9.3.1/custom/reset.js"></script><script src="libs/highcharts-9.3.1/modules/boost.js"></script><script src="libs/highchart-binding-0.9.4/highchart.js"></script><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=G-QXDW878QLX"></script><script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
 
       gtag('config', 'G-QXDW878QLX');
-    </script><script src="https://cdn.jsdelivr.net/autocomplete.js/0/autocomplete.jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/mark.js@8.11.1/dist/mark.min.js"></script><!-- CSS --><link rel="stylesheet" href="style_bs4.css">
+    </script>
 </head>
-<body data-spy="scroll" data-target="#toc">
-
+<body>
+<div class="alert alert-info alert-dismissible">
+      <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+      <strong>Bạn cần trợ giúp khi học R?</strong> Hãy tham gia <a href="https://www.appliedepi.org/live/" class="alert-link">khóa học</a>, trải nghiệm <a href="https://www.appliedepi.org/tutorial/" class="alert-link">các học phần miễn phí</a>, gửi bài viết <a href="https://community.appliedepi.org/" class="alert-link">trên trang Cộng đồng</a>, hoặc liên hệ <a href="mailto:contact@appliedepi.org" class="alert-link">dịch vụ hỗ trợ của chúng tôi</a>.
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+<link rel="stylesheet" href="style_bs4.css">
 <div class="container-fluid">
 <div class="row">
   <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
@@ -60,6 +76,7 @@
 <li class="book-part">Nhập môn về R</li>
 <li><a class="active" href="basics.html"><span class="header-section-number">3</span> R Cơ bản</a></li>
 <li><a class="" href="transition-to-R.html"><span class="header-section-number">4</span> Chuyển đổi sang R</a></li>
+<li><a class="" href="NA.html">SAS</a></li>
 <li><a class="" href="packages-suggested.html"><span class="header-section-number">5</span> Package đề xuất</a></li>
 <li><a class="" href="r-projects.html"><span class="header-section-number">6</span> Dự án R</a></li>
 <li><a class="" href="importing.html"><span class="header-section-number">7</span> Nhập xuất dữ liệu</a></li>
@@ -159,7 +176,7 @@
 </h3>
 <p><strong>Tài liệu trợ giúp</strong></p>
 <p>Tìm kiếm tab “Help” của RStudio về tài liệu liên quan đến package R và các hàm cụ thể. Tab này nằm trong cửa sổ chứa các tab Files, Plots và Packages (thường ở cửa sổ phía dưới bên phải). Như một lối tắt, bạn cũng có thể nhập tên của một package hoặc câu lệnh vào R Console sau dấu hỏi chấm và không bao gồm dấu ngoặc đơn để mở trang trợ giúp liên quan.</p>
-<p>Ví dụ: <code><a href="https://rdrr.io/r/stats/filter.html">?filter</a></code> hoặc <code>?diagrammeR</code>.</p>
+<p>Ví dụ: <code><a href="https://dplyr.tidyverse.org/reference/filter.html">?filter</a></code> hoặc <code>?diagrammeR</code>.</p>
 <p><strong>Các hướng dẫn có sự tương tác</strong></p>
 <p>R có thể được học thông qua một số tương tác <em>trong</em> RStudio.</p>
 <p>RStudio cung cấp một cửa sổ Tutorial được hỗ trợ bởi package <a href="https://blog.rstudio.com/2020/02/25/rstudio-1-3-integrated-tutorials/"><strong>learnr</strong></a>. Chỉ cần cài đặt package này và mở hướng dẫn qua tab “Tutorial” trong cửa sổ RStudio phía trên bên phải (cũng chứa các tab Environment và History).</p>
@@ -250,7 +267,7 @@
 Lưu ý rằng bạn nên cài đặt R và RStudio vào một ổ đĩa mà bạn có quyền đọc và ghi lại. Nếu không, khả năng cài đặt các package R (thường xuyên xảy ra) của bạn sẽ bị ảnh hưởng. Nếu bạn gặp sự cố, hãy thử mở RStudio bằng cách nhấp chuột phải vào biểu tượng và chọn “Run as administrator”. Các mẹo khác có thể được tìm thấy trong chương <a href="network-drives.html#network-drives">R trên ổ cứng mạng</a>.</p>
 <p><strong>Làm thế nào để cập nhật R và RStudio</strong></p>
 <p>Phiên bản R của bạn được in ra R Console khi khởi động. Bạn cũng có thể chạy lệnh <code><a href="https://rdrr.io/r/utils/sessionInfo.html">sessionInfo()</a></code>.</p>
-<p>Để cập nhật R, truy cập đến trang web được nhắc đến ở trên và cài đặt lại R. Ngoài ra, bạn có thể sử dụng package <strong>installr</strong> (trên Windows) bằng cách chạy câu lệnh <code><a href="http://talgalili.github.io/installr/reference/updateR.html">installr::updateR()</a></code>. Thao tác này sẽ mở ra các hộp thoại giúp bạn tải xuống phiên bản R mới nhất và cập nhật các package của bạn lên phiên bản R mới. Có thể tìm thấy thêm chi tiết trong <a href="https://www.r-project.org/nosvn/pandoc/installr.html">tài liệu</a> <strong>installr</strong> .</p>
+<p>Để cập nhật R, truy cập đến trang web được nhắc đến ở trên và cài đặt lại R. Ngoài ra, bạn có thể sử dụng package <strong>installr</strong> (trên Windows) bằng cách chạy câu lệnh <code>installr::updateR()</code>. Thao tác này sẽ mở ra các hộp thoại giúp bạn tải xuống phiên bản R mới nhất và cập nhật các package của bạn lên phiên bản R mới. Có thể tìm thấy thêm chi tiết trong <a href="https://www.r-project.org/nosvn/pandoc/installr.html">tài liệu</a> <strong>installr</strong> .</p>
 <p>Lưu ý rằng phiên bản R cũ sẽ vẫn tồn tại trong máy tính của bạn. Bạn có thể tạm thời chạy phiên bản cũ hơn (“installation” cũ hơn) của R bằng cách nhấp vào “Tools” -&gt; “Global Options” trong RStudio và chọn một phiên bản R. Điều này có thể hữu ích nếu bạn muốn sử dụng một package chưa được cập nhật để hoạt động trên phiên bản R mới nhất.</p>
 <p>Để cập nhật RStudio, truy cập đến trang web được nhắc đến ở trên và cài đặt lại RStudio. Một tùy chọn khác là nhấp vào “Help” -&gt; “Check for Updates” trong RStudio, nhưng điều này có thể dẫn đến việc không hiển thị các bản cập nhật mới nhất.</p>
 <p>Để xem phiên bản R, RStudio hoặc package nào đã được sử dụng khi viết Sổ tay này, hãy xem chương <a href="editorial-style.html#editorial-style">Biên tập và ghi chú kỹ thuật</a>.</p>
@@ -274,9 +291,9 @@ Lưu ý rằng bạn nên cài đặt R và RStudio vào một ổ đĩa mà b�
 Truy cập <a href="https://yihui.org/tinytex/" class="uri">https://yihui.org/tinytex/</a> để tìm hiểu thêm thông tin.</p>
 <p>Để cài đặt TinyTex từ R:</p>
 <div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">'tinytex'</span><span class="op">)</span>
-<span class="fu">tinytex</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/tinytex/man/install_tinytex.html">install_tinytex</a></span><span class="op">(</span><span class="op">)</span>
-<span class="co"># to uninstall TinyTeX, run tinytex::uninstall_tinytex()</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">'tinytex'</span><span class="op">)</span></span>
+<span><span class="fu">tinytex</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/tinytex/man/install_tinytex.html">install_tinytex</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co"># to uninstall TinyTeX, run tinytex::uninstall_tinytex()</span></span></code></pre></div>
 </div>
 <div id="pandoc" class="section level4 unnumbered">
 <h4>Pandoc<a class="anchor" aria-label="anchor" href="#pandoc"><i class="fas fa-link"></i></a>
@@ -292,7 +309,7 @@ Truy cập <a href="https://yihui.org/tinytex/" class="uri">https://yihui.org/ti
 <div id="phantomjs" class="section level4 unnumbered">
 <h4>phantomjs<a class="anchor" aria-label="anchor" href="#phantomjs"><i class="fas fa-link"></i></a>
 </h4>
-<p>Phần mềm này thường được sử dụng để chụp “chụp ảnh màn hình” trang web. Ví dụ khi bạn tạo một chuỗi lây truyền với package <strong>epicontacts</strong>, một tệp HTML có thể tương tác và chuyển động được tạo ra. Nếu bạn muốn có hình ảnh tĩnh, sử dụng package <a href="https://wch.github.io/webshot/articles/intro.html"><strong>webshot</strong></a> để tự động hóa quá trình này. Việc này sẽ yêu cầu chương trình bên ngoài “phantomjs”. Bạn có thể cài đặt phantomjs thông qua package <strong>webshot</strong> bằng lệnh <code><a href="https://rdrr.io/pkg/webshot/man/install_phantomjs.html">webshot::install_phantomjs()</a></code>.</p>
+<p>Phần mềm này thường được sử dụng để chụp “chụp ảnh màn hình” trang web. Ví dụ khi bạn tạo một chuỗi lây truyền với package <strong>epicontacts</strong>, một tệp HTML có thể tương tác và chuyển động được tạo ra. Nếu bạn muốn có hình ảnh tĩnh, sử dụng package <a href="https://wch.github.io/webshot/articles/intro.html"><strong>webshot</strong></a> để tự động hóa quá trình này. Việc này sẽ yêu cầu chương trình bên ngoài “phantomjs”. Bạn có thể cài đặt phantomjs thông qua package <strong>webshot</strong> bằng lệnh <code><a href="http://wch.github.io/webshot/reference/install_phantomjs.html">webshot::install_phantomjs()</a></code>.</p>
 <!-- ======================================================= -->
 </div>
 </div>
@@ -336,7 +353,7 @@ Cửa sổ phía dưới bên phải bao gồm một số tab quan trọng. Các
 <h3>Các phím tắt<a class="anchor" aria-label="anchor" href="#c%C3%A1c-ph%C3%ADm-t%E1%BA%AFt"><i class="fas fa-link"></i></a>
 </h3>
 <p>Dưới đây là một vài phím tắt rất hữu dụng. Tất cả các phím tắt cho Windows, Max và Linux nằm ở chương 2 <a href="https://www.rstudio.com/wp-content/uploads/2016/01/rstudio-IDE-cheatsheet.pdf">cheatsheet giao diện người dùng</a> của RStudio.</p>
-<div class="inline-table"><table class="table table-sm">
+<div class="inline-table"><table style="width:99%;" class="table table-sm">
 <colgroup>
 <col width="17%">
 <col width="12%">
@@ -376,7 +393,7 @@ Cửa sổ phía dưới bên phải bao gồm một số tab quan trọng. Các
 <tr class="even">
 <td>Alt + -</td>
 <td>Option + -</td>
-<td>Chèn <code><a href="https://rdrr.io/r/base/assignOps.html">&lt;-</a></code>
+<td>Chèn <code>&lt;-</code>
 </td>
 </tr>
 <tr class="odd">
@@ -459,7 +476,7 @@ Cửa sổ phía dưới bên phải bao gồm một số tab quan trọng. Các
 </li>
 <li>Làm cách nào để nhận được sự trợ giúp khi tìm hiểu một hàm</li>
 </ul>
-<p><em>Lưu ý nhanh về cú pháp:</em> Trong cuốn sổ tay này, các hàm được viết dưới dạng code văn bản với dấu mở ngoặc đơn như sau: <code><a href="https://rdrr.io/r/stats/filter.html">filter()</a></code>. Như đã giải thích trong phần <a href="basics.html#packages">packages</a>, các hàm được tải xuống có sẵn trong các <em>packages</em>. Trong sổ tay này, tên các package được <strong>in đậm</strong>, ví dụ như <strong>dplyr</strong>. Đôi khi trong code ví dụ, bạn có thể thấy tên hàm được liên kết rõ ràng với tên package của chính hàm đó bằng hai dấu hai chấm (<code><a href="https://rdrr.io/r/base/ns-dblcolon.html">::</a></code>) như thế này: <code><a href="https://dplyr.tidyverse.org/reference/filter.html">dplyr::filter()</a></code>. Mục đích của việc liên kết này sẽ được giải thích trong phần package.</p>
+<p><em>Lưu ý nhanh về cú pháp:</em> Trong cuốn sổ tay này, các hàm được viết dưới dạng code văn bản với dấu mở ngoặc đơn như sau: <code><a href="https://dplyr.tidyverse.org/reference/filter.html">filter()</a></code>. Như đã giải thích trong phần <a href="basics.html#packages">packages</a>, các hàm được tải xuống có sẵn trong các <em>packages</em>. Trong sổ tay này, tên các package được <strong>in đậm</strong>, ví dụ như <strong>dplyr</strong>. Đôi khi trong code ví dụ, bạn có thể thấy tên hàm được liên kết rõ ràng với tên package của chính hàm đó bằng hai dấu hai chấm (<code>::</code>) như thế này: <code><a href="https://dplyr.tidyverse.org/reference/filter.html">dplyr::filter()</a></code>. Mục đích của việc liên kết này sẽ được giải thích trong phần package.</p>
 <!-- ======================================================= -->
 <div id="các-hàm-cơ-bản" class="section level3 unnumbered">
 <h3>Các hàm cơ bản<a class="anchor" aria-label="anchor" href="#c%C3%A1c-h%C3%A0m-c%C6%A1-b%E1%BA%A3n"><i class="fas fa-link"></i></a>
@@ -467,12 +484,12 @@ Cửa sổ phía dưới bên phải bao gồm một số tab quan trọng. Các
 <p><strong>Một hàm giống như một cỗ máy nhận các dữ liệu đầu vào, thực hiện một số thao tác với dữ liệu đó và sản xuất kết quả đầu ra.</strong> Kết quả đầu ra như thế nào phụ thuộc vào hàm mà bạn sử dụng.</p>
 <p><strong>Các hàm thường hoạt động dựa trên các đối tượng được đặt trong dấu ngoặc đơn của hàm</strong>. Ví dụ, hàm <code><a href="https://rdrr.io/r/base/MathFun.html">sqrt()</a></code> tính căn bậc hai của một số:</p>
 <div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="fl">49</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="fl">49</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## [1] 7</code></pre>
-<p>Đối tượng được dùng cho một hàm cũng có thể là một cột trong tập dữ liệu (xem phần <a href="basics.html#objects">Đối tượng</a> để biết chi tiết về tất cả các loại đối tượng). Vì R có thể lưu trữ nhiều tập dữ liệu, bạn sẽ cần xác định cả tập dữ liệu và cột. Một cách để làm điều này là sử dụng ký hiệu <code><a href="https://rdrr.io/r/base/Extract.html">$</a></code> để liên kết tên của tập dữ liệu và tên của cột (<code>dataset$column</code>). Trong ví dụ dưới đây, hàm <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code> được áp dụng cho cột <code>age</code> trong tập dữ liệu <code>linelist</code>, và kết quả đầu ra là bản tóm tắt các giá trị số và giá trị missing của cột.</p>
+<p>Đối tượng được dùng cho một hàm cũng có thể là một cột trong tập dữ liệu (xem phần <a href="basics.html#objects">Đối tượng</a> để biết chi tiết về tất cả các loại đối tượng). Vì R có thể lưu trữ nhiều tập dữ liệu, bạn sẽ cần xác định cả tập dữ liệu và cột. Một cách để làm điều này là sử dụng ký hiệu <code>$</code> để liên kết tên của tập dữ liệu và tên của cột (<code>dataset$column</code>). Trong ví dụ dưới đây, hàm <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code> được áp dụng cho cột <code>age</code> trong tập dữ liệu <code>linelist</code>, và kết quả đầu ra là bản tóm tắt các giá trị số và giá trị missing của cột.</p>
 <div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Print summary statistics of column 'age' in the dataset 'linelist'</span>
-<span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">linelist</span><span class="op">$</span><span class="va">age</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># Print summary statistics of column 'age' in the dataset 'linelist'</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">linelist</span><span class="op">$</span><span class="va">age</span><span class="op">)</span></span></code></pre></div>
 <pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
 ##    0.00    6.00   13.00   16.07   23.00   84.00      86</code></pre>
 <p><span style="color: black;"><strong><em>LƯU Ý:</em></strong> Đằng sau một hàm là hệ thống code bổ sung phức tạp đã được gói gọn cho người dùng thành một lệnh đơn giản.</span></p>
@@ -489,26 +506,26 @@ Cửa sổ phía dưới bên phải bao gồm một số tab quan trọng. Các
 </li>
 <li>Các đối số có thể nhận ký tự, số, logic (TRUE / FALSE) và các dữ liệu đầu vào khác</li>
 </ul>
-<p>Dưới đây là một hàm giả định thú vị, được gọi là <code>oven_bake()</code>, là ví dụ về một hàm điển hình. Hàm này nhận một đối tượng đầu vào (ví dụ: một tập dữ liệu, hoặc trong ví dụ này là “bột”) và thực hiện các hoạt động được xác định bởi các đối số bổ sung (<code>minutes =</code> and <code>temperature =</code>). Kết quả đầu ra có thể được in ra cửa sổ console hoặc được lưu dưới dạng một đối tượng bằng cách sử dụng toán tử gán <code><a href="https://rdrr.io/r/base/assignOps.html">&lt;-</a></code>.</p>
+<p>Dưới đây là một hàm giả định thú vị, được gọi là <code>oven_bake()</code>, là ví dụ về một hàm điển hình. Hàm này nhận một đối tượng đầu vào (ví dụ: một tập dữ liệu, hoặc trong ví dụ này là “bột”) và thực hiện các hoạt động được xác định bởi các đối số bổ sung (<code>minutes =</code> and <code>temperature =</code>). Kết quả đầu ra có thể được in ra cửa sổ console hoặc được lưu dưới dạng một đối tượng bằng cách sử dụng toán tử gán <code>&lt;-</code>.</p>
 <div class="inline-figure"><img src="images/Function_Bread_Example.png" width="75%" style="display: block; margin: auto;"></div>
 <p><strong>Trong một ví dụ thực tế hơn</strong>, hàm <code>age_pyramid()</code> dưới đây tạo một biểu đồ tháp tuổi dựa trên nhóm tuổi đã xác định và cột phân tách nhị phân, ví dụ như <code>giới tính</code>. Hàm được cung cấp bởi ba đối số trong dấu ngoặc đơn và được phân tách nhau bằng dấu phẩy. Các giá trị được cung cấp cho các đối số thiết lập <code>linelist</code> là dataframe được sử dụng, <code>age_cat5</code> là cột để đếm và <code>giới tính</code> là cột nhị phân để sử dụng chia kim tự tháp theo màu.</p>
 <div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Create an age pyramid</span>
-<span class="fu">age_pyramid</span><span class="op">(</span>data <span class="op">=</span> <span class="va">linelist</span>, age_group <span class="op">=</span> <span class="st">"age_cat5"</span>, split_by <span class="op">=</span> <span class="st">"gender"</span><span class="op">)</span></code></pre></div>
-<div class="inline-figure"><img src="_main_files/figure-html/unnamed-chunk-28-1.png" width="75%" height="75%"></div>
+<code class="sourceCode R"><span><span class="co"># Create an age pyramid</span></span>
+<span><span class="fu">age_pyramid</span><span class="op">(</span>data <span class="op">=</span> <span class="va">linelist</span>, age_group <span class="op">=</span> <span class="st">"age_cat5"</span>, split_by <span class="op">=</span> <span class="st">"gender"</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-figure"><img src="_main_files/figure-html/unnamed-chunk-53-1.png" width="75%" height="75%"></div>
 <p>Lệnh trên có thể được viết tương tự như bên dưới, theo cách dài hơn với một dòng mới cho mỗi đối số. Phong cách này có thể dễ đọc và dễ viết “bình luận” hơn với <code>#</code> để giải thích từng phần (bình luận mở rộng là một thực hành tốt!). Để chạy lệnh dài hơn này, bạn có thể bôi đen toàn bộ lệnh và nhấp vào “Run” hoặc chỉ cần đặt con trỏ vào dòng đầu tiên rồi nhấn đồng thời phím Ctrl và phím Enter.</p>
 <div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Create an age pyramid</span>
-<span class="fu">age_pyramid</span><span class="op">(</span>
-  data <span class="op">=</span> <span class="va">linelist</span>,        <span class="co"># use case linelist</span>
-  age_group <span class="op">=</span> <span class="st">"age_cat5"</span>, <span class="co"># provide age group column</span>
-  split_by <span class="op">=</span> <span class="st">"gender"</span>     <span class="co"># use gender column for two sides of pyramid</span>
-  <span class="op">)</span></code></pre></div>
-<div class="inline-figure"><img src="_main_files/figure-html/unnamed-chunk-29-1.png" width="75%" height="75%"></div>
+<code class="sourceCode R"><span><span class="co"># Create an age pyramid</span></span>
+<span><span class="fu">age_pyramid</span><span class="op">(</span></span>
+<span>  data <span class="op">=</span> <span class="va">linelist</span>,        <span class="co"># use case linelist</span></span>
+<span>  age_group <span class="op">=</span> <span class="st">"age_cat5"</span>, <span class="co"># provide age group column</span></span>
+<span>  split_by <span class="op">=</span> <span class="st">"gender"</span>     <span class="co"># use gender column for two sides of pyramid</span></span>
+<span>  <span class="op">)</span></span></code></pre></div>
+<div class="inline-figure"><img src="_main_files/figure-html/unnamed-chunk-54-1.png" width="75%" height="75%"></div>
 <p>Không cần xác định nửa đầu của phép gán đối số (ví dụ: <code>data =</code>) nếu các đối số được viết theo một thứ tự cụ thể (được chỉ định trong tài liệu của hàm). Đoạn code dưới đây tạo ra cùng một kim tự tháp như ở trên, bởi vì hàm kì vọng thứ tự đối số là: data frame, biến <code>age_group</code>, biến <code>split_by</code>.</p>
 <div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># This command will produce the exact same graphic as above</span>
-<span class="fu">age_pyramid</span><span class="op">(</span><span class="va">linelist</span>, <span class="st">"age_cat5"</span>, <span class="st">"gender"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># This command will produce the exact same graphic as above</span></span>
+<span><span class="fu">age_pyramid</span><span class="op">(</span><span class="va">linelist</span>, <span class="st">"age_cat5"</span>, <span class="st">"gender"</span><span class="op">)</span></span></code></pre></div>
 <p><strong>Một lệnh <code>age_pyramid()</code> phức tạp hơn có thể bao gồm các đối số <em>tùy chọn</em> để:</strong></p>
 <ul>
 <li>Hiển thị tỷ lệ thay vì số lượng (đặt <code>proportional = TRUE</code> khi giá trị mặc định là <code>FALSE</code>)<br>
@@ -517,14 +534,14 @@ Cửa sổ phía dưới bên phải bao gồm một số tab quan trọng. Các
 </ul>
 <p><span style="color: black;"><strong><em>LƯU Ý:</em></strong> Đối với các đối số mà bạn xác định với cả hai phần của đối số (ví dụ: <code>proportional = TRUE</code>), thứ tự của chúng trong tất cả các đối số không quan trọng.</span></p>
 <div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">age_pyramid</span><span class="op">(</span>
-  <span class="va">linelist</span>,                    <span class="co"># use case linelist</span>
-  <span class="st">"age_cat5"</span>,                  <span class="co"># age group column</span>
-  <span class="st">"gender"</span>,                    <span class="co"># split by gender</span>
-  proportional <span class="op">=</span> <span class="cn">TRUE</span>,         <span class="co"># percents instead of counts</span>
-  pal <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"orange"</span>, <span class="st">"purple"</span><span class="op">)</span>  <span class="co"># colors</span>
-  <span class="op">)</span></code></pre></div>
-<div class="inline-figure"><img src="_main_files/figure-html/unnamed-chunk-30-1.png" width="75%" height="75%"></div>
+<code class="sourceCode R"><span><span class="fu">age_pyramid</span><span class="op">(</span></span>
+<span>  <span class="va">linelist</span>,                    <span class="co"># use case linelist</span></span>
+<span>  <span class="st">"age_cat5"</span>,                  <span class="co"># age group column</span></span>
+<span>  <span class="st">"gender"</span>,                    <span class="co"># split by gender</span></span>
+<span>  proportional <span class="op">=</span> <span class="cn">TRUE</span>,         <span class="co"># percents instead of counts</span></span>
+<span>  pal <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"orange"</span>, <span class="st">"purple"</span><span class="op">)</span>  <span class="co"># colors</span></span>
+<span>  <span class="op">)</span></span></code></pre></div>
+<div class="inline-figure"><img src="_main_files/figure-html/unnamed-chunk-55-1.png" width="75%" height="75%"></div>
 <!-- ======================================================= -->
 </div>
 <div id="viết-hàm" class="section level3 unnumbered">
@@ -538,7 +555,7 @@ Cửa sổ phía dưới bên phải bao gồm một số tab quan trọng. Các
 </li>
 <li>Đặt tên dễ nhớ cho các đoạn code</li>
 </ul>
-<p>Cách viết một hàm được trình bày cụ thể trong chương <a href="writing-functions.html#writing-functions">Viết hàm</a>.</p>
+<p>Cách viết một hàm được trình bày cụ thể trong chương <a href="basics.html#vi%E1%BA%BFt-h%C3%A0m">Viết hàm</a>.</p>
 <!-- A function is given a name and defined with the assignment operator `<-` to a special **base** R function called `function()`. Within the parentheses, the arguments that the function will accept are defined. This is followed by curly brackets `{ }`, within which the actual code of the function is written.     -->
 <!-- The arguments should be provided in the syntax `argument = default`, separated by commas.   -->
 <!-- Here is an example where we create a function `staff_calc()` to serve as a staffing calculator for COVID-19 case investigation and contact tracing calls.   -->
@@ -603,24 +620,24 @@ Cửa sổ phía dưới bên phải bao gồm một số tab quan trọng. Các
 <p>Trong sách này, chúng tôi khuyên bạn nên sử dụng package <strong>pacman</strong> (viết tắt của “package manager”). Nó cung cấp một hàm thuận tiện <code>p_load()</code> mà sẽ cài đặt một package nếu cần <em>và</em> gọi nó để sử dụng trong phiên làm việc hiện tại.</p>
 <p>Cú pháp khá đơn giản. Chỉ cần liệt kê tên của các package trong dấu ngoặc đơn của hàm <code>p_load()</code> và phân tách chúng bằng dấu phẩy. Lệnh dưới đây sẽ cài đặt các package sau <strong>rio</strong>, <strong>tidyverse</strong>, và <strong>here</strong> nếu chúng chưa được cài đặt và sẽ gọi chúng ra để sử dụng. Điều này làm cho cách tiếp cận <code>p_load()</code> trở nên thuận tiện và ngắn gọn nếu chia sẻ scripts với người khác. Lưu ý rằng tên package có phân biệt chữ hoa chữ thường.</p>
 <div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Install (if necessary) and load packages for use</span>
-<span class="fu">pacman</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/pacman/man/p_load.html">p_load</a></span><span class="op">(</span><span class="va">rio</span>, <span class="va">tidyverse</span>, <span class="va">here</span><span class="op">)</span></code></pre></div>
-<p>Lưu ý rằng chúng ta đã sử dụng cú pháp <code><a href="https://rdrr.io/pkg/pacman/man/p_load.html">pacman::p_load()</a></code> để viết rõ ràng tên package (<strong>pacman</strong>) trước tên hàm (<code>p_load()</code>), được nối với nhau bằng hai dấu hai chấm <code><a href="https://rdrr.io/r/base/ns-dblcolon.html">::</a></code>. Cú pháp này tiện dụng vì nó cũng gọi package <strong>pacman</strong> (giả sử package này đã được cài đặt).</p>
+<code class="sourceCode R"><span><span class="co"># Install (if necessary) and load packages for use</span></span>
+<span><span class="fu">pacman</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/pacman/man/p_load.html">p_load</a></span><span class="op">(</span><span class="va">rio</span>, <span class="va">tidyverse</span>, <span class="va">here</span><span class="op">)</span></span></code></pre></div>
+<p>Lưu ý rằng chúng ta đã sử dụng cú pháp <code><a href="https://rdrr.io/pkg/pacman/man/p_load.html">pacman::p_load()</a></code> để viết rõ ràng tên package (<strong>pacman</strong>) trước tên hàm (<code>p_load()</code>), được nối với nhau bằng hai dấu hai chấm <code>::</code>. Cú pháp này tiện dụng vì nó cũng gọi package <strong>pacman</strong> (giả sử package này đã được cài đặt).</p>
 <p>Ngoài ra còn có các hàm <strong>base</strong> R thay thế mà bạn sẽ gặp thường xuyên. Hàm <strong>base</strong> R để cài đặt một package là <code><a href="https://rdrr.io/r/utils/install.packages.html">install.packages()</a></code>. Tên của package muốn cài đặt phải được đặt trong dấu ngoặc đơn bên trong <em>dấu ngoặc kép</em>. Nếu bạn muốn cài đặt nhiều package trong một lệnh, chúng phải được liệt kê trong một vectơ dạng ký tự <code><a href="https://rdrr.io/r/base/c.html">c()</a></code>.</p>
 <p>Lưu ý: lệnh này <em>cài đặt</em> một package, nhưng <em>không</em> gọi nó ra để sử dụng trong phiên làm việc hiện tại.</p>
 <div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># install a single package with base R</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"tidyverse"</span><span class="op">)</span>
-
-<span class="co"># install multiple packages with base R</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"tidyverse"</span>, <span class="st">"rio"</span>, <span class="st">"here"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># install a single package with base R</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"tidyverse"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># install multiple packages with base R</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"tidyverse"</span>, <span class="st">"rio"</span>, <span class="st">"here"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p>Việc cài đặt cũng có thể được thực hiện bằng cách chọn và nhấp chuột vào cửa sổ RStudio “Package” và chọn “Install”, sau đó tìm kiếm tên package mong muốn cài đặt.</p>
 <p>Hàm <strong>base</strong> R để <strong>gọi</strong> một package ra sử dụng (sau khi nó đã được cài đặt) là <code><a href="https://rdrr.io/r/base/library.html">library()</a></code>. Hàm này chỉ có thể gọi một package tại một thời điểm (cách khác của lệnh <code>p_load()</code>). Bạn có thể nhập tên package có hoặc không có dấu ngoặc kép.</p>
 <div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># load packages for use, with base R</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/leeper/rio">rio</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://here.r-lib.org/">here</a></span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># load packages for use, with base R</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/gesistsa/rio">rio</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://here.r-lib.org/">here</a></span><span class="op">)</span></span></code></pre></div>
 <p>Để kiểm tra xem một package đã được cài đặt và/hoặc đã được gọi hay chưa, bạn có thể xem Cửa số Package trong RStudio. Nếu package được cài đặt, nó sẽ hiển thị ở đó với số phiên bản. Nếu checkbox của nó được đánh dấu nghĩa là nó đã được gọi cho phiên làm việc hiện tại.</p>
 <p><strong>Cài đặt từ Github</strong></p>
 <p>Đôi khi, bạn cần cài đặt một package chưa có sẵn từ CRAN. Hoặc có lẽ package đã có sẵn trên CRAN nhưng bạn muốn <em>phiên bản mới hơn</em> với các tính năng mới chưa được cung cấp trong phiên bản cũ. Chúng thường được lưu trữ trên trang web <a href="https://github.com/">github.com</a> trong một “kho lưu trữ (repository)” code công khai và miễn phí. Đọc thêm về Github trong chương <a href="collaboration.html#collaboration">Version control với Git và Github</a>.</p>
@@ -634,35 +651,35 @@ Cửa sổ phía dưới bên phải bao gồm một số tab quan trọng. Các
 </ol>
 <p>Trong các ví dụ dưới đây, từ đầu tiên trong dấu ngoặc kép là Github ID của chủ sở hữu kho lưu trữ, sau dấu gạch chéo là tên của kho lưu trữ (tên của package).</p>
 <div class="sourceCode" id="cb28"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># install/load the epicontacts package from its Github repository</span>
-<span class="fu">p_load_gh</span><span class="op">(</span><span class="st">"reconhub/epicontacts"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># install/load the epicontacts package from its Github repository</span></span>
+<span><span class="fu">p_load_gh</span><span class="op">(</span><span class="st">"reconhub/epicontacts"</span><span class="op">)</span></span></code></pre></div>
 <p>Nếu bạn muốn cài đặt từ một “nhánh” (phiên bản) khác với nhánh chính, hãy thêm tên nhánh sau dấu “@”, được đặt phía sau tên kho lưu trữ.</p>
 <div class="sourceCode" id="cb29"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># install the "timeline" branch of the epicontacts package from Github</span>
-<span class="fu">p_load_gh</span><span class="op">(</span><span class="st">"reconhub/epicontacts@timeline"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># install the "timeline" branch of the epicontacts package from Github</span></span>
+<span><span class="fu">p_load_gh</span><span class="op">(</span><span class="st">"reconhub/epicontacts@timeline"</span><span class="op">)</span></span></code></pre></div>
 <p>Nếu không có sự khác biệt giữa phiên bản Github và phiên bản trên máy tính của bạn, bạn không cần thực hiện thao tác này. Thay vào đó, bạn có thể “buộc” phải cài đặt lại bằng cách sử dụng <code>p_load_current_gh()</code> với đối số <code>update = TRUE</code>. Đọc thêm về <strong>pacman</strong> tại <a href="http://trinker.github.io/pacman/vignettes/Introduction_to_pacman.html">Minh họa trực tuyến</a></p>
 <p><strong>Cài đặt từ ZIP hoặc TAR</strong></p>
 <p>Bạn có thể cài đặt package từ một URL:</p>
 <div class="sourceCode" id="cb30"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">packageurl</span> <span class="op">&lt;-</span> <span class="st">"https://cran.r-project.org/src/contrib/Archive/dsr/dsr_0.2.2.tar.gz"</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="va">packageurl</span>, repos<span class="op">=</span><span class="cn">NULL</span>, type<span class="op">=</span><span class="st">"source"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">packageurl</span> <span class="op">&lt;-</span> <span class="st">"https://cran.r-project.org/src/contrib/Archive/dsr/dsr_0.2.2.tar.gz"</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="va">packageurl</span>, repos<span class="op">=</span><span class="cn">NULL</span>, type<span class="op">=</span><span class="st">"source"</span><span class="op">)</span></span></code></pre></div>
 <p>Hoặc, tải xuống máy tính của bạn dưới dạng tệp nén:</p>
 <p>Cách 1: sử dụng lệnh <code>install_local()</code> từ package <strong>remotes</strong></p>
 <div class="sourceCode" id="cb31"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_local.html">install_local</a></span><span class="op">(</span><span class="st">"~/Downloads/dplyr-master.zip"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_local.html">install_local</a></span><span class="op">(</span><span class="st">"~/Downloads/dplyr-master.zip"</span><span class="op">)</span></span></code></pre></div>
 <p>Cách 2: sử dụng lệnh <code><a href="https://rdrr.io/r/utils/install.packages.html">install.packages()</a></code> của <strong>base</strong> R, cung cấp đường dẫn tệp đến tệp ZIP và thiết lập <code>type = "source</code> và <code>repos = NULL</code>.</p>
 <div class="sourceCode" id="cb32"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"~/Downloads/dplyr-master.zip"</span>, repos<span class="op">=</span><span class="cn">NULL</span>, type<span class="op">=</span><span class="st">"source"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"~/Downloads/dplyr-master.zip"</span>, repos<span class="op">=</span><span class="cn">NULL</span>, type<span class="op">=</span><span class="st">"source"</span><span class="op">)</span></span></code></pre></div>
 </div>
 </div>
 <div id="cú-pháp-code" class="section level3 unnumbered">
 <h3>Cú pháp code<a class="anchor" aria-label="anchor" href="#c%C3%BA-ph%C3%A1p-code"><i class="fas fa-link"></i></a>
 </h3>
-<p>Để tăng sự tường minh trong cuốn sách này, các hàm đôi khi sẽ được đặt sau tên package của chúng bằng cách sử dụng ký hiệu <code><a href="https://rdrr.io/r/base/ns-dblcolon.html">::</a></code> theo cách sau: <code>package_name::function_name()</code></p>
+<p>Để tăng sự tường minh trong cuốn sách này, các hàm đôi khi sẽ được đặt sau tên package của chúng bằng cách sử dụng ký hiệu <code>::</code> theo cách sau: <code>package_name::function_name()</code></p>
 <p>Khi một package được gọi cho một phiên làm việc, việc làm này là không cần thiết. Bạn chỉ cần sử dụng <code>function_name()</code>. Tuy nhiên, việc viết tên package sẽ hữu ích khi một tên hàm phổ biến và có thể tồn tại trong nhiều package (ví dụ: <code><a href="https://rdrr.io/r/graphics/plot.default.html">plot()</a></code>). Việc viết tên package sẽ giúp gọi package trong trường hợp nó chưa được gọi ra.</p>
 <div class="sourceCode" id="cb33"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># This command uses the package "rio" and its function "import()" to import a dataset</span>
-<span class="va">linelist</span> <span class="op">&lt;-</span> <span class="fu">rio</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/rio/man/import.html">import</a></span><span class="op">(</span><span class="st">"linelist.xlsx"</span>, which <span class="op">=</span> <span class="st">"Sheet1"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># This command uses the package "rio" and its function "import()" to import a dataset</span></span>
+<span><span class="va">linelist</span> <span class="op">&lt;-</span> <span class="fu">rio</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/rio/man/import.html">import</a></span><span class="op">(</span><span class="st">"linelist.xlsx"</span>, which <span class="op">=</span> <span class="st">"Sheet1"</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div id="trợ-giúp-về-hàm" class="section level3 unnumbered">
 <h3>Trợ giúp về hàm<a class="anchor" aria-label="anchor" href="#tr%E1%BB%A3-gi%C3%BAp-v%E1%BB%81-h%C3%A0m"><i class="fas fa-link"></i></a>
@@ -688,7 +705,7 @@ Cửa sổ phía dưới bên phải bao gồm một số tab quan trọng. Các
 <div id="hàm-bị-che-giấu" class="section level3 unnumbered">
 <h3>Hàm bị che giấu<a class="anchor" aria-label="anchor" href="#h%C3%A0m-b%E1%BB%8B-che-gi%E1%BA%A5u"><i class="fas fa-link"></i></a>
 </h3>
-<p>Không có gì lạ nếu hai hoặc nhiều packages chứa cùng một tên hàm. Ví dụ: packages <strong>dplyr</strong> có hàm <code><a href="https://rdrr.io/r/stats/filter.html">filter()</a></code>, nhưng package <strong>stats</strong> cũng vậy. Hàm <code><a href="https://rdrr.io/r/stats/filter.html">filter()</a></code> mặc định phụ thuộc vào thứ tự các package này được gọi lên trong phiên làm việc R - packages được gọi ra sau sẽ là mặc định cho hàm <code><a href="https://rdrr.io/r/stats/filter.html">filter()</a></code>.</p>
+<p>Không có gì lạ nếu hai hoặc nhiều packages chứa cùng một tên hàm. Ví dụ: packages <strong>dplyr</strong> có hàm <code><a href="https://dplyr.tidyverse.org/reference/filter.html">filter()</a></code>, nhưng package <strong>stats</strong> cũng vậy. Hàm <code><a href="https://dplyr.tidyverse.org/reference/filter.html">filter()</a></code> mặc định phụ thuộc vào thứ tự các package này được gọi lên trong phiên làm việc R - packages được gọi ra sau sẽ là mặc định cho hàm <code><a href="https://dplyr.tidyverse.org/reference/filter.html">filter()</a></code>.</p>
 <p>Bạn có thể kiểm tra thứ tự của chúng trong cửa sổ Environment của R Studio - nhấp vào menu thả xuống “Global Environment” và xem thứ tự của các packages. Các hàm thuộc các packages <em>ở vị trí thấp hơn</em> trong danh sách thả xuống đó sẽ che giấu các hàm cùng tên trong các packages xuất hiện ở vị trí bên trên trong danh sách thả xuống. Khi bạn vừa gọi một package, R sẽ cảnh báo bạn trong bảng điều khiển nếu xảy ra hiện tượng này, nhưng điều này rất hay bị bỏ quên.</p>
 <div class="inline-figure"><img src="images/masking_functions.png" width="50%" style="display: block; margin: auto;"></div>
 <p>Dưới đây là những cách bạn có thể sửa lỗi hàm bị che giấu:</p>
@@ -704,7 +721,7 @@ Cửa sổ phía dưới bên phải bao gồm một số tab quan trọng. Các
 </h3>
 <p>Để gỡ (detach) một package, hãy sử dụng lệnh dưới đây, với tên package chính xác và chỉ có một dấu hai chấm. Lưu ý rằng điều này có thể không giải quyết được việc hàm bị che giấu.</p>
 <div class="sourceCode" id="cb34"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/detach.html">detach</a></span><span class="op">(</span><span class="va">package</span><span class="op">:</span><span class="va">PACKAGE_NAME_HERE</span>, unload<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/detach.html">detach</a></span><span class="op">(</span><span class="va">package</span><span class="op">:</span><span class="va">PACKAGE_NAME_HERE</span>, unload<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div id="cài-đặt-phiên-bản-cũ-hơn" class="section level3 unnumbered">
 <h3>Cài đặt phiên bản cũ hơn<a class="anchor" aria-label="anchor" href="#c%C3%A0i-%C4%91%E1%BA%B7t-phi%C3%AAn-b%E1%BA%A3n-c%C5%A9-h%C6%A1n"><i class="fas fa-link"></i></a>
@@ -738,11 +755,11 @@ Cửa sổ phía dưới bên phải bao gồm một số tab quan trọng. Các
 <p>Khi viết script, bạn có thể thêm các chú thích (“bình luận”) xung quanh code R của bạn. Bình luận là cần thiết để giải thích cho chính bạn và những người đọc khác hiểu những gì bạn đang làm. Bạn có thể thêm bình luận bằng cách nhập dấu thăng (#) và viết bình luận của bạn sau đó. Nội dung bình luận sẽ xuất hiện với màu khác với code R.</p>
 <p>Bất kỳ code nào được viết sau dấu # sẽ không được chạy. Do đó, đặt dấu # trước dòng code cũng là một cách hữu ích để tạm thời vô hiệu hóa một dòng code (“comment out”) nếu bạn không muốn xóa nó). Bạn có thể comment out/in nhiều dòng cùng một lúc bằng cách bôi đen chúng và nhấn Ctrl + Shift + c (Cmd + Shift + c trong Mac).</p>
 <div class="sourceCode" id="cb35"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># A comment can be on a line by itself</span>
-<span class="co"># import data</span>
-<span class="va">linelist</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/rio/man/import.html">import</a></span><span class="op">(</span><span class="st">"linelist_raw.xlsx"</span><span class="op">)</span> <span class="op">%&gt;%</span>   <span class="co"># a comment can also come after code</span>
-<span class="co"># filter(age &gt; 50)                          # It can also be used to deactivate / remove a line of code</span>
-  <span class="fu">count</span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># A comment can be on a line by itself</span></span>
+<span><span class="co"># import data</span></span>
+<span><span class="va">linelist</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/rio/man/import.html">import</a></span><span class="op">(</span><span class="st">"linelist_raw.xlsx"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>   <span class="co"># a comment can also come after code</span></span>
+<span><span class="co"># filter(age &gt; 50)                          # It can also be used to deactivate / remove a line of code</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/count.html">count</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <ul>
 <li>Bình luận <em>những gì</em> bạn đang làm <em>và <strong>tại sao</strong> bạn làm như vậy</em>.<br>
 </li>
@@ -803,7 +820,7 @@ Cửa sổ phía dưới bên phải bao gồm một số tab quan trọng. Các
 <p>Bằng cách tạo tiêu đề bằng #, bạn cũng sẽ kích hoạt Mục lục ở cuối tập lệnh của mình (xem bên dưới) mà bạn có thể sử dụng để điều hướng tập lệnh của mình. Bạn có thể tạo tiêu đề phụ bằng cách thêm các ký hiệu #, ví dụ: # # cho tiêu đề chính, ## fcho tiêu đề thứ hai, và ### cho tiêu đề thứ ba.</p>
 <p>Dưới đây là hai phiên bản của một ví dụ cho script. Ở bên trái là bản gốc với các tiêu đề được chú thích. Ở bên phải, bốn dấu gạch ngang đã được viết sau mỗi tiêu đề, làm cho chúng có thể thu gọn được. Hai trong số chúng đã được thu gọn và bạn có thể thấy Mục lục ở dưới cùng hiện hiển thị từng phần.</p>
 <p><img src="images/code_folding1.png" width="50%"><img src="images/code_folding2.png" width="50%"></p>
-<p>Các phần code khác mặc định đủ điều kiện để thu gọn bao gồm các phần “nằm giữa” hai dấu ngoặc nhọn <code>{ }</code>, chẳng hạn như định nghĩa hàm hoặc các khối điều kiện (câu lệnh if else). Bạn có thể đọc thêm về cách thu gọn code tại <a href="https://support.rstudio.com/hc/en-us/articles/200484568-Code-Folding-and-Sections">trang của Rstudio</a>.</p>
+<p>Các phần code khác mặc định đủ điều kiện để thu gọn bao gồm các phần “nằm giữa” hai dấu ngoặc nhọn <code><a href="https://rdrr.io/r/base/Paren.html">{ }</a></code>, chẳng hạn như định nghĩa hàm hoặc các khối điều kiện (câu lệnh if else). Bạn có thể đọc thêm về cách thu gọn code tại <a href="https://support.rstudio.com/hc/en-us/articles/200484568-Code-Folding-and-Sections">trang của Rstudio</a>.</p>
 <!-- ======================================================= -->
 <!-- ======================================================= -->
 <!-- ======================================================= -->
@@ -836,7 +853,7 @@ Một cách phổ biến, hiệu quả và không gặp sự cố khi quản lý
 <p>Cho tới gần đây, nhiều người học R đã được dạy để bắt đầu script của họ bằng lệnh <code><a href="https://rdrr.io/r/base/getwd.html">setwd()</a></code>. Hãy thay đổi thói quen đó bằng cách sử dụng <a href="r-projects.html#r-projects">Dự án R</a> và đọc thêm tài liệu sau để hiểu <a href="https://www.tidyverse.org/blog/2017/12/workflow-vs-script/">lý do không nên sử dụng <code>setwd()</code></a>. Một cách ngắn gọn là, công việc của bạn chỉ thực hiện được trên máy tính của bạn, các đường dẫn tệp được sử dụng để nhập và xuất tệp trở nên “dễ lỗi” và điều này cản trở nghiêm trọng đến việc cộng tác và sử dụng code của bạn trên bất kỳ máy tính nào khác. Bạn có những lựa chọn khác dễ dàng hơn!</p>
 <p>Như đã nói ở trên, mặc dù chúng tôi không khuyến nghị phương pháp này trong hầu hết các trường hợp, bạn vẫn có thể sử dụng lệnh <code><a href="https://rdrr.io/r/base/getwd.html">setwd()</a></code> với đường dẫn tệp thư mục mong muốn trong dấu ngoặc kép, ví dụ:</p>
 <div class="sourceCode" id="cb36"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/getwd.html">setwd</a></span><span class="op">(</span><span class="st">"C:/Documents/R Files/My analysis"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/getwd.html">setwd</a></span><span class="op">(</span><span class="st">"C:/Documents/R Files/My analysis"</span><span class="op">)</span></span></code></pre></div>
 <p><span style="color: red;"><strong><em>NGUY HIỂM:</em></strong> thiết lập một thư mục làm việc với <code><a href="https://rdrr.io/r/base/getwd.html">setwd()</a></code> <em>có thể</em> dẫn đến “lỗi” nếu đường dẫn tệp dành riêng cho một máy tính. Thay vào đó, hãy sử dụng đường dẫn tệp liên quan đến thư mục gốc Dự án R (với package <strong>here</strong>).</span></p>
 <!-- ======================================================= -->
 </div>
@@ -858,7 +875,7 @@ Một cách phổ biến, hiệu quả và không gặp sự cố khi quản lý
 <p>Trong script ở R markdown, thư mục làm việc mặc định là thư mục chứa tệp R markdown (<code>.Rmd</code>). Nếu sử dụng dự án R và package <strong>here</strong>, điều này sẽ không được áp dụng. Để biết thư mục làm việc là gì, sử dụng lệnh <code><a href="https://here.r-lib.org//reference/here.html">here()</a></code> như đã được giải thích tại chương <a href="r-projects.html#r-projects">Dự án R</a>.</p>
 <p>Nếu bạn muốn thay đổi thư mục làm việc của một tệp độc lập ở R markdown (không phải ở dự án R), nếu bạn sử dụng <code><a href="https://rdrr.io/r/base/getwd.html">setwd()</a></code> điều này sẽ chỉ áp dụng chỉ cho đoạn code đó. Để thực hiện thay đổi cho tất cả các đoạn code trong R markdown, hãy điều chỉnh ở bước thiết lập để thêm tham số <code>root.dir =</code>, như bên dưới:</p>
 <div class="sourceCode" id="cb37"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">knitr</span><span class="fu">::</span><span class="va"><a href="https://rdrr.io/pkg/knitr/man/opts_knit.html">opts_knit</a></span><span class="op">$</span><span class="fu">set</span><span class="op">(</span>root.dir <span class="op">=</span> <span class="st">'desired/directorypath'</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu">knitr</span><span class="fu">::</span><span class="va"><a href="https://rdrr.io/pkg/knitr/man/opts_knit.html">opts_knit</a></span><span class="op">$</span><span class="fu">set</span><span class="op">(</span>root.dir <span class="op">=</span> <span class="st">'desired/directorypath'</span><span class="op">)</span></span></code></pre></div>
 <p>Cách này dễ hơn nhiều so với chỉ sử dụng R markdown bên trong một dự án R và sử dụng package <strong>here</strong>.</p>
 <!-- ======================================================= -->
 </div>
@@ -870,12 +887,12 @@ Một cách phổ biến, hiệu quả và không gặp sự cố khi quản lý
 <p>Dưới đây là ví dụ về đường dẫn tệp “tuyệt đối” hoặc “địa chỉ đầy đủ”. Chúng có thể bị lỗi nếu được sử dụng bởi một máy tính khác. Một ngoại lệ là nếu bạn đang sử dụng ổ đĩa chia sẻ/mạng.</p>
 <pre><code>C:/Users/Name/Document/Analytic Software/R/Projects/Analysis2019/data/March2019.csv  </code></pre>
 <p><strong>Đường dẫn với dấu gạch chéo</strong></p>
-<p><em>Nếu nhập đường dẫn tệp, hãy lưu ý hướng của các dấu gạch chéo.</em> Sử dụng dấu <em>gạch chéo xuôi</em> (<code><a href="https://rdrr.io/r/base/Arithmetic.html">/</a></code>) để tách các thành phần (“data/provincial.csv”). Đối với người dùng Windows, cách mặc định mà đường dẫn tệp được hiển thị là dấu <em>gạch chéo ngược</em> (\) - vì vậy bạn sẽ cần phải thay đổi hướng của mỗi dấu gạch chéo. Nếu bạn sử dụng package <strong>here</strong> được miêu tả ở <a href="r-projects.html#r-projects">Dự án R</a> thì dấu gạch chéo không còn là vấn đề với bạn nữa.</p>
+<p><em>Nếu nhập đường dẫn tệp, hãy lưu ý hướng của các dấu gạch chéo.</em> Sử dụng dấu <em>gạch chéo xuôi</em> (<code>/</code>) để tách các thành phần (“data/provincial.csv”). Đối với người dùng Windows, cách mặc định mà đường dẫn tệp được hiển thị là dấu <em>gạch chéo ngược</em> (\) - vì vậy bạn sẽ cần phải thay đổi hướng của mỗi dấu gạch chéo. Nếu bạn sử dụng package <strong>here</strong> được miêu tả ở <a href="r-projects.html#r-projects">Dự án R</a> thì dấu gạch chéo không còn là vấn đề với bạn nữa.</p>
 <p><strong>Đường dẫn tệp tương đối</strong></p>
 <p>Nói chung, chúng tôi khuyên bạn nên cung cấp các đường dẫn tệp theo cách “tương đối” - nghĩa là, đường dẫn <em>liên quan đến</em> thư mục gốc Dự án R của bạn. Bạn có thể thực hiện việc này bằng cách sử dụng package <strong>here</strong> như được giải thích trong chương <a href="r-projects.html#r-projects">Dự án R</a>. Một đường dẫn tệp tương đối sẽ trông như thế này:</p>
 <div class="sourceCode" id="cb39"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Import csv linelist from the data/linelist/clean/ sub-folders of an R project</span>
-<span class="va">linelist</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/rio/man/import.html">import</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org//reference/here.html">here</a></span><span class="op">(</span><span class="st">"data"</span>, <span class="st">"clean"</span>, <span class="st">"linelists"</span>, <span class="st">"marin_country.csv"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># Import csv linelist from the data/linelist/clean/ sub-folders of an R project</span></span>
+<span><span class="va">linelist</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/rio/man/import.html">import</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org//reference/here.html">here</a></span><span class="op">(</span><span class="st">"data"</span>, <span class="st">"clean"</span>, <span class="st">"linelists"</span>, <span class="st">"marin_country.csv"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p>Ngay cả khi sử dụng đường dẫn tệp tương đối trong dự án R, bạn vẫn có thể sử dụng đường dẫn tuyệt đối để nhập/xuất dữ liệu ở bên ngoài dự án R của bạn.</p>
 <!-- ======================================================= -->
 </div>
@@ -886,7 +903,7 @@ Một cách phổ biến, hiệu quả và không gặp sự cố khi quản lý
 </h2>
 <p>Mọi thứ trong R đều là một đối tượng, và R là một ngôn ngữ “lập trình hướng đối tượng”. Các phần dưới đây sẽ giải thích:</p>
 <ul>
-<li>Cách tạo ra các đối tượng (<code><a href="https://rdrr.io/r/base/assignOps.html">&lt;-</a></code>)</li>
+<li>Cách tạo ra các đối tượng (<code>&lt;-</code>)</li>
 <li>Các loại đối tượng (ví dụ: data frames, vectors..)<br>
 </li>
 <li>Cách truy cập các tập con của đối tượng (ví dụ: các biến số trong một bộ dữ liệu)<br>
@@ -905,35 +922,35 @@ Mọi thứ bạn lưu trữ trong R - bao gồm bộ dữ liệu, biến số, 
 <h3>Định nghĩa một đối tượng (<code>&lt;-</code>)<a class="anchor" aria-label="anchor" href="#%C4%91%E1%BB%8Bnh-ngh%C4%A9a-m%E1%BB%99t-%C4%91%E1%BB%91i-t%C6%B0%E1%BB%A3ng--"><i class="fas fa-link"></i></a>
 </h3>
 <p><strong>Tạo ra một đối tượng <em>bằng cách gán cho chúng một giá trị</em> bằng toán tử &lt;-.</strong><br>
-Bạn có thể nghĩ về toán tử gán <code><a href="https://rdrr.io/r/base/assignOps.html">&lt;-</a></code> tương đương với từ “được định nghĩa là”. Các lệnh gán thường tuân theo một trật tự quy định:</p>
+Bạn có thể nghĩ về toán tử gán <code>&lt;-</code> tương đương với từ “được định nghĩa là”. Các lệnh gán thường tuân theo một trật tự quy định:</p>
 <p><strong>tên đối tượng</strong> &lt;- <strong>giá trị của đối tượng</strong> (hoặc quy trình / tính toán tạo ra giá trị)</p>
 <p>Ví dụ: bạn muốn ghi nhận một báo cáo tuần dịch tễ học hiện tại dưới dạng một đối tượng để tham chiếu tới code của bạn sau này. Trong ví dụ này, đối tượng <code>current_week</code> được tạo khi nó được gán giá trị <code>"2018-W10"</code> (dấu ngoặc kép sẽ quy định đây là giá trị dạng chữ). Đối tượng <code>current_week</code> sẽ xuất hiện trong cửa sổ RStudio Environment (phía trên bên phải) và có thể được tham chiếu tới các lệnh sau này.</p>
 <p>Xem các lệnh R và kết quả của chúng như dưới đây.</p>
 <div class="sourceCode" id="cb40"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">current_week</span> <span class="op">&lt;-</span> <span class="st">"2018-W10"</span>   <span class="co"># this command creates the object current_week by assigning it a value</span>
-<span class="va">current_week</span>                 <span class="co"># this command prints the current value of current_week object in the console</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">current_week</span> <span class="op">&lt;-</span> <span class="st">"2018-W10"</span>   <span class="co"># this command creates the object current_week by assigning it a value</span></span>
+<span><span class="va">current_week</span>                 <span class="co"># this command prints the current value of current_week object in the console</span></span></code></pre></div>
 <pre><code>## [1] "2018-W10"</code></pre>
 <p><span style="color: black;"><strong><em>CHÚ Ý:</em></strong> Lưu ý rằng số <code>[1]</code> trong kết quả ở R console đơn giản là chỉ ra rằng bạn đang xem mục đầu tiên của đầu ra</span></p>
 <p><span style="color: orange;"><strong><em>THẬN TRỌNG:</em></strong> <strong>Giá trị của một đối tượng có thể bị ghi đè</strong> bất kỳ lúc nào bằng cách chạy lệnh gán để định nghĩa lại giá trị của nó. Do đó, <strong>thứ tự của các lệnh được chạy rất quan trọng</strong>.</span></p>
 <p>Lệnh sau sẽ định nghĩa lại giá trị của đối tượng <code>current_week</code>:</p>
 <div class="sourceCode" id="cb42"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">current_week</span> <span class="op">&lt;-</span> <span class="st">"2018-W51"</span>   <span class="co"># assigns a NEW value to the object current_week</span>
-<span class="va">current_week</span>                 <span class="co"># prints the current value of current_week in the console</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">current_week</span> <span class="op">&lt;-</span> <span class="st">"2018-W51"</span>   <span class="co"># assigns a NEW value to the object current_week</span></span>
+<span><span class="va">current_week</span>                 <span class="co"># prints the current value of current_week in the console</span></span></code></pre></div>
 <pre><code>## [1] "2018-W51"</code></pre>
-<p><strong>Dấu bằng <code><a href="https://rdrr.io/r/base/assignOps.html">=</a></code></strong></p>
+<p><strong>Dấu bằng <code>=</code></strong></p>
 <p>Bạn cũng sẽ thấy các dấu bằng trong R code:</p>
 <ul>
-<li>Hai dấu bằng <code><a href="https://rdrr.io/r/base/Comparison.html">==</a></code> giữa hai đối tượng hoặc giá trị dùng để đặt một <em>câu hỏi</em> logic: “cái này có bằng cái kia không?”.<br>
+<li>Hai dấu bằng <code>==</code> giữa hai đối tượng hoặc giá trị dùng để đặt một <em>câu hỏi</em> logic: “cái này có bằng cái kia không?”.<br>
 </li>
-<li>Bạn cũng sẽ thấy các dấu bằng trong các hàm được sử dụng để xác định giá trị của các đối số của hàm (đọc thêm ở các phần bên dưới), ví dụ: <code><a href="https://rdrr.io/r/base/Extremes.html">max(age, na.rm = TRUE)</a></code>.<br>
+<li>Bạn cũng sẽ thấy các dấu bằng trong các hàm được sử dụng để xác định giá trị của các đối số của hàm (đọc thêm ở các phần bên dưới), ví dụ: <code>max(age, na.rm = TRUE)</code>.<br>
 </li>
-<li>Bạn <em>có thể</em> sử dụng một dấu bằng <code><a href="https://rdrr.io/r/base/assignOps.html">=</a></code> thay cho dấu <code><a href="https://rdrr.io/r/base/assignOps.html">&lt;-</a></code> để tạo và định nghĩa các đối tượng, nhưng điều này không được khuyến khích. Bạn có thể đọc về lý do tại sao điều này không được khuyến khích ở <a href="https://renkun.me/2014/01/28/difference-between-assignment-operators-in-r/">đây</a>.</li>
+<li>Bạn <em>có thể</em> sử dụng một dấu bằng <code>=</code> thay cho dấu <code>&lt;-</code> để tạo và định nghĩa các đối tượng, nhưng điều này không được khuyến khích. Bạn có thể đọc về lý do tại sao điều này không được khuyến khích ở <a href="https://renkun.me/2014/01/28/difference-between-assignment-operators-in-r/">đây</a>.</li>
 </ul>
 <p><strong>Bộ dữ liệu</strong></p>
 <p>Bộ dữ liệu (datasets) cũng là một đối tượng (thường là một “dataframes”) và phải được gán tên khi chúng được nhập. Trong đoạn mã dưới đây, đối tượng <code>linelist</code> được tạo và gán giá trị từ tệp CSV, tệp này được nhập bằng package <strong>rio</strong> và hàm <code><a href="https://rdrr.io/pkg/rio/man/import.html">import()</a></code> của package này.</p>
 <div class="sourceCode" id="cb44"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># linelist is created and assigned the value of the imported CSV file</span>
-<span class="va">linelist</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/rio/man/import.html">import</a></span><span class="op">(</span><span class="st">"my_linelist.csv"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># linelist is created and assigned the value of the imported CSV file</span></span>
+<span><span class="va">linelist</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/rio/man/import.html">import</a></span><span class="op">(</span><span class="st">"my_linelist.csv"</span><span class="op">)</span></span></code></pre></div>
 <p>Bạn có thể đọc thêm về nhập và xuất dữ liệu trong chương <a href="importing.html#importing">Nhập xuất dữ liệu</a>.</p>
 <p><span style="color: orange;"><strong><em>THẬN TRỌNG:</em></strong> Lưu ý nhanh về cách đặt tên đối tượng:</span></p>
 <ul>
@@ -945,19 +962,19 @@ Bạn có thể nghĩ về toán tử gán <code><a href="https://rdrr.io/r/base
 <p><strong>Kết quả đầu ra</strong></p>
 <p>Các kết quả đầu ra như bảng và biểu đồ cung cấp một ví dụ về cách các kết quả đầu ra có thể được lưu dưới dạng đối tượng hoặc chỉ được in ra mà không cần lưu. Ví dụ, một bảng chéo giữa giới tính và biến kết cục được tạo ra bởi hàm <code><a href="https://rdrr.io/r/base/table.html">table()</a></code> trong <strong>base</strong> R, có thể được in trực tiếp vào R console (<em>mà không</em> cần lưu).</p>
 <div class="sourceCode" id="cb45"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># printed to R console only</span>
-<span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">linelist</span><span class="op">$</span><span class="va">gender</span>, <span class="va">linelist</span><span class="op">$</span><span class="va">outcome</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># printed to R console only</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">linelist</span><span class="op">$</span><span class="va">gender</span>, <span class="va">linelist</span><span class="op">$</span><span class="va">outcome</span><span class="op">)</span></span></code></pre></div>
 <pre><code>##    
 ##     Death Recover
 ##   f  1227     953
 ##   m  1228     950</code></pre>
 <p>Nhưng bảng này cũng có thể được lưu dưới dạng một đối tượng được đặt tên. Sau đó, bạn có thể in nó ra.</p>
 <div class="sourceCode" id="cb47"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># save</span>
-<span class="va">gen_out_table</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">linelist</span><span class="op">$</span><span class="va">gender</span>, <span class="va">linelist</span><span class="op">$</span><span class="va">outcome</span><span class="op">)</span>
-
-<span class="co"># print</span>
-<span class="va">gen_out_table</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># save</span></span>
+<span><span class="va">gen_out_table</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">linelist</span><span class="op">$</span><span class="va">gender</span>, <span class="va">linelist</span><span class="op">$</span><span class="va">outcome</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># print</span></span>
+<span><span class="va">gen_out_table</span></span></code></pre></div>
 <pre><code>##    
 ##     Death Recover
 ##   f  1227     953
@@ -966,13 +983,13 @@ Bạn có thể nghĩ về toán tử gán <code><a href="https://rdrr.io/r/base
 <p>Các cột trong tập dữ liệu cũng là các đối tượng và có thể được định nghĩa, ghi đè và tạo như được mô tả bên dưới trong phần Cột.</p>
 <p>Bạn có thể sử dụng toán tử gán từ <strong>base</strong> R để tạo một cột mới. Dưới đây, cột mới <code>bmi</code> (Body Mass Index) được tạo, và giá trị mới ứng với mỗi hàng là kết quả của một phép toán trên giá trị của các hàng trong cột <code>wt_kg</code> và cột <code>ht_cm</code>.</p>
 <div class="sourceCode" id="cb49"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># create new "bmi" column using base R syntax</span>
-<span class="va">linelist</span><span class="op">$</span><span class="va">bmi</span> <span class="op">&lt;-</span> <span class="va">linelist</span><span class="op">$</span><span class="va">wt_kg</span> <span class="op">/</span> <span class="op">(</span><span class="va">linelist</span><span class="op">$</span><span class="va">ht_cm</span><span class="op">/</span><span class="fl">100</span><span class="op">)</span><span class="op">^</span><span class="fl">2</span></code></pre></div>
-<p>Tuy nhiên, trong cuốn sách này, chúng tôi tập trung vào một cách tiếp cận khác để định nghĩa cột, sử dụng hàm <code>mutate()</code> trong package <strong>dplyr</strong> và <em>piping</em> với toán tử pipe (<code>%&gt;%</code>). Cú pháp dễ đọc hơn và có những ưu điểm khác đã được giải thích trong cuốn sách này ở chương <a href="cleaning.html#cleaning">Làm sạch số liệu và các hàm quan trọng</a>. Bạn có thể đọc thêm về <em>piping</em> trong phần Piping phía bên dưới.</p>
+<code class="sourceCode R"><span><span class="co"># create new "bmi" column using base R syntax</span></span>
+<span><span class="va">linelist</span><span class="op">$</span><span class="va">bmi</span> <span class="op">&lt;-</span> <span class="va">linelist</span><span class="op">$</span><span class="va">wt_kg</span> <span class="op">/</span> <span class="op">(</span><span class="va">linelist</span><span class="op">$</span><span class="va">ht_cm</span><span class="op">/</span><span class="fl">100</span><span class="op">)</span><span class="op">^</span><span class="fl">2</span></span></code></pre></div>
+<p>Tuy nhiên, trong cuốn sách này, chúng tôi tập trung vào một cách tiếp cận khác để định nghĩa cột, sử dụng hàm <code><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate()</a></code> trong package <strong>dplyr</strong> và <em>piping</em> với toán tử pipe (<code>%&gt;%</code>). Cú pháp dễ đọc hơn và có những ưu điểm khác đã được giải thích trong cuốn sách này ở chương <a href="cleaning.html#cleaning">Làm sạch số liệu và các hàm quan trọng</a>. Bạn có thể đọc thêm về <em>piping</em> trong phần Piping phía bên dưới.</p>
 <div class="sourceCode" id="cb50"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># create new "bmi" column using dplyr syntax</span>
-<span class="va">linelist</span> <span class="op">&lt;-</span> <span class="va">linelist</span> <span class="op">%&gt;%</span> 
-  <span class="fu">mutate</span><span class="op">(</span>bmi <span class="op">=</span> <span class="va">wt_kg</span> <span class="op">/</span> <span class="op">(</span><span class="va">ht_cm</span><span class="op">/</span><span class="fl">100</span><span class="op">)</span><span class="op">^</span><span class="fl">2</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># create new "bmi" column using dplyr syntax</span></span>
+<span><span class="va">linelist</span> <span class="op">&lt;-</span> <span class="va">linelist</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>bmi <span class="op">=</span> <span class="va">wt_kg</span> <span class="op">/</span> <span class="op">(</span><span class="va">ht_cm</span><span class="op">/</span><span class="fl">100</span><span class="op">)</span><span class="op">^</span><span class="fl">2</span><span class="op">)</span></span></code></pre></div>
 <!-- ======================================================= -->
 </div>
 <div id="objectstructure" class="section level3" number="3.10.1">
@@ -983,7 +1000,7 @@ Bạn có thể nghĩ về toán tử gán <code><a href="https://rdrr.io/r/base
 <p>Hình ảnh dưới đây được tham khảo từ <a href="http://venus.ifca.unican.es/Rintro/dataStruct.html">hướng dẫn R trực tuyến này</a>. Nó cho thấy một số cấu trúc dữ liệu phổ biến và tên của chúng. Hình ảnh này không bao gồm dữ liệu không gian. Bạn có thể xem thêm về dữ liệu không gian tại chương <a href="data-used.html#gis">GIS cơ bản</a>.</p>
 <div class="inline-figure"><img src="images/R_data_structures.png" width="75%" height="50%" style="display: block; margin: auto;"></div>
 <p>Trong dịch tễ học (và đặc biệt là dịch tễ học thực địa), bạn sẽ <em>thường xuyên</em> phải tiếp xúc với data frames và vectors:</p>
-<div class="inline-table"><table class="table table-sm">
+<div class="inline-table"><table style="width:99%;" class="table table-sm">
 <colgroup>
 <col width="11%">
 <col width="51%">
@@ -1015,7 +1032,7 @@ Bạn có thể nghĩ về toán tử gán <code><a href="https://rdrr.io/r/base
 <h3>Kiểu đối tượng<a class="anchor" aria-label="anchor" href="#ki%E1%BB%83u-%C4%91%E1%BB%91i-t%C6%B0%E1%BB%A3ng"><i class="fas fa-link"></i></a>
 </h3>
 <p>Tất cả các đối tượng được lưu trữ trong R đều có một <em>kiểu</em> dữ liệu cho biết cách nó được xử lý. Có nhiều kiểu đối tượng, nhưng những kiểu phổ biến bao gồm:</p>
-<div class="inline-table"><table class="table table-sm">
+<div class="inline-table"><table style="width:100%;" class="table table-sm">
 <colgroup>
 <col width="3%">
 <col width="61%">
@@ -1066,7 +1083,7 @@ Bạn có thể nghĩ về toán tử gán <code><a href="https://rdrr.io/r/base
 <tr class="even">
 <td>tibble</td>
 <td>tibbles là một dạng khác của data.frame, sự khác biệt chính là tibble in đẹp hơn trong R console (hiển thị 10 hàng đầu tiên và chỉ các cột vừa với màn hình)</td>
-<td>data frame, danh sách, hoặc ma trận có thể chuyển đổi thành tibble bằng hàm <code>as_tibble()</code>
+<td>data frame, danh sách, hoặc ma trận có thể chuyển đổi thành tibble bằng hàm <code><a href="https://tibble.tidyverse.org/reference/as_tibble.html">as_tibble()</a></code>
 </td>
 </tr>
 <tr class="odd">
@@ -1076,24 +1093,24 @@ Bạn có thể nghĩ về toán tử gán <code><a href="https://rdrr.io/r/base
 </tr>
 </tbody>
 </table></div>
-<p><strong>Bạn có thể kiểm tra kiểu của một đối tượng bằng cách cung cấp tên của nó tới hàm <code><a href="https://rdrr.io/r/base/class.html">class()</a></code></strong>. Lưu ý: bạn có thể tham chiếu một cột cụ thể trong tập dữ liệu bằng cách sử dụng ký hiệu <code><a href="https://rdrr.io/r/base/Extract.html">$</a></code> để phân tách tên của tập dữ liệu và tên của cột.</p>
+<p><strong>Bạn có thể kiểm tra kiểu của một đối tượng bằng cách cung cấp tên của nó tới hàm <code><a href="https://rdrr.io/r/base/class.html">class()</a></code></strong>. Lưu ý: bạn có thể tham chiếu một cột cụ thể trong tập dữ liệu bằng cách sử dụng ký hiệu <code>$</code> để phân tách tên của tập dữ liệu và tên của cột.</p>
 <div class="sourceCode" id="cb51"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">linelist</span><span class="op">)</span>         <span class="co"># class should be a data frame or tibble</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">linelist</span><span class="op">)</span>         <span class="co"># class should be a data frame or tibble</span></span></code></pre></div>
 <pre><code>## [1] "data.frame"</code></pre>
 <div class="sourceCode" id="cb53"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">linelist</span><span class="op">$</span><span class="va">age</span><span class="op">)</span>     <span class="co"># class should be numeric</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">linelist</span><span class="op">$</span><span class="va">age</span><span class="op">)</span>     <span class="co"># class should be numeric</span></span></code></pre></div>
 <pre><code>## [1] "numeric"</code></pre>
 <div class="sourceCode" id="cb55"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">linelist</span><span class="op">$</span><span class="va">gender</span><span class="op">)</span>  <span class="co"># class should be character</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">linelist</span><span class="op">$</span><span class="va">gender</span><span class="op">)</span>  <span class="co"># class should be character</span></span></code></pre></div>
 <pre><code>## [1] "character"</code></pre>
 <p>Đôi khi, một cột sẽ được tự động chuyển đổi thành một kiểu khác bởi R. Hãy coi chừng điều này! Ví dụ: nếu bạn có một vectơ hoặc cột kiểu số, nhưng một giá trị ký tự được chèn vào … thì toàn bộ cột sẽ thay đổi thành kiểu ký tự.</p>
 <div class="sourceCode" id="cb57"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">num_vector</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">2</span>,<span class="fl">3</span>,<span class="fl">4</span>,<span class="fl">5</span><span class="op">)</span> <span class="co"># define vector as all numbers</span>
-<span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">num_vector</span><span class="op">)</span>          <span class="co"># vector is numeric class</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">num_vector</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">2</span>,<span class="fl">3</span>,<span class="fl">4</span>,<span class="fl">5</span><span class="op">)</span> <span class="co"># define vector as all numbers</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">num_vector</span><span class="op">)</span>          <span class="co"># vector is numeric class</span></span></code></pre></div>
 <pre><code>## [1] "numeric"</code></pre>
 <div class="sourceCode" id="cb59"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">num_vector</span><span class="op">[</span><span class="fl">3</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="st">"three"</span>   <span class="co"># convert the third element to a character</span>
-<span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">num_vector</span><span class="op">)</span>          <span class="co"># vector is now character class</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">num_vector</span><span class="op">[</span><span class="fl">3</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="st">"three"</span>   <span class="co"># convert the third element to a character</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">num_vector</span><span class="op">)</span>          <span class="co"># vector is now character class</span></span></code></pre></div>
 <pre><code>## [1] "character"</code></pre>
 <p>Một ví dụ phổ biến của điều này là khi thao tác với một data frame để in bảng - nếu bạn tạo một hàng tính tổng và cố gắng dán /gắn phần trăm với số trong cùng một ô (ví dụ: <code>23 (40%)</code>), toàn bộ cột dạng số ở trên sẽ chuyển đổi thành ký tự và không còn có thể được sử dụng cho các phép tính toán học nữa.</p>
 <p><strong>Đôi khi, bạn sẽ cần chuyển đổi các đối tượng hoặc cột sang một loại khác.</strong></p>
@@ -1139,17 +1156,17 @@ Bạn có thể nghĩ về toán tử gán <code><a href="https://rdrr.io/r/base
 <p><strong>Một cột trong data frame về mặt kỹ thuật là một “vector” (xem bảng ở trên)</strong> - bao gồm một chuỗi các giá trị cùng loại (ký tự, số, lôgic, v.v.).</p>
 <p>Một vectơ có thể tồn tại độc lập với một data frame, ví dụ: vectơ tên cột mà bạn muốn đưa vào làm biến giải thích trong mô hình. Để tạo một vectơ “độc lập”, hãy sử dụng hàm <code><a href="https://rdrr.io/r/base/c.html">c()</a></code> như dưới đây:</p>
 <div class="sourceCode" id="cb61"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># define the stand-alone vector of character values</span>
-<span class="va">explanatory_vars</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"gender"</span>, <span class="st">"fever"</span>, <span class="st">"chills"</span>, <span class="st">"cough"</span>, <span class="st">"aches"</span>, <span class="st">"vomit"</span><span class="op">)</span>
-
-<span class="co"># print the values in this named vector</span>
-<span class="va">explanatory_vars</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># define the stand-alone vector of character values</span></span>
+<span><span class="va">explanatory_vars</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"gender"</span>, <span class="st">"fever"</span>, <span class="st">"chills"</span>, <span class="st">"cough"</span>, <span class="st">"aches"</span>, <span class="st">"vomit"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># print the values in this named vector</span></span>
+<span><span class="va">explanatory_vars</span></span></code></pre></div>
 <pre><code>## [1] "gender" "fever"  "chills" "cough"  "aches"  "vomit"</code></pre>
-<p><strong>Các cột trong data frame cũng là vectơ và có thể được gọi, tham chiếu, trích xuất hoặc tạo bằng ký hiệu <code><a href="https://rdrr.io/r/base/Extract.html">$</a></code>.</strong> Ký hiệu <code><a href="https://rdrr.io/r/base/Extract.html">$</a></code> kết nối tên của cột với tên của data frame tương ứng. Trong cuốn sách này, chúng tôi cố gắng sử dụng từ “cột” thay vì “biến số”.</p>
+<p><strong>Các cột trong data frame cũng là vectơ và có thể được gọi, tham chiếu, trích xuất hoặc tạo bằng ký hiệu <code>$</code>.</strong> Ký hiệu <code>$</code> kết nối tên của cột với tên của data frame tương ứng. Trong cuốn sách này, chúng tôi cố gắng sử dụng từ “cột” thay vì “biến số”.</p>
 <div class="sourceCode" id="cb63"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Retrieve the length of the vector age_years</span>
-<span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">linelist</span><span class="op">$</span><span class="va">age</span><span class="op">)</span> <span class="co"># (age is a column in the linelist data frame)</span></code></pre></div>
-<p>Bằng cách nhập tên của một dataframe, theo sau bởi ký tự <code><a href="https://rdrr.io/r/base/Extract.html">$</a></code>, bạn sẽ thấy menu gợi ý của tất cả các tên cột trong dataframe. Bạn có thể di chuyển giữa các cột bằng phím mũi tên, chọn cột bằng phím Enter để tránh lỗi chính tả!</p>
+<code class="sourceCode R"><span><span class="co"># Retrieve the length of the vector age_years</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">linelist</span><span class="op">$</span><span class="va">age</span><span class="op">)</span> <span class="co"># (age is a column in the linelist data frame)</span></span></code></pre></div>
+<p>Bằng cách nhập tên của một dataframe, theo sau bởi ký tự <code>$</code>, bạn sẽ thấy menu gợi ý của tất cả các tên cột trong dataframe. Bạn có thể di chuyển giữa các cột bằng phím mũi tên, chọn cột bằng phím Enter để tránh lỗi chính tả!</p>
 <div class="inline-figure"><img src="images/Calling_Names.gif" width="100%" style="display: block; margin: auto;"></div>
 <p><span style="color: darkgreen;"><strong><em>MẸO NÂNG CAO:</em></strong> Một số đối tượng phức tạp hơn (ví dụ: một danh sách hoặc đối tượng <code>epicontacts</code>) có thể có nhiều cấp độ có thể được truy cập thông qua nhiều ký tự đô la. Ví dụ: <code>epicontacts$linelist$date_onset</code></span></p>
 <!-- ======================================================= -->
@@ -1157,83 +1174,83 @@ Bạn có thể nghĩ về toán tử gán <code><a href="https://rdrr.io/r/base
 <div id="truy-cập-indexing-đối-tượng-bằng-dấu-ngoặc-vuông" class="section level3 unnumbered">
 <h3>Truy cập / indexing đối tượng bằng dấu ngoặc vuông (<code>[ ]</code>)<a class="anchor" aria-label="anchor" href="#truy-c%E1%BA%ADp-indexing-%C4%91%E1%BB%91i-t%C6%B0%E1%BB%A3ng-b%E1%BA%B1ng-d%E1%BA%A5u-ngo%E1%BA%B7c-vu%C3%B4ng"><i class="fas fa-link"></i></a>
 </h3>
-<p>Khi cần xem một phần của đối tượng, còn được gọi là “indexing”, bạn có thể sử dụng dấu ngoặc vuông <code>[ ]</code>. Sử dụng <code><a href="https://rdrr.io/r/base/Extract.html">$</a></code> trên dataframe để truy cập một cột cũng là một kiểu indexing.</p>
+<p>Khi cần xem một phần của đối tượng, còn được gọi là “indexing”, bạn có thể sử dụng dấu ngoặc vuông <code>[ ]</code>. Sử dụng <code>$</code> trên dataframe để truy cập một cột cũng là một kiểu indexing.</p>
 <div class="sourceCode" id="cb64"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">my_vector</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"a"</span>, <span class="st">"b"</span>, <span class="st">"c"</span>, <span class="st">"d"</span>, <span class="st">"e"</span>, <span class="st">"f"</span><span class="op">)</span>  <span class="co"># define the vector</span>
-<span class="va">my_vector</span><span class="op">[</span><span class="fl">5</span><span class="op">]</span>                                  <span class="co"># print the 5th element</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">my_vector</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"a"</span>, <span class="st">"b"</span>, <span class="st">"c"</span>, <span class="st">"d"</span>, <span class="st">"e"</span>, <span class="st">"f"</span><span class="op">)</span>  <span class="co"># define the vector</span></span>
+<span><span class="va">my_vector</span><span class="op">[</span><span class="fl">5</span><span class="op">]</span>                                  <span class="co"># print the 5th element</span></span></code></pre></div>
 <pre><code>## [1] "e"</code></pre>
 <p>Dấu ngoặc vuông cũng hoạt động để xem các phần cụ thể trong kết quả đầu ra, chẳng hạn như đầu ra của hàm <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code>:</p>
 <div class="sourceCode" id="cb66"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># All of the summary</span>
-<span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">linelist</span><span class="op">$</span><span class="va">age</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># All of the summary</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">linelist</span><span class="op">$</span><span class="va">age</span><span class="op">)</span></span></code></pre></div>
 <pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
 ##    0.00    6.00   13.00   16.07   23.00   84.00      86</code></pre>
 <div class="sourceCode" id="cb68"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Just the second element of the summary, with name (using only single brackets)</span>
-<span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">linelist</span><span class="op">$</span><span class="va">age</span><span class="op">)</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># Just the second element of the summary, with name (using only single brackets)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">linelist</span><span class="op">$</span><span class="va">age</span><span class="op">)</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span></span></code></pre></div>
 <pre><code>## 1st Qu. 
 ##       6</code></pre>
 <div class="sourceCode" id="cb70"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Just the second element, without name (using double brackets)</span>
-<span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">linelist</span><span class="op">$</span><span class="va">age</span><span class="op">)</span><span class="op">[[</span><span class="fl">2</span><span class="op">]</span><span class="op">]</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># Just the second element, without name (using double brackets)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">linelist</span><span class="op">$</span><span class="va">age</span><span class="op">)</span><span class="op">[[</span><span class="fl">2</span><span class="op">]</span><span class="op">]</span></span></code></pre></div>
 <pre><code>## [1] 6</code></pre>
 <div class="sourceCode" id="cb72"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Extract an element by name, without showing the name</span>
-<span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">linelist</span><span class="op">$</span><span class="va">age</span><span class="op">)</span><span class="op">[[</span><span class="st">"Median"</span><span class="op">]</span><span class="op">]</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># Extract an element by name, without showing the name</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">linelist</span><span class="op">$</span><span class="va">age</span><span class="op">)</span><span class="op">[[</span><span class="st">"Median"</span><span class="op">]</span><span class="op">]</span></span></code></pre></div>
 <pre><code>## [1] 13</code></pre>
 <p>Dấu ngoặc vuông cũng hoạt động trên data frames để xem các hàng và cột cụ thể. Bạn có thể thực hiện việc này bằng cú pháp <code>dataframe[rows, columns]</code>:</p>
 <div class="sourceCode" id="cb74"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># View a specific row (2) from dataset, with all columns (don't forget the comma!)</span>
-<span class="va">linelist</span><span class="op">[</span><span class="fl">2</span>,<span class="op">]</span>
-
-<span class="co"># View all rows, but just one column</span>
-<span class="va">linelist</span><span class="op">[</span>, <span class="st">"date_onset"</span><span class="op">]</span>
-
-<span class="co"># View values from row 2 and columns 5 through 10</span>
-<span class="va">linelist</span><span class="op">[</span><span class="fl">2</span>, <span class="fl">5</span><span class="op">:</span><span class="fl">10</span><span class="op">]</span> 
-
-<span class="co"># View values from row 2 and columns 5 through 10 and 18</span>
-<span class="va">linelist</span><span class="op">[</span><span class="fl">2</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">5</span><span class="op">:</span><span class="fl">10</span>, <span class="fl">18</span><span class="op">)</span><span class="op">]</span> 
-
-<span class="co"># View rows 2 through 20, and specific columns</span>
-<span class="va">linelist</span><span class="op">[</span><span class="fl">2</span><span class="op">:</span><span class="fl">20</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"date_onset"</span>, <span class="st">"outcome"</span>, <span class="st">"age"</span><span class="op">)</span><span class="op">]</span>
-
-<span class="co"># View rows and columns based on criteria</span>
-<span class="co"># *** Note the dataframe must still be named in the criteria!</span>
-<span class="va">linelist</span><span class="op">[</span><span class="va">linelist</span><span class="op">$</span><span class="va">age</span> <span class="op">&gt;</span> <span class="fl">25</span> , <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"date_onset"</span>, <span class="st">"outcome"</span>, <span class="st">"age"</span><span class="op">)</span><span class="op">]</span>
-
-<span class="co"># Use View() to see the outputs in the RStudio Viewer pane (easier to read) </span>
-<span class="co"># *** Note the capital "V" in View() function</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/View.html">View</a></span><span class="op">(</span><span class="va">linelist</span><span class="op">[</span><span class="fl">2</span><span class="op">:</span><span class="fl">20</span>, <span class="st">"date_onset"</span><span class="op">]</span><span class="op">)</span>
-
-<span class="co"># Save as a new object</span>
-<span class="va">new_table</span> <span class="op">&lt;-</span> <span class="va">linelist</span><span class="op">[</span><span class="fl">2</span><span class="op">:</span><span class="fl">20</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"date_onset"</span><span class="op">)</span><span class="op">]</span> </code></pre></div>
-<p>Lưu ý rằng bạn cũng có thể indexing hàng / cột trong một data frames và tibbles bằng cách sử dụng cú pháp của package <strong>dplyr</strong> (hàm <code><a href="https://rdrr.io/r/stats/filter.html">filter()</a></code> đối với hàng, và <code>select()</code> đối với cột). Đọc thêm về các hàm quan trọng này trong chương <a href="cleaning.html#cleaning">Làm sạch số liệu và các hàm quan trọng</a>.</p>
-<p>Để lọc dựa trên “số thứ tự hàng”, bạn có thể sử dụng hàm <code>row_number()</code>trong package <strong>dplyr</strong> với dấu ngoặc đơn mở như một phần của biểu thức lọc logic. Thường thì bạn sẽ sử dụng toán tử <code><a href="https://rdrr.io/r/base/match.html">%in%</a></code> và một khoảng giá trị số như một phần của câu lệnh logic đó, như được trình bày dưới đây. Để xem N hàng <em>đầu tiên</em>, bạn cũng có thể sử dụng hàm <code><a href="https://rdrr.io/r/utils/head.html">head()</a></code> của package <strong>dplyr</strong>.</p>
+<code class="sourceCode R"><span><span class="co"># View a specific row (2) from dataset, with all columns (don't forget the comma!)</span></span>
+<span><span class="va">linelist</span><span class="op">[</span><span class="fl">2</span>,<span class="op">]</span></span>
+<span></span>
+<span><span class="co"># View all rows, but just one column</span></span>
+<span><span class="va">linelist</span><span class="op">[</span>, <span class="st">"date_onset"</span><span class="op">]</span></span>
+<span></span>
+<span><span class="co"># View values from row 2 and columns 5 through 10</span></span>
+<span><span class="va">linelist</span><span class="op">[</span><span class="fl">2</span>, <span class="fl">5</span><span class="op">:</span><span class="fl">10</span><span class="op">]</span> </span>
+<span></span>
+<span><span class="co"># View values from row 2 and columns 5 through 10 and 18</span></span>
+<span><span class="va">linelist</span><span class="op">[</span><span class="fl">2</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">5</span><span class="op">:</span><span class="fl">10</span>, <span class="fl">18</span><span class="op">)</span><span class="op">]</span> </span>
+<span></span>
+<span><span class="co"># View rows 2 through 20, and specific columns</span></span>
+<span><span class="va">linelist</span><span class="op">[</span><span class="fl">2</span><span class="op">:</span><span class="fl">20</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"date_onset"</span>, <span class="st">"outcome"</span>, <span class="st">"age"</span><span class="op">)</span><span class="op">]</span></span>
+<span></span>
+<span><span class="co"># View rows and columns based on criteria</span></span>
+<span><span class="co"># *** Note the dataframe must still be named in the criteria!</span></span>
+<span><span class="va">linelist</span><span class="op">[</span><span class="va">linelist</span><span class="op">$</span><span class="va">age</span> <span class="op">&gt;</span> <span class="fl">25</span> , <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"date_onset"</span>, <span class="st">"outcome"</span>, <span class="st">"age"</span><span class="op">)</span><span class="op">]</span></span>
+<span></span>
+<span><span class="co"># Use View() to see the outputs in the RStudio Viewer pane (easier to read) </span></span>
+<span><span class="co"># *** Note the capital "V" in View() function</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/View.html">View</a></span><span class="op">(</span><span class="va">linelist</span><span class="op">[</span><span class="fl">2</span><span class="op">:</span><span class="fl">20</span>, <span class="st">"date_onset"</span><span class="op">]</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Save as a new object</span></span>
+<span><span class="va">new_table</span> <span class="op">&lt;-</span> <span class="va">linelist</span><span class="op">[</span><span class="fl">2</span><span class="op">:</span><span class="fl">20</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"date_onset"</span><span class="op">)</span><span class="op">]</span> </span></code></pre></div>
+<p>Lưu ý rằng bạn cũng có thể indexing hàng / cột trong một data frames và tibbles bằng cách sử dụng cú pháp của package <strong>dplyr</strong> (hàm <code><a href="https://dplyr.tidyverse.org/reference/filter.html">filter()</a></code> đối với hàng, và <code><a href="https://dplyr.tidyverse.org/reference/select.html">select()</a></code> đối với cột). Đọc thêm về các hàm quan trọng này trong chương <a href="cleaning.html#cleaning">Làm sạch số liệu và các hàm quan trọng</a>.</p>
+<p>Để lọc dựa trên “số thứ tự hàng”, bạn có thể sử dụng hàm <code><a href="https://dplyr.tidyverse.org/reference/row_number.html">row_number()</a></code>trong package <strong>dplyr</strong> với dấu ngoặc đơn mở như một phần của biểu thức lọc logic. Thường thì bạn sẽ sử dụng toán tử <code>%in%</code> và một khoảng giá trị số như một phần của câu lệnh logic đó, như được trình bày dưới đây. Để xem N hàng <em>đầu tiên</em>, bạn cũng có thể sử dụng hàm <code><a href="https://rdrr.io/r/utils/head.html">head()</a></code> của package <strong>dplyr</strong>.</p>
 <div class="sourceCode" id="cb75"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># View first 100 rows</span>
-<span class="va">linelist</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="fl">100</span><span class="op">)</span>
-
-<span class="co"># Show row 5 only</span>
-<span class="va">linelist</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="fu">row_number</span><span class="op">(</span><span class="op">)</span> <span class="op">==</span> <span class="fl">5</span><span class="op">)</span>
-
-<span class="co"># View rows 2 through 20, and three specific columns (note no quotes necessary on column names)</span>
-<span class="va">linelist</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="fu">row_number</span><span class="op">(</span><span class="op">)</span> <span class="op">%in%</span> <span class="fl">2</span><span class="op">:</span><span class="fl">20</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu">select</span><span class="op">(</span><span class="va">date_onset</span>, <span class="va">outcome</span>, <span class="va">age</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># View first 100 rows</span></span>
+<span><span class="va">linelist</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="fl">100</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Show row 5 only</span></span>
+<span><span class="va">linelist</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/row_number.html">row_number</a></span><span class="op">(</span><span class="op">)</span> <span class="op">==</span> <span class="fl">5</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># View rows 2 through 20, and three specific columns (note no quotes necessary on column names)</span></span>
+<span><span class="va">linelist</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/row_number.html">row_number</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fl">2</span><span class="op">:</span><span class="fl">20</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">date_onset</span>, <span class="va">outcome</span>, <span class="va">age</span><span class="op">)</span></span></code></pre></div>
 <p>Khi indexing một đối tượng chứa một <strong>danh sách</strong> bằng một dấu ngoặc vuông sẽ luôn trả về kiểu danh sách, ngay cả khi chỉ một đối tượng được trả về . Tuy nhiên, hai dấu ngoặc vuông có thể được sử dụng để truy cập một phần tử đơn lẻ đối và trả về một kiểu không phải là một danh sách.<br>
 Dấu ngoặc vuông cũng có thể được viết sau nhau, như được minh họa bên dưới.</p>
 <p>Bạn có thể xem một <a href="https://r4ds.had.co.nz/vectors.html#lists-of-condiments">giải thích trực quan về việc indexing với ví dụ về hộp lắc hạt tiêu</a> tại đây, rất hài hước và hữu ích.</p>
 <div class="sourceCode" id="cb76"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># define demo list</span>
-<span class="va">my_list</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>
-  <span class="co"># First element in the list is a character vector</span>
-  hospitals <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Central"</span>, <span class="st">"Empire"</span>, <span class="st">"Santa Anna"</span><span class="op">)</span>,
-  
-  <span class="co"># second element in the list is a data frame of addresses</span>
-  addresses   <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>
-    street <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"145 Medical Way"</span>, <span class="st">"1048 Brown Ave"</span>, <span class="st">"999 El Camino"</span><span class="op">)</span>,
-    city   <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Andover"</span>, <span class="st">"Hamilton"</span>, <span class="st">"El Paso"</span><span class="op">)</span>
-    <span class="op">)</span>
-  <span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># define demo list</span></span>
+<span><span class="va">my_list</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span></span>
+<span>  <span class="co"># First element in the list is a character vector</span></span>
+<span>  hospitals <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Central"</span>, <span class="st">"Empire"</span>, <span class="st">"Santa Anna"</span><span class="op">)</span>,</span>
+<span>  </span>
+<span>  <span class="co"># second element in the list is a data frame of addresses</span></span>
+<span>  addresses   <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span></span>
+<span>    street <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"145 Medical Way"</span>, <span class="st">"1048 Brown Ave"</span>, <span class="st">"999 El Camino"</span><span class="op">)</span>,</span>
+<span>    city   <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Andover"</span>, <span class="st">"Hamilton"</span>, <span class="st">"El Paso"</span><span class="op">)</span></span>
+<span>    <span class="op">)</span></span>
+<span>  <span class="op">)</span></span></code></pre></div>
 <p>Đây là cách mà một danh sách được in trong R console. Có hai phần tử được đặt tên:</p>
 <ul>
 <li>
@@ -1243,7 +1260,7 @@ Dấu ngoặc vuông cũng có thể được viết sau nhau, như được min
 <code>addresses</code>, một data frame chứa các địa chỉ</li>
 </ul>
 <div class="sourceCode" id="cb77"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">my_list</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">my_list</span></span></code></pre></div>
 <pre><code>## $hospitals
 ## [1] "Central"    "Empire"     "Santa Anna"
 ## 
@@ -1254,20 +1271,20 @@ Dấu ngoặc vuông cũng có thể được viết sau nhau, như được min
 ## 3   999 El Camino  El Paso</code></pre>
 <p>Dưới đây là các phương pháp indexing mà bạn có thể sử dụng:</p>
 <div class="sourceCode" id="cb79"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">my_list</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span> <span class="co"># this returns the element in class "list" - the element name is still displayed</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">my_list</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span> <span class="co"># this returns the element in class "list" - the element name is still displayed</span></span></code></pre></div>
 <pre><code>## $hospitals
 ## [1] "Central"    "Empire"     "Santa Anna"</code></pre>
 <div class="sourceCode" id="cb81"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">my_list</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span> <span class="co"># this returns only the (unnamed) character vector</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">my_list</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span> <span class="co"># this returns only the (unnamed) character vector</span></span></code></pre></div>
 <pre><code>## [1] "Central"    "Empire"     "Santa Anna"</code></pre>
 <div class="sourceCode" id="cb83"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">my_list</span><span class="op">[[</span><span class="st">"hospitals"</span><span class="op">]</span><span class="op">]</span> <span class="co"># you can also index by name of the list element</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">my_list</span><span class="op">[[</span><span class="st">"hospitals"</span><span class="op">]</span><span class="op">]</span> <span class="co"># you can also index by name of the list element</span></span></code></pre></div>
 <pre><code>## [1] "Central"    "Empire"     "Santa Anna"</code></pre>
 <div class="sourceCode" id="cb85"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">my_list</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span><span class="op">[</span><span class="fl">3</span><span class="op">]</span> <span class="co"># this returns the third element of the "hospitals" character vector</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">my_list</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span><span class="op">[</span><span class="fl">3</span><span class="op">]</span> <span class="co"># this returns the third element of the "hospitals" character vector</span></span></code></pre></div>
 <pre><code>## [1] "Santa Anna"</code></pre>
 <div class="sourceCode" id="cb87"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">my_list</span><span class="op">[[</span><span class="fl">2</span><span class="op">]</span><span class="op">]</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span> <span class="co"># This returns the first column ("street") of the address data frame</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">my_list</span><span class="op">[[</span><span class="fl">2</span><span class="op">]</span><span class="op">]</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span> <span class="co"># This returns the first column ("street") of the address data frame</span></span></code></pre></div>
 <pre><code>##            street
 ## 1 145 Medical Way
 ## 2  1048 Brown Ave
@@ -1279,10 +1296,10 @@ Dấu ngoặc vuông cũng có thể được viết sau nhau, như được min
 </h3>
 <p>Bạn có thể xóa từng đối tượng riêng lẻ khỏi cửa sổ R environment bằng cách để tên của đối tượng cần xóa vào trong hàm <code><a href="https://rdrr.io/r/base/rm.html">rm()</a></code> (không có dấu ngoặc kép):</p>
 <div class="sourceCode" id="cb89"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/rm.html">rm</a></span><span class="op">(</span><span class="va">object_name</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/rm.html">rm</a></span><span class="op">(</span><span class="va">object_name</span><span class="op">)</span></span></code></pre></div>
 <p>Bạn có thể xóa tất cả các đối tượng (xóa không gian làm việc của bạn) bằng cách chạy:</p>
 <div class="sourceCode" id="cb90"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/rm.html">rm</a></span><span class="op">(</span>list <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/ls.html">ls</a></span><span class="op">(</span>all <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/rm.html">rm</a></span><span class="op">(</span>list <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/ls.html">ls</a></span><span class="op">(</span>all <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <!-- ======================================================= -->
 <!-- ======================================================= -->
 <!-- ======================================================= -->
@@ -1319,30 +1336,30 @@ Hiểu đơn giản pipe nghĩa là “sau đó”. Nhiều hàm có thể đư�
 <p>Đọc thêm về cách tiếp cận này trong package tidyverse tại đây <a href="https://style.tidyverse.org/pipes.html">Hướng dẫn</a></p>
 <p>Đây là một ví dụ mô phỏng dùng để so sánh, sử dụng các hàm hư cấu để “nướng bánh”. Đầu tiên, phương pháp pipe:</p>
 <div class="sourceCode" id="cb91"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># A fake example of how to bake a cake using piping syntax</span>
-
-<span class="va">cake</span> <span class="op">&lt;-</span> <span class="va">flour</span> <span class="op">%&gt;%</span>       <span class="co"># to define cake, start with flour, and then...</span>
-  <span class="fu">add</span><span class="op">(</span><span class="va">eggs</span><span class="op">)</span> <span class="op">%&gt;%</span>   <span class="co"># add eggs</span>
-  <span class="fu">add</span><span class="op">(</span><span class="va">oil</span><span class="op">)</span> <span class="op">%&gt;%</span>    <span class="co"># add oil</span>
-  <span class="fu">add</span><span class="op">(</span><span class="va">water</span><span class="op">)</span> <span class="op">%&gt;%</span>  <span class="co"># add water</span>
-  <span class="fu">mix_together</span><span class="op">(</span>         <span class="co"># mix together</span>
-    utensil <span class="op">=</span> <span class="va">spoon</span>,
-    minutes <span class="op">=</span> <span class="fl">2</span><span class="op">)</span> <span class="op">%&gt;%</span>    
-  <span class="fu">bake</span><span class="op">(</span>degrees <span class="op">=</span> <span class="fl">350</span>,   <span class="co"># bake</span>
-       system <span class="op">=</span> <span class="st">"fahrenheit"</span>,
-       minutes <span class="op">=</span> <span class="fl">35</span><span class="op">)</span> <span class="op">%&gt;%</span>  
-  <span class="fu">let_cool</span><span class="op">(</span><span class="op">)</span>            <span class="co"># let it cool down</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># A fake example of how to bake a cake using piping syntax</span></span>
+<span></span>
+<span><span class="va">cake</span> <span class="op">&lt;-</span> <span class="va">flour</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>       <span class="co"># to define cake, start with flour, and then...</span></span>
+<span>  <span class="fu">add</span><span class="op">(</span><span class="va">eggs</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>   <span class="co"># add eggs</span></span>
+<span>  <span class="fu">add</span><span class="op">(</span><span class="va">oil</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>    <span class="co"># add oil</span></span>
+<span>  <span class="fu">add</span><span class="op">(</span><span class="va">water</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>  <span class="co"># add water</span></span>
+<span>  <span class="fu">mix_together</span><span class="op">(</span>         <span class="co"># mix together</span></span>
+<span>    utensil <span class="op">=</span> <span class="va">spoon</span>,</span>
+<span>    minutes <span class="op">=</span> <span class="fl">2</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>    </span>
+<span>  <span class="fu">bake</span><span class="op">(</span>degrees <span class="op">=</span> <span class="fl">350</span>,   <span class="co"># bake</span></span>
+<span>       system <span class="op">=</span> <span class="st">"fahrenheit"</span>,</span>
+<span>       minutes <span class="op">=</span> <span class="fl">35</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>  </span>
+<span>  <span class="fu">let_cool</span><span class="op">(</span><span class="op">)</span>            <span class="co"># let it cool down</span></span></code></pre></div>
 <p>Đây là một <a href="https://cfss.uchicago.edu/notes/pipes/#:~:text=Pipes%20are%20an%20extremely%20useful,code%20and%20combine%20multiple%20operations">link</a> khác mô tả công dụng của pipe.</p>
 <p>Piping không phải là một hàm trong <strong>base</strong> R. Để sử dụng piping, package <strong>magrittr</strong> phải được cài đặt và gọi ra trong phiên làm việc hiện tại (điều này thường được thực hiện bằng cách gọi package <strong>tidyverse</strong> hoặc <strong>dplyr</strong>). Bạn có thể <a href="https://magrittr.tidyverse.org/">đọc thêm về piping trong tài liệu magrittr</a>.</p>
-<p>Lưu ý rằng cũng giống như các lệnh R khác, các pipes có thể được sử dụng để hiển thị kết quả hoặc lưu/lưu lại một đối tượng, tùy thuộc vào toán tử <code><a href="https://rdrr.io/r/base/assignOps.html">&lt;-</a></code> được code như thế nào. Xem hai ví dụ dưới đây:</p>
+<p>Lưu ý rằng cũng giống như các lệnh R khác, các pipes có thể được sử dụng để hiển thị kết quả hoặc lưu/lưu lại một đối tượng, tùy thuộc vào toán tử <code>&lt;-</code> được code như thế nào. Xem hai ví dụ dưới đây:</p>
 <div class="sourceCode" id="cb92"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Create or overwrite object, defining as aggregate counts by age category (not printed)</span>
-<span class="va">linelist_summary</span> <span class="op">&lt;-</span> <span class="va">linelist</span> <span class="op">%&gt;%</span> 
-  <span class="fu">count</span><span class="op">(</span><span class="va">age_cat</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># Create or overwrite object, defining as aggregate counts by age category (not printed)</span></span>
+<span><span class="va">linelist_summary</span> <span class="op">&lt;-</span> <span class="va">linelist</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/count.html">count</a></span><span class="op">(</span><span class="va">age_cat</span><span class="op">)</span></span></code></pre></div>
 <div class="sourceCode" id="cb93"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Print the table of counts in the console, but don't save it</span>
-<span class="va">linelist</span> <span class="op">%&gt;%</span> 
-  <span class="fu">count</span><span class="op">(</span><span class="va">age_cat</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># Print the table of counts in the console, but don't save it</span></span>
+<span><span class="va">linelist</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/count.html">count</a></span><span class="op">(</span><span class="va">age_cat</span><span class="op">)</span></span></code></pre></div>
 <pre><code>##   age_cat    n
 ## 1     0-4 1095
 ## 2     5-9 1095
@@ -1356,10 +1373,10 @@ Hiểu đơn giản pipe nghĩa là “sau đó”. Nhiều hàm có thể đư�
 <p><strong><code>%&lt;&gt;%</code></strong><br></p>
 <p>Đây là một “assignment pipe (pipe dùng để gán)” từ package <strong>magrittr</strong>, package này sẽ <em>pipe một đối tượng theo chiều tiến lên và cũng tái định nghĩa lại đối tượng</em>. Đối tượng cần đứng đầu trong chuỗi pipe. Nó nhanh hơn sử dụng pipe thông thường. Hai lệnh dưới đây là tương đương với nhau:</p>
 <div class="sourceCode" id="cb95"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">linelist</span> <span class="op">&lt;-</span> <span class="va">linelist</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="va">age</span> <span class="op">&gt;</span> <span class="fl">50</span><span class="op">)</span>
-
-<span class="va">linelist</span> <span class="op">%&lt;&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="va">age</span> <span class="op">&gt;</span> <span class="fl">50</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">linelist</span> <span class="op">&lt;-</span> <span class="va">linelist</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">age</span> <span class="op">&gt;</span> <span class="fl">50</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">linelist</span> <span class="op">%&lt;&gt;%</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">age</span> <span class="op">&gt;</span> <span class="fl">50</span><span class="op">)</span></span></code></pre></div>
 <!-- ======================================================= -->
 </div>
 <div id="định-nghĩa-đối-tượng-trung-gian" class="section level3 unnumbered">
@@ -1382,20 +1399,20 @@ Hiểu đơn giản pipe nghĩa là “sau đó”. Nhiều hàm có thể đư�
 <p>Đặt tên cho từng đối tượng trung gian hoặc ghi đè lên đối tượng gốc hoặc kết hợp tất cả hàm với nhau đều đi kèm với những rủi ro.</p>
 <p>Dưới đây vẫn là ví dụ mô phỏng quy trình làm “bánh” tương tự như trên, nhưng sử dụng phong cách này:</p>
 <div class="sourceCode" id="cb96"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># a fake example of how to bake a cake using this method (defining intermediate objects)</span>
-<span class="va">batter_1</span> <span class="op">&lt;-</span> <span class="fu">left_join</span><span class="op">(</span><span class="va">flour</span>, <span class="va">eggs</span><span class="op">)</span>
-<span class="va">batter_2</span> <span class="op">&lt;-</span> <span class="fu">left_join</span><span class="op">(</span><span class="va">batter_1</span>, <span class="va">oil</span><span class="op">)</span>
-<span class="va">batter_3</span> <span class="op">&lt;-</span> <span class="fu">left_join</span><span class="op">(</span><span class="va">batter_2</span>, <span class="va">water</span><span class="op">)</span>
-
-<span class="va">batter_4</span> <span class="op">&lt;-</span> <span class="fu">mix_together</span><span class="op">(</span>object <span class="op">=</span> <span class="va">batter_3</span>, utensil <span class="op">=</span> <span class="va">spoon</span>, minutes <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>
-
-<span class="va">cake</span> <span class="op">&lt;-</span> <span class="fu">bake</span><span class="op">(</span><span class="va">batter_4</span>, degrees <span class="op">=</span> <span class="fl">350</span>, system <span class="op">=</span> <span class="st">"fahrenheit"</span>, minutes <span class="op">=</span> <span class="fl">35</span><span class="op">)</span>
-
-<span class="va">cake</span> <span class="op">&lt;-</span> <span class="fu">let_cool</span><span class="op">(</span><span class="va">cake</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># a fake example of how to bake a cake using this method (defining intermediate objects)</span></span>
+<span><span class="va">batter_1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">left_join</a></span><span class="op">(</span><span class="va">flour</span>, <span class="va">eggs</span><span class="op">)</span></span>
+<span><span class="va">batter_2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">left_join</a></span><span class="op">(</span><span class="va">batter_1</span>, <span class="va">oil</span><span class="op">)</span></span>
+<span><span class="va">batter_3</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">left_join</a></span><span class="op">(</span><span class="va">batter_2</span>, <span class="va">water</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">batter_4</span> <span class="op">&lt;-</span> <span class="fu">mix_together</span><span class="op">(</span>object <span class="op">=</span> <span class="va">batter_3</span>, utensil <span class="op">=</span> <span class="va">spoon</span>, minutes <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">cake</span> <span class="op">&lt;-</span> <span class="fu">bake</span><span class="op">(</span><span class="va">batter_4</span>, degrees <span class="op">=</span> <span class="fl">350</span>, system <span class="op">=</span> <span class="st">"fahrenheit"</span>, minutes <span class="op">=</span> <span class="fl">35</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">cake</span> <span class="op">&lt;-</span> <span class="fu">let_cool</span><span class="op">(</span><span class="va">cake</span><span class="op">)</span></span></code></pre></div>
 <p>Kết hợp tất cả các hàm với nhau - câu lệnh rất khó đọc:</p>
 <div class="sourceCode" id="cb97"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># an example of combining/nesting mutliple functions together - difficult to read</span>
-<span class="va">cake</span> <span class="op">&lt;-</span> <span class="fu">let_cool</span><span class="op">(</span><span class="fu">bake</span><span class="op">(</span><span class="fu">mix_together</span><span class="op">(</span><span class="va">batter_3</span>, utensil <span class="op">=</span> <span class="va">spoon</span>, minutes <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>, degrees <span class="op">=</span> <span class="fl">350</span>, system <span class="op">=</span> <span class="st">"fahrenheit"</span>, minutes <span class="op">=</span> <span class="fl">35</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># an example of combining/nesting mutliple functions together - difficult to read</span></span>
+<span><span class="va">cake</span> <span class="op">&lt;-</span> <span class="fu">let_cool</span><span class="op">(</span><span class="fu">bake</span><span class="op">(</span><span class="fu">mix_together</span><span class="op">(</span><span class="va">batter_3</span>, utensil <span class="op">=</span> <span class="va">spoon</span>, minutes <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>, degrees <span class="op">=</span> <span class="fl">350</span>, system <span class="op">=</span> <span class="st">"fahrenheit"</span>, minutes <span class="op">=</span> <span class="fl">35</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <!-- ======================================================= -->
 </div>
 </div>
@@ -1415,40 +1432,40 @@ Hiểu đơn giản pipe nghĩa là “sau đó”. Nhiều hàm có thể đư�
 </li>
 <li>Các toán tử và hàm toán học (+/-, &gt;, sum(), median(), …)<br>
 </li>
-<li>Toán tử <code><a href="https://rdrr.io/r/base/match.html">%in%</a></code>
+<li>Toán tử <code>%in%</code>
 </li>
 </ul>
 <!-- ======================================================= --><div id="toán-tử-gán" class="section level3 unnumbered">
 <h3>Toán tử gán<a class="anchor" aria-label="anchor" href="#to%C3%A1n-t%E1%BB%AD-g%C3%A1n"><i class="fas fa-link"></i></a>
 </h3>
-<p><strong><code><a href="https://rdrr.io/r/base/assignOps.html">&lt;-</a></code></strong></p>
-<p>Toán tử gán cơ bản trong R là <code><a href="https://rdrr.io/r/base/assignOps.html">&lt;-</a></code>. Chẳng hạn như <code>object_name &lt;- value</code>.<br>
-Toán tử gán này cũng có thể được viết là <code><a href="https://rdrr.io/r/base/assignOps.html">=</a></code>. Chúng tôi khuyên bạn nên sử dụng <code><a href="https://rdrr.io/r/base/assignOps.html">&lt;-</a></code>.<br>
+<p><strong><code>&lt;-</code></strong></p>
+<p>Toán tử gán cơ bản trong R là <code>&lt;-</code>. Chẳng hạn như <code>object_name &lt;- value</code>.<br>
+Toán tử gán này cũng có thể được viết là <code>=</code>. Chúng tôi khuyên bạn nên sử dụng <code>&lt;-</code>.<br>
 Bạn nên sử dụng dấu cách trong khi viết code với toán tử gán để dễ đọc hơn.</p>
-<p><strong><code><a href="https://rdrr.io/r/base/assignOps.html">&lt;&lt;-</a></code></strong></p>
-<p>Khi <a href="writing-functions.html#writing-functions">Viết hàm</a>, hoặc khi sử dụng R với scipt nguồn, thì bạn có thể cần sử dụng toán tử gán này <code><a href="https://rdrr.io/r/base/assignOps.html">&lt;&lt;-</a></code> (từ <strong>base</strong> R). Toán tử này được sử dụng để định nghĩa một đối tượng trong một hàm lồng trong một hàm khác. Xem thêm tại <a href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/assignOps.html">nguồn tham khảo online này</a>.</p>
+<p><strong><code>&lt;&lt;-</code></strong></p>
+<p>Khi <a href="basics.html#vi%E1%BA%BFt-h%C3%A0m">Viết hàm</a>, hoặc khi sử dụng R với scipt nguồn, thì bạn có thể cần sử dụng toán tử gán này <code>&lt;&lt;-</code> (từ <strong>base</strong> R). Toán tử này được sử dụng để định nghĩa một đối tượng trong một hàm lồng trong một hàm khác. Xem thêm tại <a href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/assignOps.html">nguồn tham khảo online này</a>.</p>
 <p><strong><code>%&lt;&gt;%</code></strong></p>
 <p>Đây là một “pipe gán” từ package <strong>magrittr</strong>, package này sẽ <em>gán một đối tượng theo chiều tiến lên và cũng định nghĩa lại đối tượng</em>. Pipe gán phải là toán tử đầu tiên trong chuỗi pipe code. Đây là cách viết ngắn gọn, như được trình bày dưới đây là hai ví dụ tương đương với nhau:</p>
 <div class="sourceCode" id="cb98"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">linelist</span> <span class="op">&lt;-</span> <span class="va">linelist</span> <span class="op">%&gt;%</span> 
-  <span class="fu">mutate</span><span class="op">(</span>age_months <span class="op">=</span> <span class="va">age_years</span> <span class="op">*</span> <span class="fl">12</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">linelist</span> <span class="op">&lt;-</span> <span class="va">linelist</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>age_months <span class="op">=</span> <span class="va">age_years</span> <span class="op">*</span> <span class="fl">12</span><span class="op">)</span></span></code></pre></div>
 <p>Đoạn code bên trên tương đương với code dưới đây:</p>
 <div class="sourceCode" id="cb99"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">linelist</span> <span class="op">%&lt;&gt;%</span> <span class="fu">mutate</span><span class="op">(</span>age_months <span class="op">=</span> <span class="va">age_years</span> <span class="op">*</span> <span class="fl">12</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">linelist</span> <span class="op">%&lt;&gt;%</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>age_months <span class="op">=</span> <span class="va">age_years</span> <span class="op">*</span> <span class="fl">12</span><span class="op">)</span></span></code></pre></div>
 <p><strong><code>%&lt;+%</code></strong></p>
-<p>Toán tử này được sử dụng dể thêm dữ liệu vào Cây phả hệ với package <strong>ggtree</strong>. Xem thêm chương <a href="phylogenetic-trees.html#phylogenetic-trees">Cây phả hệ</a> hoặc <a href="https://yulab-smu.top/treedata-book/">Sách online này</a>.</p>
+<p>Toán tử này được sử dụng dể thêm dữ liệu vào Cây phả hệ với package <strong>ggtree</strong>. Xem thêm chương <a href="data-used.html#c%C3%A2y-ph%E1%BA%A3-h%E1%BB%87">Cây phả hệ</a> hoặc <a href="https://yulab-smu.top/treedata-book/">Sách online này</a>.</p>
 <!-- ======================================================= -->
 </div>
 <div id="toán-tử-quan-hệ-và-logic" class="section level3 unnumbered">
 <h3>Toán tử quan hệ và logic<a class="anchor" aria-label="anchor" href="#to%C3%A1n-t%E1%BB%AD-quan-h%E1%BB%87-v%C3%A0-logic"><i class="fas fa-link"></i></a>
 </h3>
 <p>Toán tử quan hệ so sánh các giá trị và thường được sử dụng khi định nghĩa các biến mới và tập con của bộ dữ liệu. Dưới đây là các toán tử quan hệ phổ biến trong R:</p>
-<div class="inline-table"><table class="table table-sm">
+<div class="inline-table"><table style="width:99%;" class="table table-sm">
 <colgroup>
 <col width="11%">
 <col width="6%">
 <col width="7%">
-<col width="75%">
+<col width="74%">
 </colgroup>
 <thead><tr class="header">
 <th>Ý nghĩa</th>
@@ -1459,46 +1476,46 @@ Bạn nên sử dụng dấu cách trong khi viết code với toán tử gán �
 <tbody>
 <tr class="odd">
 <td>Bằng</td>
-<td><code><a href="https://rdrr.io/r/base/Comparison.html">==</a></code></td>
+<td><code>==</code></td>
 <td><code>"A" == "a"</code></td>
 <td>
-<code>FALSE</code> (vì R phân biệt chữ hoa chữ thường) Lưu ý rằng <em>== (hai dấu bằng) khác với = (một dấu bằng), một dấu bằng hoạt động tương tự với toán tử gán <code><a href="https://rdrr.io/r/base/assignOps.html">&lt;-</a></code></em>
+<code>FALSE</code> (vì R phân biệt chữ hoa chữ thường) Lưu ý rằng <em>== (hai dấu bằng) khác với = (một dấu bằng), một dấu bằng hoạt động tương tự với toán tử gán <code>&lt;-</code></em>
 </td>
 </tr>
 <tr class="even">
 <td>Không bằng</td>
-<td><code><a href="https://rdrr.io/r/base/Comparison.html">!=</a></code></td>
+<td><code>!=</code></td>
 <td><code>2 != 0</code></td>
 <td><code>TRUE</code></td>
 </tr>
 <tr class="odd">
 <td>Lớn hơn</td>
-<td><code><a href="https://rdrr.io/r/base/Comparison.html">&gt;</a></code></td>
+<td><code>&gt;</code></td>
 <td><code>4 &gt; 2</code></td>
 <td><code>TRUE</code></td>
 </tr>
 <tr class="even">
 <td>Nhỏ hơn</td>
-<td><code><a href="https://rdrr.io/r/base/Comparison.html">&lt;</a></code></td>
+<td><code>&lt;</code></td>
 <td><code>4 &lt; 2</code></td>
 <td><code>FALSE</code></td>
 </tr>
 <tr class="odd">
 <td>Lớn hơn hoặc bằng</td>
-<td><code><a href="https://rdrr.io/r/base/Comparison.html">&gt;=</a></code></td>
+<td><code>&gt;=</code></td>
 <td><code>6 &gt;= 4</code></td>
 <td><code>TRUE</code></td>
 </tr>
 <tr class="even">
 <td>Nhỏ hơn hoặc bằng</td>
-<td><code><a href="https://rdrr.io/r/base/Comparison.html">&lt;=</a></code></td>
+<td><code>&lt;=</code></td>
 <td><code>6 &lt;= 4</code></td>
 <td><code>FALSE</code></td>
 </tr>
 <tr class="odd">
 <td>Giá trị bị missing</td>
 <td><code><a href="https://rdrr.io/r/base/NA.html">is.na()</a></code></td>
-<td><code><a href="https://rdrr.io/r/base/NA.html">is.na(7)</a></code></td>
+<td><code>is.na(7)</code></td>
 <td>
 <code>FALSE</code> (Xem thêm chương <a href="missing-data.html#missing-data">Dữ liệu Missing</a>)</td>
 </tr>
@@ -1523,12 +1540,12 @@ Bạn nên sử dụng dấu cách trong khi viết code với toán tử gán �
 <tbody>
 <tr class="odd">
 <td>AND</td>
-<td><code><a href="https://rdrr.io/r/base/Logic.html">&amp;</a></code></td>
+<td><code>&amp;</code></td>
 </tr>
 <tr class="even">
 <td>OR</td>
 <td>
-<code><a href="https://rdrr.io/r/base/Logic.html">|</a></code> (thanh dọc)</td>
+<code>|</code> (thanh dọc)</td>
 </tr>
 <tr class="odd">
 <td>Dấu ngoặc đơn</td>
@@ -1537,15 +1554,15 @@ Bạn nên sử dụng dấu cách trong khi viết code với toán tử gán �
 </tr>
 </tbody>
 </table></div>
-<p>Ví dụ: chúng ta có một số liệu có tên linelist với hai biến mà chúng tôi muốn sử dụng để minh họa, <code>hep_e_rdt</code>: kết quả xét nghiệm và <code>other_cases_in_hh</code>: những trường hợp khác trong gia đình. Lệnh dưới đây sử dụng hàm <code>case_when()</code> để tạo biến mới <code>case_def</code> như sau:</p>
+<p>Ví dụ: chúng ta có một số liệu có tên linelist với hai biến mà chúng tôi muốn sử dụng để minh họa, <code>hep_e_rdt</code>: kết quả xét nghiệm và <code>other_cases_in_hh</code>: những trường hợp khác trong gia đình. Lệnh dưới đây sử dụng hàm <code><a href="https://dplyr.tidyverse.org/reference/case_when.html">case_when()</a></code> để tạo biến mới <code>case_def</code> như sau:</p>
 <div class="sourceCode" id="cb100"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">linelist_cleaned</span> <span class="op">&lt;-</span> <span class="va">linelist</span> <span class="op">%&gt;%</span>
-  <span class="fu">mutate</span><span class="op">(</span>case_def <span class="op">=</span> <span class="fu">case_when</span><span class="op">(</span>
-    <span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">rdt_result</span><span class="op">)</span> <span class="op">&amp;</span> <span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">other_case_in_home</span><span class="op">)</span>            <span class="op">~</span> <span class="cn">NA_character_</span>,
-    <span class="va">rdt_result</span> <span class="op">==</span> <span class="st">"Positive"</span>                                 <span class="op">~</span> <span class="st">"Confirmed"</span>,
-    <span class="va">rdt_result</span> <span class="op">!=</span> <span class="st">"Positive"</span> <span class="op">&amp;</span> <span class="va">other_cases_in_home</span> <span class="op">==</span> <span class="st">"Yes"</span>  <span class="op">~</span> <span class="st">"Probable"</span>,
-    <span class="cn">TRUE</span>                                                     <span class="op">~</span> <span class="st">"Suspected"</span>
-  <span class="op">)</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">linelist_cleaned</span> <span class="op">&lt;-</span> <span class="va">linelist</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>case_def <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/case_when.html">case_when</a></span><span class="op">(</span></span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">rdt_result</span><span class="op">)</span> <span class="op">&amp;</span> <span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">other_case_in_home</span><span class="op">)</span>            <span class="op">~</span> <span class="cn">NA_character_</span>,</span>
+<span>    <span class="va">rdt_result</span> <span class="op">==</span> <span class="st">"Positive"</span>                                 <span class="op">~</span> <span class="st">"Confirmed"</span>,</span>
+<span>    <span class="va">rdt_result</span> <span class="op">!=</span> <span class="st">"Positive"</span> <span class="op">&amp;</span> <span class="va">other_cases_in_home</span> <span class="op">==</span> <span class="st">"Yes"</span>  <span class="op">~</span> <span class="st">"Probable"</span>,</span>
+<span>    <span class="cn">TRUE</span>                                                     <span class="op">~</span> <span class="st">"Suspected"</span></span>
+<span>  <span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-table"><table class="table table-sm">
 <colgroup>
 <col width="70%">
@@ -1584,8 +1601,8 @@ Bạn nên sử dụng dấu cách trong khi viết code với toán tử gán �
 <p>Trong R, giá trị missing được biểu diễn bằng giá trị đặc biệt <code>NA</code> (giá trị “dành riêng cho missing”) (chữ N và A viết hoa - không nằm trong dấu ngoặc kép). Nếu dữ liệu bạn nhập vào R bị missing theo cách khác (ví dụ: 99, “Missing”, or .), bạn có thể sẽ cần phải mã hóa lại các giá trị đó thành <code>NA</code>. Cách thực hiện việc này được đề cập trong chương <a href="importing.html#importing">Nhập xuất dữ liệu</a>.</p>
 <p><strong>Để kiểm tra xem một giá trị có phải là <code>NA</code> hay không, sử dụng hàm đặc biệt <code><a href="https://rdrr.io/r/base/NA.html">is.na()</a></code></strong>, kết quả sẽ trả về <code>TRUE</code> hoặc <code>FALSE</code>.</p>
 <div class="sourceCode" id="cb101"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">rdt_result</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Positive"</span>, <span class="st">"Suspected"</span>, <span class="st">"Positive"</span>, <span class="cn">NA</span><span class="op">)</span>   <span class="co"># two positive cases, one suspected, and one unknown</span>
-<span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">rdt_result</span><span class="op">)</span>  <span class="co"># Tests whether the value of rdt_result is NA</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">rdt_result</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Positive"</span>, <span class="st">"Suspected"</span>, <span class="st">"Positive"</span>, <span class="cn">NA</span><span class="op">)</span>   <span class="co"># two positive cases, one suspected, and one unknown</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">rdt_result</span><span class="op">)</span>  <span class="co"># Tests whether the value of rdt_result is NA</span></span></code></pre></div>
 <pre><code>## [1] FALSE FALSE FALSE  TRUE</code></pre>
 <p>Đọc thêm về missing, vô hạn, <code>NULL</code>, và các giá trị không thể trong chương <a href="missing-data.html#missing-data">Dữ liệu Missing</a>. Tìm hiểu thêm cách chuyển đổi các giá trị bị missing khi nhập dữ liệu trong chương <a href="importing.html#importing">Nhập xuất dữ liệu</a>.</p>
 <!-- ======================================================= -->
@@ -1691,19 +1708,19 @@ Bạn nên sử dụng dấu cách trong khi viết code với toán tử gán �
 <p>Từ tài liệu hướng dẫn của <code><a href="https://rdrr.io/r/base/options.html">?options</a></code>: scipen được áp dụng khi quyết định in các giá trị số theo ký hiệu cố định hoặc hàm mũ. Giá trị dương thuộc về ký hiệu cố định còn giá trị âm thuộc về ký hiệu khoa học: ký hiệu cố định sẽ luôn được ưu tiên trừ khi có nhiều chữ số ‘scipen’.</p>
 <p>Nếu như có rất nhiều số bé cần hiển thị (vd: số 0), mặc định tính năng này sẽ “được bật”. Để “tắt” tính năng ký hiệu khoa học trong phiên làm việc của bạn, hãy thiết lập nó với một số rất lớn, ví dụ:</p>
 <div class="sourceCode" id="cb103"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># turn off scientific notation</span>
-<span class="fu"><a href="https://rdrr.io/r/base/options.html">options</a></span><span class="op">(</span>scipen<span class="op">=</span><span class="fl">999</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># turn off scientific notation</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/options.html">options</a></span><span class="op">(</span>scipen<span class="op">=</span><span class="fl">999</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div id="làm-tròn" class="section level4 unnumbered">
 <h4>Làm tròn<a class="anchor" aria-label="anchor" href="#l%C3%A0m-tr%C3%B2n"><i class="fas fa-link"></i></a>
 </h4>
 <p><span style="color: red;"><strong><em>NGUY HIỂM:</em></strong> Hàm <code><a href="https://rdrr.io/r/base/Round.html">round()</a></code> sử dụng “cách làm tròn của ngân hàng” nghĩa là chỉ làm tròn với số .5 nếu số được làm tròn lên là số chẵn. Sử dụng hàm <code>round_half_up()</code> từ package <strong>janitor</strong> để thống nhất cách làm tròn với giá trị .5. Xem thêm <a href="https://cran.r-project.org/web/packages/janitor/vignettes/janitor.html#explore-records-with-duplicated-values-for-specific-combinations-of-variables-with-get_dupes">giải thích sau đây</a></span></p>
 <div class="sourceCode" id="cb104"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># use the appropriate rounding function for your work</span>
-<span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2.5</span>, <span class="fl">3.5</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># use the appropriate rounding function for your work</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2.5</span>, <span class="fl">3.5</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## [1] 2 4</code></pre>
 <div class="sourceCode" id="cb106"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">janitor</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/janitor/man/round_half_up.html">round_half_up</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2.5</span>, <span class="fl">3.5</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu">janitor</span><span class="fu">::</span><span class="fu"><a href="https://sfirke.github.io/janitor/reference/round_half_up.html">round_half_up</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2.5</span>, <span class="fl">3.5</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## [1] 3 4</code></pre>
 </div>
 <div id="các-hàm-thống-kê" class="section level4 unnumbered">
@@ -1757,27 +1774,27 @@ Bạn nên sử dụng dấu cách trong khi viết code với toán tử gán �
 <p>Notes:</p>
 <ul>
 <li>
-<code>*quantile()</code>: <code>x</code> là vectơ số cần khảo sát, và <code>probs =</code> là một vectơ số với các xác suất nằm giữa 0 và 1.0, ví dụ <code><a href="https://rdrr.io/r/base/c.html">c(0.5, 0.8, 0.85)</a></code>
+<code>*quantile()</code>: <code>x</code> là vectơ số cần khảo sát, và <code>probs =</code> là một vectơ số với các xác suất nằm giữa 0 và 1.0, ví dụ <code>c(0.5, 0.8, 0.85)</code>
 </li>
 <li>
 <code>**summary()</code>: trả về tóm tắt một vectơ số bao gồm giá trị trung bình, trung vị, và các khoảng phân vị thường gặp</li>
 </ul>
 <p><span style="color: red;"><strong><em>NGUY HIỂM:</em></strong> Nếu cung cấp một vectơ số cho một trong các hàm trên, hãy đảm bảo các số được đặt trong hàm <code><a href="https://rdrr.io/r/base/c.html">c()</a></code> .</span></p>
 <div class="sourceCode" id="cb108"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># If supplying raw numbers to a function, wrap them in c()</span>
-<span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">6</span>, <span class="fl">12</span>, <span class="fl">10</span>, <span class="fl">5</span>, <span class="fl">0</span><span class="op">)</span>    <span class="co"># !!! INCORRECT !!!  </span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># If supplying raw numbers to a function, wrap them in c()</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">6</span>, <span class="fl">12</span>, <span class="fl">10</span>, <span class="fl">5</span>, <span class="fl">0</span><span class="op">)</span>    <span class="co"># !!! INCORRECT !!!  </span></span></code></pre></div>
 <pre><code>## [1] 1</code></pre>
 <div class="sourceCode" id="cb110"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">6</span>, <span class="fl">12</span>, <span class="fl">10</span>, <span class="fl">5</span>, <span class="fl">0</span><span class="op">)</span><span class="op">)</span> <span class="co"># CORRECT</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">6</span>, <span class="fl">12</span>, <span class="fl">10</span>, <span class="fl">5</span>, <span class="fl">0</span><span class="op">)</span><span class="op">)</span> <span class="co"># CORRECT</span></span></code></pre></div>
 <pre><code>## [1] 5.666667</code></pre>
 </div>
 <div id="một-số-hàm-hữu-ích-khác" class="section level4 unnumbered">
 <h4>Một số hàm hữu ích khác<a class="anchor" aria-label="anchor" href="#m%E1%BB%99t-s%E1%BB%91-h%C3%A0m-h%E1%BB%AFu-%C3%ADch-kh%C3%A1c"><i class="fas fa-link"></i></a>
 </h4>
-<div class="inline-table"><table class="table table-sm">
+<div class="inline-table"><table style="width:99%;" class="table table-sm">
 <colgroup>
 <col width="26%">
-<col width="21%">
+<col width="20%">
 <col width="52%">
 </colgroup>
 <thead><tr class="header">
@@ -1789,24 +1806,24 @@ Bạn nên sử dụng dấu cách trong khi viết code với toán tử gán �
 <tr class="odd">
 <td>Tạo chuỗi số liên tục</td>
 <td>seq(from, to, by)</td>
-<td><code><a href="https://rdrr.io/r/base/seq.html">seq(1, 10, 2)</a></code></td>
+<td><code>seq(1, 10, 2)</code></td>
 </tr>
 <tr class="even">
 <td>lặp x, n lần</td>
 <td>rep(x, ntimes)</td>
 <td>
-<code><a href="https://rdrr.io/r/base/rep.html">rep(1:3, 2)</a></code> or <code><a href="https://rdrr.io/r/base/rep.html">rep(c("a", "b", "c"), 3)</a></code>
+<code>rep(1:3, 2)</code> or <code>rep(c("a", "b", "c"), 3)</code>
 </td>
 </tr>
 <tr class="odd">
 <td>chia nhỏ một vectơ số</td>
 <td>cut(x, n)</td>
-<td><code><a href="https://rdrr.io/r/base/cut.html">cut(linelist$age, 5)</a></code></td>
+<td><code>cut(linelist$age, 5)</code></td>
 </tr>
 <tr class="even">
 <td>lấy một mẫu ngẫu nhiên</td>
 <td>sample(x, size)</td>
-<td><code><a href="https://rdrr.io/r/base/sample.html">sample(linelist$id, size = 5, replace = TRUE)</a></code></td>
+<td><code>sample(linelist$id, size = 5, replace = TRUE)</code></td>
 </tr>
 </tbody>
 </table></div>
@@ -1819,41 +1836,41 @@ Bạn nên sử dụng dấu cách trong khi viết code với toán tử gán �
 </h3>
 <p>Một toán tử rất hữu ích để nhanh chóng đánh giá xem một giá trị có nằm trong một vectơ hoặc một dataframe hay không.</p>
 <div class="sourceCode" id="cb112"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">my_vector</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"a"</span>, <span class="st">"b"</span>, <span class="st">"c"</span>, <span class="st">"d"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">my_vector</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"a"</span>, <span class="st">"b"</span>, <span class="st">"c"</span>, <span class="st">"d"</span><span class="op">)</span></span></code></pre></div>
 <div class="sourceCode" id="cb113"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="st">"a"</span> <span class="op">%in%</span> <span class="va">my_vector</span></code></pre></div>
+<code class="sourceCode R"><span><span class="st">"a"</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="va">my_vector</span></span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
 <div class="sourceCode" id="cb115"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="st">"h"</span> <span class="op">%in%</span> <span class="va">my_vector</span></code></pre></div>
+<code class="sourceCode R"><span><span class="st">"h"</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="va">my_vector</span></span></code></pre></div>
 <pre><code>## [1] FALSE</code></pre>
-<p>Để truy vấn một giá trị <strong>không</strong> <code><a href="https://rdrr.io/r/base/match.html">%in%</a></code> một vectơ, hãy đặt dấu chấm than (!) <strong>phía trước</strong> biểu thức logic:</p>
+<p>Để truy vấn một giá trị <strong>không</strong> <code>%in%</code> một vectơ, hãy đặt dấu chấm than (!) <strong>phía trước</strong> biểu thức logic:</p>
 <div class="sourceCode" id="cb117"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># to negate, put an exclamation in front</span>
-<span class="op">!</span><span class="st">"a"</span> <span class="op">%in%</span> <span class="va">my_vector</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># to negate, put an exclamation in front</span></span>
+<span><span class="op">!</span><span class="st">"a"</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="va">my_vector</span></span></code></pre></div>
 <pre><code>## [1] FALSE</code></pre>
 <div class="sourceCode" id="cb119"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="op">!</span><span class="st">"h"</span> <span class="op">%in%</span> <span class="va">my_vector</span></code></pre></div>
+<code class="sourceCode R"><span><span class="op">!</span><span class="st">"h"</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="va">my_vector</span></span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
-<p><code><a href="https://rdrr.io/r/base/match.html">%in%</a></code> sẽ rất hữu dụng khi dùng hàm <code>case_when()</code> của package <strong>dplyr</strong>. Bạn có thể định nghĩa một vectơ trước đó, sau đó tham chiếu đến nó. ví dụ:</p>
+<p><code>%in%</code> sẽ rất hữu dụng khi dùng hàm <code><a href="https://dplyr.tidyverse.org/reference/case_when.html">case_when()</a></code> của package <strong>dplyr</strong>. Bạn có thể định nghĩa một vectơ trước đó, sau đó tham chiếu đến nó. ví dụ:</p>
 <div class="sourceCode" id="cb121"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">affirmative</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"1"</span>, <span class="st">"Yes"</span>, <span class="st">"YES"</span>, <span class="st">"yes"</span>, <span class="st">"y"</span>, <span class="st">"Y"</span>, <span class="st">"oui"</span>, <span class="st">"Oui"</span>, <span class="st">"Si"</span><span class="op">)</span>
-
-<span class="va">linelist</span> <span class="op">&lt;-</span> <span class="va">linelist</span> <span class="op">%&gt;%</span> 
-  <span class="fu">mutate</span><span class="op">(</span>child_hospitaled <span class="op">=</span> <span class="fu">case_when</span><span class="op">(</span>
-    <span class="va">hospitalized</span> <span class="op">%in%</span> <span class="va">affirmative</span> <span class="op">&amp;</span> <span class="va">age</span> <span class="op">&lt;</span> <span class="fl">18</span> <span class="op">~</span> <span class="st">"Hospitalized Child"</span>,
-    <span class="cn">TRUE</span>                                      <span class="op">~</span> <span class="st">"Not"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
-<p>Lưu ý: Nếu bạn muốn phát hiện một phần của chuỗi, có lẽ việc sử dụng hàm <code>str_detect()</code> từ package <strong>stringr</strong>, sẽ không chấp nhận một vectơ ký tự kiểu như <code><a href="https://rdrr.io/r/base/c.html">c("1", "Yes", "yes", "y")</a></code>. Thay vào đó, nó cần được cung cấp dưới dạng một <em>biểu thức chính quy</em> - một chuối cô đọng với thanh dọc cho phép so sánh OR, chẳng hạn như “1|Yes|yes|y”. Ví dụ, <code>str_detect(hospitalized, "1|Yes|yes|y")</code>. Xem thêm chương <a href="characters-strings.html#characters-strings">Ký tự và chuỗi</a> để biết thêm chi tiết.</p>
+<code class="sourceCode R"><span><span class="va">affirmative</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"1"</span>, <span class="st">"Yes"</span>, <span class="st">"YES"</span>, <span class="st">"yes"</span>, <span class="st">"y"</span>, <span class="st">"Y"</span>, <span class="st">"oui"</span>, <span class="st">"Oui"</span>, <span class="st">"Si"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">linelist</span> <span class="op">&lt;-</span> <span class="va">linelist</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>child_hospitaled <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/case_when.html">case_when</a></span><span class="op">(</span></span>
+<span>    <span class="va">hospitalized</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="va">affirmative</span> <span class="op">&amp;</span> <span class="va">age</span> <span class="op">&lt;</span> <span class="fl">18</span> <span class="op">~</span> <span class="st">"Hospitalized Child"</span>,</span>
+<span>    <span class="cn">TRUE</span>                                      <span class="op">~</span> <span class="st">"Not"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<p>Lưu ý: Nếu bạn muốn phát hiện một phần của chuỗi, có lẽ việc sử dụng hàm <code><a href="https://stringr.tidyverse.org/reference/str_detect.html">str_detect()</a></code> từ package <strong>stringr</strong>, sẽ không chấp nhận một vectơ ký tự kiểu như <code>c("1", "Yes", "yes", "y")</code>. Thay vào đó, nó cần được cung cấp dưới dạng một <em>biểu thức chính quy</em> - một chuối cô đọng với thanh dọc cho phép so sánh OR, chẳng hạn như “1|Yes|yes|y”. Ví dụ, <code>str_detect(hospitalized, "1|Yes|yes|y")</code>. Xem thêm chương <a href="characters-strings.html#characters-strings">Ký tự và chuỗi</a> để biết thêm chi tiết.</p>
 <p>Bạn có thể chuyển đổi một vectơ ký tự thành một biểu thức chính quy được đặt tên bằng lệnh này:</p>
 <div class="sourceCode" id="cb122"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">affirmative</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"1"</span>, <span class="st">"Yes"</span>, <span class="st">"YES"</span>, <span class="st">"yes"</span>, <span class="st">"y"</span>, <span class="st">"Y"</span>, <span class="st">"oui"</span>, <span class="st">"Oui"</span>, <span class="st">"Si"</span><span class="op">)</span>
-<span class="va">affirmative</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">affirmative</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"1"</span>, <span class="st">"Yes"</span>, <span class="st">"YES"</span>, <span class="st">"yes"</span>, <span class="st">"y"</span>, <span class="st">"Y"</span>, <span class="st">"oui"</span>, <span class="st">"Oui"</span>, <span class="st">"Si"</span><span class="op">)</span></span>
+<span><span class="va">affirmative</span></span></code></pre></div>
 <pre><code>## [1] "1"   "Yes" "YES" "yes" "y"   "Y"   "oui" "Oui" "Si"</code></pre>
 <div class="sourceCode" id="cb124"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># condense to </span>
-<span class="va">affirmative_str_search</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span><span class="va">affirmative</span>, collapse <span class="op">=</span> <span class="st">"|"</span><span class="op">)</span>  <span class="co"># option with base R</span>
-<span class="va">affirmative_str_search</span> <span class="op">&lt;-</span> <span class="fu">str_c</span><span class="op">(</span><span class="va">affirmative</span>, collapse <span class="op">=</span> <span class="st">"|"</span><span class="op">)</span>   <span class="co"># option with stringr package</span>
-
-<span class="va">affirmative_str_search</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># condense to </span></span>
+<span><span class="va">affirmative_str_search</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span><span class="va">affirmative</span>, collapse <span class="op">=</span> <span class="st">"|"</span><span class="op">)</span>  <span class="co"># option with base R</span></span>
+<span><span class="va">affirmative_str_search</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://stringr.tidyverse.org/reference/str_c.html">str_c</a></span><span class="op">(</span><span class="va">affirmative</span>, collapse <span class="op">=</span> <span class="st">"|"</span><span class="op">)</span>   <span class="co"># option with stringr package</span></span>
+<span></span>
+<span><span class="va">affirmative_str_search</span></span></code></pre></div>
 <pre><code>## [1] "1|Yes|YES|yes|y|Y|oui|Oui|Si"</code></pre>
 <!-- ======================================================= -->
 <!-- ======================================================= -->
@@ -1872,7 +1889,7 @@ Bạn nên sử dụng dấu cách trong khi viết code với toán tử gán �
 </li>
 <li>Trợ giúp viết code</li>
 </ul>
-<p>Các lỗi thường gặp và cảnh báo cũng như mẹo khắc phục sự cố có thể được tìm thấy trong chương <a href="errors.html#c%C3%A1c-l%E1%BB%97i-th%C6%B0%E1%BB%9Dng-g%E1%BA%B7p">Các lỗi thường gặp</a>.</p>
+<p>Các lỗi thường gặp và cảnh báo cũng như mẹo khắc phục sự cố có thể được tìm thấy trong chương <a href="errors.html#errors">Các lỗi thường gặp</a>.</p>
 <!-- ======================================================= -->
 <div id="lỗi-và-cảnh-báo-1" class="section level3 unnumbered">
 <h3>Lỗi và Cảnh báo<a class="anchor" aria-label="anchor" href="#l%E1%BB%97i-v%C3%A0-c%E1%BA%A3nh-b%C3%A1o-1"><i class="fas fa-link"></i></a>
@@ -2033,7 +2050,7 @@ Bạn nên sử dụng dấu cách trong khi viết code với toán tử gán �
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Cẩm nang dịch tễ học với R</strong>" was written by the handbook team. It was last built on 2021-11-01.</p>
+    <p>"<strong>Cẩm nang dịch tễ học với R</strong>" was written by the handbook team. It was last built on 2024-02-16.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
@@ -2046,13 +2063,29 @@ Bạn nên sử dụng dấu cách trong khi viết code với toán tử gán �
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');
     script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
 </script>
 </body>
 </html>

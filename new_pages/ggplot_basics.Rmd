@@ -23,6 +23,8 @@ Có một số hướng dẫn **ggplot2** mở rộng được liên kết trong
 ```{r}
 pacman::p_load(
   tidyverse,      # includes ggplot2 and other data management tools
+  janitor,        # cleaning and summary tables
+  ggforce,        # ggplot extras
   rio,            # import/export
   here,           # file locator
   stringr         # working with characters   

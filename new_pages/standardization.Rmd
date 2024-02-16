@@ -470,7 +470,7 @@ refpopCountryB <- country_data %>%
 # Calculate rates for country A indirectly standardized by age and sex
 mortality_is_rate_phe_A <- country_data %>%
      filter(Country == "A") %>%
-     PHEindicatormethods::phe_isr(
+     PHEindicatormethods::calculate_ISRate(
           x = Deaths,                 # column with observed number of events
           n = Population,             # column with non-standard pops for each stratum
           x_ref = refpopCountryB$Deaths,  # reference number of deaths for each stratum

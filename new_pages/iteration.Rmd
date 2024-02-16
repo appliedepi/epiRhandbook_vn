@@ -271,7 +271,7 @@ outbreak <- incidence2::incidence(
      x = linelist,                   # dataframe - complete linelist
      date_index = "date_onset",      # date column
      interval = "week",              # aggregate counts weekly
-     groups = gender)                # group values by gender
+     groups = "gender")              # group values by gender
      #na_as_group = TRUE)            # missing gender is own group
 
 # plot epi curve

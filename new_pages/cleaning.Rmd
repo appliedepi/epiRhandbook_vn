@@ -1017,10 +1017,13 @@ Bạn có thể đọc thêm về hàm ở [package documentation](https://cran.
 
 ```{r}
 linelist <- linelist %>% 
-  linelist::clean_variable_spelling(
-    wordlists = cleaning_dict,
-    spelling_vars = "col",        # dict column containing column names, defaults to 3rd column in dict
+  matchmaker::match_df(
+          dictionary = cleaning_dict,  # name of your dictionary
+          from = "from",               # column with values to be replaced (default is col 1)
+          to = "to",                   # column with final values (default is col 2)
+          by = "col"                   # column with column names (default is col 3)
   )
+
 ```
 
 Bây giờ, hãy cuộn sang bên phải để xem các giá trị đã thay đổi như thế nào - đặc biệt là `gender` (chữ thường thành chữ hoa) và tất cả các cột triệu chứng đã được chuyển từ có/không thành 1/0.
@@ -1424,7 +1427,7 @@ linelist <- linelist_raw %>%
     mutate(age_years = case_when(
           age_unit == "years" ~ age,
           age_unit == "months" ~ age/12,
-          is.na(age_unit) ~ age) %>%
+          is.na(age_unit) ~ age)) %>%
   
     # ABOVE ARE UPSTREAM CLEANING STEPS ALREADY DISCUSSED
     ###################################################   
@@ -1695,7 +1698,7 @@ linelist <- linelist_raw %>%
     mutate(age_years = case_when(
           age_unit == "years" ~ age,
           age_unit == "months" ~ age/12,
-          is.na(age_unit) ~ age) %>%
+          is.na(age_unit) ~ age)) %>%
   
     mutate(
           # age categories: custom

@@ -50,15 +50,13 @@ knitr::include_graphics(here::here("images", "Epi R Handbook Banner Vietnamese 1
 
 ## Dịch tễ học ứng dụng và y tế công cộng với R {.unnumbered}
 
-**Sổ tay này hướng tới:**
+**Sử dụng**: Sổ tay này đã được sử dụng trên **1 triệu lần bởi 450,000 người** trên toàn thế giới.
 
--   Là một tài liệu tham khảo R một cách nhanh chóng\
--   Cung cấp các ví dụ tập trung vào nhiệm vụ giải quyết các vấn đề dịch tễ học phổ biến\
--   Hỗ trợ các nhà dịch tễ học chuyển sang sử dụng R\
--   Có thể sử dụng trong các tình huống có kết nối internet thấp thông qua **[phiên bản ngoại tuyến][Tải sách và dữ liệu]**
+**Mục tiêu:** Là một tài liệu tham khảo R một cách nhanh chóng (trực tuyến và **[ngoại tuyến][Tải sách và dữ liệu]**), cung cấp các ví dụ tập trung vào nhiệm vụ giải quyết các vấn đề dịch tễ học phổ biến.  
 
+**Bạn mới bắt đầu học R?** Thử trải nghiệm **[các học phần tương tác miễn phí](https://www.appliedepi.org/tutorial/)** hoặc khóa học trực tuyến **[nền tảng về R](https://www.appliedepi.org/live/)** của chúng tôi, đã được sử dụng bởi US CDC, WHO, 75+ tổ chức y tế khác, và các Chương trình đào tạo dịch tễ học thực địa (FETP) trên toàn thế giới.
 
-**Ngôn ngữ:** [English](https://epirhandbook.com/)  
+**Ngôn ngữ:** [Tiếng Anh (English)](https://epirhandbook.com/en/), [Tiếng Việt)](https://epirhandbook.com/vn/), [Tiếng Pháp (Français)](https://epirhandbook.com/fr), [Tiếng Tây Ban Nha (Español)](https://epirhandbook.com/es), [Tiếng Nhật (日本)](https://epirhandbook.com/jp), [Tiếng Thổ Nhĩ Kỳ (Türkçe)](https://epirhandbook.com/tr), [Tiếng Bồ Đào Nha (Português)](https://epirhandbook.com/pt),  [Tiếng Nga (Русский)](https://epirhandbook.com/ru)
 
 
 <!-- * Use practical epi examples - cleaning case linelists, making transmission chains and epidemic curves, automated reports and dashboards, modeling incidence and making projections, demographic pyramids and rate standardization, record matching, outbreak detection, survey analysis, survival analysis, GIS basics, contact tracing, phylogenetic trees...   -->
@@ -89,11 +87,13 @@ a column separator -->
 
 [**Được viết bởi các nhà dịch tễ học, dành cho các nhà dịch tễ học**]{style="color: black;"}
 
-Applied Epi là một tổ chức phi lợi nhuận và phong trào cơ sở của các nhà dịch tễ học từ khắp mọi nơi trên thế giới. Chúng tôi dành thời gian rảnh rỗi của mình để viết và cung cấp tài nguyên này cho cộng đồng. Mọi lời động viên khuyến khích và phản hồi của bạn đều được chúng tôi chào đón:
+Applied Epi là một tổ chức phi lợi nhuận của các nhà dịch tễ học thực địa từ khắp mọi nơi trên thế giới. Chúng tôi dành thời gian rảnh rỗi của mình để viết và cung cấp tài liệu này cho cộng đồng. Mọi lời động viên khuyến khích và phản hồi của bạn đều được chúng tôi chào đón:
 
--   Gửi [**biểu mẫu phản hồi**](https://forms.gle/A5SnRVws7tPD15Js9)\
--   Email tới [**epiRhandbook\@gmail.com**](mailto:epiRhandbook@gmail.com){.email} hoặc tweet [**\@epiRhandbook**](https://twitter.com/epirhandbook)\
--   Gửi các vấn đề cho chúng tôi tại [**Github repository**](https://github.com/appliedepi/epirhandbook_eng)
+* Truy cập **[website](http://www.appliedepi.org)** của chúng tôi và **[ghi danh vào danh sách liên lạc](https://forms.gle/9awNd8syypTSYUsn7)**  
+* **contact@appliedepi.org**, tweet **[\@appliedepi](https://twitter.com/appliedepi)**, hoặc **[LinkedIn](www.linkedin.com/company/appliedepi)**  
+* Gửi các vấn đề cho chúng tôi tại **[Github repository](https://github.com/appliedepi/epiRhandbook_eng)**  
+
+Chúng tôi cũng cung cấp các khóa học trực tuyến với đội ngũ giảng viên giàu kinh nghiệm đến từ khắp mọi nơi trên thế giới. Hãy liên hệ với chúng tôi nếu bạn cần sự hỗ trợ.
 
 
 <form target="_blank" action="https://www.paypal.com/donate" method="post" target="_top">
@@ -134,9 +134,9 @@ Sổ tay này **không phải** là sản phẩm đã được phê duyệt củ
 
 **Nhóm tác giả**: [Neale Batra](https://www.linkedin.com/in/neale-batra/), [Alex Spina](https://github.com/aspina7), [Paula Blomquist](https://www.linkedin.com/in/paula-bianca-blomquist-53188186/), [Finlay Campbell](https://github.com/finlaycampbell), [Henry Laurenson-Schafer](https://github.com/henryls1), [Isaac Florence](www.Twitter.com/isaacatflorence), [Natalie Fischer](https://www.linkedin.com/in/nataliefischer211/), [Aminata Ndiaye](https://twitter.com/aminata_fadl), [Liza Coyer]( https://www.linkedin.com/in/liza-coyer-86022040/), [Jonathan Polonsky](https://twitter.com/jonny_polonsky), [Yurie Izawa](https://ch.linkedin.com/in/yurie-izawa-a1590319), [Chris Bailey](https://twitter.com/cbailey_58?lang=en), [Daniel Molling](https://www.linkedin.com/in/daniel-molling-4005716a/), [Isha Berry](https://twitter.com/ishaberry2), [Emma Buajitti](https://twitter.com/buajitti), [Mathilde Mousset](https://mathildemousset.wordpress.com/research/), [Sara Hollis](https://www.linkedin.com/in/saramhollis/), Wen Lin  
 
-**Nhóm dịch giả**: [Nguyễn Thanh Lương](https://www.linkedin.com/in/ntluong95/), [Nguyễn Thị Khánh Huyền](https://www.linkedin.com/in/huyen-nguyen-thi-khanh-3920b51a6/), Võ Hữu Thuận, Nguyễn Trung Thành, Vũ Thu Hà, [Hồ Hoàng Dung](https://www.linkedin.com/in/dzunggg/)
+**Nhóm dịch giả**: [Nguyễn Thanh Lương](https://www.linkedin.com/in/ntluong95/), Võ Hữu Thuận, Nguyễn Trung Thành, Vũ Thu Hà, [Hồ Hoàng Dung](https://www.linkedin.com/in/dzunggg/)
 
-**Nhóm phản biện**: Pat Keating,  [Amrish Baidjoe](https://twitter.com/Ammer_B), Annick Lenglet, Margot Charette, Danielly Xavier, Marie-Amélie Degail Chabrat, Esther Kukielka, Michelle Sloan, Aybüke Koyuncu, Rachel Burke, Kate Kelsey, [Berhe Etsay](https://www.linkedin.com/in/berhe-etsay-5752b1154/), John Rossow, Mackenzie Zendt, James Wright, Laura Haskins, [Flavio Finger](ffinger.github.io), Tim Taylor, [Jae Hyoung Tim Lee](https://www.linkedin.com/in/jaehyoungtlee/), [Brianna Bradley](https://www.linkedin.com/in/brianna-bradley-bb8658155), [Wayne Enanoria](https://www.linkedin.com/in/wenanoria), Manual Albela Miranda, [Molly Mantus](https://www.linkedin.com/in/molly-mantus-174550150/), Pattama Ulrich, Joseph Timothy, Adam Vaughan, Olivia Varsaneux, Lionel Monteiro, Joao Muianga  
+**Nhóm phản biện**: Pat Keating, [Amrish Baidjoe](https://twitter.com/Ammer_B), Annick Lenglet, Margot Charette, Danielly Xavier, Marie-Amélie Degail Chabrat, Esther Kukielka, Michelle Sloan, Aybüke Koyuncu, Rachel Burke, Kate Kelsey, [Berhe Etsay](https://www.linkedin.com/in/berhe-etsay-5752b1154/), John Rossow, Mackenzie Zendt, James Wright, Laura Haskins, [Flavio Finger](ffinger.github.io), Tim Taylor, [Jae Hyoung Tim Lee](https://www.linkedin.com/in/jaehyoungtlee/), [Brianna Bradley](https://www.linkedin.com/in/brianna-bradley-bb8658155), [Wayne Enanoria](https://www.linkedin.com/in/wenanoria), Manual Albela Miranda, [Molly Mantus](https://www.linkedin.com/in/molly-mantus-174550150/), Pattama Ulrich, Joseph Timothy, Adam Vaughan, Olivia Varsaneux, Lionel Monteiro, Joao Muianga  
 
 **Hình minh họa**: Calder Fong
 
@@ -150,7 +150,9 @@ Sổ tay này **không phải** là sản phẩm đã được phê duyệt củ
 
 ### Tài trợ và hỗ trợ {.unnumbered}
 
-Sổ tay này nhận được tài trợ thông qua kinh phí hỗ trợ trợ xây dựng năng lực khẩn cấp COVID-19 từ [TEPHINET](https://www.tephinet.org/), mạng lưới toàn cầu của các Chương trình Đào tạo Dịch tễ học Thực địa (FETPs).
+Sổ tay này là sản phẩm chủ yếu được hình thành từ các nỗ lực tình nguyện hàng nghìn giờ để tạo ra.
+
+Nó cũng nhận được một phần tài trợ thông qua kinh phí hỗ trợ trợ xây dựng năng lực khẩn cấp COVID-19 từ [TEPHINET](https://www.tephinet.org/), mạng lưới toàn cầu của các Chương trình Đào tạo Dịch tễ học Thực địa (FETPs).
 
 Các hỗ trợ hành chính được cung cấp bởi mạng lưới cựu sinh EPIET ([EAN](https://epietalumni.net/)), với lời cảm ơn đặc biệt tới Annika Wendland. EPIET là Chương trình đào tạo Dịch tễ học can thiệp tại Châu Âu.
 
@@ -4177,7 +4179,7 @@ Nhiều hàm thuộc về package [**dplyr**](https://dplyr.tidyverse.org/), mà
 +-----------------------------------------------------+------------------------------------------------------------+--------------------------+
 | `age_categories()` and `cut()`                      | tạo biến phân nhóm từ biến định lượng                      | **epikit** và **base** R |
 +-----------------------------------------------------+------------------------------------------------------------+--------------------------+
-| `clean_variable_spelling()`                         | recode/làm sạch giá trị sử dụng từ điển dữ liệu            | **linelist**             |
+| `match_df()`                                        | recode/làm sạch giá trị sử dụng từ điển dữ liệu            | **matchmaker**           |
 +-----------------------------------------------------+------------------------------------------------------------+--------------------------+
 | `which()`                                           | áp dụng các điều kiện logic; trả về các chỉ số             | **base** R               |
 +-----------------------------------------------------+------------------------------------------------------------+--------------------------+
@@ -5028,15 +5030,35 @@ Ví dụ: chúng tôi sử dụng cột `age` và `age_unit` để tạo cột `
 ```{r}
 linelist <- linelist %>% 
   mutate(age_years = case_when(
-            age_unit == "years"  ~ age,       # if age is given in years
-            age_unit == "months" ~ age/12,    # if age is given in months
+            age_unit == "years"  ~ age,       # if unit is years
+            age_unit == "months" ~ age/12,    # if unit is months, divide age by 12
             is.na(age_unit)      ~ age,       # if age unit is missing, assume years
-            TRUE                 ~ NA_real_)) # any other circumstance, assign missing
+            TRUE                 ~ NA_real_)) # any other circumstance, assign NA (missing)
 ```
 
-Khi mỗi hàng trong dữ liệu được đánh giá, các tiêu chí được áp dụng/đánh giá theo thứ tự đã viết trong `case_when()` - từ trên xuống dưới. Nếu tiêu chí hàng đầu đánh giá là `TRUE` cho một hàng nhất định, giá trị Bên tay phải sẽ được chỉ định và các tiêu chí còn lại thậm chí không được kiểm tra cho hàng đó. Vì vậy, tốt nhất là bạn nên viết các tiêu chí cụ thể nhất trước và cuối cùng là tiêu chí chung chung.
+Khi mỗi hàng trong dữ liệu được đánh giá, các tiêu chí được áp dụng/đánh giá theo thứ tự đã viết trong `case_when()` - từ trên xuống dưới. Nếu tiêu chí đánh giá đầu tiên trả kết quả là `TRUE` cho một hàng nhất định, giá trị Bên tay phải sẽ được gán và các tiêu chí còn lại sẽ không được kiểm tra cho hàng đó. Vì vậy, tốt nhất là bạn nên viết các tiêu chí đánh giá cụ thể nhất lên đầu, theo sau bởi các tiêu chí chung hơn. Các dòng không đáp ứng bất kỳ tiêu chí nào sẽ được gán giá trị `NA`.
 
-Dọc theo những dòng đó, trong mệnh đề cuối cùng của bạn, hãy đặt `TRUE` ở phía bên trái để ghi lại bất kỳ hàng nào không đáp ứng bất kỳ tiêu chí nào trước đó. Phía bên phải của câu lệnh này có thể được gán một giá trị như "kiểm tra tôi! (check me)" hoặc missing.
+Đôi khi, bạn muốn gán một giá trị cụ thể cho biến mới mà không thỏa mãn bất kỳ tiêu chí nào, hãy đặt `TRUE` ở phía bên trái của tiêu chí đánh giá cuối cùng. Phía bên phải của mệnh đề này có thể được gán một giá trị như "kiểm tra tôi! (check me)" hoặc missing.
+
+Dưới đấy là một ví dụ khác sử dụng `case_when()` để tạo cột mới phân loại tình trạng bệnh nhân, dựa theo định nghĩa ca bệnh là đã xác định hoặc nghi ngờ:  
+
+```{r, eval=F}
+linelist <- linelist %>% 
+     mutate(case_status = case_when(
+          
+          # if patient had lab test and it is positive,
+          # then they are marked as a confirmed case 
+          ct_blood < 20                   ~ "Confirmed",
+          
+          # given that a patient does not have a positive lab result,
+          # if patient has a "source" (epidemiological link) AND has fever, 
+          # then they are marked as a suspect case
+          !is.na(source) & fever == "yes" ~ "Suspect",
+          
+          # any other patient not addressed above 
+          # is marked for follow up
+          TRUE                            ~ "To investigate"))
+```
 
 [***NGUY HIỂM***: Các giá trị ở phía bên phải đều phải cùng một phần lớp - số, ký tự, ngày tháng, lôgic, v.v. Để gán giá trị thiếu (NA), bạn có thể cần sử dụng các biến thể đặc biệt của `NA` như `NA_character_`, `NA_real_` (cho số hoặc POSIX) và `as.Date(NA)`. Đọc thêm trong chương [Làm việc với ngày tháng].]{style="color: red;"}
 
@@ -5093,7 +5115,7 @@ linelist <- linelist %>%
 
 ### Từ điển làm sạch {.unnumbered}
 
-Sử dụng package **linelist** trong R và hàm `clean_variable_spelling()` để làm sạch bộ dữ liệu bằng *từ điển làm sạch*. **linelist** là một package được phát triển bởi [RECON](https://github.com/reconhub/linelist) - R Epidemics Consortium.
+Sử dụng package **matchmaker** trong R và hàm `match_df()` để làm sạch bộ dữ liệu bằng *từ điển làm sạch*.
 
 1)  Tạo từ điển làm sạch với 3 cột:
 
@@ -5103,7 +5125,7 @@ Sử dụng package **linelist** trong R và hàm `clean_variable_spelling()` đ
 
 Lưu ý: các mục từ điển .global sẽ bị ghi đè bởi các mục từ điển theo cột cụ thể.
 
-```{r, fig.align = "center", out.width = "100%", echo=F}
+```{r, fig.align = "center", out.width = "75%", echo=F}
 knitr::include_graphics(here::here("images", "cleaning_dict.png"))
 ```
 
@@ -5117,14 +5139,19 @@ cleaning_dict <- rio::import(here("data", "case_linelists", "cleaning_dict.csv")
 cleaning_dict <- import("cleaning_dict.csv")
 ```
 
-3)  Chuyển bộ dữ liệu linelist ban đầu đến hàm `clean_variable_spelling()`, xác định `wordlists =` là bộ dữ liệu từ điển làm sạch. Đối số `spelling_vars =` có thể được sử dụng để chỉ định cột nào trong từ điển tham chiếu đến các cột khác (cột thứ 3 theo mặc định) hoặc có thể được đặt thành `NULL` để từ điển áp dụng cho tất cả các cột dạng ký tự và phân loại. Lưu ý rằng hàm này có thể mất nhiều thời gian để chạy.
+3)  Chuyển bộ dữ liệu linelist ban đầu đến hàm `match_df()`, xác định `dictionary = ` là bộ dữ liệu từ điển làm sạch. Đối số `from = ` dùng để chỉ định cột trong từ điển tham chiếu chứa các giá trị "cũ", đối số `by = ` dùng để chỉ định cột trong từ điển tham chiếu chứa các giá trị "mới" tương ứng và cột thứ ba liệt kê cột thực hiện thay đổi. Sử dụng `.global` trong đối số `by =` để áp dụng thay đổi trên tất cả các cột. Cột từ điển thứ tư `order` có thể được sử dụng để chỉ định thức bậc của các giá trị mới.
+
+Bạn có thể đọc thêm về hàm ở [package documentation](https://cran.r-project.org/web/packages/matchmaker/vignettes/intro.html) bằng cách chạy `?match_df`. Lưu ý rằng hàm này có thể mất nhiều thời gian để chạy trên dữ liệu lớn.  
 
 ```{r}
 linelist <- linelist %>% 
-  linelist::clean_variable_spelling(
-    wordlists = cleaning_dict,
-    spelling_vars = "col",        # dict column containing column names, defaults to 3rd column in dict
+  matchmaker::match_df(
+          dictionary = cleaning_dict,  # name of your dictionary
+          from = "from",               # column with values to be replaced (default is col 1)
+          to = "to",                   # column with final values (default is col 2)
+          by = "col"                   # column with column names (default is col 3)
   )
+
 ```
 
 Bây giờ, hãy cuộn sang bên phải để xem các giá trị đã thay đổi như thế nào - đặc biệt là `gender` (chữ thường thành chữ hoa) và tất cả các cột triệu chứng đã được chuyển từ có/không thành 1/0.
@@ -5528,8 +5555,7 @@ linelist <- linelist_raw %>%
     mutate(age_years = case_when(
           age_unit == "years" ~ age,
           age_unit == "months" ~ age/12,
-          is.na(age_unit) ~ age,
-          TRUE ~ NA_real_)) %>% 
+          is.na(age_unit) ~ age)) %>%
   
     # ABOVE ARE UPSTREAM CLEANING STEPS ALREADY DISCUSSED
     ###################################################   
@@ -5800,8 +5826,7 @@ linelist <- linelist_raw %>%
     mutate(age_years = case_when(
           age_unit == "years" ~ age,
           age_unit == "months" ~ age/12,
-          is.na(age_unit) ~ age,
-          TRUE ~ NA_real_)) %>% 
+          is.na(age_unit) ~ age)) %>%
   
     mutate(
           # age categories: custom
@@ -5987,7 +6012,7 @@ Ngày trong R có kiểu đối tượng riêng - kiểu `Date`. Nên lưu ý r�
 
 pacman::p_load(
   lubridate,  # general package for handling and converting dates  
-  linelist,   # has function to "guess" messy dates
+  parsedate,   # has function to "guess" messy dates
   aweek,      # another option for converting dates to weeks, and weeks to dates
   zoo,        # additional date/time functions
   tidyverse,  # data management and visualization  
@@ -6051,7 +6076,7 @@ Dưới đây, chúng tôi trình bày hai cách để chuyển đổi một c�
 Sử dụng hàm `as.Date()` yêu cầu:  
 
 * Bạn *làm rõ định dạng **hiện tại** của ngày ở dạng văn bản gốc* hoặc ngày gốc nếu biến ngày được cung cấp dưới dạng số (xem mục ngày tháng trong Excel)  
-* Nếu hàm được áp dụng trên cột dạng văn bản, tất cả các giá trị ngày phải có cùng một định dạng chính xác (nếu không như vậy, hãy thử hàm `guess_dates()` từ package **linelist**)  
+* Nếu hàm được áp dụng trên cột dạng văn bản, tất cả các giá trị ngày phải có cùng một định dạng chính xác (nếu không như vậy, hãy thử hàm `parse_date()` từ package **parsedate**)  
 
 **Trước tiên**, hãy kiểm tra kiểu của cột với hàm `class()` trong **base** R. Nếu bạn không chắc chắn hoặc phân vân về kiểu dữ liệu của cột (vd: bạn thấy "POSIXct", v.v.) dễ dàng nhất là chuyển đổi cột thành kiểu văn bản với hàm `as.character()`, và sau đó chuyển đổi nó thành kiểu Ngày.  
 
@@ -6206,7 +6231,7 @@ Hàm `guess_dates()` từ package **linelist** cố gắng nhận diện một c
 Ví dụ: hàm `guess_dates` sẽ nhận diện một vectơ gồm các ngày chứa ký tự như sau "03 Jan 2018", "07/03/1982", và "08/20/85" và chuyển đổi chúng thành định dạng Ngày tiêu chuẩn như: `2018-01-03`, `1982-03-07`, và `1985-08-20`.  
 
 ```{r, }
-linelist::guess_dates(c("03 Jan 2018",
+parsedate::parse_date(c("03 Jan 2018",
                         "07/03/1982",
                         "08/20/85"))
 ```
@@ -6221,12 +6246,7 @@ Một số tùy chọn đối số cho hàm `guess_dates()` mà bạn có thể 
 ```{r eval = FALSE}
 # An example using guess_dates on the column dater_onset
 linelist <- linelist %>%                 # the dataset is called linelist
-  mutate(
-    date_onset = linelist::guess_dates(  # the guess_dates() from package "linelist"
-      date_onset,
-      error_tolerance = 0.1,
-      first_date = "2016-01-01"
-    )
+  mutate(date_onset = parse_date(date_onset)
 ```
 
 
@@ -8273,6 +8293,7 @@ Chương này thảo luận về các định dạng của dữ liệu. Sẽ r�
 pacman::p_load(
   rio,          # File import
   here,         # File locator
+  kableExtra,   # Build and manipulate complex tables
   tidyverse)    # data management + ggplot2 graphics
 ```
 
@@ -8719,7 +8740,7 @@ Nhưng ít hữu ích cho việc trình bày bảng, vì vậy hãy thực hành
 ```{r}
 df_combined %>% 
   pivot_wider(
-    id_cols = c(Facility, Year, Cases),
+    id_cols = c(Measurement, Facility),
     names_from = "Year",
     values_from = "Cases"
   ) %>% 
@@ -10852,6 +10873,7 @@ pacman::p_load(
      rio,         # import/export
      here,        # file locator
      purrr,       # iteration
+     grates,      # scales in ggplot
      tidyverse    # data management and visualization
 )
 ```
@@ -11090,17 +11112,26 @@ Chúng tôi có thể tạo ra một đường cong dịch bệnh đẹp về *t
 # create 'incidence' object
 outbreak <- incidence2::incidence(   
      x = linelist,                   # dataframe - complete linelist
-     date_index = date_onset,        # date column
+     date_index = "date_onset",      # date column
      interval = "week",              # aggregate counts weekly
-     groups = gender,                # group values by gender
-     na_as_group = TRUE)             # missing gender is own group
+     groups = "gender")              # group values by gender
+     #na_as_group = TRUE)            # missing gender is own group
 
 # plot epi curve
-plot(outbreak,                       # name of incidence object
-     fill = "gender",                # color bars by gender
-     color = "black",                # outline color of bars
-     title = "Outbreak of ALL cases" # title
-     )
+ggplot(outbreak,                     # incidence object name
+        aes(x = date_index,          # aesthetics and axes
+            y = count, 
+            fill = gender),          # Fill colour of bars by gender
+       color = "black"               # Contour colour of bars
+       ) +  
+     geom_col() + 
+     facet_wrap(~gender) +
+     theme_bw() + 
+     labs(title = "Outbreak of all cases", #title
+          x = "Counts", 
+          y = "Date", 
+          fill = "Gender", 
+          color = "Gender")
 ```
 
 Để tạo ra một biểu đồ riêng cho từng trường hợp của bệnh viện, chúng ta có thể đặt code đường cong dịch bệnh này trong *vòng lặp for*.   
@@ -11126,21 +11157,37 @@ for (hosp in hospital_names) {
      # create incidence object specific to the current hospital
      outbreak_hosp <- incidence2::incidence(
           x = linelist %>% filter(hospital == hosp),   # linelist is filtered to the current hospital
-          date_index = date_onset,
+          date_index = "date_onset",
           interval = "week", 
-          groups = gender,
-          na_as_group = TRUE
+          groups = "gender"
+          #na_as_group = TRUE
      )
      
      # Create and save the plot. Title automatically adjusts to the current hospital
-     plot_hosp <- plot(
-       outbreak_hosp,
-       fill = "gender",
-       color = "black",
-       title = stringr::str_glue("Epidemic of cases admitted to {hosp}")
-     )
+      plot_hosp <- ggplot(outbreak_hosp, # incidence object name
+                         aes(x = date_index, #axes
+                             y = count, 
+                             fill = gender), # fill colour by gender
+                         color = "black"      # colour of bar contour
+                         ) +  
+          geom_col() + 
+          facet_wrap(~gender) +
+          theme_bw() + 
+          labs(title = stringr::str_glue("Epidemic of cases admitted to {hosp}"), #title
+               x = "Counts", 
+               y = "Date", 
+               fill = "Gender", 
+               color = "Gender")
      
-     # print the plot for the current hospital
+     # With older versions of R, remove the # before na_as_group and use this plot command instead.
+    # plot_hosp <- plot(
+#       outbreak_hosp,
+#       fill = "gender",
+#       color = "black",
+#       title = stringr::str_glue("Epidemic of cases admitted to {hosp}")
+#     )
+     
+     # print the plot for hospitals
      print(plot_hosp)
      
 } # end the for loop when it has been run for every hospital in hospital_names 
@@ -15167,7 +15214,7 @@ knitr::kable(mortality_ds_rate_phe)
 
 Để chuẩn hóa gián tiếp, chúng ta cần dân số tham chiếu có số lượng tử vong và dân số theo tầng. Trong ví dụ này, chúng ta sẽ tính tỷ suất của quốc gia A bằng cách *sử dụng quốc gia B làm dân số tham chiếu*, vì dân số tham chiếu trong bộ số liệu `standard_pop_clean` không có số lượng tử vong theo tầng. 
 
-Trước tiên, chúng ta tạo dân số tham chiếu từ quốc gia B như bên dưới. Sau đó, chúng ta chuyển số liệu tử vong và dân số của quốc gia A, kết nối nó với dân số tham chiếu và chuyển nó vào hàm `phe_isr()`, để có được tỷ suất chuẩn hóa gián tiếp. Dĩ nhiên, chúng ta cũng có thể làm ngược lại.
+Trước tiên, chúng ta tạo dân số tham chiếu từ quốc gia B như bên dưới. Sau đó, chúng ta chuyển số liệu tử vong và dân số của quốc gia A, kết nối nó với dân số tham chiếu và chuyển nó vào hàm `calculate_ISRate()`, để có được tỷ suất chuẩn hóa gián tiếp. Dĩ nhiên, chúng ta cũng có thể làm ngược lại.
 
 Lưu ý - trong ví dụ bên dưới, dân số tham chiếu được cung cấp dưới dạng một data frame riêng rẽ. Trong trường hợp này, chúng ta cần đảm bảo rằng các véctơ `x = `, `n = `, `x_ref = ` và `n_ref = ` tất cả được sắp đặt cùng giá trị với loại chuẩn hóa (theo đúng tầng) như được sắp đặt trong data frame quốc gia, vì vị trí các bản ghi/các hàng phải khớp với nhau.
 
@@ -15181,7 +15228,7 @@ refpopCountryB <- country_data %>%
 # Calculate rates for country A indirectly standardized by age and sex
 mortality_is_rate_phe_A <- country_data %>%
      filter(Country == "A") %>%
-     PHEindicatormethods::phe_isr(
+     PHEindicatormethods::calculate_ISRate(
           x = Deaths,                 # column with observed number of events
           n = Population,             # column with non-standard pops for each stratum
           x_ref = refpopCountryB$Deaths,  # reference number of deaths for each stratum
@@ -15653,7 +15700,7 @@ options(scipen=1, digits=7)
 
 Chương này minh họa cách sử dụng của một số packages cho phân tích chuỗi thời gian. Các packages chủ yếu đến từ hệ sinh thái [**tidyverts**](https://tidyverts.org/), ngoài ra cũng sử dụng RECON [**trending**](https://github.com/reconhub/trending) package để fit các mô hình dịch tễ học bệnh truyền nhiễm. 
 
-VÍ dụ dưới đây chúng ta sẽ sử dụng bộ dữ liệu về Campylobacter ở Germanywe thuộc package **surveillance** (xem chương [Tải sách và dữ liệu] để biết thêm chi tiết). Tuy nhiên, nếu bạn muốn thử chạy code này trên bộ dữ liệu lớn hơn (nhiều quốc gia hoặc tầng), bạn có thể tham khảo code mẫu tại [repo github của r4epis](https://github.com/R4EPI/epitsa). 
+VÍ dụ dưới đây chúng ta sẽ sử dụng bộ dữ liệu về Campylobacter ở Đức thuộc package **surveillance** (xem chương [Tải sách và dữ liệu] để biết thêm chi tiết). Tuy nhiên, nếu bạn muốn thử chạy code này trên bộ dữ liệu lớn hơn (nhiều quốc gia hoặc tầng), bạn có thể tham khảo code mẫu tại [repo github của r4epis](https://github.com/R4EPI/epitsa). 
 
 Các chủ đề được đề cập bao gồm:  
 
@@ -16146,8 +16193,10 @@ fitted_model <- trending::fit(model, counts)
 ## calculate confidence intervals and prediction intervals 
 observed <- predict(fitted_model, simulate_pi = FALSE)
 
+estimate_res <- data.frame(observed$result)
+
 ## plot your regression 
-ggplot(data = observed, aes(x = epiweek)) + 
+ggplot(data = estimate_res, aes(x = epiweek)) + 
   ## add in a line for the model estimate
   geom_line(aes(y = estimate),
             col = "Red") + 
@@ -16174,24 +16223,24 @@ Những gì chúng ta thấy dưới đây là chúng ta không giải thích t�
 ```{r, warning=F, message=F}
 
 ## calculate the residuals 
-observed <- observed %>% 
-  mutate(resid = residuals(fitted_model$fitted_model, type = "response"))
+estimate_res <- estimate_res %>% 
+  mutate(resid = fitted_model$result[[1]]$residuals)
 
 ## are the residuals fairly constant over time (if not: outbreaks? change in practice?)
-observed %>%
+estimate_res %>%
   ggplot(aes(x = epiweek, y = resid)) +
   geom_line() +
   geom_point() + 
   labs(x = "epiweek", y = "Residuals")
 
 ## is there autocorelation in the residuals (is there a pattern to the error?)  
-observed %>% 
+estimate_res %>% 
   as_tsibble(index = epiweek) %>% 
   ACF(resid, lag_max = 52) %>% 
   autoplot()
 
 ## are residuals normally distributed (are under or over estimating?)  
-observed %>%
+estimate_res %>%
   ggplot(aes(x = resid)) +
   geom_histogram(binwidth = 100) +
   geom_rug() +
@@ -16199,7 +16248,7 @@ observed %>%
   
 ## compare observed counts to their residuals 
   ## should also be no pattern 
-observed %>%
+estimate_res %>%
   ggplot(aes(x = estimate, y = resid)) +
   geom_point() +
   labs(x = "Fitted", y = "Residuals")
@@ -16208,7 +16257,7 @@ observed %>%
 ## H0 is that residuals are from a white-noise series (i.e. random)
 ## test for independence 
 ## if p value significant then non-random
-Box.test(observed$resid, type = "Ljung-Box")
+Box.test(estimate_res$resid, type = "Ljung-Box")
 
 ```
 
@@ -16335,18 +16384,19 @@ observed <- predict(fitted_model, simulate_pi = FALSE)
 
 fitted_model %>% 
   ## extract original negative binomial regression
-  get_model() %>% 
+  get_fitted_model()
   ## get a tidy dataframe of results
-  tidy(exponentiate = TRUE, 
-       conf.int = TRUE)
+  #tidy(exponentiate = TRUE, 
+  #     conf.int = TRUE)
 ```
 
 Đánh giá nhanh mô hình cho thấy nó có thể thực hiện tốt hơn công việc ước tính số ca bệnh quan sát được.
 
 ```{r plot_nb_reg_bivar, warning=F, message=F}
+estimate_res <- data.frame(observed$result)
 
 ## plot your regression 
-ggplot(data = observed, aes(x = epiweek)) + 
+ggplot(data = estimate_res, aes(x = epiweek)) + 
   ## add in a line for the model estimate
   geom_line(aes(y = estimate),
             col = "Red") + 
@@ -16371,24 +16421,24 @@ Chúng ta một lần nữa lại khảo sát phần dư để xem mô hình c�
 ```{r}
 
 ## calculate the residuals 
-observed <- observed %>% 
+estimate_res <- estimate_res %>% 
   mutate(resid = case_int - estimate)
 
 ## are the residuals fairly constant over time (if not: outbreaks? change in practice?)
-observed %>%
+estimate_res %>%
   ggplot(aes(x = epiweek, y = resid)) +
   geom_line() +
   geom_point() + 
   labs(x = "epiweek", y = "Residuals")
 
 ## is there autocorelation in the residuals (is there a pattern to the error?)  
-observed %>% 
+estimate_res %>% 
   as_tsibble(index = epiweek) %>% 
   ACF(resid, lag_max = 52) %>% 
   autoplot()
 
 ## are residuals normally distributed (are under or over estimating?)  
-observed %>%
+estimate_res %>%
   ggplot(aes(x = resid)) +
   geom_histogram(binwidth = 100) +
   geom_rug() +
@@ -16396,7 +16446,7 @@ observed %>%
   
 ## compare observed counts to their residuals 
   ## should also be no pattern 
-observed %>%
+estimate_res %>%
   ggplot(aes(x = estimate, y = resid)) +
   geom_point() +
   labs(x = "Fitted", y = "Residuals")
@@ -16405,7 +16455,7 @@ observed %>%
 ## H0 is that residuals are from a white-noise series (i.e. random)
 ## test for independence 
 ## if p value significant then non-random
-Box.test(observed$resid, type = "Ljung-Box")
+Box.test(estimate_res$resid, type = "Ljung-Box")
 
 ```
 
@@ -16552,7 +16602,7 @@ forecasts <- fitted_model %>%
   predict(pred_data, simulate_pi = FALSE)
 
 ## combine baseline and predicted datasets
-observed <- bind_rows(observed, forecasts)
+observed <- bind_rows(observed$result, forecasts$result)
 
 ```
 
@@ -16732,7 +16782,8 @@ forecasts <- purrr::map(unique(case_roll$.id),
   
   # forecast with data want to predict with 
   forecasts <- fitted_model %>% 
-    predict(pred_data, simulate_pi = FALSE) %>% 
+    predict(pred_data, simulate_pi = FALSE) 
+  forecasts <- data.frame(forecasts$result[[1]]) %>%   
     ## only keep the week and the forecast estimate
     select(epiweek, estimate)
     
@@ -16995,9 +17046,9 @@ fitted_model <- trending::fit(model, counts)
 
 ## calculate confidence intervals and prediction intervals 
 observed <- predict(fitted_model, simulate_pi = FALSE)
+```
 
-
-
+```{r table_regression, eval = FALSE, echo = TRUE}
 ## show estimates and percentage change in a table
 fitted_model %>% 
   ## extract original negative binomial regression
@@ -17030,8 +17081,9 @@ fitted_model %>%
 Như bên trên, chúng ta có thể trực quan hóa các đầu ra của mô hình hồi quy. 
 
 ```{r plot_interrupted}
+estimate_res <- data.frame(observed$result)
 
-ggplot(observed, aes(x = epiweek)) + 
+ggplot(estimate_res, aes(x = epiweek)) + 
   ## add in observed case counts as a line
   geom_line(aes(y = case_int, colour = "Observed")) + 
   ## add in a line for the model estimate
@@ -17489,7 +17541,7 @@ Chúng ta sẽ tạo dữ liệu đầu vào bằng cách sử dụng package **
 
 ```{r epidemic_models_epiestim_incidence,}
 ## get incidence from onset date
-cases <- incidence2::incidence(linelist, date_index = date_onset) %>% # get case counts by day
+cases <- incidence2::incidence(linelist, date_index = "date_onset") %>% # get case counts by day
   tidyr::complete(date_index = seq.Date(                              # ensure all dates are represented
     from = min(date_index, na.rm = T),
     to = max(date_index, na.rm=T),
@@ -17516,8 +17568,18 @@ config_lit <- make_config(
 Sau đó, chúng ta có thể ước tính R<sub>t</sub> bằng hàm `estimate_R`:
 
 ```{r epidemic_models_epiestim_lit,  warning = FALSE}
+cases <- cases %>% 
+     filter(!is.na(date))
+#create a dataframe for the function estimate_R()
+cases_incidence <- data.frame(dates = seq.Date(from = min(cases$dates),
+                               to = max(cases$dates), 
+                               by = 1))
+cases_incidence <- left_join(cases_incidence, cases) %>% 
+     select(dates, I) %>% 
+     mutate(I = ifelse(is.na(I), 0, I))
+
 epiestim_res_lit <- estimate_R(
-  incid = cases,
+  incid = cases_incidence,
   method = "parametric_si",
   config = config_lit
 )
@@ -17568,7 +17630,7 @@ config_emp <- make_config(
 
 ## run epiestim
 epiestim_res_emp <- estimate_R(
-  incid = cases,
+  incid = cases_incidence,
   method = "parametric_si",
   config = config_emp
 )
@@ -17612,7 +17674,7 @@ Bây giờ chúng ta chạy lại **EpiEstim** và có thể thấy rằng các 
 
 ## run epiestim
 epiestim_res_partial <- estimate_R(
-  incid = cases,
+  incid = cases_incidence,
   method = "parametric_si",
   config = config_partial
 )
@@ -19107,7 +19169,7 @@ left_join(ag, propcount, by = "age_group", suffix = c("", "_pop")) %>%
 
 ### Tháp dân số  
 
-Tháp dân số (hoặc tháp tuổi-giới) là một cách dễ dàng để trực quan hóa sự phân bố trong quần thể khảo sát của bạn. Cũng nên xem xét việc tạo [Bảng mô tả] về độ tuổi và giới tính theo tầng khảo sát. Chúng ta sẽ minh họa bằng package **apyramid** vì nó cho phép các tỷ lệ được áp dụng trọng số sử dụng đối tượng theo thiết kế nghiên cứu mà chúng ta đã tạo ở trên. Các tùy chọn khác để tạo [Tháp dân số](#age-pyramid) được đề cập nhiều hơn trong chương đó của sổ tay. Chúng ta cũng sẽ sử dụng một hàm gọn hơn từ **sitrep** được gọi là `plot_age_pyramid()` để lưu một vài dòng code để tạo ra một biểu đồ theo tỷ lệ.  
+Tháp dân số (hoặc tháp tuổi-giới) là một cách dễ dàng để trực quan hóa sự phân bố trong quần thể khảo sát của bạn. Cũng nên xem xét việc tạo [Bảng mô tả] về độ tuổi và giới tính theo tầng khảo sát. Chúng ta sẽ minh họa bằng package **apyramid** vì nó cho phép các tỷ lệ được áp dụng trọng số sử dụng đối tượng theo thiết kế nghiên cứu mà chúng ta đã tạo ở trên. Các tùy chọn khác để tạo [Tháp dân số](#age-pyramid) được đề cập nhiều hơn trong chương đó của sổ tay. Chúng ta cũng sẽ sử dụng một hàm trong package **apyramid** là `age_pyramid()` để code ngắn gọn hơn một biểu đồ theo tỷ lệ.  
 
 Giống như với phép kiểm định sự khác biệt giữa hai nhóm chuẩn được thảo luận ở trên trong phần sai số chọn mẫu, ở đây chúng ta quan tâm đến việc trực quan hóa liệu quần thể mẫu của chúng ta có khác biệt đáng kể so với quần thể gốc hay không, và liệu trọng số có sửa chữa được sự khác biệt này hay không. Để làm điều này, chúng ta sẽ sử dụng package **patchwork** để hiển thị các biểu đồ tạo bởi **ggplot** song song với nhau; chi tiết xem phần kết hợp các đồ thị trong chương [Các tips với ggplot] của sổ tay này. Chúng ta sẽ trực quan hóa quần thể gốc, quần thể khảo sát không trọng số và quần thể khảo sát có trọng số. Bạn cũng có thể xem xét trực quan theo từng tầng của khảo sát - bằng cách sử dụng đối số `stack_by  = "health_district"` trong ví dụ của chúng tôi ở đây (xem `?plot_age_pyramid` để biết chi tiết).  
 
@@ -19174,7 +19236,7 @@ source_population <- population %>%
   
   
 ## plot the unweighted sample population 
-sample_population <- plot_age_pyramid(survey_data, 
+sample_population <- age_pyramid(survey_data, 
                  age_group = "age_group", 
                  split_by = "sex",
                  proportion = TRUE) + 
@@ -19193,7 +19255,7 @@ weighted_population <- survey_design %>%
   ## make sure the variables are factors
   mutate(age_group = factor(age_group), 
          sex = factor(sex)) %>%
-  plot_age_pyramid(
+  age_pyramid(
     age_group = "age_group",
     split_by = "sex", 
     proportion = TRUE) +
@@ -19228,12 +19290,7 @@ Trực quan điểm bắt đầu và kết quả của từng cá nhân có th�
 ## summarize data
 flow_table <- survey_data %>%
   count(startcause, endcause, sex) %>%  # get counts 
-  gather_set_data(x = c("startcause", "endcause")) %>%     # change format for plotting
-  mutate(x = fct_relevel(x, c("startcause", "endcause")),  # set startcause as first level
-         x = fct_recode(x, 
-                        "Start \n cause" = "startcause",   # add line break (\n) after start
-                        "End \n cause"   = "endcause")
-        )
+  gather_set_data(x = c("startcause", "endcause"))     # change format for plotting
 
 
 ## plot your dataset 
@@ -19248,19 +19305,10 @@ ggplot(flow_table, aes(x, id = id, split = y, value = n)) +
   geom_parallel_sets_axes(axis.width = 0.15, fill = "grey80", color = "grey80") +
   ## change text colour and angle (needs to be adjusted)
   geom_parallel_sets_labels(color = "black", angle = 0, size = 5) +
-  ## adjusted y and x axes (probably needs more vertical space)
-  scale_x_discrete(name = NULL, expand = c(0, 0.2)) + 
   ## remove axis labels
-  theme(
-    title = element_text(size = 26),
-    text = element_text(size = 26),
-    axis.line = element_blank(),
-    axis.ticks = element_blank(),
-    axis.text.y = element_blank(),
-    panel.background = element_blank(),
-    legend.position = "bottom",                    # move legend to bottom
-    legend.title = element_blank(),                # remove title
-  )
+  theme_void()+
+  ## move legend to bottom
+  theme(legend.position = "bottom") 
 
 ```
 
@@ -21264,7 +21312,7 @@ getis_ord <- spdep::localG(
 )
 
 # join results to sf data
-sle_adm3_dat$getis_ord <- getis_ord
+sle_adm3_dat$getis_ord <- as.numeric(getis_ord)
 
 # plot map
 ggplot(data=sle_adm3_dat) +
@@ -22053,6 +22101,8 @@ Có một số hướng dẫn **ggplot2** mở rộng được liên kết trong
 ```{r}
 pacman::p_load(
   tidyverse,      # includes ggplot2 and other data management tools
+  janitor,        # cleaning and summary tables
+  ggforce,        # ggplot extras
   rio,            # import/export
   here,           # file locator
   stringr         # working with characters   
@@ -24533,642 +24583,6 @@ ggplot(data = linelist)+
   geom_histogram(aes(x = date_onset))
 ```
 
-<!-- ======================================================= -->
-
-## Đường cong dịch bệnh với package **incidence2**
-
-Dưới đây, chúng tôi trình bày cách tạo các đường cong dịch bệnh bằng cách sử dụng package **precision2**. Các tác giả của package này đã cố gắng cho phép người dùng tạo và sửa đổi các đường cong dịch bệnh mà không cần biết cú pháp **ggplot2**. Phần lớn nội dung của chương này được điều chỉnh từ **minh họa** của package, bạn có thể tìm thấy tại trang [github](https://github.com/reconhub/incidence2) của package **incidence2**.
-
-<!-- ======================================================= -->
-
-### Ví dụ đơn giản {.unnumbered}
-
-**Cần có 2 bước để vẽ đường cong dịch bệnh với package *incidence2*:**
-
-1)  **Tạo** một *incidence object* (sử dụng hàm `incidence()`)
-
-    -   Cung cấp dữ liệu\
-    -   Xác định cột ngày tại `date_index =`\
-    -   Xác định khoảng thời gian `interval =` các ca nên được tổng hợp (hàng ngày, tuần, tháng..)\
-    -   Xác định bất kỳ cột dùng để nhóm nào (ví dụ như giới tính, bệnh viện, kết quả)\
-
-2)  **Vẽ biểu đồ** incidence object
-
-    -   Xác định nhãn, màu, tiêu đề, ...
-
-Dưới đây, chúng tôi gọi package **incidence2**, tạo incidence object từ dữ liệu `linelist` trên cột `date_onset` và tổng hợp các trường hợp theo ngày. Sau đó, chúng tôi in ra tóm tắt về đối tượng incidence object.
-
-```{r, warning=F, message=F}
-# load incidence2 package
-pacman::p_load(incidence2)
-
-# create the incidence object, aggregating cases by day
-epi_day <- incidence(       # create incidence object
-  x = linelist,             # dataset
-  date_index = date_onset,  # date column
-  interval = "day"          # date grouping interval
-  )
-```
-
-Đối tượng **incidence2** trông giống như một tibble (một kiểu data frame) và có thể được hiển thị hoặc thao tác thêm như một bộ dữ liệu.
-
-```{r}
-class(epi_day)
-```
-
-Đây là thông tin khi được hiển thị. Nó có một cột `date_index` và một cột `count` .
-
-```{r}
-epi_day
-```
-
-Bạn cũng có thể tổng hợp thông tin của đối tượng:
-
-```{r}
-# print summary of the incidence object
-summary(epi_day)
-```
-
-Để *vẽ biểu đồ incidence object*, hãy sử dụng hàm `plot()` với *tên của incidence object*. Trong nền, hàm `plot.incidence2()` đã được gọi, vì vậy để đọc tài liệu cụ thể về **incidence2**, bạn cần chạy lệnh `?plot.incidence2`.
-
-```{r}
-# plot the incidence object
-plot(epi_day)
-```
-
-Nếu bạn nhận thấy nhiều đường dọc nhỏ màu trắng, hãy cố gắng điều chỉnh kích thước hình ảnh của bạn. Ví dụ: nếu bạn xuất biểu đồ bằng `ggsave()`, bạn có thể cung cấp giá trị số cho `width =` và `height =`. Nếu bạn mở rộng biểu đồ, những đường đó có thể biến mất.
-
-### Thay đổi khoảng thời gian tổng hợp ca bệnh {.unnumbered}
-
-Đối số `interval =` của hàm `incidence()` xác định cách các quan sát được nhóm thành các cột dọc trong biểu đồ.
-
-**Xác định khoảng thời gian**
-
-**incidence2** đem lại sự linh hoạt và cú pháp dễ hiểu để bạn có thể dễ dàng tổng hợp số ca bệnh thành các biểu đồ cột-đường cong dịch bệnh. Cung cấp một giá trị như những giá trị bên dưới cho đối số `interval =`. Bạn có thể viết bất kỳ thông tin nào bên dưới dưới dạng số nhiều (ví dụ: "week**s**") và bạn có thể thêm số phía trước (ví dụ: "3 months").
-
-| Tùy chọn đối số         | Giải thích thêm                                           |
-|-------------------------|-----------------------------------------------------------|
-| Số (1, 7, 13, 14, etc.) | số ngày cho mỗi khoảng thời gian                          |
-| "weeks"                 | ghi chú: mặc định ngày bắt đầu là Thứ 2                   |
-| "2 weeks"               | hoặc 3, 4, 5...                                           |
-| "Sunday weeks"          | tuần bắt đầu tính từ Chủ nhật (cũng có thể là Thứ 5, ...) |
-| "2 Sunday weeks"        | hoặc 3, 4, 5...                                           |
-| "MMWRweek"              | tuần bắt đầu vào Chủ nhật - xem thêm tại CDC Hoa Kỳ       |
-| "month"                 | ngày đầu tiên của tháng                                   |
-| "quarter"               | ngày đầu tiên của tháng của một quí                       |
-| "2 months"              | hoặc 3, 4, 5...                                           |
-| "year"                  | ngày đầu tiên của năm                                     |
-
-Dưới đây là ví dụ về các khoảng thời gian khác nhau trông như thế nào khi áp dụng vào bộ số liệu `linelist`. Lưu ý cách mà định dạng mặc định và tần suất của các *nhãn* thời gian trên trục x thay đổi khi khoảng thời gian thay đổi.
-
-```{r incidence, out.width=c('50%', '50%', '50%', '50%'), fig.show='hold', warning=F, message=F}
-# Create the incidence objects (with different intervals)
-##############################
-# Weekly (Monday week by default)
-epi_wk      <- incidence(linelist, date_onset, interval = "Monday week")
-
-# Sunday week
-epi_Sun_wk  <- incidence(linelist, date_onset, interval = "Sunday week")
-
-# Three weeks (Monday weeks by default)
-epi_2wk     <- incidence(linelist, date_onset, interval = "2 weeks")
-
-# Monthly
-epi_month   <- incidence(linelist, date_onset, interval = "month")
-
-# Quarterly
-epi_quarter   <- incidence(linelist, date_onset, interval = "quarter")
-
-# Years
-epi_year   <- incidence(linelist, date_onset, interval = "year")
-
-
-# Plot the incidence objects (+ titles for clarity)
-############################
-plot(epi_wk)+      labs(title = "Monday weeks")
-plot(epi_Sun_wk)+  labs(title = "Sunday weeks")
-plot(epi_2wk)+     labs(title = "2 (Monday) weeks")
-plot(epi_month)+   labs(title = "Months")
-plot(epi_quarter)+ labs(title = "Quarters")
-plot(epi_year)+    labs(title = "Years")
-
-```
-
-<!--**Bắt đầu với ca đầu tiên**-->
-
-<!--Nếu bạn muốn các khoảng thời gian bắt đầu ở trường hợp đầu tiên, bạn có thể thêm argument `standard = TRUE` vào lệnh `incidence()`. Điều này chỉ hoạt động nếu khoảng thời gian là "tuần", "tháng", "quý" hoặc "năm".-->
-
-**Ngày đầu tiên**
-
-Bạn có thể tùy chọn chỉ định một giá trị thuộc phân lớp Ngày (ví dụ: `as.Date("2016-05-01")`) tới đối số `firstdate =` trong lệnh `incidence()`. Nếu được cung cấp, dữ liệu sẽ được cắt bớt theo phạm vi này và khoảng thời gian sẽ bắt đầu từ ngày này.
-
-### Nhóm {.unnumbered}
-
-Các nhóm được chỉ định trong lệnh `incidence()` và có thể được sử dụng để tô màu cho các cột hoặc facet dữ liệu. Để chỉ định các nhóm trong dữ liệu của bạn, hãy cung cấp tên cột tới đối số `groups =` trong hàm `incidence()` (không có dấu ngoặc kép xung quanh tên cột). Nếu chỉ định nhiều cột, hãy để tên các cột bên trong hàm `c()`.
-
-Bạn có thể chỉ định rằng các trường hợp có giá trị bị thiếu trong các cột được nhóm được liệt kê như một nhóm `NA` riêng biệt bằng cách thiết lập `na_as_group = TRUE`. Nếu không, chúng sẽ bị loại khỏi biểu đồ.
-
--   Để *tô màu các cột theo cột nhóm*, bạn cần cung cấp lại tên cột tới đối số `fill =` trong lệnh `plot()`.
-
--   Để *facet dựa trên cột nhóm*, hãy xem phần bên dưới về facet với **incidence2**.
-
-Trong ví dụ dưới đây, các trường hợp trong toàn bộ đợt bùng phát được nhóm theo phân loại tuổi của họ. Các giá trị thiếu được đưa vào một nhóm. Khoảng thời gian của đường cong bệnh dịch là tuần.
-
-```{r, message=F, warning=F}
-# Create incidence object, with data grouped by age category
-age_outbreak <- incidence(
-  linelist,                # dataset
-  date_index = date_onset, # date column
-  interval = "week",       # Monday weekly aggregation of cases
-  groups = age_cat,        # age_cat is set as a group
-  na_as_group = TRUE)      # missing values assigned their own group
-
-# plot the grouped incidence object
-plot(
-  age_outbreak,             # incidence object with age_cat as group
-  fill = age_cat)+          # age_cat is used for bar fill color (must have been set as a groups column above)
-labs(fill = "Age Category") # change legend title from default "age_cat" (this is a ggplot2 modification)
-```
-
-[***MẸO***: Thay đổi tiêu đề của chú giải bằng cách thêm `+` lệnh **ggplot2** `labs(fill = "your title")` vào biểu đồ **incidence2**.]{style="color: darkgreen;"}
-
-Bạn cũng có thể để các cột được nhóm hiển thị cạnh nhau bằng cách đặt `stack = FALSE` trong `plot()`, như được hiển thị bên dưới:
-
-```{r, warning=F, message=F}
-# Make incidence object of monthly counts. 
-monthly_gender <- incidence(
- linelist,
- date_index = date_onset,
- interval = "month",
- groups = gender            # set gender as grouping column
-)
-
-plot(
-  monthly_gender,   # incidence object
-  fill = gender,    # display bars colored by gender
-  stack = FALSE)    # side-by-side (not stacked)
-```
-
-Bạn có thể đặt đối số `na_as_group =` thành FALSE trong lệnh `incidence()` để loại bỏ các hàng có giá trị bị thiếu khỏi biểu đồ.
-
-### Lọc dữ liệu {.unnumbered}
-
-Để vẽ biểu đồ đường cong dịch bệnh của một bộ dữ liệu con:
-
-1)  Lọc bộ số liệu `linelist`\
-2)  Cung cấp dữ liệu đã lọc vào lệnh `incidence()`\
-3)  Vẽ biểu đồ incidence object
-
-Ví dụ dưới đây sử dụng dữ liệu được lọc để chỉ hiển thị các trường hợp tại Central Hospital.
-
-```{r, warning=F, message=F}
-# filter the linelist
-central_data <- linelist %>% 
-  filter(hospital == "Central Hospital")
-
-# create incidence object using filtered data
-central_outbreak <- incidence(central_data, date_index = date_onset, interval = "week")
-
-# plot the incidence object
-plot(central_outbreak, title = "Weekly case incidence at Central Hospital")
-```
-
-### Số lượng tổng hợp {.unnumbered}
-
-Nếu dữ liệu ban đầu của bạn được tổng hợp (số lượng), hãy cung cấp tên của cột chứa thông tin về số lượng ca tới đối số `count =` khi tạo incidence object với hàm `incidence()`.
-
-Ví dụ, data frame `count_data` này được tổng hợp từ linelist theo số lượng hàng ngày theo bệnh viện. 50 hàng đầu tiên hiển thị như sau:
-
-```{r message=FALSE, echo=F}
-DT::datatable(head(count_data,50), rownames = FALSE, options = list(pageLength = 5, scrollX=T), class = 'white-space: nowrap' )
-```
-
-Nếu bạn đang bắt đầu phân tích với dữ liệu đếm hàng ngày như bộ dữ liệu ở trên, thì lệnh `incidence()` để chuyển đổi dữ liệu này thành đường cong dịch bệnh hàng tuần theo bệnh viện sẽ trông như sau:
-
-```{r}
-epi_counts <- incidence(              # create weekly incidence object
-  count_data,                         # dataset with counts aggregated by day
-  date_index = date_hospitalisation,  # column with dates
-  count = n_cases,                    # column with counts
-  interval = "week",                  # aggregate daily counts up to weeks
-  groups = hospital                   # group by hospital
-  )
-
-# plot the weekly incidence epi curve, with stacked bars by hospital
-plot(epi_counts,                      # incidence object
-     fill = hospital)                 # color the bars by hospital
-```
-
-### Facets/Các biểu đồ nhỏ {.unnumbered}
-
-Để facet dữ liệu theo nhóm (ví dụ tạo "các biểu đồ nhỏ"):
-
-1)  Xác định các cột dùng để facet tới đối số `groups =` khi bạn tạo incidence object\
-2)  Sử dụng lệnh `facet_plot()` thay cho `plot()`\
-3)  Xác định cột nhóm nào được sử dụng cho `fill =` và cho `facets =`
-
-Dưới đây, chúng ta thiết lập cả hai cột `hospital` và `outcome` làm cột chia nhóm trong lệnh `incidence()`. Sau đó, trong lệnh `facet_plot()`, chúng ta vẽ biểu đồ đường cong dịch bệnh, chỉ rõ rằng chúng ta muốn có các đường cong dịch bệnh khác nhau cho mỗi bệnh viện và trong mỗi đường cong dịch bệnh, các cột được xếp chồng lên nhau và được tô màu theo outcome.
-
-```{r, warning=F, message=F}
-epi_wks_hosp_out <- incidence(
-  linelist,                      # dataset
-  date_index = date_onset,       # date column
-  interval = "month",            # monthly bars  
-  groups = c(outcome, hospital)  # both outcome and hospital are given as grouping columns
-  )
-
-# plot
-incidence2::facet_plot(
-  epi_wks_hosp_out,      # incidence object
-  facets = hospital,     # facet column
-  fill = outcome)        # fill column
-
-```
-
-Lưu ý rằng package **ggtree** (được sử dụng để trực quan cây phả hệ) cũng có một hàm là `facet_plot()` - đây là lý do tại sao chúng ta phải cụ thể `incidence2::facet_plot()` như ở trên.
-
-### Hiệu chỉnh với `plot()` {.unnumbered}
-
-Một đường cong dịch bệnh được tạo ra bởi **incidence2** có thể được sửa đổi thông qua các đối số *trong hàm `plot()`*.
-
-**Dưới đây là các đối số của hàm `plot()` dùng để điều chỉnh hình thức cột:**
-
-+----------------+-------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------+
-| Đối số         | Mô tả                                                                                                                   | Ví dụ                                                                |
-+================+=========================================================================================================================+======================================================================+
-| `fill =`       | Màu cột. Tên màu hoặc tên cột đã được chỉ định trước đó tới đối số `groups =` trong lệnh `incidence()`                  | `fill = "red"`, hoặc `fill = gender`                                 |
-+----------------+-------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------+
-| `color =`      | Tô màu xung quanh mỗi cột hoặc xung quanh mỗi nhóm trong một cột                                                        | `border = "white"`                                                   |
-+----------------+-------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------+
-| `legend =`     | Vị trí danh mục                                                                                                         | Một trong các lựa chọn "bottom", "top", "left", "right", hoặc "none" |
-+----------------+-------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------+
-| `alpha =`      | Độ trong suốt của cột                                                                                                   | 1 là đục hoàn toàn, 0 là trong suốt hoàn toàn                        |
-+----------------+-------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------+
-| `width =`      | Giá trị từ 0 đến 1 cho biết kích thước tương đối của các cột với khoảng thời gian của chúng                             | `width = .7`                                                         |
-+----------------+-------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------+
-| `show_cases =` | Giá trị logic; nếu TRUE, mỗi trường hợp hiển thị như một hộp. Cách hiển thị này là tốt nhất trên các đợt bùng phát nhỏ. | `show_cases = TRUE`                                                  |
-+----------------+-------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------+
-
-**Dưới đây là các đối số của hàm `plot()` để sửa đổi trục ngày tháng:**
-
-+------------------+--------------------------------------------------------------------------------------------------------------------------------+
-| Đối số           | Mô tả                                                                                                                          |
-+==================+================================================================================================================================+
-| `centre_dates =` | TRUE/FALSE tương đương với việc hiển thị ngày tháng xuất hiện ở dưới trung tâm các cột hay ở trên đỉnh các cột                 |
-+------------------+--------------------------------------------------------------------------------------------------------------------------------+
-| `date_format =`  | Điều chỉnh định dạng hiển thị ngày bằng cú pháp `strptime("%")`. Chỉ hoạt động nếu `centre_dates = FALSE` (chi tiết bên dưới). |
-+------------------+--------------------------------------------------------------------------------------------------------------------------------+
-| `n.breaks =`     | Khoảng số lượng nhãn ngắt khoảng trên trục x mong muốn.                                                                        |
-+------------------+--------------------------------------------------------------------------------------------------------------------------------+
-| `angle =`        | Góc nghiêng của nhãn ngày trên trục x (số độ)                                                                                  |
-+------------------+--------------------------------------------------------------------------------------------------------------------------------+
-| `size =`         | Kích thước của văn bản tính bằng điểm                                                                                          |
-+------------------+--------------------------------------------------------------------------------------------------------------------------------+
-
-Lưu ý rằng đối số `date_breaks =` chỉ hoạt động nếu `centre_dates = FALSE`. Cung cấp giá trị ký tự trong dấu ngoặc kép bằng cú pháp strptime như bên dưới, như đã được trình bày chi tiết trong chương [Làm việc với ngày tháng]. Bạn có thể sử dụng `\n` để tạo "dòng mới".
-
-%d = Số ngày của tháng (5, 17, 28, ...)\
-%j = Số ngày của năm (ngày Julian 001-366)\
-%a = Ngày trong tuần viết tắt (Mon, Tue, Wed, ...)\
-%A = Ngày trong tuần viết đầy đủ (Monday, Tuesday, ...)\
-%w = Số thứ tự ngày của tuần (0-6, Chủ nhật là 0)\
-%u = Số thứ tự ngày của tuần (1-7, Thứ hai là 1)\
-%W = Số thứ tự tuần (00-53, Thứ hai là ngày bắt đầu tuần mới)\
-%U = Số thứ tự tuần (01-53, Chủ nhật là ngày bắt đầu tuần mới)\
-%m = Số thứ tự tháng (Ví dụ 01, 02, 03, 04)\
-%b = Tháng viết tắt (Jan, Feb, ...)\
-%B = Tháng viết đầy đủ (January, February, ...)\
-%y = Năm viết dạng 2 ký tự (Ví dụ 89)\
-%Y = Năm viết dạng 2 ký tự (Ví dụ 1989)\
-%H = giờ (khung 24 giờ)\
-%M = phút\
-%S = giây\
-%z = bù từ múi giờ GMT\
-%Z = Múi giờ (ký tự)
-
-<!--<span style="color: darkgreen;">**_MẸO:_** Đối với ngắt mỗi khoảng "thứ n" (ví dụ: mỗi khoảng thứ 4), hãy sử dụng `n.breaks = nrow(i)/n` (trong đó "i" là tên chỉ số tỷ lệ mắc bệnh và "n" là một số). Nếu dữ liệu của bạn được nhóm lại, bạn sẽ cần nhân "n" với số nhóm duy nhất.</span>-->
-
-**Dưới đây là các đối số trong hàm `plot()` để hiệu chỉnh các nhãn trong biểu đồ:**
-
-+-----------+----------------------------------------------------------------------------------------------------------------------------------------------+
-| Đối số    | Mô tả                                                                                                                                        |
-+===========+==============================================================================================================================================+
-| `title =` | Tiêu đề của biểu đồ                                                                                                                          |
-+-----------+----------------------------------------------------------------------------------------------------------------------------------------------+
-| `xlab =`  | Tiêu đề của trục x                                                                                                                           |
-+-----------+----------------------------------------------------------------------------------------------------------------------------------------------+
-| `ylab =`  | Tiêu đề của trục y                                                                                                                           |
-+-----------+----------------------------------------------------------------------------------------------------------------------------------------------+
-| `size =`  | Kích thước của đoạn văn bản trên trục x tính bằng đơn vị pts (sử dụng hàm `theme()` trong ggplot để điều chỉnh các thông số kích thước khác) |
-+-----------+----------------------------------------------------------------------------------------------------------------------------------------------+
-
-Một ví dụ sử dụng kết hợp các đối số ở trên:
-
-```{r, warning=F, message=F}
-# filter the linelist
-central_data <- linelist %>% 
-  filter(hospital == "Central Hospital")
-
-# create incidence object using filtered data
-central_outbreak <- incidence(
-  central_data,
-  date_index = date_onset,
-  interval = "week",
-  groups = outcome)
-
-# plot incidence object
-plot(
-  central_outbreak,
-  fill = outcome,                       # box/bar color
-  legend = "top",                       # legend on top
-  title = "Cases at Central Hospital",  # title
-  xlab = "Week of onset",               # x-axis label
-  ylab = "Week of onset",               # y-axis label
-  show_cases = TRUE,                    # show each case as an individual box
-  alpha = 0.7,                          # transparency 
-  border = "grey",                      # box border
-  angle = 30,                           # angle of date labels
-  centre_dates = FALSE,                 # date labels at edge of bar
-  date_format = "%a %d %b %Y\n(Week %W)" # adjust how dates are displayed
-  )
-```
-
-Để điều chỉnh thêm giao diện hiển thị của biểu đồ, hãy xem mục bên dưới về các hiệu chỉnh với hàm `ggplot()`.
-
-### Hiệu chỉnh với ggplot2 {.unnumbered}
-
-Bạn có thể hiệu chỉnh biểu đồ được tạo bởi **incidence2** bằng cách thêm các hiệu chỉnh **ggplot2** với dấu `+` sau khi đóng ngoặc hàm biểu diễn tỷ lệ mắc bệnh `plot()`, như được minh họa bên dưới.
-
-Dưới đây, biểu đồ **incidence2** kết thúc và ngay sau đó các lệnh **ggplot2** được sử dụng để sửa đổi các trục, thêm chú thích và điều chỉnh phông chữ đậm và kích thước chữ.
-
-Lưu ý rằng nếu bạn thêm `scale_x_date()`, hầu hết các định dạng ngày từ `plot()` sẽ bị ghi đè. Xem mục đường cong dịch bệnh với `ggplot()` và chương [Các tips với ggplot] để có thêm lựa chọn.
-
-```{r, warning=F, message=F}
-# filter the linelist
-central_data <- linelist %>% 
-  filter(hospital == "Central Hospital")
-
-# create incidence object using filtered data
-central_outbreak <- incidence(
-  central_data,
-  date_index = date_onset,
-  interval = "week",
-  groups = c(outcome))
-
-# plot incidence object
-plot(
-  central_outbreak,
-  fill = outcome,                       # box/bar color
-  legend = "top",                       # legend on top
-  title = "Cases at Central Hospital",  # title
-  xlab = "Week of onset",               # x-axis label
-  ylab = "Week of onset",               # y-axis label
-  show_cases = TRUE,                    # show each case as an individual box
-  alpha = 0.7,                          # transparency 
-  border = "grey",                      # box border
-  centre_dates = FALSE,                   
-  date_format = "%a %d %b\n%Y (Week %W)", 
-  angle = 30                           # angle of date labels
-  )+
-  
-  scale_y_continuous(
-    breaks = seq(from = 0, to = 30, by = 5),  # specify y-axis increments by 5
-    expand = c(0,0))+                         # remove excess space below 0 on y-axis
-  
-  # add dynamic caption
-  labs(
-    fill = "Patient outcome",                               # Legend title
-    caption = stringr::str_glue(                            # dynamic caption - see page on characters and strings for details
-      "n = {central_cases} from Central Hospital
-      Case onsets range from {earliest_date} to {latest_date}. {missing_onset} cases are missing date of onset and not shown",
-      central_cases = nrow(central_data),
-      earliest_date = format(min(central_data$date_onset, na.rm=T), format = '%a %d %b %Y'),
-      latest_date = format(max(central_data$date_onset, na.rm=T), format = '%a %d %b %Y'),      
-      missing_onset = nrow(central_data %>% filter(is.na(date_onset)))))+
-  
-  # adjust bold face, and caption position
-  theme(
-    axis.title = element_text(size = 12, face = "bold"),    # axis titles larger and bold
-    axis.text = element_text(size = 10, face = "bold"),     # axis text size and bold
-    plot.caption = element_text(hjust = 0, face = "italic") # move caption to left
-  )
-  
-```
-
-### Đổi màu {.unnumbered}
-
-#### Chỉ định bảng màu {.unnumbered}
-
-Cung cấp tên của bảng màu đã được định danh trước tới tham số `col_pal =` trong hàm `plot()`. Package **incidence2** đi kèm với 2 bảng màu được xác định trước: "vibrant" và "muted". Trong "vibrant", có 6 màu đầu tiên là riêng biệt và trong "muted" có 9 màu đầu tiên là khác biệt. Sau những con số này, các màu là sự thêm vào/trung gian của các màu khác. Bạn có thể tìm thấy những bảng màu được xác định trước này tại [website này](https://personal.sron.nl/~pault/#sec:qualitative). Các bảng màu loại trừ màu xám, do nó được dành riêng cho dữ liệu bị thiếu (sử dụng `na_color =` để thay đổi mặc định này).
-
-```{r out.width = c('50%', '50%'), fig.show='hold', warning = F, message = F}
-# Create incidence object, with data grouped by age category  
-age_outbreak <- incidence(
-  linelist,
-  date_index = date_onset,   # date of onset for x-axis
-  interval = "week",         # weekly aggregation of cases
-  groups = age_cat)
-
-# plot the epicurve with default palette
-plot(age_outbreak, fill = age_cat, title = "'vibrant' default incidence2 palette")
-
-# plot with different color palette
-#plot(age_outbreak, fill = age_cat, col_pal = muted, title = "'muted' incidence2 palette")
-```
-
-Bạn cũng có thể sử dụng một trong các bảng màu trong **base** R (đặt tên của bảng màu *không* có dấu ngoặc kép).
-
-```{r out.width = c('50%', '50%'), fig.show='hold', warning = F, message = F}
-# plot with base R palette
-plot(age_outbreak, fill = age_cat, col_pal = heat.colors, title = "base R heat.colors palette")
-
-# plot with base R palette
-plot(age_outbreak, fill = age_cat, col_pal = rainbow, title = "base R rainbow palette")
-```
-
-Bạn cũng có thể thêm bảng màu từ package **viridis** hoặc package **RColorBrewer**. Đầu tiên các package đó cần được tải, sau đó thêm các hàm `scale_fill_*()` tương ứng của chúng bằng dấu `+`, như bên dưới đây.
-
-```{r out.width = c('50%', '50%'), fig.show='hold', warning = F, message = F}
-pacman::p_load(RColorBrewer, viridis)
-
-# plot with color palette
-plot(age_outbreak, fill = age_cat, title = "Viridis palette")+
-  scale_fill_viridis_d(
-    option = "inferno",     # color scheme, try also "plasma" or the default
-    name = "Age Category",  # legend name
-    na.value = "grey")      # for missing values
-
-# plot with color palette
-plot(age_outbreak, fill = age_cat, title = "RColorBrewer palette")+
-  scale_fill_brewer(
-    palette = "Dark2",      # color palette, try also Accent, Dark2, Paired, Pastel1, Pastel2, Set1, Set2, Set3
-    name = "Age Category",  # legend name
-    na.value = "grey")      # for missing values
-```
-
-#### Xác định thủ công {.unnumbered}
-
-Để chỉ định màu theo cách thủ công, hãy thêm hàm `scale_fill_manual()` trong **ggplot2** sau hàm `plot()` bằng dấu `+` và cung cấp vectơ tên màu hoặc mã HEX tới đối số `values =`. Số lượng màu được liệt kê phải bằng số nhóm. Hãy lưu ý, các giá trị bị thiếu có phải là một nhóm hay không - chúng có thể được chuyển đổi thành giá trị dạng ký tự chẳng hạn như "Missing" trong quá trình chuẩn bị dữ liệu của bạn bằng hàm `fct_explicit_na()`, như đã được giải thích trong chương [Factors].
-
-```{r out.width = c('50%', '50%'), fig.show='hold', warning=F, message=F}
-# manual colors
-plot(age_outbreak, fill = age_cat, title = "Manually-specified colors")+
-  scale_fill_manual(
-    values = c("darkgreen", "darkblue", "purple", "grey", "yellow", "orange", "red", "lightblue"),  # colors
-    name = "Age Category")      # Name for legend
-```
-
-Như đã đề cập trong chương [Các tips với ggplot], bạn có thể tạo bảng màu của riêng mình bằng cách sử dụng hàm `colorRampPalette()` trên một vectơ chứa tên các màu sắc và chỉ định số màu bạn muốn trả về. Đây là một cách tốt để có thể thu được nhiều màu trong một lần bằng cách chỉ định một vài màu.
-
-```{r}
-my_cols <- c("darkgreen", "darkblue", "purple", "grey", "yellow", "orange")
-my_palette <- colorRampPalette(my_cols)(12)  # expand the 6 colors above to 12 colors
-my_palette
-```
-
-### Điều chỉnh thứ bậc {.unnumbered}
-
-Để điều chỉnh thứ tự xuất hiện của nhóm (trên biểu đồ và trong chú giải), cột phân nhóm cần phải là kiểu Factor. Xem chương [Factors] để biết thêm thông tin.
-
-Đầu tiên, chúng ta hãy quan sát một đường cong dịch bệnh hàng tuần theo bệnh viện với thứ tự mặc định:
-
-```{r, message=F, warning=F}
-# ORIGINAL - hospital NOT as factor
-###################################
-
-# create weekly incidence object, rows grouped by hospital and week
-hospital_outbreak <- incidence(
-  linelist,
-  date_index = date_onset, 
-  interval = "week", 
-  groups = hospital)
-
-# plot incidence object
-plot(hospital_outbreak, fill = hospital, title = "ORIGINAL - hospital not a factor")
-```
-
-Bây giờ, để điều chỉnh thứ tự sao cho nhóm phân loại "Missing" và "Other" ở trên cùng của đường cong dịch bệnh, chúng ta có thể làm như sau:
-
--   Gọi package **forcats**, để làm việc với cột định dạng factor\
-
--   Điều chỉnh bộ dữ liệu - trong trường hợp này, chúng tôi sẽ xác định một bộ dữ liệu mới (`plot_data`) trong đó:
-
-    -   Cột `gender` được xác định là một biến phân loại có thứ bậc được thiết lập bằng hàm `fct_relevel()` sao cho "Other" và "Missing" đứng đầu tiên, do đó chúng xuất hiện ở trên đầu các cột\
-
--   Incidence object được tạo và vẽ biểu đồ như trước đó\
-
--   Chúng ta thêm các điều chỉnh **ggplot2**
-
-    -   `scale_fill_manual()` để gán màu theo cách thủ công sao cho "Missing" là màu xám và "Other" là màu be
-
-```{r, message=F, warning=F}
-# MODIFIED - hospital as factor
-###############################
-
-# load forcats package for working with factors
-pacman::p_load(forcats)
-
-# Convert hospital column to factor and adjust levels
-plot_data <- linelist %>% 
-  mutate(hospital = fct_relevel(hospital, c("Missing", "Other"))) # Set "Missing" and "Other" as top levels
-
-
-# Create weekly incidence object, grouped by hospital and week
-hospital_outbreak_mod <- incidence(
-  plot_data,
-  date_index = date_onset, 
-  interval = "week", 
-  groups = hospital)
-
-# plot incidence object
-plot(hospital_outbreak_mod, fill = hospital)+
-  
-  # manual specify colors
-  scale_fill_manual(values = c("grey", "beige", "darkgreen", "green2", "orange", "red", "pink"))+                      
-
-  # labels added via ggplot
-  labs(
-      title = "MODIFIED - hospital as factor",   # plot title
-      subtitle = "Other & Missing at top of epicurve",
-      y = "Weekly case incidence",               # y axis title  
-      x = "Week of symptom onset",               # x axis title
-      fill = "Hospital")                         # title of legend     
-```
-
-[***MẸO***: Nếu bạn chỉ muốn đảo ngược thứ tự của chú giải, hãy thêm lệnh **ggplot2** này `guides(fill = guide_legend(reverse = TRUE))`.]{style="color: darkgreen;"}
-
-### Đường lưới dọc {.unnumbered}
-
-Nếu bạn vẽ biểu đồ với các thiết lập mặc định của **incidence2**, bạn có thể nhận thấy rằng các đường lưới dọc xuất hiện ở từng nhãn ngày và giữa mỗi nhãn ngày. Điều này có thể dẫn đến các đường lưới giao nhau với đỉnh của một số cột.
-
-<!--[Lưu ý đoạn này không áp dụng với phiên bản 1.0.0 của incidence2]. Bạn có thể chỉ định khoảng thời gian cho các đường lưới bằng cách thêm lệnh **ggplot2**'s `scale_x_date()` vào biểu đồ **incidence2**. Trong đó, chỉ định khoảng thời gian cho `date_breaks = ` và `date_minor_breaks = ` (ví dụ: "tuần" hoặc "3 tuần" hoặc "tháng"). Lưu ý rằng việc sử dụng `scale_x_date()` sẽ làm sai bất kỳ định dạng nào của nhãn ngày trong `plot()`, vì vậy bạn sẽ cần chỉ định bất kỳ định dạng chuỗi nào cho `date_labels = ` như bên dưới.-->
-
-Bạn có thể xóa tất cả các đường lưới bằng cách thêm lệnh **ggplot2** `theme_classic()`.
-
-```{r, warning=F, message=F, out.width = c('50%', '50%', '50%'), fig.show='hold'}
-# make incidence object
-a <- incidence(
-  central_data,
-  date_index = date_onset,
-  interval = "Monday weeks"
-)
-
-# Default gridlines
-plot(a, title = "Default lines")
-
-# Specified gridline intervals
-# NOT WORKING WITH INCIDENCE2 1.0.0
-# plot(a, title = "Weekly lines")+
-#   scale_x_date(
-#     date_breaks = "4 weeks",      # major vertical lines align on weeks
-#     date_minor_breaks = "weeks",  # minor vertical lines every week
-#     date_labels = "%a\n%d\n%b")   # format of date labels
-
-# No gridlines
-plot(a, title = "No lines")+
-  theme_classic()                 # remove all gridlines
-```
-
-Tuy nhiên, lưu ý rằng nếu sử dụng tuần, các đối số `date_breaks` và `date_minor_breaks` chỉ hoạt động cho các tuần được quy định bắt đầu vào *Thứ Hai*. Nếu các tuần của bạn bắt đầu vào một ngày khác trong tuần, thay vào đó, bạn sẽ cần cung cấp vectơ ngày cho các đối số `breaks =` và `minor_breaks =` theo cách thủ công. Xem mục **ggplot2** để biết các ví dụ về điều này bằng cách sử dụng hàm `seq.Date()`.
-
-### Số mới mắc tích lũy {.unnumbered}
-
-<!-- Bạn có thể dễ dàng tạo ra một biểu đồ số mới mắc tích lũy bằng cách chuyển incidence object đến lệnh **incidence2** `cumulate()` và sau đó đến lệnh `plot()`. Điều này cũng tương tự với lệnh `facet_plot()`. -->
-
-<!-- ```{r} -->
-<!-- # make weekly incidence object -->
-<!-- wkly_inci <- incidence( -->
-<!--   linelist, -->
-<!--   date_index = date_onset, -->
-<!--   interval = "week" -->
-<!-- ) -->
-
-<!-- # plot cumulative incidence -->
-<!-- wkly_inci %>%  -->
-<!--   cumulate() %>%  -->
-<!--   plot() -->
-<!-- ``` -->
-
-Xem phần sau để biết phương pháp thay thế để vẽ biểu đồ số mới mắc tích lũy với **ggplot2** - ví dụ: để chồng một đường số mới mắc tích lũy lên trên đường cong dịch bệnh.
-
-### Trung bình động {.unnumbered}
-
-Bạn có thể thêm đường trung bình động vào biểu đồ tạo bởi **incidence2** một cách dễ dàng với hàm `add_rolling_average()` từ package **i2extras**. Chuyển đối tượng incidence2 của bạn tới hàm này, và sau đó vẽ bằng hàm `plot()`. Thiết lập `before =` là số ngày trước đó bạn muốn đưa vào đường trung bình động (mặc định là 2). Nếu dữ liệu của bạn được nhóm lại, trung bình động sẽ được tính cho mỗi nhóm.
-
-```{r, warning=F, message=F}
-rolling_avg <- incidence(                    # make incidence object
-  linelist,
-  date_index = date_onset,
-  interval = "week",
-  groups = gender) %>% 
-  
-  i2extras::add_rolling_average(before = 6)  # add rolling averages (in this case, by gender)
-
-# plot
-plot(rolling_avg, n.breaks = 3) # faceted automatically because rolling average on groups
-```
-
-Để tìm hiểu cách áp dụng đường trung bình động một cách tổng quát hơn trên dữ liệu, hãy xem chương [Đường trung bình động](#moving-average).
 
 <!-- ======================================================= -->
 
@@ -25384,8 +24798,8 @@ scale_x_date(
       by   = "week"),
    
     # date label format
-    date_labels = "%a\n%d %b\n%Y")+         # day, above month abbrev., above 2-digit year
-
+    #date_labels = "%a\n%d %b\n%Y")+         # day, above month abbrev., above 2-digit year
+    label = scales::label_date_short())      # automatic label formatting
 ```
 
 ### Nhóm/tô màu theo giá trị {.unnumbered}
@@ -25488,10 +24902,10 @@ ggplot(plot_data) +                     # Use NEW dataset with hospital as re-or
     
   # x-axis labels
   scale_x_date(
-    expand            = c(0,0),         # remove excess x-axis space before and after case bars
-    date_breaks       = "3 weeks",      # labels appear every 3 Monday weeks
-    date_minor_breaks = "week",         # vertical lines appear every Monday week
-    date_labels       = "%d\n%b\n'%y")+ # date labels format
+    expand            = c(0,0),           # remove excess x-axis space before and after case bars
+    date_breaks       = "3 weeks",        # labels appear every 3 Monday weeks
+    date_minor_breaks = "week",           # vertical lines appear every Monday week
+    label = scales::label_date_short()) + # efficient label formatting
   
   # y-axis
   scale_y_continuous(
@@ -25561,7 +24975,7 @@ ggplot(central_data %>% drop_na(gender))+   # begin with Central Hospital cases 
   scale_x_date(expand            = c(0,0),         # remove excess x-axis space below and after case bars
                date_breaks       = "3 weeks",      # labels appear every 3 Monday weeks
                date_minor_breaks = "week",         # vertical lines appear every Monday week
-               date_labels       = "%d\n%b\n'%y")+ # date labels format
+               label = scales::label_date_short())+ # efficient date labels
   
   # y-axis
   scale_y_continuous(expand = c(0,0))+             # removes excess y-axis space between bottom of bars and the labels
@@ -25644,7 +25058,7 @@ ggplot(central_data) +
     expand = c(0,0),               # remove excess x-axis space below and after case bars
     date_breaks = "3 weeks",       # Monday every 3 weeks
     date_minor_breaks = "week",    # Monday weeks
-    date_labels = "%a\n%d\n%b\n'%y")+  # label format
+    label = scales::label_date_short())+ # automatic label formatting
   
   scale_y_continuous(
     expand = c(0,0))+              # remove excess space under x-axis, make flush
@@ -25668,7 +25082,7 @@ ggplot(central_data) +
     expand = c(0,0),                  # remove excess x-axis space below and after case bars
     date_breaks = "months",           # 1st of month
     date_minor_breaks = "week",       # Monday weeks
-    date_labels = "%a\n%d %b\n%Y")+    # label format
+    label = scales::label_date_short())+ # automatic label formatting
   
   scale_y_continuous(
     expand = c(0,0))+                # remove excess space under x-axis, make flush 
@@ -25695,7 +25109,7 @@ ggplot(central_data) +
     expand = c(0,0),                   # remove excess x-axis space below and after case bars
     date_breaks = "4 weeks",           # Monday every 4 weeks
     date_minor_breaks = "week",        # Monday weeks 
-    date_labels = "%a\n%d %b\n%Y")+      # label format
+    label = scales::label_date_short())+ # label formatting
   
   scale_y_continuous(
     expand = c(0,0))+                # remove excess space under x-axis, make flush 
@@ -25722,7 +25136,7 @@ ggplot(central_data) +
     expand = c(0,0),                   # remove excess x-axis space below and after case bars
     date_breaks = "months",            # Monday every 4 weeks
     date_minor_breaks = "week",        # Monday weeks 
-    date_labels = "%b\n%Y")+          # label format
+    label = scales::label_date_short())+ # label formatting
   
   scale_y_continuous(
     expand = c(0,0))+                # remove excess space under x-axis, make flush 
@@ -25761,7 +25175,7 @@ ggplot(central_data) +
                             to   = ceiling_date(max(central_data$date_onset, na.rm=T), "week", week_start = 7),
                             by   = "7 days"),
     
-    date_labels = "%a\n%d\n%b\n'%y")+  # label format
+    label = scales::label_date_short())+ # label formatting
   
   scale_y_continuous(
     expand = c(0,0))+                # remove excess space under x-axis, make flush 
@@ -25838,7 +25252,7 @@ ggplot(data = count_data_weekly)+
   scale_x_date(
     date_breaks = "2 months",      # labels every 2 months 
     date_minor_breaks = "1 month", # gridlines every month
-    date_labels = '%b\n%Y')+       #labeled by month with year below
+    label = scales::label_date_short())+ # label formatting
      
   # Choose color palette (uses RColorBrewer package)
   scale_fill_brewer(palette = "Pastel2")+ 
@@ -25905,7 +25319,7 @@ ggplot(data = ll_counts_7day) +  # begin with new dataset defined above
       size = 1) +                # width of line
     scale_x_date(                # date scale
       date_breaks = "1 month",
-      date_labels = '%d/%m',
+      label = scales::label_date_short(), # label formatting
       expand = c(0,0)) +
     scale_y_continuous(          # y-axis scale
       expand = c(0,0),
@@ -25982,7 +25396,7 @@ ggplot(central_data) +
     expand            = c(0,0),         # remove excess x-axis space below and after case bars
     date_breaks       = "2 months",     # labels appear every 2 months
     date_minor_breaks = "1 month",      # vertical lines appear every 1 month 
-    date_labels       = "%b\n'%y")+     # date labels format
+    label = scales::label_date_short())+ # label formatting
   
   # y-axis
   scale_y_continuous(expand = c(0,0))+                       # removes excess y-axis space between bottom of bars and the labels
@@ -26042,7 +25456,7 @@ ggplot(central_data) +
     expand            = c(0,0),         # remove excess x-axis space below and after case bars
     date_breaks       = "2 months",     # labels appear every 2 months
     date_minor_breaks = "1 month",      # vertical lines appear every 1 month 
-    date_labels       = "%b\n'%y")+     # date labels format
+    label = scales::label_date_short())+ # label formatting
   
   # y-axis
   scale_y_continuous(expand = c(0,0))+  # removes excess y-axis space below 0
@@ -26136,7 +25550,7 @@ ggplot(central_data2) +
     expand            = c(0,0),         # remove excess x-axis space below and after case bars
     date_breaks       = "2 months",     # labels appear every 2 months
     date_minor_breaks = "1 month",      # vertical lines appear every 1 month 
-    date_labels       = "%b\n'%y")+     # date labels format
+    label = scales::label_date_short())+ # label formatting
   
   # y-axis
   scale_y_continuous(expand = c(0,0))+  # removes excess y-axis space between bottom of bars and the labels
@@ -26199,7 +25613,7 @@ ggplot(central_data) +
     expand = c(0,0),                   # remove excess x-axis space below and after case bars
     date_breaks = "1 month",           # 1st of month
     date_minor_breaks = "1 month",     # 1st of month
-    date_labels = "%b\n'%y")+          # label format
+    label = scales::label_date_short())+ # automatic label formatting
   
   # labels and theme
   labs(
@@ -26274,7 +25688,7 @@ ggplot(plot_data, aes(x = date_onset, fill = tentative)) +
     expand = c(0,0),                   # remove excess x-axis space below and after case bars
     date_breaks = "3 weeks",           # Monday every 3 weeks
     date_minor_breaks = "week",        # Monday weeks 
-    date_labels = "%d\n%b\n'%y")+      # label format
+    label = scales::label_date_short())+ # label formatting
   
   # labels and theme
   labs(title = "Show days that are tentative reporting",
@@ -27583,7 +26997,7 @@ ggplot(data = long_prop)+       # use long data, with proportions as Freq
 <!-- ======================================================= -->
 ## Các chỉ số báo cáo theo thời gian { }
 
-Thông thường, trong lĩnh vực y tế công cộng, một mục tiêu là đánh giá xu hướng theo thời gian của nhiều thực thể (cơ sở, khu vực pháp lý, v.v.). Một cách để hình dung các xu hướng như vậy theo thời gian là biểu đồ nhiệt trong đó trục x là thời gian và trên trục y là các thực thể. 
+Thông thường, trong lĩnh vực y tế công cộng, một mục tiêu là đánh giá xu hướng theo thời gian của nhiều thực thể (cơ sở điều trị, địa giới hành chính, v.v.). Một cách để hình dung các xu hướng như vậy theo thời gian là biểu đồ nhiệt trong đó trục x là thời gian và trên trục y là các thực thể. 
 
 
 ### Chuẩn bị dữ liệu {.unnumbered}
@@ -27672,24 +27086,23 @@ agg_weeks <- agg_weeks %>%
     n_reports       = dplyr::n(),                                 # number of reports received per week (could be >7)
     malaria_tot     = sum(malaria_tot, na.rm = T),                # total malaria cases reported
     n_days_reported = length(unique(data_date)),                  # number of unique days reporting per week
-    p_days_reported = round(100*(n_days_reported / n_days)))      # percent of days reporting
+    p_days_reported = round(100*(n_days_reported / n_days))) %>%  # percent of days reporting
+
+  ungroup(location_name, week)                                    # ungroup so expand() works in next step
 ```
 
 ```{r, echo=F}
 DT::datatable(head(agg_weeks,30), rownames = FALSE, options = list(pageLength = 5, scrollX=T), class = 'white-space: nowrap')
 ```
 
-Cuối cùng, chúng ta chạy lệnh bên dưới để đảm bảo rằng TẤT CẢ các cơ sở-tuần có thể có trong dữ liệu, ngay cả khi chúng bị missing trước đó. 
+Cuối cùng, chúng ta chạy lệnh dưới đây để đảm bảo rằng TẤT CẢ các cặp cơ sở điều trị-tuần báo cáo có thể có trong dữ liệu, ngay cả khi chúng bị missing trước đó. 
 
-Chúng ta đang sử dụng hàm `right_join()` trên chính nó (tập dữ liệu được thể hiện bởi dấu ".") nhưng đã được mở rộng để bao gồm tất cả các kết hợp có thể có của các cột `week` và `location_name`. Xem tài liệu về hàm `expand()` trong chương [Xoay trục dữ liệu]. Trước khi chạy đoạn code này, tập dữ liệu cần chứa `nrow(agg_weeks)` hàng. 
+Chúng ta tiếp tục sử dụng hàm `right_join()` trên chính dữ liệu (tập dữ liệu được thể hiện bởi dấu ".") vừa được mở rộng để bao gồm tất cả các kết hợp có thể có của các cột `week` và `location_name`. Xem tài liệu về hàm `expand()` trong chương [Xoay trục dữ liệu]. Trước khi chạy đoạn lệnh này, tập dữ liệu cần chứa `nrow(agg_weeks)` hàng. 
 
 ```{r, message=F, warning=F}
 # Create data frame of every possible facility-week
 expanded_weeks <- agg_weeks %>% 
-  mutate(week = as.factor(week)) %>%         # convert date to a factor so expand() works correctly
-  tidyr::expand(., week, location_name) %>%  # expand data frame to include all possible facility-week combinations
-                                             # note: "." represents the dataset at that moment in the pipe chain
-  mutate(week = as.Date(week))               # re-convert week to class Date so the subsequent right_join works
+  tidyr::expand(location_name, week)  # expand data frame to include all possible facility-week combinations
 ```
 
 Đây là `expanded_weeks`:  
@@ -29401,7 +28814,7 @@ plot(
   sub, 
   node_color = "outcome",
   node_shape = "gender",
-  node_size = 'age',
+  node_size = "age",
   col_pal = c(Death = "firebrick", Recover = "green"),
   shapes = c(f = "female", m = "male"),
   size_range = c(40, 60),
@@ -29797,7 +29210,7 @@ Trong chương này chúng ta sẽ học cách sử dụng package **ggtree**, c
 
 ```{r, phylogenetic_trees_overview_graph, out.width=c('80%'), fig.align='center', fig.show='hold', echo = FALSE}
 
-pacman::p_load(here, ggplot2, dplyr, ape, ggtree, treeio, ggnewscale)
+pacman::p_load(here, ggplot2, dplyr, ape, ggtree, treeio, ggnewscale, tidytree)
 
 tree <- ape::read.tree(here::here("data", "phylo", "Shigella_tree.txt"))
 
@@ -29947,9 +29360,10 @@ ggtree(tree, layout="circular", branch.length = "none") # simple circular tree w
 ### Cây đơn giản cộng với dữ liệu mẫu {.unnumbered}  
 
 Toán tử **%<+%** được sử dụng để kết nối data frame `sample_data` tới tệp `tree`.
-Cách chú thích dễ dàng nhất cho cây của bạn là thêm tên mẫu ở các ngọn, cũng như tô màu các điểm ngọn và các nhánh nếu muốn :
+Cách chú thích dễ dàng nhất cho cây của bạn là thêm tên mẫu ở các ngọn, cũng như tô màu các điểm ngọn và các nhánh nếu muốn:
 
-Here is an example of a circular tree: 
+Dưới đây là một ví dụ về cây phả hệ dạng tròn: 
+
 ```{r, phylogenetic_trees_adding_sampledata, fig.align='center', warning=F, message=F}
 
 ggtree(tree, layout = "circular", branch.length = 'none') %<+% sample_data + # %<+% adds dataframe with sample data to tree
@@ -30164,7 +29578,7 @@ p1 # print
 
 Bây giờ chúng ta có thể xoay nút 37 trong đối tượng `p1` để các mẫu trên nút 38 di chuyển lên đỉnh. Chúng ta lưu trữ cây đã xoay trong một đối tượng mới có tên `p2`.
 ```{r}
-p2 <- rotate(p1, 37) + 
+p2 <- ggtree::rotate(p1, 37) + 
       ggtitle("Rotated Node 37")
 
 
@@ -30702,6 +30116,7 @@ agg_weeks <- facility_count_data %>%
     malaria_tot     = sum(malaria_tot, na.rm = T),
     n_days_reported = length(unique(data_date)),
     p_days_reported = round(100*(n_days_reported / n_days))) %>% 
+  ungroup(location_name, week) %>% 
   right_join(tidyr::expand(., week, location_name)) %>% 
   mutate(week = aweek::week2date(week))
 

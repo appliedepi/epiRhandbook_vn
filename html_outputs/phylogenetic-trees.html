@@ -1,43 +1,153 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>38 Cây phả hệ | Cẩm nang dịch tễ học với R</title>
-<meta name="author" content="the handbook team">
-<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.2"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.5.1/tabs.js"></script><script src="libs/bs3compat-0.2.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
-<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/htmlwidgets-1.5.3/htmlwidgets.js"></script><link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet">
-<script src="libs/datatables-binding-0.16/datatables.js"></script><link href="libs/dt-core-1.10.20/css/jquery.dataTables.min.css" rel="stylesheet">
-<link href="libs/dt-core-1.10.20/css/jquery.dataTables.extra.css" rel="stylesheet">
-<script src="libs/dt-core-1.10.20/js/jquery.dataTables.min.js"></script><link href="libs/nouislider-7.0.10/jquery.nouislider.min.css" rel="stylesheet">
-<script src="libs/nouislider-7.0.10/jquery.nouislider.min.js"></script><link href="libs/selectize-0.12.0/selectize.bootstrap3.css" rel="stylesheet">
-<script src="libs/selectize-0.12.0/selectize.min.js"></script><link href="libs/crosstalk-1.1.1/css/crosstalk.css" rel="stylesheet">
-<script src="libs/crosstalk-1.1.1/js/crosstalk.min.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
-<link href="libs/tabwid-1.0.0/tabwid.css" rel="stylesheet">
-<script src="libs/tabwid-1.0.0/tabwid.js"></script><link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet">
-<script src="libs/leaflet-1.3.1/leaflet.js"></script><link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet">
-<script src="libs/Proj4Leaflet-1.0.1/proj4-compressed.js"></script><script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script><link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet">
-<script src="libs/leaflet-binding-2.0.3/leaflet.js"></script><script src="libs/leaflet-providers-1.9.0/leaflet-providers_1.9.0.js"></script><script src="libs/leaflet-providers-plugin-2.0.3/leaflet-providers-plugin.js"></script><script src="libs/viz-1.8.2/viz.js"></script><link href="libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet">
-<script src="libs/grViz-binding-1.0.6.1/grViz.js"></script><script src="libs/d3-4.5.0/d3.min.js"></script><script src="libs/sankey-1/sankey.js"></script><script src="libs/sankeyNetwork-binding-0.4/sankeyNetwork.js"></script><script src="libs/plotly-binding-4.9.2.1/plotly.js"></script><script src="libs/typedarray-0.1/typedarray.min.js"></script><link href="libs/plotly-htmlwidgets-css-1.52.2/plotly-htmlwidgets.css" rel="stylesheet">
-<script src="libs/plotly-main-1.52.2/plotly-latest.min.js"></script><link href="libs/vis-4.20.1/vis.css" rel="stylesheet">
-<script src="libs/vis-4.20.1/vis.min.js"></script><script src="libs/visNetwork-binding-2.0.9/visNetwork.js"></script><link href="libs/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet">
-<script src="libs/plotly-basic-1.52.2/plotly-basic-1.52.2.min.js"></script><script src="libs/plotly-cartesian-1.52.2/plotly-cartesian-1.52.2.min.js"></script><script src="libs/proj4js-2.3.15/proj4.js"></script><link href="libs/highcharts-8.1.2/css/motion.css" rel="stylesheet">
-<script src="libs/highcharts-8.1.2/highcharts.js"></script><script src="libs/highcharts-8.1.2/highcharts-3d.js"></script><script src="libs/highcharts-8.1.2/highcharts-more.js"></script><script src="libs/highcharts-8.1.2/modules/stock.js"></script><script src="libs/highcharts-8.1.2/modules/map.js"></script><script src="libs/highcharts-8.1.2/modules/annotations.js"></script><script src="libs/highcharts-8.1.2/modules/data.js"></script><script src="libs/highcharts-8.1.2/modules/drilldown.js"></script><script src="libs/highcharts-8.1.2/modules/item-series.js"></script><script src="libs/highcharts-8.1.2/modules/offline-exporting.js"></script><script src="libs/highcharts-8.1.2/modules/overlapping-datalabels.js"></script><script src="libs/highcharts-8.1.2/modules/exporting.js"></script><script src="libs/highcharts-8.1.2/modules/export-data.js"></script><script src="libs/highcharts-8.1.2/modules/funnel.js"></script><script src="libs/highcharts-8.1.2/modules/heatmap.js"></script><script src="libs/highcharts-8.1.2/modules/treemap.js"></script><script src="libs/highcharts-8.1.2/modules/sankey.js"></script><script src="libs/highcharts-8.1.2/modules/dependency-wheel.js"></script><script src="libs/highcharts-8.1.2/modules/organization.js"></script><script src="libs/highcharts-8.1.2/modules/solid-gauge.js"></script><script src="libs/highcharts-8.1.2/modules/streamgraph.js"></script><script src="libs/highcharts-8.1.2/modules/sunburst.js"></script><script src="libs/highcharts-8.1.2/modules/vector.js"></script><script src="libs/highcharts-8.1.2/modules/wordcloud.js"></script><script src="libs/highcharts-8.1.2/modules/xrange.js"></script><script src="libs/highcharts-8.1.2/modules/tilemap.js"></script><script src="libs/highcharts-8.1.2/modules/venn.js"></script><script src="libs/highcharts-8.1.2/modules/gantt.js"></script><script src="libs/highcharts-8.1.2/modules/timeline.js"></script><script src="libs/highcharts-8.1.2/modules/parallel-coordinates.js"></script><script src="libs/highcharts-8.1.2/modules/bullet.js"></script><script src="libs/highcharts-8.1.2/modules/coloraxis.js"></script><script src="libs/highcharts-8.1.2/modules/dumbbell.js"></script><script src="libs/highcharts-8.1.2/modules/lollipop.js"></script><script src="libs/highcharts-8.1.2/modules/series-label.js"></script><script src="libs/highcharts-8.1.2/plugins/motion.js"></script><script src="libs/highcharts-8.1.2/custom/reset.js"></script><script src="libs/highcharts-8.1.2/modules/boost.js"></script><script src="libs/highchart-binding-0.8.2/highchart.js"></script><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=G-QXDW878QLX"></script><script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>38 Cây phả hệ | Cẩm nang dịch tễ học với R</title>
+
+    <meta name="author" content="the handbook team" />
+  
+   <meta name="description" content="The Epi R Handbook is a R reference manual for applied epidemiology and public health." />
+   <meta name="generator" content="placeholder" />
+  <meta property="og:title" content="38 Cây phả hệ | Cẩm nang dịch tễ học với R" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="The Epi R Handbook is a R reference manual for applied epidemiology and public health." />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="38 Cây phả hệ | Cẩm nang dịch tễ học với R" />
+  
+  <meta name="twitter:description" content="The Epi R Handbook is a R reference manual for applied epidemiology and public health." />
+  
+  <!-- JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script>
+    <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet" />
+    <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script>
+    <script src="libs/bs3compat-0.6.1/transition.js"></script>
+    <script src="libs/bs3compat-0.6.1/tabs.js"></script>
+    <script src="libs/bs3compat-0.6.1/bs3compat.js"></script>
+    <link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet" />
+    <script src="libs/bs4_book-1.0.0/bs4_book.js"></script>
+    <script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+    <link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+    <script src="libs/datatables-binding-0.31/datatables.js"></script>
+    <link href="libs/dt-core-1.13.6/css/jquery.dataTables.min.css" rel="stylesheet" />
+    <link href="libs/dt-core-1.13.6/css/jquery.dataTables.extra.css" rel="stylesheet" />
+    <script src="libs/dt-core-1.13.6/js/jquery.dataTables.min.js"></script>
+    <link href="libs/nouislider-7.0.10/jquery.nouislider.min.css" rel="stylesheet" />
+    <script src="libs/nouislider-7.0.10/jquery.nouislider.min.js"></script>
+    <link href="libs/selectize-0.12.0/selectize.bootstrap3.css" rel="stylesheet" />
+    <script src="libs/selectize-0.12.0/selectize.min.js"></script>
+    <link href="libs/crosstalk-1.2.1/css/crosstalk.min.css" rel="stylesheet" />
+    <script src="libs/crosstalk-1.2.1/js/crosstalk.min.js"></script>
+    <script src="libs/kePrint-0.0.1/kePrint.js"></script>
+    <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+    <link href="libs/tabwid-1.1.3/tabwid.css" rel="stylesheet" />
+    <script src="libs/tabwid-1.1.3/tabwid.js"></script>
+    <link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet" />
+    <script src="libs/leaflet-1.3.1/leaflet.js"></script>
+    <link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
+    <script src="libs/proj4-2.6.2/proj4.min.js"></script>
+    <script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
+    <link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
+    <script src="libs/leaflet-binding-2.2.1/leaflet.js"></script>
+    <script src="libs/leaflet-providers-2.0.0/leaflet-providers_2.0.0.js"></script>
+    <script src="libs/leaflet-providers-plugin-2.2.1/leaflet-providers-plugin.js"></script>
+    <script src="libs/viz-1.8.2/viz.js"></script>
+    <link href="libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet" />
+    <script src="libs/grViz-binding-1.0.11/grViz.js"></script>
+    <script src="libs/d3-4.5.0/d3.min.js"></script>
+    <script src="libs/sankey-1/sankey.js"></script>
+    <script src="libs/sankeyNetwork-binding-0.4/sankeyNetwork.js"></script>
+    <script src="libs/plotly-binding-4.10.4/plotly.js"></script>
+    <script src="libs/typedarray-0.1/typedarray.min.js"></script>
+    <link href="libs/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet" />
+    <script src="libs/plotly-main-2.11.1/plotly-latest.min.js"></script>
+    <link href="libs/vis-9.1.0/vis-network.min.css" rel="stylesheet" />
+    <script src="libs/vis-9.1.0/vis-network.min.js"></script>
+    <script src="libs/visNetwork-binding-2.1.2/visNetwork.js"></script>
+    <link href="libs/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <script src="libs/plotly-basic-2.11.1/plotly-basic-2.11.1.min.js"></script>
+    <script src="libs/plotly-cartesian-2.11.1/plotly-cartesian-2.11.1.min.js"></script>
+    <script src="libs/proj4js-2.3.15/proj4.js"></script>
+    <link href="libs/highcharts-9.3.1/css/motion.css" rel="stylesheet" />
+    <script src="libs/highcharts-9.3.1/highcharts.js"></script>
+    <script src="libs/highcharts-9.3.1/highcharts-3d.js"></script>
+    <script src="libs/highcharts-9.3.1/highcharts-more.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/stock.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/map.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/data.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/exporting.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/offline-exporting.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/drilldown.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/item-series.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/overlapping-datalabels.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/annotations.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/export-data.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/funnel.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/heatmap.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/treemap.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/sankey.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/dependency-wheel.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/organization.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/solid-gauge.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/streamgraph.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/sunburst.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/vector.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/wordcloud.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/xrange.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/tilemap.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/venn.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/gantt.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/timeline.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/parallel-coordinates.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/bullet.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/coloraxis.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/dumbbell.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/lollipop.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/series-label.js"></script>
+    <script src="libs/highcharts-9.3.1/plugins/motion.js"></script>
+    <script src="libs/highcharts-9.3.1/custom/reset.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/boost.js"></script>
+    <script src="libs/highchart-binding-0.9.4/highchart.js"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QXDW878QLX"></script>
+    <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
 
       gtag('config', 'G-QXDW878QLX');
-    </script><script src="https://cdn.jsdelivr.net/autocomplete.js/0/autocomplete.jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/mark.js@8.11.1/dist/mark.min.js"></script><!-- CSS --><link rel="stylesheet" href="style_bs4.css">
+    </script>
+
+    <div class="alert alert-info alert-dismissible">
+      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+      <strong>Bạn cần trợ giúp khi học R?</strong> Hãy tham gia <a href="https://www.appliedepi.org/live/" class="alert-link">khóa học</a>, trải nghiệm <a href="https://www.appliedepi.org/tutorial/" class="alert-link">các học phần miễn phí</a>, gửi bài viết <a href="https://community.appliedepi.org/" class="alert-link">trên trang Cộng đồng</a>, hoặc liên hệ <a href="mailto:contact@appliedepi.org" class="alert-link">dịch vụ hỗ trợ của chúng tôi</a>.
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script>
+
+  <!-- CSS -->
+  <style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+      <link rel="stylesheet" href="style_bs4.css" />
+  
 </head>
+
 <body data-spy="scroll" data-target="#toc">
 
 <div class="container-fluid">
 <div class="row">
-  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book">
+    <a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
 
     <div class="d-flex align-items-start justify-content-between">
       <h1>
@@ -49,121 +159,55 @@
     <div id="main-nav" class="collapse-lg">
       <form role="search">
         <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
-</form>
+      </form>
 
-      <nav aria-label="Table of contents"><h2>Table of contents</h2>
-        <ul class="book-toc list-unstyled">
-<li><a class="" href="index.html"></a></li>
-<li class="book-part">Về cuốn sách này</li>
-<li><a class="" href="editorial-style.html"><span class="header-section-number">1</span> Biên tập và ghi chú kỹ thuật</a></li>
-<li><a class="" href="data-used.html"><span class="header-section-number">2</span> Tải sách và dữ liệu</a></li>
-<li class="book-part">Nhập môn về R</li>
-<li><a class="" href="basics.html"><span class="header-section-number">3</span> R Cơ bản</a></li>
-<li><a class="" href="transition-to-R.html"><span class="header-section-number">4</span> Chuyển đổi sang R</a></li>
-<li><a class="" href="packages-suggested.html"><span class="header-section-number">5</span> Package đề xuất</a></li>
-<li><a class="" href="r-projects.html"><span class="header-section-number">6</span> Dự án R</a></li>
-<li><a class="" href="importing.html"><span class="header-section-number">7</span> Nhập xuất dữ liệu</a></li>
-<li class="book-part">Quản lý dữ liệu</li>
-<li><a class="" href="cleaning.html"><span class="header-section-number">8</span> Làm sạch số liệu và các hàm quan trọng</a></li>
-<li><a class="" href="dates.html"><span class="header-section-number">9</span> Làm việc với ngày tháng</a></li>
-<li><a class="" href="characters-strings.html"><span class="header-section-number">10</span> Ký tự và chuỗi</a></li>
-<li><a class="" href="factors.html"><span class="header-section-number">11</span> Factors</a></li>
-<li><a class="" href="pivoting.html"><span class="header-section-number">12</span> Xoay trục dữ liệu</a></li>
-<li><a class="" href="grouping.html"><span class="header-section-number">13</span> Nhóm dữ liệu</a></li>
-<li><a class="" href="joining-matching.html"><span class="header-section-number">14</span> Nối dữ liệu</a></li>
-<li><a class="" href="deduplication.html"><span class="header-section-number">15</span> Loại bỏ trùng lặp</a></li>
-<li><a class="" href="iteration.html"><span class="header-section-number">16</span> Lặp, vòng lặp, và danh sách</a></li>
-<li class="book-part">Phân tích dữ liệu</li>
-<li><a class="" href="tables-descriptive.html"><span class="header-section-number">17</span> Bảng mô tả</a></li>
-<li><a class="" href="stat-tests.html"><span class="header-section-number">18</span> Các kiểm định thống kê cơ bản</a></li>
-<li><a class="" href="regression.html"><span class="header-section-number">19</span> Hồi quy đơn và đa biến</a></li>
-<li><a class="" href="missing-data.html"><span class="header-section-number">20</span> Dữ liệu Missing</a></li>
-<li><a class="" href="standardization.html"><span class="header-section-number">21</span> Tỷ suất chuẩn hóa</a></li>
-<li><a class="" href="moving-average.html"><span class="header-section-number">22</span> Đường trung bình động</a></li>
-<li><a class="" href="time-series.html"><span class="header-section-number">23</span> Chuỗi thời gian và phát hiện ổ dịch</a></li>
-<li><a class="" href="epidemic-models.html"><span class="header-section-number">24</span> Mô hình hóa dịch bệnh</a></li>
-<li><a class="" href="contact-tracing.html"><span class="header-section-number">25</span> Truy vết tiếp xúc</a></li>
-<li><a class="" href="survey-analysis.html"><span class="header-section-number">26</span> Phân tích khảo sát</a></li>
-<li><a class="" href="survival-analysis.html"><span class="header-section-number">27</span> Phân tích sống còn</a></li>
-<li><a class="" href="gis.html"><span class="header-section-number">28</span> GIS cơ bản</a></li>
-<li class="book-part">Trực quan hóa dữ liệu</li>
-<li><a class="" href="tables-presentation.html"><span class="header-section-number">29</span> Trình bày bảng</a></li>
-<li><a class="" href="ggplot-basics.html"><span class="header-section-number">30</span> ggplot cơ bản</a></li>
-<li><a class="" href="ggplot-tips.html"><span class="header-section-number">31</span> Các tips với ggplot</a></li>
-<li><a class="" href="epicurves.html"><span class="header-section-number">32</span> Đường cong dịch bệnh</a></li>
-<li><a class="" href="age-pyramid.html"><span class="header-section-number">33</span> Tháp dân số và thang đo Likert</a></li>
-<li><a class="" href="heatmaps.html"><span class="header-section-number">34</span> Biểu đồ nhiệt</a></li>
-<li><a class="" href="diagrams.html"><span class="header-section-number">35</span> Sơ đồ và biểu đồ</a></li>
-<li><a class="" href="combination-analysis.html"><span class="header-section-number">36</span> Biểu đồ kết hợp</a></li>
-<li><a class="" href="transmission-chains.html"><span class="header-section-number">37</span> Chuỗi lây nhiễm</a></li>
-<li><a class="active" href="phylogenetic-trees.html"><span class="header-section-number">38</span> Cây phả hệ</a></li>
-<li><a class="" href="interactive-plots.html"><span class="header-section-number">39</span> Biểu đồ tương tác</a></li>
-<li class="book-part">Báo cáo và dashboards</li>
-<li><a class="" href="rmarkdown.html"><span class="header-section-number">40</span> Báo cáo với R Markdown</a></li>
-<li><a class="" href="reportfactory.html"><span class="header-section-number">41</span> Tổ chức báo cáo định kỳ</a></li>
-<li><a class="" href="flexdashboard.html"><span class="header-section-number">42</span> Dashboards với R Markdown</a></li>
-<li><a class="" href="shiny-basics.html"><span class="header-section-number">43</span> Dashboards với Shiny</a></li>
-<li class="book-part">Tổng hợp</li>
-<li><a class="" href="writing-functions.html"><span class="header-section-number">44</span> Viết hàm</a></li>
-<li><a class="" href="directories.html"><span class="header-section-number">45</span> Tương tác với thư mục làm việc</a></li>
-<li><a class="" href="collaboration.html"><span class="header-section-number">46</span> Version control với Git và Github</a></li>
-<li><a class="" href="errors.html"><span class="header-section-number">47</span> Các lỗi thường gặp</a></li>
-<li><a class="" href="help.html"><span class="header-section-number">48</span> Nhờ sự trợ giúp</a></li>
-<li><a class="" href="network-drives.html"><span class="header-section-number">49</span> R trên ổ cứng mạng</a></li>
-<li><a class="" href="data-table.html"><span class="header-section-number">50</span> Data Table</a></li>
-</ul>
+      <nav aria-label="Table of contents">
+        <h2>Table of contents</h2>
+        <div id="book-toc"></div>
 
         <div class="book-extra">
-          
+          <p><a id="book-repo" href="#">View book source <i class="fab fa-github"></i></a></li></p>
         </div>
       </nav>
-</div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="phylogenetic-trees" class="section level1" number="38">
-<h1>
-<span class="header-section-number">38</span> Cây phả hệ<a class="anchor" aria-label="anchor" href="#phylogenetic-trees"><i class="fas fa-link"></i></a>
-</h1>
+    </div>
+  </header>
+
+  <main class="col-sm-12 col-md-9 col-lg-7" id="content">
+<div id="phylogenetic-trees" class="section level1" number="38">
+<h1><span class="header-section-number">38</span> Cây phả hệ</h1>
 <!-- ======================================================= -->
 <div id="tổng-quan-8" class="section level2" number="38.1">
-<h2>
-<span class="header-section-number">38.1</span> Tổng quan<a class="anchor" aria-label="anchor" href="#t%E1%BB%95ng-quan-8"><i class="fas fa-link"></i></a>
-</h2>
+<h2><span class="header-section-number">38.1</span> Tổng quan</h2>
 <p><strong>Cây phả hệ</strong> được sử dụng để trực quan hóa và mô tả mối liên hệ cũng như sự tiến hóa của các sinh vật dựa trên trình tự mã di truyền của chúng.</p>
 <p>Chúng có thể được xây dựng từ trình tự di truyền bằng các phương pháp dựa trên khoảng cách (distance-based methods) (chẳng hạn như phương pháp neighbor-joining) hoặc các phương pháp dựa trên ký tự (character-based methods) (chẳng hạn như phương pháp maximum likelihood và Bayesian Markov Chain Monte Carlo). Công nghệ giải trình tự gen thế hệ mới (Next Generation Sequencing - NGS) có giá thành ngày càng hợp lý và ngày càng được sử dụng rộng rãi hơn trong y tế công cộng để mô tả các mầm bệnh gây ra các bệnh truyền nhiễm. Các thiết bị giải trình tự di động giúp giảm thời gian quay vòng và hứa hẹn cung cấp dữ liệu để hỗ trợ điều tra ổ dịch trong thời gian thực. Dữ liệu NGS có thể được sử dụng để xác định nguồn gốc hoặc nguồn gốc của một chủng bùng phát và sự lan truyền của nó, cũng như xác định sự hiện diện của các gen kháng thuốc kháng sinh. Để trực quan hóa mối quan hệ di truyền giữa các mẫu, một cây phát sinh loài được xây dựng.</p>
 <p>Trong chương này chúng ta sẽ học cách sử dụng package <strong>ggtree</strong>, cho phép kết hợp cây phả hệ với dữ liệu bổ sung dưới dạng một dataframe. Điều này sẽ cho phép chúng ta quan sát các xu hướng và nâng cao hiểu biết về động học của dịch bệnh.</p>
-<div class="inline-figure"><img src="_main_files/figure-html/phylogenetic_trees_overview_graph-1.png" width="80%" style="display: block; margin: auto;"></div>
+<p><img src="_main_files/figure-html/phylogenetic_trees_overview_graph-1.png" width="80%" style="display: block; margin: auto;" /></p>
 <!-- ======================================================= -->
 </div>
 <div id="chuẩn-bị-30" class="section level2" number="38.2">
-<h2>
-<span class="header-section-number">38.2</span> Chuẩn bị<a class="anchor" aria-label="anchor" href="#chu%E1%BA%A9n-b%E1%BB%8B-30"><i class="fas fa-link"></i></a>
-</h2>
+<h2><span class="header-section-number">38.2</span> Chuẩn bị</h2>
 <div id="gọi-packages-15" class="section level3 unnumbered">
-<h3>Gọi packages<a class="anchor" aria-label="anchor" href="#g%E1%BB%8Di-packages-15"><i class="fas fa-link"></i></a>
-</h3>
-<p>Đoạn code này hiển thị việc gọi các package cần thiết cho các phân tích. Trong cuốn sách này, chúng tôi nhấn mạnh việc sử dụng hàm <code><a href="https://rdrr.io/pkg/pacman/man/p_load.html">p_load()</a></code> từ package <strong>pacman</strong>, giúp cài đặt các package cần thiết <em>và</em> gọi chúng ra để sử dụng. Bạn cũng có thể gọi các packages đã cài đặt với hàm <code><a href="https://rdrr.io/r/base/library.html">library()</a></code> của <strong>base</strong> R. Xem thêm chương <a href="basics.html#basics">R cơ bản</a> để có thêm thông tin về các packages trong R.</p>
-<div class="sourceCode" id="cb1724"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">pacman</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/pacman/man/p_load.html">p_load</a></span><span class="op">(</span>
-  <span class="va">rio</span>,             <span class="co"># import/export</span>
-  <span class="va">here</span>,            <span class="co"># relative file paths</span>
-  <span class="va">tidyverse</span>,       <span class="co"># general data management and visualization</span>
-  <span class="va">ape</span>,             <span class="co"># to import and export phylogenetic files</span>
-  <span class="va">ggtree</span>,          <span class="co"># to visualize phylogenetic files</span>
-  <span class="va">treeio</span>,          <span class="co"># to visualize phylogenetic files</span>
-  <span class="va">ggnewscale</span><span class="op">)</span>      <span class="co"># to add additional layers of color schemes</span></code></pre></div>
+<h3>Gọi packages</h3>
+<p>Đoạn code này hiển thị việc gọi các package cần thiết cho các phân tích. Trong cuốn sách này, chúng tôi nhấn mạnh việc sử dụng hàm <code>p_load()</code> từ package <strong>pacman</strong>, giúp cài đặt các package cần thiết <em>và</em> gọi chúng ra để sử dụng. Bạn cũng có thể gọi các packages đã cài đặt với hàm <code>library()</code> của <strong>base</strong> R. Xem thêm chương <a href="basics.html#basics">R cơ bản</a> để có thêm thông tin về các packages trong R.</p>
+<div class="sourceCode" id="cb1702"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1702-1"><a href="phylogenetic-trees.html#cb1702-1" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(</span>
+<span id="cb1702-2"><a href="phylogenetic-trees.html#cb1702-2" tabindex="-1"></a>  rio,             <span class="co"># import/export</span></span>
+<span id="cb1702-3"><a href="phylogenetic-trees.html#cb1702-3" tabindex="-1"></a>  here,            <span class="co"># relative file paths</span></span>
+<span id="cb1702-4"><a href="phylogenetic-trees.html#cb1702-4" tabindex="-1"></a>  tidyverse,       <span class="co"># general data management and visualization</span></span>
+<span id="cb1702-5"><a href="phylogenetic-trees.html#cb1702-5" tabindex="-1"></a>  ape,             <span class="co"># to import and export phylogenetic files</span></span>
+<span id="cb1702-6"><a href="phylogenetic-trees.html#cb1702-6" tabindex="-1"></a>  ggtree,          <span class="co"># to visualize phylogenetic files</span></span>
+<span id="cb1702-7"><a href="phylogenetic-trees.html#cb1702-7" tabindex="-1"></a>  treeio,          <span class="co"># to visualize phylogenetic files</span></span>
+<span id="cb1702-8"><a href="phylogenetic-trees.html#cb1702-8" tabindex="-1"></a>  ggnewscale)      <span class="co"># to add additional layers of color schemes</span></span></code></pre></div>
 </div>
 <div id="nhập-dữ-liệu-22" class="section level3 unnumbered">
-<h3>Nhập dữ liệu<a class="anchor" aria-label="anchor" href="#nh%E1%BA%ADp-d%E1%BB%AF-li%E1%BB%87u-22"><i class="fas fa-link"></i></a>
-</h3>
+<h3>Nhập dữ liệu</h3>
 <p>Dữ liệu sử dụng trong chương này có thể tải xuống với hướng dẫn từ chương <a href="data-used.html#data-used">Tải sách và dữ liệu</a>.</p>
 <p>Có một số định dạng khác nhau mà cây phát sinh loài có thể được lưu trữ (vd: Newick, NEXUS, Phylip). Định dạng phổ biến là ở dạng tệp Newick (.nwk), là tiêu chuẩn để biểu diễn cây ở dạng máy tính có thể đọc được. Điều này có nghĩa là toàn bộ cây có thể được biểu diễn ở định dạng chuỗi chẳng hạn như “((t2:0.04,t1:0.34):0.89,(t5:0.37,(t4:0.03,t3:0.67):0.9):0.59);”, liệt kê toàn bộ các nút và tips cũng như mối quan hệ của chúng (độ dài nhánh) với nhau.</p>
 <p>Lưu ý: Điều quan trọng là phải hiểu rằng bản thân tệp cây phát sinh loài không chứa dữ liệu trình tự, mà chỉ đơn thuần là kết quả của khoảng cách gen giữa các trình tự. Do đó, chúng ta không thể trích xuất dữ liệu trình tự từ tệp cây.</p>
-<p>Đầu tiên, chúng ta sử dụng hàm <code>read.tree()</code> từ package <strong>ape</strong> để nhập một tệp cây phát sinh loài Newick ở định dạng .txt, và lưu nó dưới dạng một đối tượng danh sách với kiểu dữ liệu (class) “phylo”. Nếu cần, hãy sử dụng hàm <code><a href="https://here.r-lib.org//reference/here.html">here()</a></code> từ package <strong>here</strong> để chỉ định đường dẫn tệp tương đối.</p>
+<p>Đầu tiên, chúng ta sử dụng hàm <code>read.tree()</code> từ package <strong>ape</strong> để nhập một tệp cây phát sinh loài Newick ở định dạng .txt, và lưu nó dưới dạng một đối tượng danh sách với kiểu dữ liệu (class) “phylo”. Nếu cần, hãy sử dụng hàm <code>here()</code> từ package <strong>here</strong> để chỉ định đường dẫn tệp tương đối.</p>
 <p>Lưu ý: Trong trường hợp này, newick tree được lưu dưới dạng tệp .txt để dễ dàng xử lý và tải xuống từ Github.</p>
-<div class="sourceCode" id="cb1725"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">tree</span> <span class="op">&lt;-</span> <span class="fu">ape</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/ape/man/read.tree.html">read.tree</a></span><span class="op">(</span><span class="st">"Shigella_tree.txt"</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb1703"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1703-1"><a href="phylogenetic-trees.html#cb1703-1" tabindex="-1"></a>tree <span class="ot">&lt;-</span> ape<span class="sc">::</span><span class="fu">read.tree</span>(<span class="st">&quot;Shigella_tree.txt&quot;</span>)</span></code></pre></div>
 <p>Chúng ta khảo sát đối tượng cây của chúng ta và thấy nó chứa 299 tips (hoặc mẫu) và 236 nút (nodes).</p>
-<div class="sourceCode" id="cb1726"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">tree</span></code></pre></div>
+<div class="sourceCode" id="cb1704"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1704-1"><a href="phylogenetic-trees.html#cb1704-1" tabindex="-1"></a>tree</span></code></pre></div>
 <pre><code>## 
 ## Phylogenetic tree with 299 tips and 236 internal nodes.
 ## 
@@ -173,39 +217,36 @@
 ##   17, 29, 100, 67, 100, 100, ...
 ## 
 ## Rooted; includes branch lengths.</code></pre>
-<p>Thứ hai, chúng ta nhập một bảng được lưu trữ dưới dạng tệp .csv với thông tin bổ sung cho từng mẫu được giải trình tự, chẳng hạn như giới tính, quốc gia xuất xứ và các thuộc tính kháng kháng sinh, bằng cách sử dụng hàm <code><a href="https://rdrr.io/pkg/rio/man/import.html">import()</a></code> từ package <strong>rio</strong>:</p>
-<div class="sourceCode" id="cb1728"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">sample_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/rio/man/import.html">import</a></span><span class="op">(</span><span class="st">"sample_data_Shigella_tree.csv"</span><span class="op">)</span></code></pre></div>
+<p>Thứ hai, chúng ta nhập một bảng được lưu trữ dưới dạng tệp .csv với thông tin bổ sung cho từng mẫu được giải trình tự, chẳng hạn như giới tính, quốc gia xuất xứ và các thuộc tính kháng kháng sinh, bằng cách sử dụng hàm <code>import()</code> từ package <strong>rio</strong>:</p>
+<div class="sourceCode" id="cb1706"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1706-1"><a href="phylogenetic-trees.html#cb1706-1" tabindex="-1"></a>sample_data <span class="ot">&lt;-</span> <span class="fu">import</span>(<span class="st">&quot;sample_data_Shigella_tree.csv&quot;</span>)</span></code></pre></div>
 <p>Dưới đây là 50 dòng đầu tiên của bộ dữ liệu:</p>
-<div id="htmlwidget-257cfddc6db3f8442964" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-257cfddc6db3f8442964">{"x":{"filter":"none","data":[["S17BD05944","S15BD07413","S18BD07247","S19BD07384","S18BD07338","S18BD02657","S19BD06884","S16BD02574","S16BD04069","S17BD08170","S15BD07250","S17BD07935","S17BD00384","S19BD06034","S17BD08948","S17BD04542","S17BD07399","S17BD08233","S19BD07381","S17BD07961","S18BD09176","S19BD07393","S18BD02580","S17BD02526","S17BD06833","S18BD01024","S18BD03411","S18BD09515","S17BD07332","S18BD06598","S17BD02164","S19BD06386","S19BD06283","S19BD06285","S19BD05221","S18BD06749","S17BD02088","S17BD07692","S14BD03573","S17BD01135","S19BD06689","S15BD06969","S18BD01106","S17BD00525","S19BD07036","S18BD06401","S18BD06486","S17BD06426","S17BD05916","S18BD07708"],["Sonnei","Sonnei","Sonnei","Sonnei","Sonnei","Sonnei","Sonnei","Sonnei","Sonnei","Sonnei","Sonnei","Sonnei","Sonnei","Sonnei","Sonnei","Sonnei","Sonnei","Sonnei","Sonnei","Sonnei","Sonnei","Sonnei","Sonnei","Sonnei","Sonnei","Sonnei","Sonnei","Sonnei","Sonnei","Sonnei","Sonnei","Sonnei","Sonnei","Sonnei","Sonnei","Sonnei","Sonnei","Sonnei","Sonnei","Sonnei","Sonnei","Sonnei","Sonnei","Sonnei","Sonnei","Sonnei","Sonnei","Sonnei","Sonnei","Sonnei"],["Belgium","Belgium","Belgium","Belgium","Belgium","Belgium","Belgium","Belgium","Belgium","Belgium","Belgium","Belgium","Belgium","Belgium","Belgium","Belgium","Belgium","Belgium","Belgium","Belgium","Belgium","Belgium","Belgium","Belgium","Belgium","Belgium","Belgium","Belgium","Belgium","Belgium","Belgium","Belgium","Belgium","Belgium","Belgium","Belgium","Belgium","Belgium","Belgium","Belgium","Belgium","Belgium","Belgium","Belgium","Belgium","Belgium","Belgium","Belgium","Belgium","Belgium"],["Europe","Europe","Europe","Europe","Europe","Europe","Europe","Europe","Europe","Europe","Europe","Europe","Europe","Europe","Europe","Europe","Europe","Europe","Europe","Europe","Europe","Europe","Europe","Europe","Europe","Europe","Europe","Europe","Europe","Europe","Europe","Europe","Europe","Europe","Europe","Europe","Europe","Europe","Europe","Europe","Europe","Europe","Europe","Europe","Europe","Europe","Europe","Europe","Europe","Europe"],[null,"Georgia",null,"Morocco",null,null,null,"Thailand",null,null,null,null,null,null,null,"Iran",null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,"Morocco","France","Turkey","Egypt","Tunisia","Congo",null,null,null,null,null,null,null,null,null,null,"Egypt",null,null],["2017","2015","2018","2019","2018","2018","2019","2016","2016","2017","2015","2017","2017","2019","2017","2017","2017","2017","2019","2017","2018","2019","2018","2017","2017","2018","2018","2018","2017","2018","2017","2019","2019","2019","2019","2018","2017","2017","2014","2017","2019","2015","2018","2017","2019","2018","2018","2017","2017","2018"],["Yes","Yes","Yes","Yes","Yes","Yes","Yes","Yes","Yes","Yes","Yes","Yes","Yes","Yes","Yes","Yes","Yes","Yes","Yes","Yes","Yes","Yes","Yes","Yes","Yes","Yes","Yes","Yes","Yes","Yes","Yes","Yes","Yes","Yes","Yes","Yes","Yes","Yes","Yes","Yes","Yes","Yes","Yes","Yes","Yes","Yes","Yes","Yes","Yes","Yes"],["NRC BEL","NRC BEL","NRC BEL","NRC BEL","NRC BEL","NRC BEL","NRC BEL","NRC BEL","NRC BEL","NRC BEL","NRC BEL","NRC BEL","NRC BEL","NRC BEL","NRC BEL","NRC BEL","NRC BEL","NRC BEL","NRC BEL","NRC BEL","NRC BEL","NRC BEL","NRC BEL","NRC BEL","NRC BEL","NRC BEL","NRC BEL","NRC BEL","NRC BEL","NRC BEL","NRC BEL","NRC BEL","NRC BEL","NRC BEL","NRC BEL","NRC BEL","NRC BEL","NRC BEL","NRC BEL","NRC BEL","NRC BEL","NRC BEL","NRC BEL","NRC BEL","NRC BEL","NRC BEL","NRC BEL","NRC BEL","NRC BEL","NRC BEL"],[null,"Male","Female","Female","Male","Male","Male","Male","Male","Male","Female",null,"Male","Male","Female","Male","Male","Female","Female","Male","Male","Male","Male","Female","Male","Female","Female","Male","Female","Male","Female","Female","Female","Female","Female","Female","Male","Male",null,"female","Male","Female","Male","Male","Male","Male","Male","Male","Male","Female"],[null,null,null,null,null,"gyrA D87Y","gyrA D87Y","gyrA D87Y","gyrA D87Y",null,null,"gyrA D87Y",null,null,"gyrA D87Y",null,null,null,null,null,null,null,null,null,null,"gyrA D87Y","gyrA S83L",null,null,null,null,null,null,null,null,null,null,"gyrA D87Y","gyrA D87Y",null,null,null,"gyrA D87Y",null,null,null,null,null,null,null],[null,null,null,null,null,"mphA","mphA",null,null,null,null,"mphA",null,null,"mphA",null,null,null,null,null,null,null,null,null,null,"mphA","mphA",null,null,null,null,null,null,null,"mphA/ermB",null,null,"mphA",null,null,null,null,"mphA",null,null,null,null,null,null,null],[8,0,16,8,8,64,64,0,0,64,0,64,8,8,64,8,8,8,8,8,8,16,8,8,8,64,64,8,8,8,8,8,8,2,64,8,8,64,0,8,8,0,64,8,4,8,8,8,8,8],[0.25,0,0.03,0.02,0.02,0.5,0.5,0,0,8,0,0.5,0.02,0.02,0.5,0.25,0.02,0.02,0.02,0.02,0.02,0.12,0.02,0.02,0.02,0.5,0.25,0.03,0.02,0.02,0.02,0.02,0.02,0.02,0.02,0.02,0.02,1,0,0.02,0.02,0,0.5,0.02,0.02,4,0.02,0.02,0.25,0.02]],"container":"<table class=\"white-space: nowrap\">\n  <thead>\n    <tr>\n      <th>Sample_ID<\/th>\n      <th>serotype<\/th>\n      <th>Country<\/th>\n      <th>Continent<\/th>\n      <th>Travel_history<\/th>\n      <th>Year<\/th>\n      <th>Belgium<\/th>\n      <th>Source<\/th>\n      <th>Gender<\/th>\n      <th>gyrA_mutations<\/th>\n      <th>macrolide_resistance_genes<\/th>\n      <th>MIC_AZM<\/th>\n      <th>MIC_CIP<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":5,"scrollX":true,"columnDefs":[{"className":"dt-right","targets":[11,12]}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[5,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item" id="htmlwidget-63bcb79755d24d7616a4" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-63bcb79755d24d7616a4">{"x":{"filter":"none","vertical":false,"data":[["S17BD05944","S15BD07413","S18BD07247","S19BD07384","S18BD07338","S18BD02657","S19BD06884","S16BD02574","S16BD04069","S17BD08170","S15BD07250","S17BD07935","S17BD00384","S19BD06034","S17BD08948","S17BD04542","S17BD07399","S17BD08233","S19BD07381","S17BD07961","S18BD09176","S19BD07393","S18BD02580","S17BD02526","S17BD06833","S18BD01024","S18BD03411","S18BD09515","S17BD07332","S18BD06598","S17BD02164","S19BD06386","S19BD06283","S19BD06285","S19BD05221","S18BD06749","S17BD02088","S17BD07692","S14BD03573","S17BD01135","S19BD06689","S15BD06969","S18BD01106","S17BD00525","S19BD07036","S18BD06401","S18BD06486","S17BD06426","S17BD05916","S18BD07708"],["Sonnei","Sonnei","Sonnei","Sonnei","Sonnei","Sonnei","Sonnei","Sonnei","Sonnei","Sonnei","Sonnei","Sonnei","Sonnei","Sonnei","Sonnei","Sonnei","Sonnei","Sonnei","Sonnei","Sonnei","Sonnei","Sonnei","Sonnei","Sonnei","Sonnei","Sonnei","Sonnei","Sonnei","Sonnei","Sonnei","Sonnei","Sonnei","Sonnei","Sonnei","Sonnei","Sonnei","Sonnei","Sonnei","Sonnei","Sonnei","Sonnei","Sonnei","Sonnei","Sonnei","Sonnei","Sonnei","Sonnei","Sonnei","Sonnei","Sonnei"],["Belgium","Belgium","Belgium","Belgium","Belgium","Belgium","Belgium","Belgium","Belgium","Belgium","Belgium","Belgium","Belgium","Belgium","Belgium","Belgium","Belgium","Belgium","Belgium","Belgium","Belgium","Belgium","Belgium","Belgium","Belgium","Belgium","Belgium","Belgium","Belgium","Belgium","Belgium","Belgium","Belgium","Belgium","Belgium","Belgium","Belgium","Belgium","Belgium","Belgium","Belgium","Belgium","Belgium","Belgium","Belgium","Belgium","Belgium","Belgium","Belgium","Belgium"],["Europe","Europe","Europe","Europe","Europe","Europe","Europe","Europe","Europe","Europe","Europe","Europe","Europe","Europe","Europe","Europe","Europe","Europe","Europe","Europe","Europe","Europe","Europe","Europe","Europe","Europe","Europe","Europe","Europe","Europe","Europe","Europe","Europe","Europe","Europe","Europe","Europe","Europe","Europe","Europe","Europe","Europe","Europe","Europe","Europe","Europe","Europe","Europe","Europe","Europe"],[null,"Georgia",null,"Morocco",null,null,null,"Thailand",null,null,null,null,null,null,null,"Iran",null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,"Morocco","France","Turkey","Egypt","Tunisia","Congo",null,null,null,null,null,null,null,null,null,null,"Egypt",null,null],["2017","2015","2018","2019","2018","2018","2019","2016","2016","2017","2015","2017","2017","2019","2017","2017","2017","2017","2019","2017","2018","2019","2018","2017","2017","2018","2018","2018","2017","2018","2017","2019","2019","2019","2019","2018","2017","2017","2014","2017","2019","2015","2018","2017","2019","2018","2018","2017","2017","2018"],["Yes","Yes","Yes","Yes","Yes","Yes","Yes","Yes","Yes","Yes","Yes","Yes","Yes","Yes","Yes","Yes","Yes","Yes","Yes","Yes","Yes","Yes","Yes","Yes","Yes","Yes","Yes","Yes","Yes","Yes","Yes","Yes","Yes","Yes","Yes","Yes","Yes","Yes","Yes","Yes","Yes","Yes","Yes","Yes","Yes","Yes","Yes","Yes","Yes","Yes"],["NRC BEL","NRC BEL","NRC BEL","NRC BEL","NRC BEL","NRC BEL","NRC BEL","NRC BEL","NRC BEL","NRC BEL","NRC BEL","NRC BEL","NRC BEL","NRC BEL","NRC BEL","NRC BEL","NRC BEL","NRC BEL","NRC BEL","NRC BEL","NRC BEL","NRC BEL","NRC BEL","NRC BEL","NRC BEL","NRC BEL","NRC BEL","NRC BEL","NRC BEL","NRC BEL","NRC BEL","NRC BEL","NRC BEL","NRC BEL","NRC BEL","NRC BEL","NRC BEL","NRC BEL","NRC BEL","NRC BEL","NRC BEL","NRC BEL","NRC BEL","NRC BEL","NRC BEL","NRC BEL","NRC BEL","NRC BEL","NRC BEL","NRC BEL"],[null,"Male","Female","Female","Male","Male","Male","Male","Male","Male","Female",null,"Male","Male","Female","Male","Male","Female","Female","Male","Male","Male","Male","Female","Male","Female","Female","Male","Female","Male","Female","Female","Female","Female","Female","Female","Male","Male",null,"female","Male","Female","Male","Male","Male","Male","Male","Male","Male","Female"],[null,null,null,null,null,"gyrA D87Y","gyrA D87Y","gyrA D87Y","gyrA D87Y",null,null,"gyrA D87Y",null,null,"gyrA D87Y",null,null,null,null,null,null,null,null,null,null,"gyrA D87Y","gyrA S83L",null,null,null,null,null,null,null,null,null,null,"gyrA D87Y","gyrA D87Y",null,null,null,"gyrA D87Y",null,null,null,null,null,null,null],[null,null,null,null,null,"mphA","mphA",null,null,null,null,"mphA",null,null,"mphA",null,null,null,null,null,null,null,null,null,null,"mphA","mphA",null,null,null,null,null,null,null,"mphA/ermB",null,null,"mphA",null,null,null,null,"mphA",null,null,null,null,null,null,null],[8,0,16,8,8,64,64,0,0,64,0,64,8,8,64,8,8,8,8,8,8,16,8,8,8,64,64,8,8,8,8,8,8,2,64,8,8,64,0,8,8,0,64,8,4,8,8,8,8,8],[0.25,0,0.03,0.02,0.02,0.5,0.5,0,0,8,0,0.5,0.02,0.02,0.5,0.25,0.02,0.02,0.02,0.02,0.02,0.12,0.02,0.02,0.02,0.5,0.25,0.03,0.02,0.02,0.02,0.02,0.02,0.02,0.02,0.02,0.02,1,0,0.02,0.02,0,0.5,0.02,0.02,4,0.02,0.02,0.25,0.02]],"container":"<table class=\"white-space: nowrap\">\n  <thead>\n    <tr>\n      <th>Sample_ID<\/th>\n      <th>serotype<\/th>\n      <th>Country<\/th>\n      <th>Continent<\/th>\n      <th>Travel_history<\/th>\n      <th>Year<\/th>\n      <th>Belgium<\/th>\n      <th>Source<\/th>\n      <th>Gender<\/th>\n      <th>gyrA_mutations<\/th>\n      <th>macrolide_resistance_genes<\/th>\n      <th>MIC_AZM<\/th>\n      <th>MIC_CIP<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":5,"scrollX":true,"columnDefs":[{"className":"dt-right","targets":[11,12]},{"name":"Sample_ID","targets":0},{"name":"serotype","targets":1},{"name":"Country","targets":2},{"name":"Continent","targets":3},{"name":"Travel_history","targets":4},{"name":"Year","targets":5},{"name":"Belgium","targets":6},{"name":"Source","targets":7},{"name":"Gender","targets":8},{"name":"gyrA_mutations","targets":9},{"name":"macrolide_resistance_genes","targets":10},{"name":"MIC_AZM","targets":11},{"name":"MIC_CIP","targets":12}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[5,10,25,50,100]},"selection":{"mode":"multiple","selected":null,"target":"row","selectable":null}},"evals":[],"jsHooks":[]}</script>
 </div>
 <div id="làm-sạch-và-khảo-sát-dữ-liệu" class="section level3 unnumbered">
-<h3>Làm sạch và khảo sát dữ liệu<a class="anchor" aria-label="anchor" href="#l%C3%A0m-s%E1%BA%A1ch-v%C3%A0-kh%E1%BA%A3o-s%C3%A1t-d%E1%BB%AF-li%E1%BB%87u"><i class="fas fa-link"></i></a>
-</h3>
+<h3>Làm sạch và khảo sát dữ liệu</h3>
 <p>Chúng ta làm sạch và khảo sát dữ liệu để gán dữ liệu mẫu chính xác cho cây phát sinh loài, các giá trị trong cột <code>Sample_ID</code> của data frame <code>sample_data</code> cần phải khớp với giá trị <code>tip.labels</code> ở trong tệp <code>tree</code>:</p>
-<p>Chúng ta kiểm tra định dạng của <code>tip.labels</code> trong tệp <code>tree</code> bằng cách xem xét 6 hàng đầu tiên với hàm <code><a href="https://rdrr.io/r/utils/head.html">head()</a></code> của <strong>base</strong> R.</p>
-<div class="sourceCode" id="cb1729"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">tree</span><span class="op">$</span><span class="va">tip.label</span><span class="op">)</span> </code></pre></div>
-<pre><code>## [1] "SRR5006072" "SRR4192106" "S18BD07865" "S18BD00489" "S17BD08906" "S17BD05939"</code></pre>
-<p>Chúng ta cũng cần chắc chắn rằng cột đầu tiên trong data frame <code>sample_data</code> là cột <code>Sample_ID</code>. Chúng ta xem tên các cột của dataframe bằng cách sử dụng hàm <code><a href="https://rdrr.io/r/base/colnames.html">colnames()</a></code> từ <strong>base</strong> R.</p>
-<div class="sourceCode" id="cb1731"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">sample_data</span><span class="op">)</span>   </code></pre></div>
-<pre><code>##  [1] "Sample_ID"                  "serotype"                   "Country"                    "Continent"                  "Travel_history"            
-##  [6] "Year"                       "Belgium"                    "Source"                     "Gender"                     "gyrA_mutations"            
-## [11] "macrolide_resistance_genes" "MIC_AZM"                    "MIC_CIP"</code></pre>
+<p>Chúng ta kiểm tra định dạng của <code>tip.labels</code> trong tệp <code>tree</code> bằng cách xem xét 6 hàng đầu tiên với hàm <code>head()</code> của <strong>base</strong> R.</p>
+<div class="sourceCode" id="cb1707"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1707-1"><a href="phylogenetic-trees.html#cb1707-1" tabindex="-1"></a><span class="fu">head</span>(tree<span class="sc">$</span>tip.label) </span></code></pre></div>
+<pre><code>## [1] &quot;SRR5006072&quot; &quot;SRR4192106&quot; &quot;S18BD07865&quot; &quot;S18BD00489&quot; &quot;S17BD08906&quot; &quot;S17BD05939&quot;</code></pre>
+<p>Chúng ta cũng cần chắc chắn rằng cột đầu tiên trong data frame <code>sample_data</code> là cột <code>Sample_ID</code>. Chúng ta xem tên các cột của dataframe bằng cách sử dụng hàm <code>colnames()</code> từ <strong>base</strong> R.</p>
+<div class="sourceCode" id="cb1709"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1709-1"><a href="phylogenetic-trees.html#cb1709-1" tabindex="-1"></a><span class="fu">colnames</span>(sample_data)   </span></code></pre></div>
+<pre><code>##  [1] &quot;Sample_ID&quot;                  &quot;serotype&quot;                  
+##  [3] &quot;Country&quot;                    &quot;Continent&quot;                 
+##  [5] &quot;Travel_history&quot;             &quot;Year&quot;                      
+##  [7] &quot;Belgium&quot;                    &quot;Source&quot;                    
+##  [9] &quot;Gender&quot;                     &quot;gyrA_mutations&quot;            
+## [11] &quot;macrolide_resistance_genes&quot; &quot;MIC_AZM&quot;                   
+## [13] &quot;MIC_CIP&quot;</code></pre>
 <p>Chúng ta hãy để ý cột <code>Sample_IDs</code> trong data frame để chắc chắn rằng các định dạng là tương tự với <code>tip.label</code> (vd: các chữ cái đều viết hoa, không có dấu gạch dưới thừa <code>_</code> giữa ký tự và số, v.v.)</p>
-<div class="sourceCode" id="cb1733"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">sample_data</span><span class="op">$</span><span class="va">Sample_ID</span><span class="op">)</span> <span class="co"># we again inspect only the first 6 using head()</span></code></pre></div>
-<pre><code>## [1] "S17BD05944" "S15BD07413" "S18BD07247" "S19BD07384" "S18BD07338" "S18BD02657"</code></pre>
+<div class="sourceCode" id="cb1711"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1711-1"><a href="phylogenetic-trees.html#cb1711-1" tabindex="-1"></a><span class="fu">head</span>(sample_data<span class="sc">$</span>Sample_ID) <span class="co"># we again inspect only the first 6 using head()</span></span></code></pre></div>
+<pre><code>## [1] &quot;S17BD05944&quot; &quot;S15BD07413&quot; &quot;S18BD07247&quot; &quot;S19BD07384&quot; &quot;S18BD07338&quot; &quot;S18BD02657&quot;</code></pre>
 <p>Chúng ta cũng có thể so sánh nếu tất cả các mẫu có trong tệp <code>tree</code> và ngược lại bằng cách tạo một vectơ logic TRUE hoặc FALSE khi chúng khớp hoặc không khớp. Chúng không được in ở đây để cho đơn giản.</p>
-<div class="sourceCode" id="cb1735"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">sample_data</span><span class="op">$</span><span class="va">Sample_ID</span> <span class="op">%in%</span> <span class="va">tree</span><span class="op">$</span><span class="va">tip.label</span>
-
-<span class="va">tree</span><span class="op">$</span><span class="va">tip.label</span> <span class="op">%in%</span> <span class="va">sample_data</span><span class="op">$</span><span class="va">Sample_ID</span></code></pre></div>
+<div class="sourceCode" id="cb1713"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1713-1"><a href="phylogenetic-trees.html#cb1713-1" tabindex="-1"></a>sample_data<span class="sc">$</span>Sample_ID <span class="sc">%in%</span> tree<span class="sc">$</span>tip.label</span>
+<span id="cb1713-2"><a href="phylogenetic-trees.html#cb1713-2" tabindex="-1"></a></span>
+<span id="cb1713-3"><a href="phylogenetic-trees.html#cb1713-3" tabindex="-1"></a>tree<span class="sc">$</span>tip.label <span class="sc">%in%</span> sample_data<span class="sc">$</span>Sample_ID</span></code></pre></div>
 <p>Chúng ta có thể sử dụng các vectơ này để hiển thị bất kỳ ID mẫu nào không có trên cây (không có ID nào).</p>
-<div class="sourceCode" id="cb1736"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">sample_data</span><span class="op">$</span><span class="va">Sample_ID</span><span class="op">[</span><span class="op">!</span><span class="va">tree</span><span class="op">$</span><span class="va">tip.label</span> <span class="op">%in%</span> <span class="va">sample_data</span><span class="op">$</span><span class="va">Sample_ID</span><span class="op">]</span></code></pre></div>
+<div class="sourceCode" id="cb1714"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1714-1"><a href="phylogenetic-trees.html#cb1714-1" tabindex="-1"></a>sample_data<span class="sc">$</span>Sample_ID[<span class="sc">!</span>tree<span class="sc">$</span>tip.label <span class="sc">%in%</span> sample_data<span class="sc">$</span>Sample_ID]</span></code></pre></div>
 <pre><code>## character(0)</code></pre>
 <p>Sau khi khảo sát, chúng ta có thể thấy định dạng của cột <code>Sample_ID</code> trong dataframe tương ứng với định dạng của tên mẫu tại <code>tip.labels</code>. Chúng không cần phải được sắp xếp theo cùng một thứ tự để có thể khớp.</p>
 <p>Bây giờ chúng ta đã sẵn sàng!</p>
@@ -213,455 +254,420 @@
 </div>
 </div>
 <div id="trực-quan-hóa-cây-đơn-giản" class="section level2" number="38.3">
-<h2>
-<span class="header-section-number">38.3</span> Trực quan hóa cây đơn giản<a class="anchor" aria-label="anchor" href="#tr%E1%BB%B1c-quan-h%C3%B3a-c%C3%A2y-%C4%91%C6%A1n-gi%E1%BA%A3n"><i class="fas fa-link"></i></a>
-</h2>
+<h2><span class="header-section-number">38.3</span> Trực quan hóa cây đơn giản</h2>
 <div id="các-bố-cục-cây-khác-nhau" class="section level3 unnumbered">
-<h3>Các bố cục cây khác nhau<a class="anchor" aria-label="anchor" href="#c%C3%A1c-b%E1%BB%91-c%E1%BB%A5c-c%C3%A2y-kh%C3%A1c-nhau"><i class="fas fa-link"></i></a>
-</h3>
+<h3>Các bố cục cây khác nhau</h3>
 <p><strong>ggtree</strong> cung cấp nhiều định dạng bố cục khác nhau và một số có thể phù hợp với mục đích cụ thể của bạn hơn những định dạng khác. Dưới đây là một vài minh hoạt. Đối với các tùy chọn khác, hãy xem <a href="http://yulab-smu.top/treedata-book/chapter4.html">cuốn sách trực tuyến này</a>.</p>
 <p>Dưới đây là một số bố cục cây mẫu:</p>
-<div class="sourceCode" id="cb1738"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">ggtree</span><span class="op">(</span><span class="va">tree</span><span class="op">)</span>                                            <span class="co"># simple linear tree</span>
-<span class="fu">ggtree</span><span class="op">(</span><span class="va">tree</span>,  branch.length <span class="op">=</span> <span class="st">"none"</span><span class="op">)</span>                   <span class="co"># simple linear tree with all tips aligned</span>
-<span class="fu">ggtree</span><span class="op">(</span><span class="va">tree</span>, layout<span class="op">=</span><span class="st">"circular"</span><span class="op">)</span>                         <span class="co"># simple circular tree</span>
-<span class="fu">ggtree</span><span class="op">(</span><span class="va">tree</span>, layout<span class="op">=</span><span class="st">"circular"</span>, branch.length <span class="op">=</span> <span class="st">"none"</span><span class="op">)</span> <span class="co"># simple circular tree with all tips aligned</span></code></pre></div>
-<p><img src="_main_files/figure-html/phylogenetic_trees_example_formats-1.png" width="50%"><img src="_main_files/figure-html/phylogenetic_trees_example_formats-2.png" width="50%"><img src="_main_files/figure-html/phylogenetic_trees_example_formats-3.png" width="50%"><img src="_main_files/figure-html/phylogenetic_trees_example_formats-4.png" width="50%"></p>
+<div class="sourceCode" id="cb1716"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1716-1"><a href="phylogenetic-trees.html#cb1716-1" tabindex="-1"></a><span class="fu">ggtree</span>(tree)                                            <span class="co"># simple linear tree</span></span>
+<span id="cb1716-2"><a href="phylogenetic-trees.html#cb1716-2" tabindex="-1"></a><span class="fu">ggtree</span>(tree,  <span class="at">branch.length =</span> <span class="st">&quot;none&quot;</span>)                   <span class="co"># simple linear tree with all tips aligned</span></span>
+<span id="cb1716-3"><a href="phylogenetic-trees.html#cb1716-3" tabindex="-1"></a><span class="fu">ggtree</span>(tree, <span class="at">layout=</span><span class="st">&quot;circular&quot;</span>)                         <span class="co"># simple circular tree</span></span>
+<span id="cb1716-4"><a href="phylogenetic-trees.html#cb1716-4" tabindex="-1"></a><span class="fu">ggtree</span>(tree, <span class="at">layout=</span><span class="st">&quot;circular&quot;</span>, <span class="at">branch.length =</span> <span class="st">&quot;none&quot;</span>) <span class="co"># simple circular tree with all tips aligned</span></span></code></pre></div>
+<p><img src="_main_files/figure-html/phylogenetic_trees_example_formats-1.png" width="50%" /><img src="_main_files/figure-html/phylogenetic_trees_example_formats-2.png" width="50%" /><img src="_main_files/figure-html/phylogenetic_trees_example_formats-3.png" width="50%" /><img src="_main_files/figure-html/phylogenetic_trees_example_formats-4.png" width="50%" /></p>
 </div>
 <div id="cây-đơn-giản-cộng-với-dữ-liệu-mẫu" class="section level3 unnumbered">
-<h3>Cây đơn giản cộng với dữ liệu mẫu<a class="anchor" aria-label="anchor" href="#c%C3%A2y-%C4%91%C6%A1n-gi%E1%BA%A3n-c%E1%BB%99ng-v%E1%BB%9Bi-d%E1%BB%AF-li%E1%BB%87u-m%E1%BA%ABu"><i class="fas fa-link"></i></a>
-</h3>
+<h3>Cây đơn giản cộng với dữ liệu mẫu</h3>
 <p>Toán tử <strong>%&lt;+%</strong> được sử dụng để kết nối data frame <code>sample_data</code> tới tệp <code>tree</code>.
-Cách chú thích dễ dàng nhất cho cây của bạn là thêm tên mẫu ở các ngọn, cũng như tô màu các điểm ngọn và các nhánh nếu muốn :</p>
-<p>Here is an example of a circular tree:</p>
-<div class="sourceCode" id="cb1739"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">ggtree</span><span class="op">(</span><span class="va">tree</span>, layout <span class="op">=</span> <span class="st">"circular"</span>, branch.length <span class="op">=</span> <span class="st">'none'</span><span class="op">)</span> <span class="op">%&lt;+%</span> <span class="va">sample_data</span> <span class="op">+</span> <span class="co"># %&lt;+% adds dataframe with sample data to tree</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>color <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/AsIs.html">I</a></span><span class="op">(</span><span class="va">Belgium</span><span class="op">)</span><span class="op">)</span><span class="op">+</span>                       <span class="co"># color the branches according to a variable in your dataframe</span>
-  <span class="fu">scale_color_manual</span><span class="op">(</span>
-    name <span class="op">=</span> <span class="st">"Sample Origin"</span>,                      <span class="co"># name of your color scheme (will show up in the legend like this)</span>
-    breaks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Yes"</span>, <span class="st">"No"</span><span class="op">)</span>,                     <span class="co"># the different options in your variable</span>
-    labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"NRCSS Belgium"</span>, <span class="st">"Other"</span><span class="op">)</span>,        <span class="co"># how you want the different options named in your legend, allows for formatting</span>
-    values <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"blue"</span>, <span class="st">"black"</span><span class="op">)</span>,                  <span class="co"># the color you want to assign to the variable </span>
-    na.value <span class="op">=</span> <span class="st">"black"</span><span class="op">)</span> <span class="op">+</span>                        <span class="co"># color NA values in black as well</span>
-  <span class="fu">new_scale_color</span><span class="op">(</span><span class="op">)</span><span class="op">+</span>                             <span class="co"># allows to add an additional color scheme for another variable</span>
-    <span class="fu">geom_tippoint</span><span class="op">(</span>
-      mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>color <span class="op">=</span> <span class="va">Continent</span><span class="op">)</span>,          <span class="co"># tip color by continent. You may change shape adding "shape = "</span>
-      size <span class="op">=</span> <span class="fl">1.5</span><span class="op">)</span><span class="op">+</span>                               <span class="co"># define the size of the point at the tip</span>
-  <span class="fu">scale_color_brewer</span><span class="op">(</span>
-    name <span class="op">=</span> <span class="st">"Continent"</span>,                    <span class="co"># name of your color scheme (will show up in the legend like this)</span>
-    palette <span class="op">=</span> <span class="st">"Set1"</span>,                      <span class="co"># we choose a set of colors coming with the brewer package</span>
-    na.value <span class="op">=</span> <span class="st">"grey"</span><span class="op">)</span> <span class="op">+</span>                    <span class="co"># for the NA values we choose the color grey</span>
-  <span class="fu">geom_tiplab</span><span class="op">(</span>                             <span class="co"># adds name of sample to tip of its branch </span>
-    color <span class="op">=</span> <span class="st">'black'</span>,                       <span class="co"># (add as many text lines as you wish with + , but you may need to adjust offset value to place them next to each other)</span>
-    offset <span class="op">=</span> <span class="fl">1</span>,
-    size <span class="op">=</span> <span class="fl">1</span>,
-    geom <span class="op">=</span> <span class="st">"text"</span>,
-    align <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">+</span>    
-  <span class="fu">ggtitle</span><span class="op">(</span><span class="st">"Phylogenetic tree of Shigella sonnei"</span><span class="op">)</span><span class="op">+</span>       <span class="co"># title of your graph</span>
-  <span class="fu">theme</span><span class="op">(</span>
-    axis.title.x <span class="op">=</span> <span class="fu">element_blank</span><span class="op">(</span><span class="op">)</span>, <span class="co"># removes x-axis title</span>
-    axis.title.y <span class="op">=</span> <span class="fu">element_blank</span><span class="op">(</span><span class="op">)</span>, <span class="co"># removes y-axis title</span>
-    legend.title <span class="op">=</span> <span class="fu">element_text</span><span class="op">(</span>    <span class="co"># defines font size and format of the legend title</span>
-      face <span class="op">=</span> <span class="st">"bold"</span>,
-      size <span class="op">=</span> <span class="fl">12</span><span class="op">)</span>,   
-    legend.text<span class="op">=</span><span class="fu">element_text</span><span class="op">(</span>       <span class="co"># defines font size and format of the legend text</span>
-      face <span class="op">=</span> <span class="st">"bold"</span>,
-      size <span class="op">=</span> <span class="fl">10</span><span class="op">)</span>,  
-    plot.title <span class="op">=</span> <span class="fu">element_text</span><span class="op">(</span>      <span class="co"># defines font size and format of the plot title</span>
-      size <span class="op">=</span> <span class="fl">12</span>,
-      face <span class="op">=</span> <span class="st">"bold"</span><span class="op">)</span>,  
-    legend.position <span class="op">=</span> <span class="st">"bottom"</span>,     <span class="co"># defines placement of the legend</span>
-    legend.box <span class="op">=</span> <span class="st">"vertical"</span>,        <span class="co"># defines placement of the legend</span>
-    legend.margin <span class="op">=</span> <span class="fu">margin</span><span class="op">(</span><span class="op">)</span><span class="op">)</span>   </code></pre></div>
-<div class="inline-figure"><img src="_main_files/figure-html/phylogenetic_trees_adding_sampledata-1.png" width="672" style="display: block; margin: auto;"></div>
+Cách chú thích dễ dàng nhất cho cây của bạn là thêm tên mẫu ở các ngọn, cũng như tô màu các điểm ngọn và các nhánh nếu muốn:</p>
+<p>Dưới đây là một ví dụ về cây phả hệ dạng tròn:</p>
+<div class="sourceCode" id="cb1717"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1717-1"><a href="phylogenetic-trees.html#cb1717-1" tabindex="-1"></a><span class="fu">ggtree</span>(tree, <span class="at">layout =</span> <span class="st">&quot;circular&quot;</span>, <span class="at">branch.length =</span> <span class="st">&#39;none&#39;</span>) <span class="sc">%&lt;+%</span> sample_data <span class="sc">+</span> <span class="co"># %&lt;+% adds dataframe with sample data to tree</span></span>
+<span id="cb1717-2"><a href="phylogenetic-trees.html#cb1717-2" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">color =</span> <span class="fu">I</span>(Belgium))<span class="sc">+</span>                       <span class="co"># color the branches according to a variable in your dataframe</span></span>
+<span id="cb1717-3"><a href="phylogenetic-trees.html#cb1717-3" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(</span>
+<span id="cb1717-4"><a href="phylogenetic-trees.html#cb1717-4" tabindex="-1"></a>    <span class="at">name =</span> <span class="st">&quot;Sample Origin&quot;</span>,                      <span class="co"># name of your color scheme (will show up in the legend like this)</span></span>
+<span id="cb1717-5"><a href="phylogenetic-trees.html#cb1717-5" tabindex="-1"></a>    <span class="at">breaks =</span> <span class="fu">c</span>(<span class="st">&quot;Yes&quot;</span>, <span class="st">&quot;No&quot;</span>),                     <span class="co"># the different options in your variable</span></span>
+<span id="cb1717-6"><a href="phylogenetic-trees.html#cb1717-6" tabindex="-1"></a>    <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;NRCSS Belgium&quot;</span>, <span class="st">&quot;Other&quot;</span>),        <span class="co"># how you want the different options named in your legend, allows for formatting</span></span>
+<span id="cb1717-7"><a href="phylogenetic-trees.html#cb1717-7" tabindex="-1"></a>    <span class="at">values =</span> <span class="fu">c</span>(<span class="st">&quot;blue&quot;</span>, <span class="st">&quot;black&quot;</span>),                  <span class="co"># the color you want to assign to the variable </span></span>
+<span id="cb1717-8"><a href="phylogenetic-trees.html#cb1717-8" tabindex="-1"></a>    <span class="at">na.value =</span> <span class="st">&quot;black&quot;</span>) <span class="sc">+</span>                        <span class="co"># color NA values in black as well</span></span>
+<span id="cb1717-9"><a href="phylogenetic-trees.html#cb1717-9" tabindex="-1"></a>  <span class="fu">new_scale_color</span>()<span class="sc">+</span>                             <span class="co"># allows to add an additional color scheme for another variable</span></span>
+<span id="cb1717-10"><a href="phylogenetic-trees.html#cb1717-10" tabindex="-1"></a>    <span class="fu">geom_tippoint</span>(</span>
+<span id="cb1717-11"><a href="phylogenetic-trees.html#cb1717-11" tabindex="-1"></a>      <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">color =</span> Continent),          <span class="co"># tip color by continent. You may change shape adding &quot;shape = &quot;</span></span>
+<span id="cb1717-12"><a href="phylogenetic-trees.html#cb1717-12" tabindex="-1"></a>      <span class="at">size =</span> <span class="fl">1.5</span>)<span class="sc">+</span>                               <span class="co"># define the size of the point at the tip</span></span>
+<span id="cb1717-13"><a href="phylogenetic-trees.html#cb1717-13" tabindex="-1"></a>  <span class="fu">scale_color_brewer</span>(</span>
+<span id="cb1717-14"><a href="phylogenetic-trees.html#cb1717-14" tabindex="-1"></a>    <span class="at">name =</span> <span class="st">&quot;Continent&quot;</span>,                    <span class="co"># name of your color scheme (will show up in the legend like this)</span></span>
+<span id="cb1717-15"><a href="phylogenetic-trees.html#cb1717-15" tabindex="-1"></a>    <span class="at">palette =</span> <span class="st">&quot;Set1&quot;</span>,                      <span class="co"># we choose a set of colors coming with the brewer package</span></span>
+<span id="cb1717-16"><a href="phylogenetic-trees.html#cb1717-16" tabindex="-1"></a>    <span class="at">na.value =</span> <span class="st">&quot;grey&quot;</span>) <span class="sc">+</span>                    <span class="co"># for the NA values we choose the color grey</span></span>
+<span id="cb1717-17"><a href="phylogenetic-trees.html#cb1717-17" tabindex="-1"></a>  <span class="fu">geom_tiplab</span>(                             <span class="co"># adds name of sample to tip of its branch </span></span>
+<span id="cb1717-18"><a href="phylogenetic-trees.html#cb1717-18" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">&#39;black&#39;</span>,                       <span class="co"># (add as many text lines as you wish with + , but you may need to adjust offset value to place them next to each other)</span></span>
+<span id="cb1717-19"><a href="phylogenetic-trees.html#cb1717-19" tabindex="-1"></a>    <span class="at">offset =</span> <span class="dv">1</span>,</span>
+<span id="cb1717-20"><a href="phylogenetic-trees.html#cb1717-20" tabindex="-1"></a>    <span class="at">size =</span> <span class="dv">1</span>,</span>
+<span id="cb1717-21"><a href="phylogenetic-trees.html#cb1717-21" tabindex="-1"></a>    <span class="at">geom =</span> <span class="st">&quot;text&quot;</span>,</span>
+<span id="cb1717-22"><a href="phylogenetic-trees.html#cb1717-22" tabindex="-1"></a>    <span class="at">align =</span> <span class="cn">TRUE</span>)<span class="sc">+</span>    </span>
+<span id="cb1717-23"><a href="phylogenetic-trees.html#cb1717-23" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;Phylogenetic tree of Shigella sonnei&quot;</span>)<span class="sc">+</span>       <span class="co"># title of your graph</span></span>
+<span id="cb1717-24"><a href="phylogenetic-trees.html#cb1717-24" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb1717-25"><a href="phylogenetic-trees.html#cb1717-25" tabindex="-1"></a>    <span class="at">axis.title.x =</span> <span class="fu">element_blank</span>(), <span class="co"># removes x-axis title</span></span>
+<span id="cb1717-26"><a href="phylogenetic-trees.html#cb1717-26" tabindex="-1"></a>    <span class="at">axis.title.y =</span> <span class="fu">element_blank</span>(), <span class="co"># removes y-axis title</span></span>
+<span id="cb1717-27"><a href="phylogenetic-trees.html#cb1717-27" tabindex="-1"></a>    <span class="at">legend.title =</span> <span class="fu">element_text</span>(    <span class="co"># defines font size and format of the legend title</span></span>
+<span id="cb1717-28"><a href="phylogenetic-trees.html#cb1717-28" tabindex="-1"></a>      <span class="at">face =</span> <span class="st">&quot;bold&quot;</span>,</span>
+<span id="cb1717-29"><a href="phylogenetic-trees.html#cb1717-29" tabindex="-1"></a>      <span class="at">size =</span> <span class="dv">12</span>),   </span>
+<span id="cb1717-30"><a href="phylogenetic-trees.html#cb1717-30" tabindex="-1"></a>    <span class="at">legend.text=</span><span class="fu">element_text</span>(       <span class="co"># defines font size and format of the legend text</span></span>
+<span id="cb1717-31"><a href="phylogenetic-trees.html#cb1717-31" tabindex="-1"></a>      <span class="at">face =</span> <span class="st">&quot;bold&quot;</span>,</span>
+<span id="cb1717-32"><a href="phylogenetic-trees.html#cb1717-32" tabindex="-1"></a>      <span class="at">size =</span> <span class="dv">10</span>),  </span>
+<span id="cb1717-33"><a href="phylogenetic-trees.html#cb1717-33" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(      <span class="co"># defines font size and format of the plot title</span></span>
+<span id="cb1717-34"><a href="phylogenetic-trees.html#cb1717-34" tabindex="-1"></a>      <span class="at">size =</span> <span class="dv">12</span>,</span>
+<span id="cb1717-35"><a href="phylogenetic-trees.html#cb1717-35" tabindex="-1"></a>      <span class="at">face =</span> <span class="st">&quot;bold&quot;</span>),  </span>
+<span id="cb1717-36"><a href="phylogenetic-trees.html#cb1717-36" tabindex="-1"></a>    <span class="at">legend.position =</span> <span class="st">&quot;bottom&quot;</span>,     <span class="co"># defines placement of the legend</span></span>
+<span id="cb1717-37"><a href="phylogenetic-trees.html#cb1717-37" tabindex="-1"></a>    <span class="at">legend.box =</span> <span class="st">&quot;vertical&quot;</span>,        <span class="co"># defines placement of the legend</span></span>
+<span id="cb1717-38"><a href="phylogenetic-trees.html#cb1717-38" tabindex="-1"></a>    <span class="at">legend.margin =</span> <span class="fu">margin</span>())   </span></code></pre></div>
+<p><img src="_main_files/figure-html/phylogenetic_trees_adding_sampledata-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Bạn có thể xuất biểu đồ cây với hàm <code>ggsave()</code> như cách bạn làm với bất kỳ đối tượng ggplot nào khác. Được viết theo cách này,
-<code>ggsave()</code> lưu hình ảnh cuối cùng được tạo vào đường dẫn tệp bạn chỉ định. Hãy nhớ rằng bạn có thể sử dụng hàm <code><a href="https://here.r-lib.org//reference/here.html">here()</a></code> và các đường dẫn tệp tương đối để dễ dàng lưu trong các thư mục con, v.v.</p>
-<div class="sourceCode" id="cb1740"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">ggsave</span><span class="op">(</span><span class="st">"example_tree_circular_1.png"</span>, width <span class="op">=</span> <span class="fl">12</span>, height <span class="op">=</span> <span class="fl">14</span><span class="op">)</span></code></pre></div>
+<code>ggsave()</code> lưu hình ảnh cuối cùng được tạo vào đường dẫn tệp bạn chỉ định. Hãy nhớ rằng bạn có thể sử dụng hàm <code>here()</code> và các đường dẫn tệp tương đối để dễ dàng lưu trong các thư mục con, v.v.</p>
+<div class="sourceCode" id="cb1718"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1718-1"><a href="phylogenetic-trees.html#cb1718-1" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">&quot;example_tree_circular_1.png&quot;</span>, <span class="at">width =</span> <span class="dv">12</span>, <span class="at">height =</span> <span class="dv">14</span>)</span></code></pre></div>
 <!-- ======================================================= -->
 </div>
 </div>
 <div id="thao-tác-với-cây" class="section level2" number="38.4">
-<h2>
-<span class="header-section-number">38.4</span> Thao tác với cây<a class="anchor" aria-label="anchor" href="#thao-t%C3%A1c-v%E1%BB%9Bi-c%C3%A2y"><i class="fas fa-link"></i></a>
-</h2>
+<h2><span class="header-section-number">38.4</span> Thao tác với cây</h2>
 <p>Đôi khi bạn có thể có một cây phát sinh loài rất lớn và bạn chỉ quan tâm đến một phần của cây. Ví dụ, bạn muốn tạo ra một cây bao gồm các mẫu lịch sử hoặc quốc tế để có cái nhìn tổng quan về vị trí mà tập dữ liệu của bạn có thể phù hợp trong bức tranh lớn hơn. Nhưng sau đó để xem xét kỹ hơn dữ liệu của bạn, bạn chỉ muốn kiểm tra phần đó của cây lớn hơn.</p>
 <p>Vì tệp cây phát sinh loài chỉ là sản phẩm đầu ra của phân tích dữ liệu trình tự, chúng ta không thể thao tác trên thứ tự của các nút và nhánh trên chính tệ đó. Chúng đã được xác định trong phân tích trước đó từ dữ liệu NGS thô. Mặc dù vậy, chúng ta có thể phóng to các thành phần, ẩn các thành phần và thậm chí tạo tập con một phần của cây.</p>
 <div id="phóng-to" class="section level3 unnumbered">
-<h3>Phóng to<a class="anchor" aria-label="anchor" href="#ph%C3%B3ng-to"><i class="fas fa-link"></i></a>
-</h3>
+<h3>Phóng to</h3>
 <p>Nếu bạn không muốn “chặt” cây của mình mà chỉ kiểm tra kỹ hơn một phần của nó, bạn có thể phóng to để xem một phần cụ thể.</p>
 <p>Đầu tiên, chúng ta vẽ toàn bộ cây ở định dạng tuyến tính và thêm các nhãn số cho mỗi nút trong cây.</p>
-<div class="sourceCode" id="cb1741"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">ggtree</span><span class="op">(</span><span class="va">tree</span>,<span class="op">)</span> <span class="op">%&lt;+%</span> <span class="va">sample_data</span> <span class="op">+</span>
-  <span class="fu">geom_tiplab</span><span class="op">(</span>size <span class="op">=</span> <span class="fl">1.5</span><span class="op">)</span> <span class="op">+</span>                <span class="co"># labels the tips of all branches with the sample name in the tree file</span>
-  <span class="fu">geom_text2</span><span class="op">(</span>
-    mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>subset <span class="op">=</span> <span class="op">!</span><span class="va">isTip</span>,
-                  label <span class="op">=</span> <span class="va">node</span><span class="op">)</span>,
-    size <span class="op">=</span> <span class="fl">5</span>,
-    color <span class="op">=</span> <span class="st">"darkred"</span>,
-    hjust <span class="op">=</span> <span class="fl">1</span>,
-    vjust <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>                            <span class="co"># labels all the nodes in the tree</span>
-
-<span class="va">p</span>  <span class="co"># print</span></code></pre></div>
-<div class="inline-figure"><img src="_main_files/figure-html/phylogenetic_trees_zoom_in-1.png" width="50%" style="display: block; margin: auto;"></div>
+<div class="sourceCode" id="cb1719"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1719-1"><a href="phylogenetic-trees.html#cb1719-1" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggtree</span>(tree,) <span class="sc">%&lt;+%</span> sample_data <span class="sc">+</span></span>
+<span id="cb1719-2"><a href="phylogenetic-trees.html#cb1719-2" tabindex="-1"></a>  <span class="fu">geom_tiplab</span>(<span class="at">size =</span> <span class="fl">1.5</span>) <span class="sc">+</span>                <span class="co"># labels the tips of all branches with the sample name in the tree file</span></span>
+<span id="cb1719-3"><a href="phylogenetic-trees.html#cb1719-3" tabindex="-1"></a>  <span class="fu">geom_text2</span>(</span>
+<span id="cb1719-4"><a href="phylogenetic-trees.html#cb1719-4" tabindex="-1"></a>    <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">subset =</span> <span class="sc">!</span>isTip,</span>
+<span id="cb1719-5"><a href="phylogenetic-trees.html#cb1719-5" tabindex="-1"></a>                  <span class="at">label =</span> node),</span>
+<span id="cb1719-6"><a href="phylogenetic-trees.html#cb1719-6" tabindex="-1"></a>    <span class="at">size =</span> <span class="dv">5</span>,</span>
+<span id="cb1719-7"><a href="phylogenetic-trees.html#cb1719-7" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">&quot;darkred&quot;</span>,</span>
+<span id="cb1719-8"><a href="phylogenetic-trees.html#cb1719-8" tabindex="-1"></a>    <span class="at">hjust =</span> <span class="dv">1</span>,</span>
+<span id="cb1719-9"><a href="phylogenetic-trees.html#cb1719-9" tabindex="-1"></a>    <span class="at">vjust =</span> <span class="dv">1</span>)                            <span class="co"># labels all the nodes in the tree</span></span>
+<span id="cb1719-10"><a href="phylogenetic-trees.html#cb1719-10" tabindex="-1"></a></span>
+<span id="cb1719-11"><a href="phylogenetic-trees.html#cb1719-11" tabindex="-1"></a>p  <span class="co"># print</span></span></code></pre></div>
+<p><img src="_main_files/figure-html/phylogenetic_trees_zoom_in-1.png" width="50%" style="display: block; margin: auto;" /></p>
 <p>Để phóng to vào một nhánh cụ thể (nhô ra bên phải), hãy sử dụng hàm <code>viewClade()</code> trên đối tượng ggtree có tên <code>p</code> và cung cấp số nút để xem gần hơn:</p>
-<div class="sourceCode" id="cb1742"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">viewClade</span><span class="op">(</span><span class="va">p</span>, node <span class="op">=</span> <span class="fl">452</span><span class="op">)</span></code></pre></div>
-<div class="inline-figure"><img src="_main_files/figure-html/phylogenetic_trees_zoom_in_452-1.png" width="50%" style="display: block; margin: auto;"></div>
+<div class="sourceCode" id="cb1720"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1720-1"><a href="phylogenetic-trees.html#cb1720-1" tabindex="-1"></a><span class="fu">viewClade</span>(p, <span class="at">node =</span> <span class="dv">452</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/phylogenetic_trees_zoom_in_452-1.png" width="50%" style="display: block; margin: auto;" /></p>
 </div>
 <div id="thu-gọn-nhánh" class="section level3 unnumbered">
-<h3>Thu gọn nhánh<a class="anchor" aria-label="anchor" href="#thu-g%E1%BB%8Dn-nh%C3%A1nh"><i class="fas fa-link"></i></a>
-</h3>
+<h3>Thu gọn nhánh</h3>
 <p>Tuy nhiên, chúng ta có thể muốn bỏ qua nhánh này và có thể thu gọn nó tại cùng một nút đó (nút nr. 452) bằng cách sử dụng hàm <code>collapse()</code>. Cây này sẽ được gán cho đối tượng mới có tên <code>p_collapsed</code>.</p>
-<div class="sourceCode" id="cb1743"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">p_collapsed</span> <span class="op">&lt;-</span> <span class="fu">collapse</span><span class="op">(</span><span class="va">p</span>, node <span class="op">=</span> <span class="fl">452</span><span class="op">)</span>
-<span class="va">p_collapsed</span></code></pre></div>
-<div class="inline-figure"><img src="_main_files/figure-html/phylogenetic_trees_collapse_452-1.png" width="50%" style="display: block; margin: auto;"></div>
+<div class="sourceCode" id="cb1721"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1721-1"><a href="phylogenetic-trees.html#cb1721-1" tabindex="-1"></a>p_collapsed <span class="ot">&lt;-</span> <span class="fu">collapse</span>(p, <span class="at">node =</span> <span class="dv">452</span>)</span>
+<span id="cb1721-2"><a href="phylogenetic-trees.html#cb1721-2" tabindex="-1"></a>p_collapsed</span></code></pre></div>
+<p><img src="_main_files/figure-html/phylogenetic_trees_collapse_452-1.png" width="50%" style="display: block; margin: auto;" /></p>
 <p>Để rõ ràng, khi chúng ta in <code>p_collapsed</code>, chúng ta thêm một điểm (viên kim cương màu xanh) với hàm <code>geom_point2()</code> tại nút của nhánh được thu gọn.</p>
-<div class="sourceCode" id="cb1744"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">p_collapsed</span> <span class="op">+</span> 
-<span class="fu">geom_point2</span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>subset <span class="op">=</span> <span class="op">(</span><span class="va">node</span> <span class="op">==</span> <span class="fl">452</span><span class="op">)</span><span class="op">)</span>,  <span class="co"># we assign a symbol to the collapsed node</span>
-            size <span class="op">=</span> <span class="fl">5</span>,                     <span class="co"># define the size of the symbol</span>
-            shape <span class="op">=</span> <span class="fl">23</span>,                   <span class="co"># define the shape of the symbol</span>
-            fill <span class="op">=</span> <span class="st">"steelblue"</span><span class="op">)</span>           <span class="co"># define the color of the symbol</span></code></pre></div>
-<div class="inline-figure"><img src="_main_files/figure-html/unnamed-chunk-1321-1.png" width="672"></div>
+<div class="sourceCode" id="cb1722"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1722-1"><a href="phylogenetic-trees.html#cb1722-1" tabindex="-1"></a>p_collapsed <span class="sc">+</span> </span>
+<span id="cb1722-2"><a href="phylogenetic-trees.html#cb1722-2" tabindex="-1"></a><span class="fu">geom_point2</span>(<span class="fu">aes</span>(<span class="at">subset =</span> (node <span class="sc">==</span> <span class="dv">452</span>)),  <span class="co"># we assign a symbol to the collapsed node</span></span>
+<span id="cb1722-3"><a href="phylogenetic-trees.html#cb1722-3" tabindex="-1"></a>            <span class="at">size =</span> <span class="dv">5</span>,                     <span class="co"># define the size of the symbol</span></span>
+<span id="cb1722-4"><a href="phylogenetic-trees.html#cb1722-4" tabindex="-1"></a>            <span class="at">shape =</span> <span class="dv">23</span>,                   <span class="co"># define the shape of the symbol</span></span>
+<span id="cb1722-5"><a href="phylogenetic-trees.html#cb1722-5" tabindex="-1"></a>            <span class="at">fill =</span> <span class="st">&quot;steelblue&quot;</span>)           <span class="co"># define the color of the symbol</span></span></code></pre></div>
+<pre><code>## Warning in geom_point(stroke = stroke, shape = shape, ...): Ignoring unknown
+## aesthetics: subset</code></pre>
+<pre><code>## Warning: Removed 83 rows containing missing values (`geom_point()`).</code></pre>
+<p><img src="_main_files/figure-html/unnamed-chunk-1325-1.png" width="672" /></p>
 </div>
 <div id="tạo-tập-con-một-cây" class="section level3 unnumbered">
-<h3>Tạo tập con một cây<a class="anchor" aria-label="anchor" href="#t%E1%BA%A1o-t%E1%BA%ADp-con-m%E1%BB%99t-c%C3%A2y"><i class="fas fa-link"></i></a>
-</h3>
+<h3>Tạo tập con một cây</h3>
 <p>Nếu chúng ta muốn thực hiện một thay đổi lâu dài hơn và tạo một cây mới, gọn hơn để làm việc, chúng ta có thể subset một phần của nó với hàm <code>tree_subset()</code>. Sau đó, bạn có thể lưu nó dưới dạng tệp newick tree hoặc tệp .txt mới.</p>
 <p>Đầu tiên, chúng ta kiểm tra các nút cây và các nhãn của tips để quyết định cái gì sẽ được subset.</p>
-<div class="sourceCode" id="cb1745"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">ggtree</span><span class="op">(</span>
-  <span class="va">tree</span>,
-  branch.length <span class="op">=</span> <span class="st">'none'</span>,
-  layout <span class="op">=</span> <span class="st">'circular'</span><span class="op">)</span> <span class="op">%&lt;+%</span> <span class="va">sample_data</span> <span class="op">+</span>               <span class="co"># we add the asmple data using the %&lt;+% operator</span>
-  <span class="fu">geom_tiplab</span><span class="op">(</span>size <span class="op">=</span> <span class="fl">1</span><span class="op">)</span><span class="op">+</span>                                <span class="co"># label tips of all branches with sample name in tree file</span>
-  <span class="fu">geom_text2</span><span class="op">(</span>
-    mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>subset <span class="op">=</span> <span class="op">!</span><span class="va">isTip</span>, label <span class="op">=</span> <span class="va">node</span><span class="op">)</span>,
-    size <span class="op">=</span> <span class="fl">3</span>,
-    color <span class="op">=</span> <span class="st">"darkred"</span><span class="op">)</span> <span class="op">+</span>                                <span class="co"># labels all the nodes in the tree</span>
- <span class="fu">theme</span><span class="op">(</span>
-   legend.position <span class="op">=</span> <span class="st">"none"</span>,                            <span class="co"># removes the legend all together</span>
-   axis.title.x <span class="op">=</span> <span class="fu">element_blank</span><span class="op">(</span><span class="op">)</span>,
-   axis.title.y <span class="op">=</span> <span class="fu">element_blank</span><span class="op">(</span><span class="op">)</span>,
-   plot.title <span class="op">=</span> <span class="fu">element_text</span><span class="op">(</span>size <span class="op">=</span> <span class="fl">12</span>, face<span class="op">=</span><span class="st">"bold"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
-<div class="inline-figure"><img src="_main_files/figure-html/phylogenetic_trees_subsetting-1.png" width="50%" style="display: block; margin: auto;"></div>
+<div class="sourceCode" id="cb1725"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1725-1"><a href="phylogenetic-trees.html#cb1725-1" tabindex="-1"></a><span class="fu">ggtree</span>(</span>
+<span id="cb1725-2"><a href="phylogenetic-trees.html#cb1725-2" tabindex="-1"></a>  tree,</span>
+<span id="cb1725-3"><a href="phylogenetic-trees.html#cb1725-3" tabindex="-1"></a>  <span class="at">branch.length =</span> <span class="st">&#39;none&#39;</span>,</span>
+<span id="cb1725-4"><a href="phylogenetic-trees.html#cb1725-4" tabindex="-1"></a>  <span class="at">layout =</span> <span class="st">&#39;circular&#39;</span>) <span class="sc">%&lt;+%</span> sample_data <span class="sc">+</span>               <span class="co"># we add the asmple data using the %&lt;+% operator</span></span>
+<span id="cb1725-5"><a href="phylogenetic-trees.html#cb1725-5" tabindex="-1"></a>  <span class="fu">geom_tiplab</span>(<span class="at">size =</span> <span class="dv">1</span>)<span class="sc">+</span>                                <span class="co"># label tips of all branches with sample name in tree file</span></span>
+<span id="cb1725-6"><a href="phylogenetic-trees.html#cb1725-6" tabindex="-1"></a>  <span class="fu">geom_text2</span>(</span>
+<span id="cb1725-7"><a href="phylogenetic-trees.html#cb1725-7" tabindex="-1"></a>    <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">subset =</span> <span class="sc">!</span>isTip, <span class="at">label =</span> node),</span>
+<span id="cb1725-8"><a href="phylogenetic-trees.html#cb1725-8" tabindex="-1"></a>    <span class="at">size =</span> <span class="dv">3</span>,</span>
+<span id="cb1725-9"><a href="phylogenetic-trees.html#cb1725-9" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">&quot;darkred&quot;</span>) <span class="sc">+</span>                                <span class="co"># labels all the nodes in the tree</span></span>
+<span id="cb1725-10"><a href="phylogenetic-trees.html#cb1725-10" tabindex="-1"></a> <span class="fu">theme</span>(</span>
+<span id="cb1725-11"><a href="phylogenetic-trees.html#cb1725-11" tabindex="-1"></a>   <span class="at">legend.position =</span> <span class="st">&quot;none&quot;</span>,                            <span class="co"># removes the legend all together</span></span>
+<span id="cb1725-12"><a href="phylogenetic-trees.html#cb1725-12" tabindex="-1"></a>   <span class="at">axis.title.x =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb1725-13"><a href="phylogenetic-trees.html#cb1725-13" tabindex="-1"></a>   <span class="at">axis.title.y =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb1725-14"><a href="phylogenetic-trees.html#cb1725-14" tabindex="-1"></a>   <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span>, <span class="at">face=</span><span class="st">&quot;bold&quot;</span>))</span></code></pre></div>
+<p><img src="_main_files/figure-html/phylogenetic_trees_subsetting-1.png" width="50%" style="display: block; margin: auto;" /></p>
 <p>Bây giờ, giả sử chúng ta đã quyết định subset cây tại nút số 528 (chỉ giữ lại các tips bên trong nhánh sau nút 528) và lưu nó vào một đối tượng mới <code>sub_tree1</code>:</p>
-<div class="sourceCode" id="cb1746"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">sub_tree1</span> <span class="op">&lt;-</span> <span class="fu">tree_subset</span><span class="op">(</span>
-  <span class="va">tree</span>,
-  node <span class="op">=</span> <span class="fl">528</span><span class="op">)</span>                                            <span class="co"># we subset the tree at node 528</span></code></pre></div>
+<div class="sourceCode" id="cb1726"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1726-1"><a href="phylogenetic-trees.html#cb1726-1" tabindex="-1"></a>sub_tree1 <span class="ot">&lt;-</span> <span class="fu">tree_subset</span>(</span>
+<span id="cb1726-2"><a href="phylogenetic-trees.html#cb1726-2" tabindex="-1"></a>  tree,</span>
+<span id="cb1726-3"><a href="phylogenetic-trees.html#cb1726-3" tabindex="-1"></a>  <span class="at">node =</span> <span class="dv">528</span>)                                            <span class="co"># we subset the tree at node 528</span></span></code></pre></div>
 <p>Hãy cùng xem cây con 1:</p>
-<div class="sourceCode" id="cb1747"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">ggtree</span><span class="op">(</span><span class="va">sub_tree1</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">geom_tiplab</span><span class="op">(</span>size <span class="op">=</span> <span class="fl">3</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">ggtitle</span><span class="op">(</span><span class="st">"Subset tree 1"</span><span class="op">)</span></code></pre></div>
-<div class="inline-figure"><img src="_main_files/figure-html/unnamed-chunk-1323-1.png" width="672"></div>
+<div class="sourceCode" id="cb1727"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1727-1"><a href="phylogenetic-trees.html#cb1727-1" tabindex="-1"></a><span class="fu">ggtree</span>(sub_tree1) <span class="sc">+</span></span>
+<span id="cb1727-2"><a href="phylogenetic-trees.html#cb1727-2" tabindex="-1"></a>  <span class="fu">geom_tiplab</span>(<span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb1727-3"><a href="phylogenetic-trees.html#cb1727-3" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;Subset tree 1&quot;</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-1327-1.png" width="672" /></p>
 <p>Bạn cũng có thể subset dựa trên một mẫu cụ thể, bằng cách chỉ định số lượng nút “backwards” bạn muốn đưa vào. Hãy subset chính phần đó của cây dựa trên một mẫu, trong trường hợp này là S17BD07692, quay lại 9 nút và chúng ta lưu nó dưới dạng đối tượng <code>sub_tree2</code> mớit:</p>
-<div class="sourceCode" id="cb1748"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">sub_tree2</span> <span class="op">&lt;-</span> <span class="fu">tree_subset</span><span class="op">(</span>
-  <span class="va">tree</span>,
-  <span class="st">"S17BD07692"</span>,
-  levels_back <span class="op">=</span> <span class="fl">9</span><span class="op">)</span> <span class="co"># levels back defines how many nodes backwards from the sample tip you want to go</span></code></pre></div>
+<div class="sourceCode" id="cb1728"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1728-1"><a href="phylogenetic-trees.html#cb1728-1" tabindex="-1"></a>sub_tree2 <span class="ot">&lt;-</span> <span class="fu">tree_subset</span>(</span>
+<span id="cb1728-2"><a href="phylogenetic-trees.html#cb1728-2" tabindex="-1"></a>  tree,</span>
+<span id="cb1728-3"><a href="phylogenetic-trees.html#cb1728-3" tabindex="-1"></a>  <span class="st">&quot;S17BD07692&quot;</span>,</span>
+<span id="cb1728-4"><a href="phylogenetic-trees.html#cb1728-4" tabindex="-1"></a>  <span class="at">levels_back =</span> <span class="dv">9</span>) <span class="co"># levels back defines how many nodes backwards from the sample tip you want to go</span></span></code></pre></div>
 <p>Giờ hãy cùng xem cây con 2:</p>
-<div class="sourceCode" id="cb1749"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">ggtree</span><span class="op">(</span><span class="va">sub_tree2</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">geom_tiplab</span><span class="op">(</span>size <span class="op">=</span><span class="fl">3</span><span class="op">)</span>  <span class="op">+</span>
-  <span class="fu">ggtitle</span><span class="op">(</span><span class="st">"Subset tree 2"</span><span class="op">)</span></code></pre></div>
-<div class="inline-figure"><img src="_main_files/figure-html/unnamed-chunk-1325-1.png" width="672"></div>
+<div class="sourceCode" id="cb1729"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1729-1"><a href="phylogenetic-trees.html#cb1729-1" tabindex="-1"></a><span class="fu">ggtree</span>(sub_tree2) <span class="sc">+</span></span>
+<span id="cb1729-2"><a href="phylogenetic-trees.html#cb1729-2" tabindex="-1"></a>  <span class="fu">geom_tiplab</span>(<span class="at">size =</span><span class="dv">3</span>)  <span class="sc">+</span></span>
+<span id="cb1729-3"><a href="phylogenetic-trees.html#cb1729-3" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;Subset tree 2&quot;</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-1329-1.png" width="672" /></p>
 <p>Bạn cũng có thể lưu cây mới của mình dưới dạng kiểu Newick hoặc thậm chí là tệp văn bản bằng cách sử dụng hàm <code>write.tree()</code> từ package <strong>ape</strong>:</p>
-<div class="sourceCode" id="cb1750"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># to save in .nwk format</span>
-<span class="fu">ape</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/ape/man/write.tree.html">write.tree</a></span><span class="op">(</span><span class="va">sub_tree2</span>, file<span class="op">=</span><span class="st">'data/phylo/Shigella_subtree_2.nwk'</span><span class="op">)</span>
-
-<span class="co"># to save in .txt format</span>
-<span class="fu">ape</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/ape/man/write.tree.html">write.tree</a></span><span class="op">(</span><span class="va">sub_tree2</span>, file<span class="op">=</span><span class="st">'data/phylo/Shigella_subtree_2.txt'</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb1730"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1730-1"><a href="phylogenetic-trees.html#cb1730-1" tabindex="-1"></a><span class="co"># to save in .nwk format</span></span>
+<span id="cb1730-2"><a href="phylogenetic-trees.html#cb1730-2" tabindex="-1"></a>ape<span class="sc">::</span><span class="fu">write.tree</span>(sub_tree2, <span class="at">file=</span><span class="st">&#39;data/phylo/Shigella_subtree_2.nwk&#39;</span>)</span>
+<span id="cb1730-3"><a href="phylogenetic-trees.html#cb1730-3" tabindex="-1"></a></span>
+<span id="cb1730-4"><a href="phylogenetic-trees.html#cb1730-4" tabindex="-1"></a><span class="co"># to save in .txt format</span></span>
+<span id="cb1730-5"><a href="phylogenetic-trees.html#cb1730-5" tabindex="-1"></a>ape<span class="sc">::</span><span class="fu">write.tree</span>(sub_tree2, <span class="at">file=</span><span class="st">&#39;data/phylo/Shigella_subtree_2.txt&#39;</span>)</span></code></pre></div>
 </div>
 <div id="xoay-các-nút-trong-một-cây" class="section level3 unnumbered">
-<h3>Xoay các nút trong một cây<a class="anchor" aria-label="anchor" href="#xoay-c%C3%A1c-n%C3%BAt-trong-m%E1%BB%99t-c%C3%A2y"><i class="fas fa-link"></i></a>
-</h3>
+<h3>Xoay các nút trong một cây</h3>
 <p>Như đã đề cập bên trên, chúng ta không thể thay đổi thứ tự của các tips hoặc nút trong cây, vì điều này dựa trên mối liên hệ di truyền của chúng và không phải là đối tượng cho các điều chỉnh thị giác. Nhưng chúng ta có thể xoay các nhánh xung quanh nút nếu điều đó giúp chúng ta dễ nhìn hơn.</p>
 <p>Đầu tiên, chúng ta hãy vẽ subset tree 2 với nhãn nút để chọn nút mà chúng ta muốn thao tác và lưu nó vào một đối tượng biểu đồ ggtree có tên <code>p</code>.</p>
-<div class="sourceCode" id="cb1751"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">ggtree</span><span class="op">(</span><span class="va">sub_tree2</span><span class="op">)</span> <span class="op">+</span>  
-  <span class="fu">geom_tiplab</span><span class="op">(</span>size <span class="op">=</span> <span class="fl">4</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">geom_text2</span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>subset<span class="op">=</span><span class="op">!</span><span class="va">isTip</span>, label<span class="op">=</span><span class="va">node</span><span class="op">)</span>, <span class="co"># labels all the nodes in the tree</span>
-             size <span class="op">=</span> <span class="fl">5</span>,
-             color <span class="op">=</span> <span class="st">"darkred"</span>, 
-             hjust <span class="op">=</span> <span class="fl">1</span>, 
-             vjust <span class="op">=</span> <span class="fl">1</span><span class="op">)</span> 
-<span class="va">p</span></code></pre></div>
-<div class="inline-figure"><img src="_main_files/figure-html/phylogenetic_trees_rotating_1-1.png" width="50%" style="display: block; margin: auto;"></div>
+<div class="sourceCode" id="cb1731"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1731-1"><a href="phylogenetic-trees.html#cb1731-1" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggtree</span>(sub_tree2) <span class="sc">+</span>  </span>
+<span id="cb1731-2"><a href="phylogenetic-trees.html#cb1731-2" tabindex="-1"></a>  <span class="fu">geom_tiplab</span>(<span class="at">size =</span> <span class="dv">4</span>) <span class="sc">+</span></span>
+<span id="cb1731-3"><a href="phylogenetic-trees.html#cb1731-3" tabindex="-1"></a>  <span class="fu">geom_text2</span>(<span class="fu">aes</span>(<span class="at">subset=</span><span class="sc">!</span>isTip, <span class="at">label=</span>node), <span class="co"># labels all the nodes in the tree</span></span>
+<span id="cb1731-4"><a href="phylogenetic-trees.html#cb1731-4" tabindex="-1"></a>             <span class="at">size =</span> <span class="dv">5</span>,</span>
+<span id="cb1731-5"><a href="phylogenetic-trees.html#cb1731-5" tabindex="-1"></a>             <span class="at">color =</span> <span class="st">&quot;darkred&quot;</span>, </span>
+<span id="cb1731-6"><a href="phylogenetic-trees.html#cb1731-6" tabindex="-1"></a>             <span class="at">hjust =</span> <span class="dv">1</span>, </span>
+<span id="cb1731-7"><a href="phylogenetic-trees.html#cb1731-7" tabindex="-1"></a>             <span class="at">vjust =</span> <span class="dv">1</span>) </span>
+<span id="cb1731-8"><a href="phylogenetic-trees.html#cb1731-8" tabindex="-1"></a>p</span></code></pre></div>
+<p><img src="_main_files/figure-html/phylogenetic_trees_rotating_1-1.png" width="50%" style="display: block; margin: auto;" /></p>
 <p>Sau đó chúng ta có thể thao tác với các nút bằng cách áp dụng hàm <strong>ggtree::rotate()</strong> hoặc <strong>ggtree::flip()</strong>:
 Lưu ý: để biểu diễn những nút nào chúng ta đang thao tác, trước tiên chúng ta áp dụng hàm <strong>geom_hilight()</strong> từ package <strong>ggtree</strong> để đánh dấu các mẫu trong các nút mà chúng ta quan tâm và lưu trữ sang một đối tượng biểu đồ mới có tên <code>p1</code>.</p>
-<div class="sourceCode" id="cb1752"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">p1</span> <span class="op">&lt;-</span> <span class="va">p</span> <span class="op">+</span> <span class="fu">geom_hilight</span><span class="op">(</span>  <span class="co"># highlights node 39 in blue, "extend =" allows us to define the length of the color block</span>
-  node <span class="op">=</span> <span class="fl">39</span>,
-  fill <span class="op">=</span> <span class="st">"steelblue"</span>,
-  extend <span class="op">=</span> <span class="fl">0.0017</span><span class="op">)</span> <span class="op">+</span>  
-<span class="fu">geom_hilight</span><span class="op">(</span>            <span class="co"># highlights the node 37 in yellow</span>
-  node <span class="op">=</span> <span class="fl">37</span>,
-  fill <span class="op">=</span> <span class="st">"yellow"</span>,
-  extend <span class="op">=</span> <span class="fl">0.0017</span><span class="op">)</span> <span class="op">+</span>               
-<span class="fu">ggtitle</span><span class="op">(</span><span class="st">"Original tree"</span><span class="op">)</span>
-
-
-<span class="va">p1</span> <span class="co"># print</span></code></pre></div>
-<div class="inline-figure"><img src="_main_files/figure-html/phylogenetic_trees_rotating_2-1.png" width="50%" style="display: block; margin: auto;"></div>
+<div class="sourceCode" id="cb1732"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1732-1"><a href="phylogenetic-trees.html#cb1732-1" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> p <span class="sc">+</span> <span class="fu">geom_hilight</span>(  <span class="co"># highlights node 39 in blue, &quot;extend =&quot; allows us to define the length of the color block</span></span>
+<span id="cb1732-2"><a href="phylogenetic-trees.html#cb1732-2" tabindex="-1"></a>  <span class="at">node =</span> <span class="dv">39</span>,</span>
+<span id="cb1732-3"><a href="phylogenetic-trees.html#cb1732-3" tabindex="-1"></a>  <span class="at">fill =</span> <span class="st">&quot;steelblue&quot;</span>,</span>
+<span id="cb1732-4"><a href="phylogenetic-trees.html#cb1732-4" tabindex="-1"></a>  <span class="at">extend =</span> <span class="fl">0.0017</span>) <span class="sc">+</span>  </span>
+<span id="cb1732-5"><a href="phylogenetic-trees.html#cb1732-5" tabindex="-1"></a><span class="fu">geom_hilight</span>(            <span class="co"># highlights the node 37 in yellow</span></span>
+<span id="cb1732-6"><a href="phylogenetic-trees.html#cb1732-6" tabindex="-1"></a>  <span class="at">node =</span> <span class="dv">37</span>,</span>
+<span id="cb1732-7"><a href="phylogenetic-trees.html#cb1732-7" tabindex="-1"></a>  <span class="at">fill =</span> <span class="st">&quot;yellow&quot;</span>,</span>
+<span id="cb1732-8"><a href="phylogenetic-trees.html#cb1732-8" tabindex="-1"></a>  <span class="at">extend =</span> <span class="fl">0.0017</span>) <span class="sc">+</span>               </span>
+<span id="cb1732-9"><a href="phylogenetic-trees.html#cb1732-9" tabindex="-1"></a><span class="fu">ggtitle</span>(<span class="st">&quot;Original tree&quot;</span>)</span>
+<span id="cb1732-10"><a href="phylogenetic-trees.html#cb1732-10" tabindex="-1"></a></span>
+<span id="cb1732-11"><a href="phylogenetic-trees.html#cb1732-11" tabindex="-1"></a></span>
+<span id="cb1732-12"><a href="phylogenetic-trees.html#cb1732-12" tabindex="-1"></a>p1 <span class="co"># print</span></span></code></pre></div>
+<p><img src="_main_files/figure-html/phylogenetic_trees_rotating_2-1.png" width="50%" style="display: block; margin: auto;" /></p>
 <p>Bây giờ chúng ta có thể xoay nút 37 trong đối tượng <code>p1</code> để các mẫu trên nút 38 di chuyển lên đỉnh. Chúng ta lưu trữ cây đã xoay trong một đối tượng mới có tên <code>p2</code>.</p>
-<div class="sourceCode" id="cb1753"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">p2</span> <span class="op">&lt;-</span> <span class="fu">rotate</span><span class="op">(</span><span class="va">p1</span>, <span class="fl">37</span><span class="op">)</span> <span class="op">+</span> 
-      <span class="fu">ggtitle</span><span class="op">(</span><span class="st">"Rotated Node 37"</span><span class="op">)</span>
-
-
-<span class="va">p2</span>   <span class="co"># print</span></code></pre></div>
-<div class="inline-figure"><img src="_main_files/figure-html/unnamed-chunk-1326-1.png" width="672"></div>
+<div class="sourceCode" id="cb1733"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1733-1"><a href="phylogenetic-trees.html#cb1733-1" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> ggtree<span class="sc">::</span><span class="fu">rotate</span>(p1, <span class="dv">37</span>) <span class="sc">+</span> </span>
+<span id="cb1733-2"><a href="phylogenetic-trees.html#cb1733-2" tabindex="-1"></a>      <span class="fu">ggtitle</span>(<span class="st">&quot;Rotated Node 37&quot;</span>)</span>
+<span id="cb1733-3"><a href="phylogenetic-trees.html#cb1733-3" tabindex="-1"></a></span>
+<span id="cb1733-4"><a href="phylogenetic-trees.html#cb1733-4" tabindex="-1"></a></span>
+<span id="cb1733-5"><a href="phylogenetic-trees.html#cb1733-5" tabindex="-1"></a>p2   <span class="co"># print</span></span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-1330-1.png" width="672" /></p>
 <p>Hoặc chúng ta có thể sử dụng lệnh <code>flip</code> để xoay nút 36 trong đối tượng <code>p1</code> và đổi nút 37 lên đỉnh và nút 39 xuống dưới đáy. Chúng ta lưu cây đã được lật lại vào một đối tượng mới có tên <code>p3</code>.</p>
-<div class="sourceCode" id="cb1754"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">p3</span> <span class="op">&lt;-</span>  <span class="fu">flip</span><span class="op">(</span><span class="va">p1</span>, <span class="fl">39</span>, <span class="fl">37</span><span class="op">)</span> <span class="op">+</span>
-      <span class="fu">ggtitle</span><span class="op">(</span><span class="st">"Rotated Node 36"</span><span class="op">)</span>
-
-
-<span class="va">p3</span>   <span class="co"># print</span></code></pre></div>
-<div class="inline-figure"><img src="_main_files/figure-html/unnamed-chunk-1327-1.png" width="672"></div>
+<div class="sourceCode" id="cb1734"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1734-1"><a href="phylogenetic-trees.html#cb1734-1" tabindex="-1"></a>p3 <span class="ot">&lt;-</span>  <span class="fu">flip</span>(p1, <span class="dv">39</span>, <span class="dv">37</span>) <span class="sc">+</span></span>
+<span id="cb1734-2"><a href="phylogenetic-trees.html#cb1734-2" tabindex="-1"></a>      <span class="fu">ggtitle</span>(<span class="st">&quot;Rotated Node 36&quot;</span>)</span>
+<span id="cb1734-3"><a href="phylogenetic-trees.html#cb1734-3" tabindex="-1"></a></span>
+<span id="cb1734-4"><a href="phylogenetic-trees.html#cb1734-4" tabindex="-1"></a></span>
+<span id="cb1734-5"><a href="phylogenetic-trees.html#cb1734-5" tabindex="-1"></a>p3   <span class="co"># print</span></span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-1331-1.png" width="672" /></p>
 </div>
 <div id="ví-dụ-về-cây-con-với-chú-thích-dữ-liệu-mẫu" class="section level3 unnumbered">
-<h3>Ví dụ về cây con với chú thích dữ liệu mẫu<a class="anchor" aria-label="anchor" href="#v%C3%AD-d%E1%BB%A5-v%E1%BB%81-c%C3%A2y-con-v%E1%BB%9Bi-ch%C3%BA-th%C3%ADch-d%E1%BB%AF-li%E1%BB%87u-m%E1%BA%ABu"><i class="fas fa-link"></i></a>
-</h3>
+<h3>Ví dụ về cây con với chú thích dữ liệu mẫu</h3>
 <p>Giả sử chúng tôi đang điều tra cụm các trường hợp với nhân bản vô tính xảy ra vào năm 2017 và 2018 tại nút 39 trong cây con của chúng ta. Chúng ta thêm năm phân lập chủng cũng như lịch sử di chuyển và màu sắc theo quốc gia để xem nguồn gốc của các chủng có liên quan gần khác:</p>
-<div class="sourceCode" id="cb1755"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">ggtree</span><span class="op">(</span><span class="va">sub_tree2</span><span class="op">)</span> <span class="op">%&lt;+%</span> <span class="va">sample_data</span> <span class="op">+</span>     <span class="co"># we use th %&lt;+% operator to link to the sample_data</span>
-  <span class="fu">geom_tiplab</span><span class="op">(</span>                          <span class="co"># labels the tips of all branches with the sample name in the tree file</span>
-    size <span class="op">=</span> <span class="fl">2.5</span>,
-    offset <span class="op">=</span> <span class="fl">0.001</span>,
-    align <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">+</span> 
-  <span class="fu">theme_tree2</span><span class="op">(</span><span class="op">)</span><span class="op">+</span>
-  <span class="fu"><a href="https://rdrr.io/r/graphics/plot.window.html">xlim</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0.015</span><span class="op">)</span><span class="op">+</span>                       <span class="co"># set the x-axis limits of our tree</span>
-  <span class="fu">geom_tippoint</span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>color<span class="op">=</span><span class="va">Country</span><span class="op">)</span>,     <span class="co"># color the tip point by continent</span>
-                size <span class="op">=</span> <span class="fl">1.5</span><span class="op">)</span><span class="op">+</span> 
-  <span class="fu">scale_color_brewer</span><span class="op">(</span>
-    name <span class="op">=</span> <span class="st">"Country"</span>, 
-    palette <span class="op">=</span> <span class="st">"Set1"</span>, 
-    na.value <span class="op">=</span> <span class="st">"grey"</span><span class="op">)</span><span class="op">+</span>
-  <span class="fu">geom_tiplab</span><span class="op">(</span>                          <span class="co"># add isolation year as a text label at the tips</span>
-    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>label <span class="op">=</span> <span class="va">Year</span><span class="op">)</span>,
-    color <span class="op">=</span> <span class="st">'blue'</span>,
-    offset <span class="op">=</span> <span class="fl">0.0045</span>,
-    size <span class="op">=</span> <span class="fl">3</span>,
-    linetype <span class="op">=</span> <span class="st">"blank"</span> ,
-    geom <span class="op">=</span> <span class="st">"text"</span>,
-    align <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">+</span> 
-  <span class="fu">geom_tiplab</span><span class="op">(</span>                          <span class="co"># add travel history as a text label at the tips, in red color</span>
-    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>label <span class="op">=</span> <span class="va">Travel_history</span><span class="op">)</span>,
-    color <span class="op">=</span> <span class="st">'red'</span>,
-    offset <span class="op">=</span> <span class="fl">0.006</span>,
-    size <span class="op">=</span> <span class="fl">3</span>,
-    linetype <span class="op">=</span> <span class="st">"blank"</span>,
-    geom <span class="op">=</span> <span class="st">"text"</span>,
-    align <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">+</span> 
-  <span class="fu">ggtitle</span><span class="op">(</span><span class="st">"Phylogenetic tree of Belgian S. sonnei strains with travel history"</span><span class="op">)</span><span class="op">+</span>  <span class="co"># add plot title</span>
-  <span class="fu">xlab</span><span class="op">(</span><span class="st">"genetic distance (0.001 = 4 nucleotides difference)"</span><span class="op">)</span><span class="op">+</span>                    <span class="co"># add a label to the x-axis </span>
-  <span class="fu">theme</span><span class="op">(</span>
-    axis.title.x <span class="op">=</span> <span class="fu">element_text</span><span class="op">(</span>size <span class="op">=</span> <span class="fl">10</span><span class="op">)</span>,
-    axis.title.y <span class="op">=</span> <span class="fu">element_blank</span><span class="op">(</span><span class="op">)</span>,
-    legend.title <span class="op">=</span> <span class="fu">element_text</span><span class="op">(</span>face <span class="op">=</span> <span class="st">"bold"</span>, size <span class="op">=</span> <span class="fl">12</span><span class="op">)</span>,
-    legend.text <span class="op">=</span> <span class="fu">element_text</span><span class="op">(</span>face <span class="op">=</span> <span class="st">"bold"</span>, size <span class="op">=</span> <span class="fl">10</span><span class="op">)</span>,
-    plot.title <span class="op">=</span> <span class="fu">element_text</span><span class="op">(</span>size <span class="op">=</span> <span class="fl">12</span>, face <span class="op">=</span> <span class="st">"bold"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
-<div class="inline-figure"><img src="_main_files/figure-html/phylogenetic_trees_inspect_subset_example-1.png" width="80%" style="display: block; margin: auto;"></div>
+<div class="sourceCode" id="cb1735"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1735-1"><a href="phylogenetic-trees.html#cb1735-1" tabindex="-1"></a><span class="fu">ggtree</span>(sub_tree2) <span class="sc">%&lt;+%</span> sample_data <span class="sc">+</span>     <span class="co"># we use th %&lt;+% operator to link to the sample_data</span></span>
+<span id="cb1735-2"><a href="phylogenetic-trees.html#cb1735-2" tabindex="-1"></a>  <span class="fu">geom_tiplab</span>(                          <span class="co"># labels the tips of all branches with the sample name in the tree file</span></span>
+<span id="cb1735-3"><a href="phylogenetic-trees.html#cb1735-3" tabindex="-1"></a>    <span class="at">size =</span> <span class="fl">2.5</span>,</span>
+<span id="cb1735-4"><a href="phylogenetic-trees.html#cb1735-4" tabindex="-1"></a>    <span class="at">offset =</span> <span class="fl">0.001</span>,</span>
+<span id="cb1735-5"><a href="phylogenetic-trees.html#cb1735-5" tabindex="-1"></a>    <span class="at">align =</span> <span class="cn">TRUE</span>) <span class="sc">+</span> </span>
+<span id="cb1735-6"><a href="phylogenetic-trees.html#cb1735-6" tabindex="-1"></a>  <span class="fu">theme_tree2</span>()<span class="sc">+</span></span>
+<span id="cb1735-7"><a href="phylogenetic-trees.html#cb1735-7" tabindex="-1"></a>  <span class="fu">xlim</span>(<span class="dv">0</span>, <span class="fl">0.015</span>)<span class="sc">+</span>                       <span class="co"># set the x-axis limits of our tree</span></span>
+<span id="cb1735-8"><a href="phylogenetic-trees.html#cb1735-8" tabindex="-1"></a>  <span class="fu">geom_tippoint</span>(<span class="fu">aes</span>(<span class="at">color=</span>Country),     <span class="co"># color the tip point by continent</span></span>
+<span id="cb1735-9"><a href="phylogenetic-trees.html#cb1735-9" tabindex="-1"></a>                <span class="at">size =</span> <span class="fl">1.5</span>)<span class="sc">+</span> </span>
+<span id="cb1735-10"><a href="phylogenetic-trees.html#cb1735-10" tabindex="-1"></a>  <span class="fu">scale_color_brewer</span>(</span>
+<span id="cb1735-11"><a href="phylogenetic-trees.html#cb1735-11" tabindex="-1"></a>    <span class="at">name =</span> <span class="st">&quot;Country&quot;</span>, </span>
+<span id="cb1735-12"><a href="phylogenetic-trees.html#cb1735-12" tabindex="-1"></a>    <span class="at">palette =</span> <span class="st">&quot;Set1&quot;</span>, </span>
+<span id="cb1735-13"><a href="phylogenetic-trees.html#cb1735-13" tabindex="-1"></a>    <span class="at">na.value =</span> <span class="st">&quot;grey&quot;</span>)<span class="sc">+</span></span>
+<span id="cb1735-14"><a href="phylogenetic-trees.html#cb1735-14" tabindex="-1"></a>  <span class="fu">geom_tiplab</span>(                          <span class="co"># add isolation year as a text label at the tips</span></span>
+<span id="cb1735-15"><a href="phylogenetic-trees.html#cb1735-15" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">label =</span> Year),</span>
+<span id="cb1735-16"><a href="phylogenetic-trees.html#cb1735-16" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">&#39;blue&#39;</span>,</span>
+<span id="cb1735-17"><a href="phylogenetic-trees.html#cb1735-17" tabindex="-1"></a>    <span class="at">offset =</span> <span class="fl">0.0045</span>,</span>
+<span id="cb1735-18"><a href="phylogenetic-trees.html#cb1735-18" tabindex="-1"></a>    <span class="at">size =</span> <span class="dv">3</span>,</span>
+<span id="cb1735-19"><a href="phylogenetic-trees.html#cb1735-19" tabindex="-1"></a>    <span class="at">linetype =</span> <span class="st">&quot;blank&quot;</span> ,</span>
+<span id="cb1735-20"><a href="phylogenetic-trees.html#cb1735-20" tabindex="-1"></a>    <span class="at">geom =</span> <span class="st">&quot;text&quot;</span>,</span>
+<span id="cb1735-21"><a href="phylogenetic-trees.html#cb1735-21" tabindex="-1"></a>    <span class="at">align =</span> <span class="cn">TRUE</span>)<span class="sc">+</span> </span>
+<span id="cb1735-22"><a href="phylogenetic-trees.html#cb1735-22" tabindex="-1"></a>  <span class="fu">geom_tiplab</span>(                          <span class="co"># add travel history as a text label at the tips, in red color</span></span>
+<span id="cb1735-23"><a href="phylogenetic-trees.html#cb1735-23" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">label =</span> Travel_history),</span>
+<span id="cb1735-24"><a href="phylogenetic-trees.html#cb1735-24" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">&#39;red&#39;</span>,</span>
+<span id="cb1735-25"><a href="phylogenetic-trees.html#cb1735-25" tabindex="-1"></a>    <span class="at">offset =</span> <span class="fl">0.006</span>,</span>
+<span id="cb1735-26"><a href="phylogenetic-trees.html#cb1735-26" tabindex="-1"></a>    <span class="at">size =</span> <span class="dv">3</span>,</span>
+<span id="cb1735-27"><a href="phylogenetic-trees.html#cb1735-27" tabindex="-1"></a>    <span class="at">linetype =</span> <span class="st">&quot;blank&quot;</span>,</span>
+<span id="cb1735-28"><a href="phylogenetic-trees.html#cb1735-28" tabindex="-1"></a>    <span class="at">geom =</span> <span class="st">&quot;text&quot;</span>,</span>
+<span id="cb1735-29"><a href="phylogenetic-trees.html#cb1735-29" tabindex="-1"></a>    <span class="at">align =</span> <span class="cn">TRUE</span>)<span class="sc">+</span> </span>
+<span id="cb1735-30"><a href="phylogenetic-trees.html#cb1735-30" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;Phylogenetic tree of Belgian S. sonnei strains with travel history&quot;</span>)<span class="sc">+</span>  <span class="co"># add plot title</span></span>
+<span id="cb1735-31"><a href="phylogenetic-trees.html#cb1735-31" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;genetic distance (0.001 = 4 nucleotides difference)&quot;</span>)<span class="sc">+</span>                    <span class="co"># add a label to the x-axis </span></span>
+<span id="cb1735-32"><a href="phylogenetic-trees.html#cb1735-32" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb1735-33"><a href="phylogenetic-trees.html#cb1735-33" tabindex="-1"></a>    <span class="at">axis.title.x =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">10</span>),</span>
+<span id="cb1735-34"><a href="phylogenetic-trees.html#cb1735-34" tabindex="-1"></a>    <span class="at">axis.title.y =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb1735-35"><a href="phylogenetic-trees.html#cb1735-35" tabindex="-1"></a>    <span class="at">legend.title =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">&quot;bold&quot;</span>, <span class="at">size =</span> <span class="dv">12</span>),</span>
+<span id="cb1735-36"><a href="phylogenetic-trees.html#cb1735-36" tabindex="-1"></a>    <span class="at">legend.text =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">&quot;bold&quot;</span>, <span class="at">size =</span> <span class="dv">10</span>),</span>
+<span id="cb1735-37"><a href="phylogenetic-trees.html#cb1735-37" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span>, <span class="at">face =</span> <span class="st">&quot;bold&quot;</span>))</span></code></pre></div>
+<p><img src="_main_files/figure-html/phylogenetic_trees_inspect_subset_example-1.png" width="80%" style="display: block; margin: auto;" /></p>
 <p>Quan sát của chúng ta hướng tới một sự kiện nhập khẩu các chủng từ châu Á, sau đó lưu hành ở Bỉ trong nhiều năm và dường như đã gây ra đợt bùng phát mới nhất của chúng ta.</p>
 <!-- ======================================================= -->
 </div>
 </div>
 <div id="các-cây-phức-tạp-hơn-thêm-bản-đồ-nhiệt-của-dữ-liệu-mẫu" class="section level2 unnumbered">
-<h2>Các cây phức tạp hơn: thêm bản đồ nhiệt của dữ liệu mẫu<a class="anchor" aria-label="anchor" href="#c%C3%A1c-c%C3%A2y-ph%E1%BB%A9c-t%E1%BA%A1p-h%C6%A1n-th%C3%AAm-b%E1%BA%A3n-%C4%91%E1%BB%93-nhi%E1%BB%87t-c%E1%BB%A7a-d%E1%BB%AF-li%E1%BB%87u-m%E1%BA%ABu"><i class="fas fa-link"></i></a>
-</h2>
+<h2>Các cây phức tạp hơn: thêm bản đồ nhiệt của dữ liệu mẫu</h2>
 <p>Chúng tôi có thể thêm thông tin phức tạp hơn, chẳng hạn như sự phân loại của các gen kháng thuốc và các giá trị đo lường về khả năng kháng thuốc dưới dạng bản đồ nhiệt bằng cách sử dụng hàm <strong>ggtree::gheatmap()</strong>.</p>
 <p>Trước tiên, chúng ta cần vẽ cây của mình (có thể là tuyến tính hoặc hình tròn) và lưu trữ nó trong một đối tượng biểu đồ ggtree mới có tên <code>p</code>: Chúng ta sẽ sử dụng sub_tree từ phần 3.)</p>
-<div class="sourceCode" id="cb1756"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">ggtree</span><span class="op">(</span><span class="va">sub_tree2</span>, branch.length<span class="op">=</span><span class="st">'none'</span>, layout<span class="op">=</span><span class="st">'circular'</span><span class="op">)</span> <span class="op">%&lt;+%</span> <span class="va">sample_data</span> <span class="op">+</span>
-  <span class="fu">geom_tiplab</span><span class="op">(</span>size <span class="op">=</span><span class="fl">3</span><span class="op">)</span> <span class="op">+</span> 
- <span class="fu">theme</span><span class="op">(</span>
-   legend.position <span class="op">=</span> <span class="st">"none"</span>,
-    axis.title.x <span class="op">=</span> <span class="fu">element_blank</span><span class="op">(</span><span class="op">)</span>,
-    axis.title.y <span class="op">=</span> <span class="fu">element_blank</span><span class="op">(</span><span class="op">)</span>,
-    plot.title <span class="op">=</span> <span class="fu">element_text</span><span class="op">(</span>
-      size <span class="op">=</span> <span class="fl">12</span>,
-      face <span class="op">=</span> <span class="st">"bold"</span>,
-      hjust <span class="op">=</span> <span class="fl">0.5</span>,
-      vjust <span class="op">=</span> <span class="op">-</span><span class="fl">15</span><span class="op">)</span><span class="op">)</span>
-<span class="va">p</span></code></pre></div>
-<div class="inline-figure"><img src="_main_files/figure-html/phylogenetic_trees_sampledata_heatmap-1.png" width="60%" style="display: block; margin: auto;"></div>
+<div class="sourceCode" id="cb1736"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1736-1"><a href="phylogenetic-trees.html#cb1736-1" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggtree</span>(sub_tree2, <span class="at">branch.length=</span><span class="st">&#39;none&#39;</span>, <span class="at">layout=</span><span class="st">&#39;circular&#39;</span>) <span class="sc">%&lt;+%</span> sample_data <span class="sc">+</span></span>
+<span id="cb1736-2"><a href="phylogenetic-trees.html#cb1736-2" tabindex="-1"></a>  <span class="fu">geom_tiplab</span>(<span class="at">size =</span><span class="dv">3</span>) <span class="sc">+</span> </span>
+<span id="cb1736-3"><a href="phylogenetic-trees.html#cb1736-3" tabindex="-1"></a> <span class="fu">theme</span>(</span>
+<span id="cb1736-4"><a href="phylogenetic-trees.html#cb1736-4" tabindex="-1"></a>   <span class="at">legend.position =</span> <span class="st">&quot;none&quot;</span>,</span>
+<span id="cb1736-5"><a href="phylogenetic-trees.html#cb1736-5" tabindex="-1"></a>    <span class="at">axis.title.x =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb1736-6"><a href="phylogenetic-trees.html#cb1736-6" tabindex="-1"></a>    <span class="at">axis.title.y =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb1736-7"><a href="phylogenetic-trees.html#cb1736-7" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(</span>
+<span id="cb1736-8"><a href="phylogenetic-trees.html#cb1736-8" tabindex="-1"></a>      <span class="at">size =</span> <span class="dv">12</span>,</span>
+<span id="cb1736-9"><a href="phylogenetic-trees.html#cb1736-9" tabindex="-1"></a>      <span class="at">face =</span> <span class="st">&quot;bold&quot;</span>,</span>
+<span id="cb1736-10"><a href="phylogenetic-trees.html#cb1736-10" tabindex="-1"></a>      <span class="at">hjust =</span> <span class="fl">0.5</span>,</span>
+<span id="cb1736-11"><a href="phylogenetic-trees.html#cb1736-11" tabindex="-1"></a>      <span class="at">vjust =</span> <span class="sc">-</span><span class="dv">15</span>))</span>
+<span id="cb1736-12"><a href="phylogenetic-trees.html#cb1736-12" tabindex="-1"></a>p</span></code></pre></div>
+<p><img src="_main_files/figure-html/phylogenetic_trees_sampledata_heatmap-1.png" width="60%" style="display: block; margin: auto;" /></p>
 <p>Thứ hai, chúng ta chuẩn bị dữ liệu của mình. Để trực quan hóa các biến khác nhau bằng các phối màu mới, chúng ta subset dataframe thành các biến mong muốn. Điều quan trọng là phải thêm <code>Sample_ID</code> làm tên hàng nếu không nó không thể khớp dữ liệu với cây <code>tip.labels</code>:</p>
 <p>Trong ví dụ của này, chúng ta muốn xem xét giới tính và các đột biến có thể dẫn đến kháng Ciprofloxacin, một loại kháng sinh hàng đầu quan trọng được sử dụng để điều trị nhiễm trùng Shigella.</p>
 <p>Chúng ta tạo một dataframe cho biến giới tính:</p>
-<div class="sourceCode" id="cb1757"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">gender</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span><span class="st">"gender"</span> <span class="op">=</span> <span class="va">sample_data</span><span class="op">[</span>,<span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Gender"</span><span class="op">)</span><span class="op">]</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/base/colnames.html">rownames</a></span><span class="op">(</span><span class="va">gender</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="va">sample_data</span><span class="op">$</span><span class="va">Sample_ID</span></code></pre></div>
+<div class="sourceCode" id="cb1737"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1737-1"><a href="phylogenetic-trees.html#cb1737-1" tabindex="-1"></a>gender <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="st">&quot;gender&quot;</span> <span class="ot">=</span> sample_data[,<span class="fu">c</span>(<span class="st">&quot;Gender&quot;</span>)])</span>
+<span id="cb1737-2"><a href="phylogenetic-trees.html#cb1737-2" tabindex="-1"></a><span class="fu">rownames</span>(gender) <span class="ot">&lt;-</span> sample_data<span class="sc">$</span>Sample_ID</span></code></pre></div>
 <p>Chúng ta tạo một dataframe cho đột biến ở gen gyrA, gen này tạo ra khả năng kháng Ciprofloxacin:</p>
-<div class="sourceCode" id="cb1758"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">cipR</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span><span class="st">"cipR"</span> <span class="op">=</span> <span class="va">sample_data</span><span class="op">[</span>,<span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"gyrA_mutations"</span><span class="op">)</span><span class="op">]</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/base/colnames.html">rownames</a></span><span class="op">(</span><span class="va">cipR</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="va">sample_data</span><span class="op">$</span><span class="va">Sample_ID</span></code></pre></div>
+<div class="sourceCode" id="cb1738"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1738-1"><a href="phylogenetic-trees.html#cb1738-1" tabindex="-1"></a>cipR <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="st">&quot;cipR&quot;</span> <span class="ot">=</span> sample_data[,<span class="fu">c</span>(<span class="st">&quot;gyrA_mutations&quot;</span>)])</span>
+<span id="cb1738-2"><a href="phylogenetic-trees.html#cb1738-2" tabindex="-1"></a><span class="fu">rownames</span>(cipR) <span class="ot">&lt;-</span> sample_data<span class="sc">$</span>Sample_ID</span></code></pre></div>
 <p>Chúng ta tạo một dataframe đối với nồng độ ức chế tối thiểu đo được (MIC) đối với Ciprofloxacin trong phòng thí nghiệm:</p>
-<div class="sourceCode" id="cb1759"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">MIC_Cip</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span><span class="st">"mic_cip"</span> <span class="op">=</span> <span class="va">sample_data</span><span class="op">[</span>,<span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"MIC_CIP"</span><span class="op">)</span><span class="op">]</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/base/colnames.html">rownames</a></span><span class="op">(</span><span class="va">MIC_Cip</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="va">sample_data</span><span class="op">$</span><span class="va">Sample_ID</span></code></pre></div>
+<div class="sourceCode" id="cb1739"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1739-1"><a href="phylogenetic-trees.html#cb1739-1" tabindex="-1"></a>MIC_Cip <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="st">&quot;mic_cip&quot;</span> <span class="ot">=</span> sample_data[,<span class="fu">c</span>(<span class="st">&quot;MIC_CIP&quot;</span>)])</span>
+<span id="cb1739-2"><a href="phylogenetic-trees.html#cb1739-2" tabindex="-1"></a><span class="fu">rownames</span>(MIC_Cip) <span class="ot">&lt;-</span> sample_data<span class="sc">$</span>Sample_ID</span></code></pre></div>
 <p>Chúng ta tạo một biểu đồ đầu tiên và thêm bản đồ nhiệt nhị phân cho giới tính vào cây phát sinh loài và lưu trữ nó trong một đối tượng biểu đồ ggtree mới <code>h1</code>:</p>
-<div class="sourceCode" id="cb1760"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">h1</span> <span class="op">&lt;-</span>  <span class="fu">gheatmap</span><span class="op">(</span><span class="va">p</span>, <span class="va">gender</span>,                                 <span class="co"># we add a heatmap layer of the gender dataframe to our tree plot</span>
-                offset <span class="op">=</span> <span class="fl">10</span>,                               <span class="co"># offset shifts the heatmap to the right,</span>
-                width <span class="op">=</span> <span class="fl">0.10</span>,                              <span class="co"># width defines the width of the heatmap column,</span>
-                color <span class="op">=</span> <span class="cn">NULL</span>,                              <span class="co"># color defines the boarder of the heatmap columns</span>
-         colnames <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> <span class="op">+</span>                               <span class="co"># hides column names for the heatmap</span>
-  <span class="fu">scale_fill_manual</span><span class="op">(</span>name <span class="op">=</span> <span class="st">"Gender"</span>,                       <span class="co"># define the coloring scheme and legend for gender</span>
-                    values <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"#00d1b1"</span>, <span class="st">"purple"</span><span class="op">)</span>,
-                    breaks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Male"</span>, <span class="st">"Female"</span><span class="op">)</span>,
-                    labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Male"</span>, <span class="st">"Female"</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
-   <span class="fu">theme</span><span class="op">(</span>legend.position <span class="op">=</span> <span class="st">"bottom"</span>,
-        legend.title <span class="op">=</span> <span class="fu">element_text</span><span class="op">(</span>size <span class="op">=</span> <span class="fl">12</span><span class="op">)</span>,
-        legend.text <span class="op">=</span> <span class="fu">element_text</span><span class="op">(</span>size <span class="op">=</span> <span class="fl">10</span><span class="op">)</span>,
-        legend.box <span class="op">=</span> <span class="st">"vertical"</span>, legend.margin <span class="op">=</span> <span class="fu">margin</span><span class="op">(</span><span class="op">)</span><span class="op">)</span></code></pre></div>
-<pre><code>## Scale for 'y' is already present. Adding another scale for 'y', which will replace the existing scale.</code></pre>
-<pre><code>## Scale for 'fill' is already present. Adding another scale for 'fill', which will replace the existing scale.</code></pre>
-<div class="sourceCode" id="cb1763"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">h1</span></code></pre></div>
-<div class="inline-figure"><img src="_main_files/figure-html/phylogenetic_trees_sampledata_heatmap_gender-1.png" width="70%" style="display: block; margin: auto;"></div>
+<div class="sourceCode" id="cb1740"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1740-1"><a href="phylogenetic-trees.html#cb1740-1" tabindex="-1"></a>h1 <span class="ot">&lt;-</span>  <span class="fu">gheatmap</span>(p, gender,                                 <span class="co"># we add a heatmap layer of the gender dataframe to our tree plot</span></span>
+<span id="cb1740-2"><a href="phylogenetic-trees.html#cb1740-2" tabindex="-1"></a>                <span class="at">offset =</span> <span class="dv">10</span>,                               <span class="co"># offset shifts the heatmap to the right,</span></span>
+<span id="cb1740-3"><a href="phylogenetic-trees.html#cb1740-3" tabindex="-1"></a>                <span class="at">width =</span> <span class="fl">0.10</span>,                              <span class="co"># width defines the width of the heatmap column,</span></span>
+<span id="cb1740-4"><a href="phylogenetic-trees.html#cb1740-4" tabindex="-1"></a>                <span class="at">color =</span> <span class="cn">NULL</span>,                              <span class="co"># color defines the boarder of the heatmap columns</span></span>
+<span id="cb1740-5"><a href="phylogenetic-trees.html#cb1740-5" tabindex="-1"></a>         <span class="at">colnames =</span> <span class="cn">FALSE</span>) <span class="sc">+</span>                               <span class="co"># hides column names for the heatmap</span></span>
+<span id="cb1740-6"><a href="phylogenetic-trees.html#cb1740-6" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">name =</span> <span class="st">&quot;Gender&quot;</span>,                       <span class="co"># define the coloring scheme and legend for gender</span></span>
+<span id="cb1740-7"><a href="phylogenetic-trees.html#cb1740-7" tabindex="-1"></a>                    <span class="at">values =</span> <span class="fu">c</span>(<span class="st">&quot;#00d1b1&quot;</span>, <span class="st">&quot;purple&quot;</span>),</span>
+<span id="cb1740-8"><a href="phylogenetic-trees.html#cb1740-8" tabindex="-1"></a>                    <span class="at">breaks =</span> <span class="fu">c</span>(<span class="st">&quot;Male&quot;</span>, <span class="st">&quot;Female&quot;</span>),</span>
+<span id="cb1740-9"><a href="phylogenetic-trees.html#cb1740-9" tabindex="-1"></a>                    <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;Male&quot;</span>, <span class="st">&quot;Female&quot;</span>)) <span class="sc">+</span></span>
+<span id="cb1740-10"><a href="phylogenetic-trees.html#cb1740-10" tabindex="-1"></a>   <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;bottom&quot;</span>,</span>
+<span id="cb1740-11"><a href="phylogenetic-trees.html#cb1740-11" tabindex="-1"></a>        <span class="at">legend.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span>),</span>
+<span id="cb1740-12"><a href="phylogenetic-trees.html#cb1740-12" tabindex="-1"></a>        <span class="at">legend.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">10</span>),</span>
+<span id="cb1740-13"><a href="phylogenetic-trees.html#cb1740-13" tabindex="-1"></a>        <span class="at">legend.box =</span> <span class="st">&quot;vertical&quot;</span>, <span class="at">legend.margin =</span> <span class="fu">margin</span>())</span></code></pre></div>
+<pre><code>## Scale for y is already present.
+## Adding another scale for y, which will replace the existing scale.
+## Scale for fill is already present.
+## Adding another scale for fill, which will replace the existing scale.</code></pre>
+<div class="sourceCode" id="cb1742"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1742-1"><a href="phylogenetic-trees.html#cb1742-1" tabindex="-1"></a>h1</span></code></pre></div>
+<p><img src="_main_files/figure-html/phylogenetic_trees_sampledata_heatmap_gender-1.png" width="70%" style="display: block; margin: auto;" /></p>
 <p>Sau đó, chúng ta thêm thông tin về các đột biến trong gen gyrA, gen này tạo ra khả năng kháng Ciprofloxacin:</p>
 <p>Lưu ý: Sự hiện diện của đột biến điểm nhiễm sắc thể trong dữ liệu WGS đã được xác định trước bằng cách sử dụng công cụ PointFinder do Zankari et al phát triển. (xem tham khảo trong phần tài liệu tham khảo bổ sung)</p>
 <p>Đầu tiên, chúng ta gán một bảng màu mới cho đối tượng biểu đồ <code>h1</code> có sẵn và lưu nó thành một đối tượng mới có tên <code>h2</code>. Điều này cho phép chúng ta xác định và thay đổi màu sắc cho biến thứ hai của chúng tôi trong bản đồ nhiệt.</p>
-<div class="sourceCode" id="cb1764"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">h2</span> <span class="op">&lt;-</span> <span class="va">h1</span> <span class="op">+</span> <span class="fu">new_scale_fill</span><span class="op">(</span><span class="op">)</span> </code></pre></div>
+<div class="sourceCode" id="cb1743"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1743-1"><a href="phylogenetic-trees.html#cb1743-1" tabindex="-1"></a>h2 <span class="ot">&lt;-</span> h1 <span class="sc">+</span> <span class="fu">new_scale_fill</span>() </span></code></pre></div>
 <p>Sau đó, chúng ta thêm lớp bản đồ nhiệt thứ hai vào <code>h2</code> và lưu biểu đồ thành đối tượng mới có tên <code>h3</code>:</p>
-<div class="sourceCode" id="cb1765"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">h3</span> <span class="op">&lt;-</span> <span class="fu">gheatmap</span><span class="op">(</span><span class="va">h2</span>, <span class="va">cipR</span>,         <span class="co"># adds the second row of heatmap describing Ciprofloxacin resistance mutations</span>
-               offset <span class="op">=</span> <span class="fl">12</span>, 
-               width <span class="op">=</span> <span class="fl">0.10</span>, 
-               colnames <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">scale_fill_manual</span><span class="op">(</span>name <span class="op">=</span> <span class="st">"Ciprofloxacin resistance \n conferring mutation"</span>,
-                    values <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"#fe9698"</span>,<span class="st">"#ea0c92"</span><span class="op">)</span>,
-                    breaks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span> <span class="st">"gyrA D87Y"</span>, <span class="st">"gyrA S83L"</span><span class="op">)</span>,
-                    labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span> <span class="st">"gyrA d87y"</span>, <span class="st">"gyrA s83l"</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
-   <span class="fu">theme</span><span class="op">(</span>legend.position <span class="op">=</span> <span class="st">"bottom"</span>,
-        legend.title <span class="op">=</span> <span class="fu">element_text</span><span class="op">(</span>size <span class="op">=</span> <span class="fl">12</span><span class="op">)</span>,
-        legend.text <span class="op">=</span> <span class="fu">element_text</span><span class="op">(</span>size <span class="op">=</span> <span class="fl">10</span><span class="op">)</span>,
-        legend.box <span class="op">=</span> <span class="st">"vertical"</span>, legend.margin <span class="op">=</span> <span class="fu">margin</span><span class="op">(</span><span class="op">)</span><span class="op">)</span><span class="op">+</span>
-  <span class="fu">guides</span><span class="op">(</span>fill <span class="op">=</span> <span class="fu">guide_legend</span><span class="op">(</span>nrow <span class="op">=</span> <span class="fl">2</span>,byrow <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span></code></pre></div>
-<pre><code>## Scale for 'y' is already present. Adding another scale for 'y', which will replace the existing scale.</code></pre>
-<pre><code>## Scale for 'fill' is already present. Adding another scale for 'fill', which will replace the existing scale.</code></pre>
-<div class="sourceCode" id="cb1768"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">h3</span></code></pre></div>
-<div class="inline-figure"><img src="_main_files/figure-html/phylogenetic_trees_sampledata_heatmap_cip_genes-1.png" width="80%" style="display: block; margin: auto;"></div>
+<div class="sourceCode" id="cb1744"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1744-1"><a href="phylogenetic-trees.html#cb1744-1" tabindex="-1"></a>h3 <span class="ot">&lt;-</span> <span class="fu">gheatmap</span>(h2, cipR,         <span class="co"># adds the second row of heatmap describing Ciprofloxacin resistance mutations</span></span>
+<span id="cb1744-2"><a href="phylogenetic-trees.html#cb1744-2" tabindex="-1"></a>               <span class="at">offset =</span> <span class="dv">12</span>, </span>
+<span id="cb1744-3"><a href="phylogenetic-trees.html#cb1744-3" tabindex="-1"></a>               <span class="at">width =</span> <span class="fl">0.10</span>, </span>
+<span id="cb1744-4"><a href="phylogenetic-trees.html#cb1744-4" tabindex="-1"></a>               <span class="at">colnames =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb1744-5"><a href="phylogenetic-trees.html#cb1744-5" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">name =</span> <span class="st">&quot;Ciprofloxacin resistance </span><span class="sc">\n</span><span class="st"> conferring mutation&quot;</span>,</span>
+<span id="cb1744-6"><a href="phylogenetic-trees.html#cb1744-6" tabindex="-1"></a>                    <span class="at">values =</span> <span class="fu">c</span>(<span class="st">&quot;#fe9698&quot;</span>,<span class="st">&quot;#ea0c92&quot;</span>),</span>
+<span id="cb1744-7"><a href="phylogenetic-trees.html#cb1744-7" tabindex="-1"></a>                    <span class="at">breaks =</span> <span class="fu">c</span>( <span class="st">&quot;gyrA D87Y&quot;</span>, <span class="st">&quot;gyrA S83L&quot;</span>),</span>
+<span id="cb1744-8"><a href="phylogenetic-trees.html#cb1744-8" tabindex="-1"></a>                    <span class="at">labels =</span> <span class="fu">c</span>( <span class="st">&quot;gyrA d87y&quot;</span>, <span class="st">&quot;gyrA s83l&quot;</span>)) <span class="sc">+</span></span>
+<span id="cb1744-9"><a href="phylogenetic-trees.html#cb1744-9" tabindex="-1"></a>   <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;bottom&quot;</span>,</span>
+<span id="cb1744-10"><a href="phylogenetic-trees.html#cb1744-10" tabindex="-1"></a>        <span class="at">legend.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span>),</span>
+<span id="cb1744-11"><a href="phylogenetic-trees.html#cb1744-11" tabindex="-1"></a>        <span class="at">legend.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">10</span>),</span>
+<span id="cb1744-12"><a href="phylogenetic-trees.html#cb1744-12" tabindex="-1"></a>        <span class="at">legend.box =</span> <span class="st">&quot;vertical&quot;</span>, <span class="at">legend.margin =</span> <span class="fu">margin</span>())<span class="sc">+</span></span>
+<span id="cb1744-13"><a href="phylogenetic-trees.html#cb1744-13" tabindex="-1"></a>  <span class="fu">guides</span>(<span class="at">fill =</span> <span class="fu">guide_legend</span>(<span class="at">nrow =</span> <span class="dv">2</span>,<span class="at">byrow =</span> <span class="cn">TRUE</span>))</span></code></pre></div>
+<pre><code>## Scale for y is already present.
+## Adding another scale for y, which will replace the existing scale.
+## Scale for fill is already present.
+## Adding another scale for fill, which will replace the existing scale.</code></pre>
+<div class="sourceCode" id="cb1746"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1746-1"><a href="phylogenetic-trees.html#cb1746-1" tabindex="-1"></a>h3</span></code></pre></div>
+<p><img src="_main_files/figure-html/phylogenetic_trees_sampledata_heatmap_cip_genes-1.png" width="80%" style="display: block; margin: auto;" /></p>
 <p>Chúng tôi lặp lại quy trình trên, trước tiên bằng cách thêm một lớp thang màu mới vào đối tượng hiện có <code>h3</code>, sau đó thêm dữ liệu liên tục về nồng độ ức chế tối thiểu (MIC) của Ciprofloxacin cho mỗi chủng vào đối tượng kết quả <code>h4</code> để tạo ra đối tượng cuối cùng <code>h5</code>:</p>
-<div class="sourceCode" id="cb1769"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># First we add the new coloring scheme:</span>
-<span class="va">h4</span> <span class="op">&lt;-</span> <span class="va">h3</span> <span class="op">+</span> <span class="fu">new_scale_fill</span><span class="op">(</span><span class="op">)</span>
-
-<span class="co"># then we combine the two into a new plot:</span>
-<span class="va">h5</span> <span class="op">&lt;-</span> <span class="fu">gheatmap</span><span class="op">(</span><span class="va">h4</span>, <span class="va">MIC_Cip</span>,  
-               offset <span class="op">=</span> <span class="fl">14</span>, 
-               width <span class="op">=</span> <span class="fl">0.10</span>,
-                colnames <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span><span class="op">+</span>
-  <span class="fu">scale_fill_continuous</span><span class="op">(</span>name <span class="op">=</span> <span class="st">"MIC for Ciprofloxacin"</span>,  <span class="co"># here we define a gradient color scheme for the continuous variable of MIC</span>
-                      low <span class="op">=</span> <span class="st">"yellow"</span>, high <span class="op">=</span> <span class="st">"red"</span>,
-                      breaks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0.50</span>, <span class="fl">1.00</span><span class="op">)</span>,
-                      na.value <span class="op">=</span> <span class="st">"white"</span><span class="op">)</span> <span class="op">+</span>
-   <span class="fu">guides</span><span class="op">(</span>fill <span class="op">=</span> <span class="fu">guide_colourbar</span><span class="op">(</span>barwidth <span class="op">=</span> <span class="fl">5</span>, barheight <span class="op">=</span> <span class="fl">1</span><span class="op">)</span><span class="op">)</span><span class="op">+</span>
-   <span class="fu">theme</span><span class="op">(</span>legend.position <span class="op">=</span> <span class="st">"bottom"</span>,
-        legend.title <span class="op">=</span> <span class="fu">element_text</span><span class="op">(</span>size <span class="op">=</span> <span class="fl">12</span><span class="op">)</span>,
-        legend.text <span class="op">=</span> <span class="fu">element_text</span><span class="op">(</span>size <span class="op">=</span> <span class="fl">10</span><span class="op">)</span>,
-        legend.box <span class="op">=</span> <span class="st">"vertical"</span>, legend.margin <span class="op">=</span> <span class="fu">margin</span><span class="op">(</span><span class="op">)</span><span class="op">)</span></code></pre></div>
-<pre><code>## Scale for 'y' is already present. Adding another scale for 'y', which will replace the existing scale.</code></pre>
-<pre><code>## Scale for 'fill' is already present. Adding another scale for 'fill', which will replace the existing scale.</code></pre>
-<div class="sourceCode" id="cb1772"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">h5</span></code></pre></div>
-<div class="inline-figure"><img src="_main_files/figure-html/phylogenetic_trees_sampledata_heatmap_cip_MIC-1.png" width="90%" style="display: block; margin: auto;"></div>
+<div class="sourceCode" id="cb1747"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1747-1"><a href="phylogenetic-trees.html#cb1747-1" tabindex="-1"></a><span class="co"># First we add the new coloring scheme:</span></span>
+<span id="cb1747-2"><a href="phylogenetic-trees.html#cb1747-2" tabindex="-1"></a>h4 <span class="ot">&lt;-</span> h3 <span class="sc">+</span> <span class="fu">new_scale_fill</span>()</span>
+<span id="cb1747-3"><a href="phylogenetic-trees.html#cb1747-3" tabindex="-1"></a></span>
+<span id="cb1747-4"><a href="phylogenetic-trees.html#cb1747-4" tabindex="-1"></a><span class="co"># then we combine the two into a new plot:</span></span>
+<span id="cb1747-5"><a href="phylogenetic-trees.html#cb1747-5" tabindex="-1"></a>h5 <span class="ot">&lt;-</span> <span class="fu">gheatmap</span>(h4, MIC_Cip,  </span>
+<span id="cb1747-6"><a href="phylogenetic-trees.html#cb1747-6" tabindex="-1"></a>               <span class="at">offset =</span> <span class="dv">14</span>, </span>
+<span id="cb1747-7"><a href="phylogenetic-trees.html#cb1747-7" tabindex="-1"></a>               <span class="at">width =</span> <span class="fl">0.10</span>,</span>
+<span id="cb1747-8"><a href="phylogenetic-trees.html#cb1747-8" tabindex="-1"></a>                <span class="at">colnames =</span> <span class="cn">FALSE</span>)<span class="sc">+</span></span>
+<span id="cb1747-9"><a href="phylogenetic-trees.html#cb1747-9" tabindex="-1"></a>  <span class="fu">scale_fill_continuous</span>(<span class="at">name =</span> <span class="st">&quot;MIC for Ciprofloxacin&quot;</span>,  <span class="co"># here we define a gradient color scheme for the continuous variable of MIC</span></span>
+<span id="cb1747-10"><a href="phylogenetic-trees.html#cb1747-10" tabindex="-1"></a>                      <span class="at">low =</span> <span class="st">&quot;yellow&quot;</span>, <span class="at">high =</span> <span class="st">&quot;red&quot;</span>,</span>
+<span id="cb1747-11"><a href="phylogenetic-trees.html#cb1747-11" tabindex="-1"></a>                      <span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.50</span>, <span class="fl">1.00</span>),</span>
+<span id="cb1747-12"><a href="phylogenetic-trees.html#cb1747-12" tabindex="-1"></a>                      <span class="at">na.value =</span> <span class="st">&quot;white&quot;</span>) <span class="sc">+</span></span>
+<span id="cb1747-13"><a href="phylogenetic-trees.html#cb1747-13" tabindex="-1"></a>   <span class="fu">guides</span>(<span class="at">fill =</span> <span class="fu">guide_colourbar</span>(<span class="at">barwidth =</span> <span class="dv">5</span>, <span class="at">barheight =</span> <span class="dv">1</span>))<span class="sc">+</span></span>
+<span id="cb1747-14"><a href="phylogenetic-trees.html#cb1747-14" tabindex="-1"></a>   <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;bottom&quot;</span>,</span>
+<span id="cb1747-15"><a href="phylogenetic-trees.html#cb1747-15" tabindex="-1"></a>        <span class="at">legend.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span>),</span>
+<span id="cb1747-16"><a href="phylogenetic-trees.html#cb1747-16" tabindex="-1"></a>        <span class="at">legend.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">10</span>),</span>
+<span id="cb1747-17"><a href="phylogenetic-trees.html#cb1747-17" tabindex="-1"></a>        <span class="at">legend.box =</span> <span class="st">&quot;vertical&quot;</span>, <span class="at">legend.margin =</span> <span class="fu">margin</span>())</span></code></pre></div>
+<pre><code>## Scale for y is already present.
+## Adding another scale for y, which will replace the existing scale.
+## Scale for fill is already present.
+## Adding another scale for fill, which will replace the existing scale.</code></pre>
+<div class="sourceCode" id="cb1749"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1749-1"><a href="phylogenetic-trees.html#cb1749-1" tabindex="-1"></a>h5</span></code></pre></div>
+<p><img src="_main_files/figure-html/phylogenetic_trees_sampledata_heatmap_cip_MIC-1.png" width="90%" style="display: block; margin: auto;" /></p>
 <p>Chúng ta có thể thực hiện tương tự đối với cây tuyến tính:</p>
-<div class="sourceCode" id="cb1773"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">ggtree</span><span class="op">(</span><span class="va">sub_tree2</span><span class="op">)</span> <span class="op">%&lt;+%</span> <span class="va">sample_data</span> <span class="op">+</span>
-  <span class="fu">geom_tiplab</span><span class="op">(</span>size <span class="op">=</span> <span class="fl">3</span><span class="op">)</span> <span class="op">+</span> <span class="co"># labels the tips</span>
-  <span class="fu">theme_tree2</span><span class="op">(</span><span class="op">)</span><span class="op">+</span>
-  <span class="fu">xlab</span><span class="op">(</span><span class="st">"genetic distance (0.001 = 4 nucleotides difference)"</span><span class="op">)</span><span class="op">+</span>
-  <span class="fu"><a href="https://rdrr.io/r/graphics/plot.window.html">xlim</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0.015</span><span class="op">)</span><span class="op">+</span>
- <span class="fu">theme</span><span class="op">(</span>legend.position <span class="op">=</span> <span class="st">"none"</span>,
-      axis.title.y <span class="op">=</span> <span class="fu">element_blank</span><span class="op">(</span><span class="op">)</span>,
-      plot.title <span class="op">=</span> <span class="fu">element_text</span><span class="op">(</span>size <span class="op">=</span> <span class="fl">12</span>, 
-                                face <span class="op">=</span> <span class="st">"bold"</span>,
-                                hjust <span class="op">=</span> <span class="fl">0.5</span>,
-                                vjust <span class="op">=</span> <span class="op">-</span><span class="fl">15</span><span class="op">)</span><span class="op">)</span>
-<span class="va">p</span></code></pre></div>
-<div class="inline-figure"><img src="_main_files/figure-html/phylogenetic_trees_sampledata_heatmap_linear_1-1.png" width="80%" style="display: block; margin: auto;"></div>
+<div class="sourceCode" id="cb1750"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1750-1"><a href="phylogenetic-trees.html#cb1750-1" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggtree</span>(sub_tree2) <span class="sc">%&lt;+%</span> sample_data <span class="sc">+</span></span>
+<span id="cb1750-2"><a href="phylogenetic-trees.html#cb1750-2" tabindex="-1"></a>  <span class="fu">geom_tiplab</span>(<span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span> <span class="co"># labels the tips</span></span>
+<span id="cb1750-3"><a href="phylogenetic-trees.html#cb1750-3" tabindex="-1"></a>  <span class="fu">theme_tree2</span>()<span class="sc">+</span></span>
+<span id="cb1750-4"><a href="phylogenetic-trees.html#cb1750-4" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;genetic distance (0.001 = 4 nucleotides difference)&quot;</span>)<span class="sc">+</span></span>
+<span id="cb1750-5"><a href="phylogenetic-trees.html#cb1750-5" tabindex="-1"></a>  <span class="fu">xlim</span>(<span class="dv">0</span>, <span class="fl">0.015</span>)<span class="sc">+</span></span>
+<span id="cb1750-6"><a href="phylogenetic-trees.html#cb1750-6" tabindex="-1"></a> <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;none&quot;</span>,</span>
+<span id="cb1750-7"><a href="phylogenetic-trees.html#cb1750-7" tabindex="-1"></a>      <span class="at">axis.title.y =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb1750-8"><a href="phylogenetic-trees.html#cb1750-8" tabindex="-1"></a>      <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span>, </span>
+<span id="cb1750-9"><a href="phylogenetic-trees.html#cb1750-9" tabindex="-1"></a>                                <span class="at">face =</span> <span class="st">&quot;bold&quot;</span>,</span>
+<span id="cb1750-10"><a href="phylogenetic-trees.html#cb1750-10" tabindex="-1"></a>                                <span class="at">hjust =</span> <span class="fl">0.5</span>,</span>
+<span id="cb1750-11"><a href="phylogenetic-trees.html#cb1750-11" tabindex="-1"></a>                                <span class="at">vjust =</span> <span class="sc">-</span><span class="dv">15</span>))</span>
+<span id="cb1750-12"><a href="phylogenetic-trees.html#cb1750-12" tabindex="-1"></a>p</span></code></pre></div>
+<p><img src="_main_files/figure-html/phylogenetic_trees_sampledata_heatmap_linear_1-1.png" width="80%" style="display: block; margin: auto;" /></p>
 <p>Đầu tiên chúng ta thêm giới:</p>
-<div class="sourceCode" id="cb1774"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">h1</span> <span class="op">&lt;-</span>  <span class="fu">gheatmap</span><span class="op">(</span><span class="va">p</span>, <span class="va">gender</span>, 
-                offset <span class="op">=</span> <span class="fl">0.003</span>,
-                width <span class="op">=</span> <span class="fl">0.1</span>, 
-                color<span class="op">=</span><span class="st">"black"</span>, 
-         colnames <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span><span class="op">+</span>
-  <span class="fu">scale_fill_manual</span><span class="op">(</span>name <span class="op">=</span> <span class="st">"Gender"</span>,
-                    values <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"#00d1b1"</span>, <span class="st">"purple"</span><span class="op">)</span>,
-                    breaks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Male"</span>, <span class="st">"Female"</span><span class="op">)</span>,
-                    labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Male"</span>, <span class="st">"Female"</span><span class="op">)</span><span class="op">)</span><span class="op">+</span>
-   <span class="fu">theme</span><span class="op">(</span>legend.position <span class="op">=</span> <span class="st">"bottom"</span>,
-        legend.title <span class="op">=</span> <span class="fu">element_text</span><span class="op">(</span>size <span class="op">=</span> <span class="fl">12</span><span class="op">)</span>,
-        legend.text <span class="op">=</span> <span class="fu">element_text</span><span class="op">(</span>size <span class="op">=</span> <span class="fl">10</span><span class="op">)</span>,
-        legend.box <span class="op">=</span> <span class="st">"vertical"</span>, legend.margin <span class="op">=</span> <span class="fu">margin</span><span class="op">(</span><span class="op">)</span><span class="op">)</span></code></pre></div>
-<pre><code>## Scale for 'y' is already present. Adding another scale for 'y', which will replace the existing scale.</code></pre>
-<pre><code>## Scale for 'fill' is already present. Adding another scale for 'fill', which will replace the existing scale.</code></pre>
-<div class="sourceCode" id="cb1777"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">h1</span></code></pre></div>
-<div class="inline-figure"><img src="_main_files/figure-html/phylogenetic_trees_sampledata_heatmap_linear_2-1.png" width="80%" style="display: block; margin: auto;"></div>
+<div class="sourceCode" id="cb1751"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1751-1"><a href="phylogenetic-trees.html#cb1751-1" tabindex="-1"></a>h1 <span class="ot">&lt;-</span>  <span class="fu">gheatmap</span>(p, gender, </span>
+<span id="cb1751-2"><a href="phylogenetic-trees.html#cb1751-2" tabindex="-1"></a>                <span class="at">offset =</span> <span class="fl">0.003</span>,</span>
+<span id="cb1751-3"><a href="phylogenetic-trees.html#cb1751-3" tabindex="-1"></a>                <span class="at">width =</span> <span class="fl">0.1</span>, </span>
+<span id="cb1751-4"><a href="phylogenetic-trees.html#cb1751-4" tabindex="-1"></a>                <span class="at">color=</span><span class="st">&quot;black&quot;</span>, </span>
+<span id="cb1751-5"><a href="phylogenetic-trees.html#cb1751-5" tabindex="-1"></a>         <span class="at">colnames =</span> <span class="cn">FALSE</span>)<span class="sc">+</span></span>
+<span id="cb1751-6"><a href="phylogenetic-trees.html#cb1751-6" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">name =</span> <span class="st">&quot;Gender&quot;</span>,</span>
+<span id="cb1751-7"><a href="phylogenetic-trees.html#cb1751-7" tabindex="-1"></a>                    <span class="at">values =</span> <span class="fu">c</span>(<span class="st">&quot;#00d1b1&quot;</span>, <span class="st">&quot;purple&quot;</span>),</span>
+<span id="cb1751-8"><a href="phylogenetic-trees.html#cb1751-8" tabindex="-1"></a>                    <span class="at">breaks =</span> <span class="fu">c</span>(<span class="st">&quot;Male&quot;</span>, <span class="st">&quot;Female&quot;</span>),</span>
+<span id="cb1751-9"><a href="phylogenetic-trees.html#cb1751-9" tabindex="-1"></a>                    <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;Male&quot;</span>, <span class="st">&quot;Female&quot;</span>))<span class="sc">+</span></span>
+<span id="cb1751-10"><a href="phylogenetic-trees.html#cb1751-10" tabindex="-1"></a>   <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;bottom&quot;</span>,</span>
+<span id="cb1751-11"><a href="phylogenetic-trees.html#cb1751-11" tabindex="-1"></a>        <span class="at">legend.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span>),</span>
+<span id="cb1751-12"><a href="phylogenetic-trees.html#cb1751-12" tabindex="-1"></a>        <span class="at">legend.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">10</span>),</span>
+<span id="cb1751-13"><a href="phylogenetic-trees.html#cb1751-13" tabindex="-1"></a>        <span class="at">legend.box =</span> <span class="st">&quot;vertical&quot;</span>, <span class="at">legend.margin =</span> <span class="fu">margin</span>())</span></code></pre></div>
+<pre><code>## Scale for y is already present.
+## Adding another scale for y, which will replace the existing scale.
+## Scale for fill is already present.
+## Adding another scale for fill, which will replace the existing scale.</code></pre>
+<div class="sourceCode" id="cb1753"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1753-1"><a href="phylogenetic-trees.html#cb1753-1" tabindex="-1"></a>h1</span></code></pre></div>
+<p><img src="_main_files/figure-html/phylogenetic_trees_sampledata_heatmap_linear_2-1.png" width="80%" style="display: block; margin: auto;" /></p>
 <p>Sau đó, chúng ta thêm các đột biến kháng Ciprofloxacin sau khi thêm một lớp phối màu khác:</p>
-<div class="sourceCode" id="cb1778"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">h2</span> <span class="op">&lt;-</span> <span class="va">h1</span> <span class="op">+</span> <span class="fu">new_scale_fill</span><span class="op">(</span><span class="op">)</span>
-<span class="va">h3</span> <span class="op">&lt;-</span> <span class="fu">gheatmap</span><span class="op">(</span><span class="va">h2</span>, <span class="va">cipR</span>,   
-               offset <span class="op">=</span> <span class="fl">0.004</span>, 
-               width <span class="op">=</span> <span class="fl">0.1</span>,
-               color <span class="op">=</span> <span class="st">"black"</span>,
-                colnames <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span><span class="op">+</span>
-  <span class="fu">scale_fill_manual</span><span class="op">(</span>name <span class="op">=</span> <span class="st">"Ciprofloxacin resistance \n conferring mutation"</span>,
-                    values <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"#fe9698"</span>,<span class="st">"#ea0c92"</span><span class="op">)</span>,
-                    breaks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span> <span class="st">"gyrA D87Y"</span>, <span class="st">"gyrA S83L"</span><span class="op">)</span>,
-                    labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span> <span class="st">"gyrA d87y"</span>, <span class="st">"gyrA s83l"</span><span class="op">)</span><span class="op">)</span><span class="op">+</span>
-   <span class="fu">theme</span><span class="op">(</span>legend.position <span class="op">=</span> <span class="st">"bottom"</span>,
-        legend.title <span class="op">=</span> <span class="fu">element_text</span><span class="op">(</span>size <span class="op">=</span> <span class="fl">12</span><span class="op">)</span>,
-        legend.text <span class="op">=</span> <span class="fu">element_text</span><span class="op">(</span>size <span class="op">=</span> <span class="fl">10</span><span class="op">)</span>,
-        legend.box <span class="op">=</span> <span class="st">"vertical"</span>, legend.margin <span class="op">=</span> <span class="fu">margin</span><span class="op">(</span><span class="op">)</span><span class="op">)</span><span class="op">+</span>
-  <span class="fu">guides</span><span class="op">(</span>fill <span class="op">=</span> <span class="fu">guide_legend</span><span class="op">(</span>nrow <span class="op">=</span> <span class="fl">2</span>,byrow <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span></code></pre></div>
-<pre><code>## Scale for 'y' is already present. Adding another scale for 'y', which will replace the existing scale.</code></pre>
-<pre><code>## Scale for 'fill' is already present. Adding another scale for 'fill', which will replace the existing scale.</code></pre>
-<div class="sourceCode" id="cb1781"><pre class="downlit sourceCode r">
-<code class="sourceCode R"> <span class="va">h3</span></code></pre></div>
-<div class="inline-figure"><img src="_main_files/figure-html/phylogenetic_trees_sampledata_heatmap_linear_3-1.png" width="80%" style="display: block; margin: auto;"></div>
+<div class="sourceCode" id="cb1754"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1754-1"><a href="phylogenetic-trees.html#cb1754-1" tabindex="-1"></a>h2 <span class="ot">&lt;-</span> h1 <span class="sc">+</span> <span class="fu">new_scale_fill</span>()</span>
+<span id="cb1754-2"><a href="phylogenetic-trees.html#cb1754-2" tabindex="-1"></a>h3 <span class="ot">&lt;-</span> <span class="fu">gheatmap</span>(h2, cipR,   </span>
+<span id="cb1754-3"><a href="phylogenetic-trees.html#cb1754-3" tabindex="-1"></a>               <span class="at">offset =</span> <span class="fl">0.004</span>, </span>
+<span id="cb1754-4"><a href="phylogenetic-trees.html#cb1754-4" tabindex="-1"></a>               <span class="at">width =</span> <span class="fl">0.1</span>,</span>
+<span id="cb1754-5"><a href="phylogenetic-trees.html#cb1754-5" tabindex="-1"></a>               <span class="at">color =</span> <span class="st">&quot;black&quot;</span>,</span>
+<span id="cb1754-6"><a href="phylogenetic-trees.html#cb1754-6" tabindex="-1"></a>                <span class="at">colnames =</span> <span class="cn">FALSE</span>)<span class="sc">+</span></span>
+<span id="cb1754-7"><a href="phylogenetic-trees.html#cb1754-7" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">name =</span> <span class="st">&quot;Ciprofloxacin resistance </span><span class="sc">\n</span><span class="st"> conferring mutation&quot;</span>,</span>
+<span id="cb1754-8"><a href="phylogenetic-trees.html#cb1754-8" tabindex="-1"></a>                    <span class="at">values =</span> <span class="fu">c</span>(<span class="st">&quot;#fe9698&quot;</span>,<span class="st">&quot;#ea0c92&quot;</span>),</span>
+<span id="cb1754-9"><a href="phylogenetic-trees.html#cb1754-9" tabindex="-1"></a>                    <span class="at">breaks =</span> <span class="fu">c</span>( <span class="st">&quot;gyrA D87Y&quot;</span>, <span class="st">&quot;gyrA S83L&quot;</span>),</span>
+<span id="cb1754-10"><a href="phylogenetic-trees.html#cb1754-10" tabindex="-1"></a>                    <span class="at">labels =</span> <span class="fu">c</span>( <span class="st">&quot;gyrA d87y&quot;</span>, <span class="st">&quot;gyrA s83l&quot;</span>))<span class="sc">+</span></span>
+<span id="cb1754-11"><a href="phylogenetic-trees.html#cb1754-11" tabindex="-1"></a>   <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;bottom&quot;</span>,</span>
+<span id="cb1754-12"><a href="phylogenetic-trees.html#cb1754-12" tabindex="-1"></a>        <span class="at">legend.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span>),</span>
+<span id="cb1754-13"><a href="phylogenetic-trees.html#cb1754-13" tabindex="-1"></a>        <span class="at">legend.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">10</span>),</span>
+<span id="cb1754-14"><a href="phylogenetic-trees.html#cb1754-14" tabindex="-1"></a>        <span class="at">legend.box =</span> <span class="st">&quot;vertical&quot;</span>, <span class="at">legend.margin =</span> <span class="fu">margin</span>())<span class="sc">+</span></span>
+<span id="cb1754-15"><a href="phylogenetic-trees.html#cb1754-15" tabindex="-1"></a>  <span class="fu">guides</span>(<span class="at">fill =</span> <span class="fu">guide_legend</span>(<span class="at">nrow =</span> <span class="dv">2</span>,<span class="at">byrow =</span> <span class="cn">TRUE</span>))</span></code></pre></div>
+<pre><code>## Scale for y is already present.
+## Adding another scale for y, which will replace the existing scale.
+## Scale for fill is already present.
+## Adding another scale for fill, which will replace the existing scale.</code></pre>
+<div class="sourceCode" id="cb1756"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1756-1"><a href="phylogenetic-trees.html#cb1756-1" tabindex="-1"></a> h3</span></code></pre></div>
+<p><img src="_main_files/figure-html/phylogenetic_trees_sampledata_heatmap_linear_3-1.png" width="80%" style="display: block; margin: auto;" /></p>
 <p>Sau đó, chúng ta thêm nồng độ ức chế tối thiểu được xác định bởi phòng thí nghiệm (MIC):</p>
-<div class="sourceCode" id="cb1782"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">h4</span> <span class="op">&lt;-</span> <span class="va">h3</span> <span class="op">+</span> <span class="fu">new_scale_fill</span><span class="op">(</span><span class="op">)</span>
-<span class="va">h5</span> <span class="op">&lt;-</span> <span class="fu">gheatmap</span><span class="op">(</span><span class="va">h4</span>, <span class="va">MIC_Cip</span>, 
-               offset <span class="op">=</span> <span class="fl">0.005</span>,  
-               width <span class="op">=</span> <span class="fl">0.1</span>,
-               color <span class="op">=</span> <span class="st">"black"</span>, 
-                colnames <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span><span class="op">+</span>
-  <span class="fu">scale_fill_continuous</span><span class="op">(</span>name <span class="op">=</span> <span class="st">"MIC for Ciprofloxacin"</span>,
-                      low <span class="op">=</span> <span class="st">"yellow"</span>, high <span class="op">=</span> <span class="st">"red"</span>,
-                      breaks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">0.50</span>,<span class="fl">1.00</span><span class="op">)</span>,
-                      na.value <span class="op">=</span> <span class="st">"white"</span><span class="op">)</span><span class="op">+</span>
-   <span class="fu">guides</span><span class="op">(</span>fill <span class="op">=</span> <span class="fu">guide_colourbar</span><span class="op">(</span>barwidth <span class="op">=</span> <span class="fl">5</span>, barheight <span class="op">=</span> <span class="fl">1</span><span class="op">)</span><span class="op">)</span><span class="op">+</span>
-   <span class="fu">theme</span><span class="op">(</span>legend.position <span class="op">=</span> <span class="st">"bottom"</span>,
-        legend.title <span class="op">=</span> <span class="fu">element_text</span><span class="op">(</span>size <span class="op">=</span> <span class="fl">10</span><span class="op">)</span>,
-        legend.text <span class="op">=</span> <span class="fu">element_text</span><span class="op">(</span>size <span class="op">=</span> <span class="fl">8</span><span class="op">)</span>,
-        legend.box <span class="op">=</span> <span class="st">"horizontal"</span>, legend.margin <span class="op">=</span> <span class="fu">margin</span><span class="op">(</span><span class="op">)</span><span class="op">)</span><span class="op">+</span>
-  <span class="fu">guides</span><span class="op">(</span>shape <span class="op">=</span> <span class="fu">guide_legend</span><span class="op">(</span>override.aes <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">2</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></code></pre></div>
-<pre><code>## Scale for 'y' is already present. Adding another scale for 'y', which will replace the existing scale.</code></pre>
-<pre><code>## Scale for 'fill' is already present. Adding another scale for 'fill', which will replace the existing scale.</code></pre>
-<div class="sourceCode" id="cb1785"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">h5</span></code></pre></div>
-<div class="inline-figure"><img src="_main_files/figure-html/phylogenetic_trees_sampledata_heatmap_linear_4-1.png" width="80%" style="display: block; margin: auto;"></div>
+<div class="sourceCode" id="cb1757"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1757-1"><a href="phylogenetic-trees.html#cb1757-1" tabindex="-1"></a>h4 <span class="ot">&lt;-</span> h3 <span class="sc">+</span> <span class="fu">new_scale_fill</span>()</span>
+<span id="cb1757-2"><a href="phylogenetic-trees.html#cb1757-2" tabindex="-1"></a>h5 <span class="ot">&lt;-</span> <span class="fu">gheatmap</span>(h4, MIC_Cip, </span>
+<span id="cb1757-3"><a href="phylogenetic-trees.html#cb1757-3" tabindex="-1"></a>               <span class="at">offset =</span> <span class="fl">0.005</span>,  </span>
+<span id="cb1757-4"><a href="phylogenetic-trees.html#cb1757-4" tabindex="-1"></a>               <span class="at">width =</span> <span class="fl">0.1</span>,</span>
+<span id="cb1757-5"><a href="phylogenetic-trees.html#cb1757-5" tabindex="-1"></a>               <span class="at">color =</span> <span class="st">&quot;black&quot;</span>, </span>
+<span id="cb1757-6"><a href="phylogenetic-trees.html#cb1757-6" tabindex="-1"></a>                <span class="at">colnames =</span> <span class="cn">FALSE</span>)<span class="sc">+</span></span>
+<span id="cb1757-7"><a href="phylogenetic-trees.html#cb1757-7" tabindex="-1"></a>  <span class="fu">scale_fill_continuous</span>(<span class="at">name =</span> <span class="st">&quot;MIC for Ciprofloxacin&quot;</span>,</span>
+<span id="cb1757-8"><a href="phylogenetic-trees.html#cb1757-8" tabindex="-1"></a>                      <span class="at">low =</span> <span class="st">&quot;yellow&quot;</span>, <span class="at">high =</span> <span class="st">&quot;red&quot;</span>,</span>
+<span id="cb1757-9"><a href="phylogenetic-trees.html#cb1757-9" tabindex="-1"></a>                      <span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="fl">0.50</span>,<span class="fl">1.00</span>),</span>
+<span id="cb1757-10"><a href="phylogenetic-trees.html#cb1757-10" tabindex="-1"></a>                      <span class="at">na.value =</span> <span class="st">&quot;white&quot;</span>)<span class="sc">+</span></span>
+<span id="cb1757-11"><a href="phylogenetic-trees.html#cb1757-11" tabindex="-1"></a>   <span class="fu">guides</span>(<span class="at">fill =</span> <span class="fu">guide_colourbar</span>(<span class="at">barwidth =</span> <span class="dv">5</span>, <span class="at">barheight =</span> <span class="dv">1</span>))<span class="sc">+</span></span>
+<span id="cb1757-12"><a href="phylogenetic-trees.html#cb1757-12" tabindex="-1"></a>   <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;bottom&quot;</span>,</span>
+<span id="cb1757-13"><a href="phylogenetic-trees.html#cb1757-13" tabindex="-1"></a>        <span class="at">legend.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">10</span>),</span>
+<span id="cb1757-14"><a href="phylogenetic-trees.html#cb1757-14" tabindex="-1"></a>        <span class="at">legend.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">8</span>),</span>
+<span id="cb1757-15"><a href="phylogenetic-trees.html#cb1757-15" tabindex="-1"></a>        <span class="at">legend.box =</span> <span class="st">&quot;horizontal&quot;</span>, <span class="at">legend.margin =</span> <span class="fu">margin</span>())<span class="sc">+</span></span>
+<span id="cb1757-16"><a href="phylogenetic-trees.html#cb1757-16" tabindex="-1"></a>  <span class="fu">guides</span>(<span class="at">shape =</span> <span class="fu">guide_legend</span>(<span class="at">override.aes =</span> <span class="fu">list</span>(<span class="at">size =</span> <span class="dv">2</span>)))</span></code></pre></div>
+<pre><code>## Scale for y is already present.
+## Adding another scale for y, which will replace the existing scale.
+## Scale for fill is already present.
+## Adding another scale for fill, which will replace the existing scale.</code></pre>
+<div class="sourceCode" id="cb1759"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1759-1"><a href="phylogenetic-trees.html#cb1759-1" tabindex="-1"></a>h5</span></code></pre></div>
+<p><img src="_main_files/figure-html/phylogenetic_trees_sampledata_heatmap_linear_4-1.png" width="80%" style="display: block; margin: auto;" /></p>
 <!-- ======================================================= -->
 </div>
 <div id="nguồn-11" class="section level2" number="38.5">
-<h2>
-<span class="header-section-number">38.5</span> Nguồn<a class="anchor" aria-label="anchor" href="#ngu%E1%BB%93n-11"><i class="fas fa-link"></i></a>
-</h2>
+<h2><span class="header-section-number">38.5</span> Nguồn</h2>
 <p><a href="http://hydrodictyon.eeb.uconn.edu/eebedia/index.php/Ggtree#" class="uri">http://hydrodictyon.eeb.uconn.edu/eebedia/index.php/Ggtree#</a> Clade_Colors
 <a href="https://bioconductor.riken.jp/packages/3.2/bioc/vignettes/ggtree/inst/doc/treeManipulation.html" class="uri">https://bioconductor.riken.jp/packages/3.2/bioc/vignettes/ggtree/inst/doc/treeManipulation.html</a>
 <a href="https://guangchuangyu.github.io/ggtree-book/chapter-ggtree.html" class="uri">https://guangchuangyu.github.io/ggtree-book/chapter-ggtree.html</a>
@@ -670,55 +676,30 @@ Lưu ý: để biểu diễn những nút nào chúng ta đang thao tác, trư�
 
 </div>
 </div>
-  <div class="chapter-nav">
-<div class="prev"><a href="transmission-chains.html"><span class="header-section-number">37</span> Chuỗi lây nhiễm</a></div>
-<div class="next"><a href="interactive-plots.html"><span class="header-section-number">39</span> Biểu đồ tương tác</a></div>
-</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
-    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
-      <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#phylogenetic-trees"><span class="header-section-number">38</span> Cây phả hệ</a></li>
-<li><a class="nav-link" href="#t%E1%BB%95ng-quan-8"><span class="header-section-number">38.1</span> Tổng quan</a></li>
-<li>
-<a class="nav-link" href="#chu%E1%BA%A9n-b%E1%BB%8B-30"><span class="header-section-number">38.2</span> Chuẩn bị</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#g%E1%BB%8Di-packages-15">Gọi packages</a></li>
-<li><a class="nav-link" href="#nh%E1%BA%ADp-d%E1%BB%AF-li%E1%BB%87u-22">Nhập dữ liệu</a></li>
-<li><a class="nav-link" href="#l%C3%A0m-s%E1%BA%A1ch-v%C3%A0-kh%E1%BA%A3o-s%C3%A1t-d%E1%BB%AF-li%E1%BB%87u">Làm sạch và khảo sát dữ liệu</a></li>
-</ul>
-</li>
-<li>
-<a class="nav-link" href="#tr%E1%BB%B1c-quan-h%C3%B3a-c%C3%A2y-%C4%91%C6%A1n-gi%E1%BA%A3n"><span class="header-section-number">38.3</span> Trực quan hóa cây đơn giản</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#c%C3%A1c-b%E1%BB%91-c%E1%BB%A5c-c%C3%A2y-kh%C3%A1c-nhau">Các bố cục cây khác nhau</a></li>
-<li><a class="nav-link" href="#c%C3%A2y-%C4%91%C6%A1n-gi%E1%BA%A3n-c%E1%BB%99ng-v%E1%BB%9Bi-d%E1%BB%AF-li%E1%BB%87u-m%E1%BA%ABu">Cây đơn giản cộng với dữ liệu mẫu</a></li>
-</ul>
-</li>
-<li>
-<a class="nav-link" href="#thao-t%C3%A1c-v%E1%BB%9Bi-c%C3%A2y"><span class="header-section-number">38.4</span> Thao tác với cây</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#ph%C3%B3ng-to">Phóng to</a></li>
-<li><a class="nav-link" href="#thu-g%E1%BB%8Dn-nh%C3%A1nh">Thu gọn nhánh</a></li>
-<li><a class="nav-link" href="#t%E1%BA%A1o-t%E1%BA%ADp-con-m%E1%BB%99t-c%C3%A2y">Tạo tập con một cây</a></li>
-<li><a class="nav-link" href="#xoay-c%C3%A1c-n%C3%BAt-trong-m%E1%BB%99t-c%C3%A2y">Xoay các nút trong một cây</a></li>
-<li><a class="nav-link" href="#v%C3%AD-d%E1%BB%A5-v%E1%BB%81-c%C3%A2y-con-v%E1%BB%9Bi-ch%C3%BA-th%C3%ADch-d%E1%BB%AF-li%E1%BB%87u-m%E1%BA%ABu">Ví dụ về cây con với chú thích dữ liệu mẫu</a></li>
-</ul>
-</li>
-<li><a class="nav-link" href="#c%C3%A1c-c%C3%A2y-ph%E1%BB%A9c-t%E1%BA%A1p-h%C6%A1n-th%C3%AAm-b%E1%BA%A3n-%C4%91%E1%BB%93-nhi%E1%BB%87t-c%E1%BB%A7a-d%E1%BB%AF-li%E1%BB%87u-m%E1%BA%ABu">Các cây phức tạp hơn: thêm bản đồ nhiệt của dữ liệu mẫu</a></li>
-<li><a class="nav-link" href="#ngu%E1%BB%93n-11"><span class="header-section-number">38.5</span> Nguồn</a></li>
-</ul>
+  </main>
+
+  <div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page">
+      <h2>On this page</h2>
+      <div id="book-on-this-page"></div>
 
       <div class="book-extra">
         <ul class="list-unstyled">
-          
+          <li><a id="book-source" href="#">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="#">Edit this page <i class="fab fa-github"></i></a></li>
         </ul>
-</div>
+      </div>
     </nav>
-</div>
+  </div>
 
 </div>
 </div> <!-- .container -->
 
-<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+<footer class="bg-primary text-light mt-5">
+  <div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Cẩm nang dịch tễ học với R</strong>" was written by the handbook team. It was last built on 2021-11-01.</p>
+    <p>"<strong>Cẩm nang dịch tễ học với R</strong>" was written by the handbook team. It was last built on 2024-02-16.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
@@ -726,12 +707,16 @@ Lưu ý: để biểu diễn những nút nào chúng ta đang thao tác, trư�
   </div>
 
 </div></div>
-</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+</footer>
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');
@@ -739,5 +724,23 @@ Lưu ý: để biểu diễn những nút nào chúng ta đang thao tác, trư�
     document.getElementsByTagName("head")[0].appendChild(script);
   })();
 </script>
+<script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
 </body>
+
 </html>

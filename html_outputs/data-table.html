@@ -1,43 +1,153 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>50 Data Table | Cẩm nang dịch tễ học với R</title>
-<meta name="author" content="the handbook team">
-<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.2"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.5.1/tabs.js"></script><script src="libs/bs3compat-0.2.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
-<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/htmlwidgets-1.5.3/htmlwidgets.js"></script><link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet">
-<script src="libs/datatables-binding-0.16/datatables.js"></script><link href="libs/dt-core-1.10.20/css/jquery.dataTables.min.css" rel="stylesheet">
-<link href="libs/dt-core-1.10.20/css/jquery.dataTables.extra.css" rel="stylesheet">
-<script src="libs/dt-core-1.10.20/js/jquery.dataTables.min.js"></script><link href="libs/nouislider-7.0.10/jquery.nouislider.min.css" rel="stylesheet">
-<script src="libs/nouislider-7.0.10/jquery.nouislider.min.js"></script><link href="libs/selectize-0.12.0/selectize.bootstrap3.css" rel="stylesheet">
-<script src="libs/selectize-0.12.0/selectize.min.js"></script><link href="libs/crosstalk-1.1.1/css/crosstalk.css" rel="stylesheet">
-<script src="libs/crosstalk-1.1.1/js/crosstalk.min.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
-<link href="libs/tabwid-1.0.0/tabwid.css" rel="stylesheet">
-<script src="libs/tabwid-1.0.0/tabwid.js"></script><link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet">
-<script src="libs/leaflet-1.3.1/leaflet.js"></script><link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet">
-<script src="libs/Proj4Leaflet-1.0.1/proj4-compressed.js"></script><script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script><link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet">
-<script src="libs/leaflet-binding-2.0.3/leaflet.js"></script><script src="libs/leaflet-providers-1.9.0/leaflet-providers_1.9.0.js"></script><script src="libs/leaflet-providers-plugin-2.0.3/leaflet-providers-plugin.js"></script><script src="libs/viz-1.8.2/viz.js"></script><link href="libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet">
-<script src="libs/grViz-binding-1.0.6.1/grViz.js"></script><script src="libs/d3-4.5.0/d3.min.js"></script><script src="libs/sankey-1/sankey.js"></script><script src="libs/sankeyNetwork-binding-0.4/sankeyNetwork.js"></script><script src="libs/plotly-binding-4.9.2.1/plotly.js"></script><script src="libs/typedarray-0.1/typedarray.min.js"></script><link href="libs/plotly-htmlwidgets-css-1.52.2/plotly-htmlwidgets.css" rel="stylesheet">
-<script src="libs/plotly-main-1.52.2/plotly-latest.min.js"></script><link href="libs/vis-4.20.1/vis.css" rel="stylesheet">
-<script src="libs/vis-4.20.1/vis.min.js"></script><script src="libs/visNetwork-binding-2.0.9/visNetwork.js"></script><link href="libs/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet">
-<script src="libs/plotly-basic-1.52.2/plotly-basic-1.52.2.min.js"></script><script src="libs/plotly-cartesian-1.52.2/plotly-cartesian-1.52.2.min.js"></script><script src="libs/proj4js-2.3.15/proj4.js"></script><link href="libs/highcharts-8.1.2/css/motion.css" rel="stylesheet">
-<script src="libs/highcharts-8.1.2/highcharts.js"></script><script src="libs/highcharts-8.1.2/highcharts-3d.js"></script><script src="libs/highcharts-8.1.2/highcharts-more.js"></script><script src="libs/highcharts-8.1.2/modules/stock.js"></script><script src="libs/highcharts-8.1.2/modules/map.js"></script><script src="libs/highcharts-8.1.2/modules/annotations.js"></script><script src="libs/highcharts-8.1.2/modules/data.js"></script><script src="libs/highcharts-8.1.2/modules/drilldown.js"></script><script src="libs/highcharts-8.1.2/modules/item-series.js"></script><script src="libs/highcharts-8.1.2/modules/offline-exporting.js"></script><script src="libs/highcharts-8.1.2/modules/overlapping-datalabels.js"></script><script src="libs/highcharts-8.1.2/modules/exporting.js"></script><script src="libs/highcharts-8.1.2/modules/export-data.js"></script><script src="libs/highcharts-8.1.2/modules/funnel.js"></script><script src="libs/highcharts-8.1.2/modules/heatmap.js"></script><script src="libs/highcharts-8.1.2/modules/treemap.js"></script><script src="libs/highcharts-8.1.2/modules/sankey.js"></script><script src="libs/highcharts-8.1.2/modules/dependency-wheel.js"></script><script src="libs/highcharts-8.1.2/modules/organization.js"></script><script src="libs/highcharts-8.1.2/modules/solid-gauge.js"></script><script src="libs/highcharts-8.1.2/modules/streamgraph.js"></script><script src="libs/highcharts-8.1.2/modules/sunburst.js"></script><script src="libs/highcharts-8.1.2/modules/vector.js"></script><script src="libs/highcharts-8.1.2/modules/wordcloud.js"></script><script src="libs/highcharts-8.1.2/modules/xrange.js"></script><script src="libs/highcharts-8.1.2/modules/tilemap.js"></script><script src="libs/highcharts-8.1.2/modules/venn.js"></script><script src="libs/highcharts-8.1.2/modules/gantt.js"></script><script src="libs/highcharts-8.1.2/modules/timeline.js"></script><script src="libs/highcharts-8.1.2/modules/parallel-coordinates.js"></script><script src="libs/highcharts-8.1.2/modules/bullet.js"></script><script src="libs/highcharts-8.1.2/modules/coloraxis.js"></script><script src="libs/highcharts-8.1.2/modules/dumbbell.js"></script><script src="libs/highcharts-8.1.2/modules/lollipop.js"></script><script src="libs/highcharts-8.1.2/modules/series-label.js"></script><script src="libs/highcharts-8.1.2/plugins/motion.js"></script><script src="libs/highcharts-8.1.2/custom/reset.js"></script><script src="libs/highcharts-8.1.2/modules/boost.js"></script><script src="libs/highchart-binding-0.8.2/highchart.js"></script><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=G-QXDW878QLX"></script><script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>50 Data Table | Cẩm nang dịch tễ học với R</title>
+
+    <meta name="author" content="the handbook team" />
+  
+   <meta name="description" content="The Epi R Handbook is a R reference manual for applied epidemiology and public health." />
+   <meta name="generator" content="placeholder" />
+  <meta property="og:title" content="50 Data Table | Cẩm nang dịch tễ học với R" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="The Epi R Handbook is a R reference manual for applied epidemiology and public health." />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="50 Data Table | Cẩm nang dịch tễ học với R" />
+  
+  <meta name="twitter:description" content="The Epi R Handbook is a R reference manual for applied epidemiology and public health." />
+  
+  <!-- JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script>
+    <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet" />
+    <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script>
+    <script src="libs/bs3compat-0.6.1/transition.js"></script>
+    <script src="libs/bs3compat-0.6.1/tabs.js"></script>
+    <script src="libs/bs3compat-0.6.1/bs3compat.js"></script>
+    <link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet" />
+    <script src="libs/bs4_book-1.0.0/bs4_book.js"></script>
+    <script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+    <link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+    <script src="libs/datatables-binding-0.31/datatables.js"></script>
+    <link href="libs/dt-core-1.13.6/css/jquery.dataTables.min.css" rel="stylesheet" />
+    <link href="libs/dt-core-1.13.6/css/jquery.dataTables.extra.css" rel="stylesheet" />
+    <script src="libs/dt-core-1.13.6/js/jquery.dataTables.min.js"></script>
+    <link href="libs/nouislider-7.0.10/jquery.nouislider.min.css" rel="stylesheet" />
+    <script src="libs/nouislider-7.0.10/jquery.nouislider.min.js"></script>
+    <link href="libs/selectize-0.12.0/selectize.bootstrap3.css" rel="stylesheet" />
+    <script src="libs/selectize-0.12.0/selectize.min.js"></script>
+    <link href="libs/crosstalk-1.2.1/css/crosstalk.min.css" rel="stylesheet" />
+    <script src="libs/crosstalk-1.2.1/js/crosstalk.min.js"></script>
+    <script src="libs/kePrint-0.0.1/kePrint.js"></script>
+    <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+    <link href="libs/tabwid-1.1.3/tabwid.css" rel="stylesheet" />
+    <script src="libs/tabwid-1.1.3/tabwid.js"></script>
+    <link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet" />
+    <script src="libs/leaflet-1.3.1/leaflet.js"></script>
+    <link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
+    <script src="libs/proj4-2.6.2/proj4.min.js"></script>
+    <script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
+    <link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
+    <script src="libs/leaflet-binding-2.2.1/leaflet.js"></script>
+    <script src="libs/leaflet-providers-2.0.0/leaflet-providers_2.0.0.js"></script>
+    <script src="libs/leaflet-providers-plugin-2.2.1/leaflet-providers-plugin.js"></script>
+    <script src="libs/viz-1.8.2/viz.js"></script>
+    <link href="libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet" />
+    <script src="libs/grViz-binding-1.0.11/grViz.js"></script>
+    <script src="libs/d3-4.5.0/d3.min.js"></script>
+    <script src="libs/sankey-1/sankey.js"></script>
+    <script src="libs/sankeyNetwork-binding-0.4/sankeyNetwork.js"></script>
+    <script src="libs/plotly-binding-4.10.4/plotly.js"></script>
+    <script src="libs/typedarray-0.1/typedarray.min.js"></script>
+    <link href="libs/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet" />
+    <script src="libs/plotly-main-2.11.1/plotly-latest.min.js"></script>
+    <link href="libs/vis-9.1.0/vis-network.min.css" rel="stylesheet" />
+    <script src="libs/vis-9.1.0/vis-network.min.js"></script>
+    <script src="libs/visNetwork-binding-2.1.2/visNetwork.js"></script>
+    <link href="libs/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <script src="libs/plotly-basic-2.11.1/plotly-basic-2.11.1.min.js"></script>
+    <script src="libs/plotly-cartesian-2.11.1/plotly-cartesian-2.11.1.min.js"></script>
+    <script src="libs/proj4js-2.3.15/proj4.js"></script>
+    <link href="libs/highcharts-9.3.1/css/motion.css" rel="stylesheet" />
+    <script src="libs/highcharts-9.3.1/highcharts.js"></script>
+    <script src="libs/highcharts-9.3.1/highcharts-3d.js"></script>
+    <script src="libs/highcharts-9.3.1/highcharts-more.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/stock.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/map.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/data.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/exporting.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/offline-exporting.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/drilldown.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/item-series.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/overlapping-datalabels.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/annotations.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/export-data.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/funnel.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/heatmap.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/treemap.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/sankey.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/dependency-wheel.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/organization.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/solid-gauge.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/streamgraph.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/sunburst.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/vector.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/wordcloud.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/xrange.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/tilemap.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/venn.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/gantt.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/timeline.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/parallel-coordinates.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/bullet.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/coloraxis.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/dumbbell.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/lollipop.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/series-label.js"></script>
+    <script src="libs/highcharts-9.3.1/plugins/motion.js"></script>
+    <script src="libs/highcharts-9.3.1/custom/reset.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/boost.js"></script>
+    <script src="libs/highchart-binding-0.9.4/highchart.js"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QXDW878QLX"></script>
+    <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
 
       gtag('config', 'G-QXDW878QLX');
-    </script><script src="https://cdn.jsdelivr.net/autocomplete.js/0/autocomplete.jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/mark.js@8.11.1/dist/mark.min.js"></script><!-- CSS --><link rel="stylesheet" href="style_bs4.css">
+    </script>
+
+    <div class="alert alert-info alert-dismissible">
+      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+      <strong>Bạn cần trợ giúp khi học R?</strong> Hãy tham gia <a href="https://www.appliedepi.org/live/" class="alert-link">khóa học</a>, trải nghiệm <a href="https://www.appliedepi.org/tutorial/" class="alert-link">các học phần miễn phí</a>, gửi bài viết <a href="https://community.appliedepi.org/" class="alert-link">trên trang Cộng đồng</a>, hoặc liên hệ <a href="mailto:contact@appliedepi.org" class="alert-link">dịch vụ hỗ trợ của chúng tôi</a>.
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script>
+
+  <!-- CSS -->
+  <style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+      <link rel="stylesheet" href="style_bs4.css" />
+  
 </head>
+
 <body data-spy="scroll" data-target="#toc">
 
 <div class="container-fluid">
 <div class="row">
-  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book">
+    <a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
 
     <div class="d-flex align-items-start justify-content-between">
       <h1>
@@ -49,219 +159,133 @@
     <div id="main-nav" class="collapse-lg">
       <form role="search">
         <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
-</form>
+      </form>
 
-      <nav aria-label="Table of contents"><h2>Table of contents</h2>
-        <ul class="book-toc list-unstyled">
-<li><a class="" href="index.html"></a></li>
-<li class="book-part">Về cuốn sách này</li>
-<li><a class="" href="editorial-style.html"><span class="header-section-number">1</span> Biên tập và ghi chú kỹ thuật</a></li>
-<li><a class="" href="data-used.html"><span class="header-section-number">2</span> Tải sách và dữ liệu</a></li>
-<li class="book-part">Nhập môn về R</li>
-<li><a class="" href="basics.html"><span class="header-section-number">3</span> R Cơ bản</a></li>
-<li><a class="" href="transition-to-R.html"><span class="header-section-number">4</span> Chuyển đổi sang R</a></li>
-<li><a class="" href="packages-suggested.html"><span class="header-section-number">5</span> Package đề xuất</a></li>
-<li><a class="" href="r-projects.html"><span class="header-section-number">6</span> Dự án R</a></li>
-<li><a class="" href="importing.html"><span class="header-section-number">7</span> Nhập xuất dữ liệu</a></li>
-<li class="book-part">Quản lý dữ liệu</li>
-<li><a class="" href="cleaning.html"><span class="header-section-number">8</span> Làm sạch số liệu và các hàm quan trọng</a></li>
-<li><a class="" href="dates.html"><span class="header-section-number">9</span> Làm việc với ngày tháng</a></li>
-<li><a class="" href="characters-strings.html"><span class="header-section-number">10</span> Ký tự và chuỗi</a></li>
-<li><a class="" href="factors.html"><span class="header-section-number">11</span> Factors</a></li>
-<li><a class="" href="pivoting.html"><span class="header-section-number">12</span> Xoay trục dữ liệu</a></li>
-<li><a class="" href="grouping.html"><span class="header-section-number">13</span> Nhóm dữ liệu</a></li>
-<li><a class="" href="joining-matching.html"><span class="header-section-number">14</span> Nối dữ liệu</a></li>
-<li><a class="" href="deduplication.html"><span class="header-section-number">15</span> Loại bỏ trùng lặp</a></li>
-<li><a class="" href="iteration.html"><span class="header-section-number">16</span> Lặp, vòng lặp, và danh sách</a></li>
-<li class="book-part">Phân tích dữ liệu</li>
-<li><a class="" href="tables-descriptive.html"><span class="header-section-number">17</span> Bảng mô tả</a></li>
-<li><a class="" href="stat-tests.html"><span class="header-section-number">18</span> Các kiểm định thống kê cơ bản</a></li>
-<li><a class="" href="regression.html"><span class="header-section-number">19</span> Hồi quy đơn và đa biến</a></li>
-<li><a class="" href="missing-data.html"><span class="header-section-number">20</span> Dữ liệu Missing</a></li>
-<li><a class="" href="standardization.html"><span class="header-section-number">21</span> Tỷ suất chuẩn hóa</a></li>
-<li><a class="" href="moving-average.html"><span class="header-section-number">22</span> Đường trung bình động</a></li>
-<li><a class="" href="time-series.html"><span class="header-section-number">23</span> Chuỗi thời gian và phát hiện ổ dịch</a></li>
-<li><a class="" href="epidemic-models.html"><span class="header-section-number">24</span> Mô hình hóa dịch bệnh</a></li>
-<li><a class="" href="contact-tracing.html"><span class="header-section-number">25</span> Truy vết tiếp xúc</a></li>
-<li><a class="" href="survey-analysis.html"><span class="header-section-number">26</span> Phân tích khảo sát</a></li>
-<li><a class="" href="survival-analysis.html"><span class="header-section-number">27</span> Phân tích sống còn</a></li>
-<li><a class="" href="gis.html"><span class="header-section-number">28</span> GIS cơ bản</a></li>
-<li class="book-part">Trực quan hóa dữ liệu</li>
-<li><a class="" href="tables-presentation.html"><span class="header-section-number">29</span> Trình bày bảng</a></li>
-<li><a class="" href="ggplot-basics.html"><span class="header-section-number">30</span> ggplot cơ bản</a></li>
-<li><a class="" href="ggplot-tips.html"><span class="header-section-number">31</span> Các tips với ggplot</a></li>
-<li><a class="" href="epicurves.html"><span class="header-section-number">32</span> Đường cong dịch bệnh</a></li>
-<li><a class="" href="age-pyramid.html"><span class="header-section-number">33</span> Tháp dân số và thang đo Likert</a></li>
-<li><a class="" href="heatmaps.html"><span class="header-section-number">34</span> Biểu đồ nhiệt</a></li>
-<li><a class="" href="diagrams.html"><span class="header-section-number">35</span> Sơ đồ và biểu đồ</a></li>
-<li><a class="" href="combination-analysis.html"><span class="header-section-number">36</span> Biểu đồ kết hợp</a></li>
-<li><a class="" href="transmission-chains.html"><span class="header-section-number">37</span> Chuỗi lây nhiễm</a></li>
-<li><a class="" href="phylogenetic-trees.html"><span class="header-section-number">38</span> Cây phả hệ</a></li>
-<li><a class="" href="interactive-plots.html"><span class="header-section-number">39</span> Biểu đồ tương tác</a></li>
-<li class="book-part">Báo cáo và dashboards</li>
-<li><a class="" href="rmarkdown.html"><span class="header-section-number">40</span> Báo cáo với R Markdown</a></li>
-<li><a class="" href="reportfactory.html"><span class="header-section-number">41</span> Tổ chức báo cáo định kỳ</a></li>
-<li><a class="" href="flexdashboard.html"><span class="header-section-number">42</span> Dashboards với R Markdown</a></li>
-<li><a class="" href="shiny-basics.html"><span class="header-section-number">43</span> Dashboards với Shiny</a></li>
-<li class="book-part">Tổng hợp</li>
-<li><a class="" href="writing-functions.html"><span class="header-section-number">44</span> Viết hàm</a></li>
-<li><a class="" href="directories.html"><span class="header-section-number">45</span> Tương tác với thư mục làm việc</a></li>
-<li><a class="" href="collaboration.html"><span class="header-section-number">46</span> Version control với Git và Github</a></li>
-<li><a class="" href="errors.html"><span class="header-section-number">47</span> Các lỗi thường gặp</a></li>
-<li><a class="" href="help.html"><span class="header-section-number">48</span> Nhờ sự trợ giúp</a></li>
-<li><a class="" href="network-drives.html"><span class="header-section-number">49</span> R trên ổ cứng mạng</a></li>
-<li><a class="active" href="data-table.html"><span class="header-section-number">50</span> Data Table</a></li>
-</ul>
+      <nav aria-label="Table of contents">
+        <h2>Table of contents</h2>
+        <div id="book-toc"></div>
 
         <div class="book-extra">
-          
+          <p><a id="book-repo" href="#">View book source <i class="fab fa-github"></i></a></li></p>
         </div>
       </nav>
-</div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="data-table" class="section level1" number="50">
-<h1>
-<span class="header-section-number">50</span> Data Table<a class="anchor" aria-label="anchor" href="#data-table"><i class="fas fa-link"></i></a>
-</h1>
-<p>Cuốn sổ tay này tập trung vào các hàm của <strong>dplyr</strong> và toán tử pipe của <strong>magrittr</strong> <code><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></code> như một phương pháp để làm sạch và nhóm dữ liệu, tuy nhiên package <strong>data.table</strong> cũng cung cấp một giải pháp thay thế mà bạn có thể sử dụng trong quá trình làm việc với R của mình.</p>
+    </div>
+  </header>
+
+  <main class="col-sm-12 col-md-9 col-lg-7" id="content">
+<div id="data-table" class="section level1" number="50">
+<h1><span class="header-section-number">50</span> Data Table</h1>
+<p>Cuốn sổ tay này tập trung vào các hàm của <strong>dplyr</strong> và toán tử pipe của <strong>magrittr</strong> <code>%&gt;%</code> như một phương pháp để làm sạch và nhóm dữ liệu, tuy nhiên package <strong>data.table</strong> cũng cung cấp một giải pháp thay thế mà bạn có thể sử dụng trong quá trình làm việc với R của mình.</p>
 <!-- ======================================================= -->
 <div id="giới-thiệu-về-data-table" class="section level2" number="50.1">
-<h2>
-<span class="header-section-number">50.1</span> Giới thiệu về data table<a class="anchor" aria-label="anchor" href="#gi%E1%BB%9Bi-thi%E1%BB%87u-v%E1%BB%81-data-table"><i class="fas fa-link"></i></a>
-</h2>
+<h2><span class="header-section-number">50.1</span> Giới thiệu về data table</h2>
 <p>Một data table là một cấu trúc dữ liệu 2-chiều giống như một data frame mà cho phép thực hiện các thao tác phân nhóm phức tạp. Cú pháp data.table được cấu trúc để có thể thực hiện các thao tác trên hàng, cột và nhóm.</p>
 <p>Cấu trúc là <strong>DT[i, j, by]</strong>, được chia thành 3 phần; đối số <strong>i, j</strong> và <strong>by</strong>. Đối số <strong>i</strong> cho phép tạo tập con trên các hàng được yêu cầu, đối số <strong>j</strong> cho phép bạn vận hành trên cột và đối số <strong>by</strong> cho phép bạn vận hành theo nhóm.</p>
 <p>Chương này sẽ giải quyết các chủ đề sau:</p>
 <ul>
-<li>Nhập dữ liệu và sử dụng <code>fread()</code> và <code>fwrite()</code>
-</li>
-<li>Chọn và lọc các hàng bằng cách sử dụng đối số <strong>i</strong>
-</li>
-<li>Sử dụng các hàm trợ giúp <code>%like%</code>, <code>%chin%</code>, <code>%between%</code>
-</li>
-<li>Chọn và tính toán trên các cột bằng cách sử dụng đối số <strong>j</strong>
-</li>
-<li>Tính toán theo nhóm bằng cách sử dụng đối số <strong>by</strong>
-</li>
-<li>Thêm và cập nhật dữ liệu vào data table bằng cách sử dụng <code>:=</code>
-</li>
+<li>Nhập dữ liệu và sử dụng <code>fread()</code> và <code>fwrite()</code></li>
+<li>Chọn và lọc các hàng bằng cách sử dụng đối số <strong>i</strong></li>
+<li>Sử dụng các hàm trợ giúp <code>%like%</code>, <code>%chin%</code>, <code>%between%</code></li>
+<li>Chọn và tính toán trên các cột bằng cách sử dụng đối số <strong>j</strong></li>
+<li>Tính toán theo nhóm bằng cách sử dụng đối số <strong>by</strong></li>
+<li>Thêm và cập nhật dữ liệu vào data table bằng cách sử dụng <code>:=</code></li>
 </ul>
 <!-- ======================================================= -->
 </div>
 <div id="gọi-package-và-nhập-dữ-liệu" class="section level2" number="50.2">
-<h2>
-<span class="header-section-number">50.2</span> Gọi package và nhập dữ liệu<a class="anchor" aria-label="anchor" href="#g%E1%BB%8Di-package-v%C3%A0-nh%E1%BA%ADp-d%E1%BB%AF-li%E1%BB%87u"><i class="fas fa-link"></i></a>
-</h2>
+<h2><span class="header-section-number">50.2</span> Gọi package và nhập dữ liệu</h2>
 <div id="gọi-package-11" class="section level3 unnumbered">
-<h3>Gọi package<a class="anchor" aria-label="anchor" href="#g%E1%BB%8Di-package-11"><i class="fas fa-link"></i></a>
-</h3>
-<p>Sử dụng hàm <code><a href="https://rdrr.io/pkg/pacman/man/p_load.html">p_load()</a></code> từ <strong>pacman</strong>, chúng ta sẽ gọi (và cài đặt nếu cần) các package cần thiết cho phân tích này.</p>
-<div class="sourceCode" id="cb1974"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">pacman</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/pacman/man/p_load.html">p_load</a></span><span class="op">(</span>
-  <span class="va">rio</span>,        <span class="co"># to import data</span>
-  <span class="va">data.table</span>, <span class="co"># to group and clean data</span>
-  <span class="va">tidyverse</span>,  <span class="co"># allows use of pipe (%&gt;%) function in this chapter</span>
-  <span class="va">here</span> 
-  <span class="op">)</span> </code></pre></div>
+<h3>Gọi package</h3>
+<p>Sử dụng hàm <code>p_load()</code> từ <strong>pacman</strong>, chúng ta sẽ gọi (và cài đặt nếu cần) các package cần thiết cho phân tích này.</p>
+<div class="sourceCode" id="cb1948"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1948-1"><a href="data-table.html#cb1948-1" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(</span>
+<span id="cb1948-2"><a href="data-table.html#cb1948-2" tabindex="-1"></a>  rio,        <span class="co"># to import data</span></span>
+<span id="cb1948-3"><a href="data-table.html#cb1948-3" tabindex="-1"></a>  data.table, <span class="co"># to group and clean data</span></span>
+<span id="cb1948-4"><a href="data-table.html#cb1948-4" tabindex="-1"></a>  tidyverse,  <span class="co"># allows use of pipe (%&gt;%) function in this chapter</span></span>
+<span id="cb1948-5"><a href="data-table.html#cb1948-5" tabindex="-1"></a>  here </span>
+<span id="cb1948-6"><a href="data-table.html#cb1948-6" tabindex="-1"></a>  ) </span></code></pre></div>
 </div>
 <div id="nhập-dữ-liệu-27" class="section level3 unnumbered">
-<h3>Nhập dữ liệu<a class="anchor" aria-label="anchor" href="#nh%E1%BA%ADp-d%E1%BB%AF-li%E1%BB%87u-27"><i class="fas fa-link"></i></a>
-</h3>
+<h3>Nhập dữ liệu</h3>
 <p>Chương này sẽ khám phá một số hàm cốt lõi của <strong>data.table</strong> thông qua bộ số liệu linelist đã được nhắc đền nhiều lần trong sổ tay này.</p>
-<p>Chúng ta nhập bộ dữ liệu về các trường hợp từ một vụ dịch Ebola mô phỏng. Nếu bạn muốn tải dữ liệu để làm theo từng bước, hãy xem hướng dẫn trong chương <a href="data-used.html#data-used">Tải sách và dữ liệu</a>. Bộ dữ liệu được nhập bằng hàm <code><a href="https://rdrr.io/pkg/rio/man/import.html">import()</a></code> từ package <strong>rio</strong>. Xem chương về <a href="importing.html#importing">Nhập xuất dữ liệu</a> để biết các cách nhập dữ liệu khác nhau. Từ đây chúng tôi sử dụng <code>data.table()</code> để chuyển data frame thành data table.</p>
-<div class="sourceCode" id="cb1975"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">linelist</span> <span class="op">&lt;-</span> <span class="fu">rio</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/rio/man/import.html">import</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org//reference/here.html">here</a></span><span class="op">(</span><span class="st">"data"</span>, <span class="st">"linelist_cleaned.xlsx"</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu">data.table</span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<p>Chúng ta nhập bộ dữ liệu về các trường hợp từ một vụ dịch Ebola mô phỏng. Nếu bạn muốn tải dữ liệu để làm theo từng bước, hãy xem hướng dẫn trong chương <a href="data-used.html#data-used">Tải sách và dữ liệu</a>. Bộ dữ liệu được nhập bằng hàm <code>import()</code> từ package <strong>rio</strong>. Xem chương về <a href="importing.html#importing">Nhập xuất dữ liệu</a> để biết các cách nhập dữ liệu khác nhau. Từ đây chúng tôi sử dụng <code>data.table()</code> để chuyển data frame thành data table.</p>
+<div class="sourceCode" id="cb1949"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1949-1"><a href="data-table.html#cb1949-1" tabindex="-1"></a>linelist <span class="ot">&lt;-</span> rio<span class="sc">::</span><span class="fu">import</span>(<span class="fu">here</span>(<span class="st">&quot;data&quot;</span>, <span class="st">&quot;linelist_cleaned.xlsx&quot;</span>)) <span class="sc">%&gt;%</span> <span class="fu">data.table</span>()</span></code></pre></div>
 <p>Hàm <code>fread()</code> được sử dụng để nhập trực tiếp các delimited files phổ biến, chẳng hạn như tệp .csv, trực tiếp sang định dạng data table. Hàm này và đối tác của nó, <code>fwrite()</code>, được sử dụng để ghi data.table dưới dạng các delimited files phổ biến, là các tùy chọn rất nhanh và hiệu quả về mặt tính toán đối với cơ sở dữ liệu lớn.</p>
 <p>20 hàng đầu tiên của <code>linelist</code>:</p>
-<p>Các lệnh base R như <code><a href="https://rdrr.io/r/base/dim.html">dim()</a></code> được sử dụng cho data frame cũng có thể được sử dụng cho data table</p>
-<div class="sourceCode" id="cb1976"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/dim.html">dim</a></span><span class="op">(</span><span class="va">linelist</span><span class="op">)</span> <span class="co">#gives the number of rows and columns in the data table</span></code></pre></div>
+<p>Các lệnh base R như <code>dim()</code> được sử dụng cho data frame cũng có thể được sử dụng cho data table</p>
+<div class="sourceCode" id="cb1950"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1950-1"><a href="data-table.html#cb1950-1" tabindex="-1"></a><span class="fu">dim</span>(linelist) <span class="co">#gives the number of rows and columns in the data table</span></span></code></pre></div>
 <pre><code>## [1] 5888   30</code></pre>
 <!-- ======================================================= -->
 </div>
 </div>
 <div id="đối-số-i-chọn-và-lọc-hàng" class="section level2" number="50.3">
-<h2>
-<span class="header-section-number">50.3</span> Đối số i: chọn và lọc hàng<a class="anchor" aria-label="anchor" href="#%C4%91%E1%BB%91i-s%E1%BB%91-i-ch%E1%BB%8Dn-v%C3%A0-l%E1%BB%8Dc-h%C3%A0ng"><i class="fas fa-link"></i></a>
-</h2>
+<h2><span class="header-section-number">50.3</span> Đối số i: chọn và lọc hàng</h2>
 <p>Nhắc lại cấu trúc <strong>DT[i, j, by]</strong>, chúng ta có thể lọc các hàng bằng cách sử dụng số hàng hoặc biểu thức logic. Đối số i là đối số đầu tiên; do đó, cú pháp <strong>DT[i]</strong> hoặc <strong>DT[i,]</strong> có thể được sử dụng.</p>
 <p>Ví dụ đầu là việc truy xuất 5 hàng đầu tiên của data table, ví dụ thứ hai là tập hợp các trường hợp từ 18 tuổi trở lên và ví dụ thứ ba là tập hợp các trường hợp từ 18 tuổi trở lên nhưng không được chẩn đoán tại Bệnh viện Trung tâm (Central Hospital):</p>
-<div class="sourceCode" id="cb1978"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">linelist</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">5</span><span class="op">]</span> <span class="co">#returns the 1st to 5th row</span>
-<span class="va">linelist</span><span class="op">[</span><span class="va">age</span> <span class="op">&gt;=</span> <span class="fl">18</span><span class="op">]</span> <span class="co">#subsets cases are equal to or over 18 years</span>
-<span class="va">linelist</span><span class="op">[</span><span class="va">age</span> <span class="op">&gt;=</span> <span class="fl">18</span> <span class="op">&amp;</span> <span class="va">hospital</span> <span class="op">!=</span> <span class="st">"Central Hospital"</span><span class="op">]</span> <span class="co">#subsets cases equal to or over 18 years old but not diagnosed at the Central Hospital</span></code></pre></div>
+<div class="sourceCode" id="cb1952"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1952-1"><a href="data-table.html#cb1952-1" tabindex="-1"></a>linelist[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>] <span class="co">#returns the 1st to 5th row</span></span>
+<span id="cb1952-2"><a href="data-table.html#cb1952-2" tabindex="-1"></a>linelist[age <span class="sc">&gt;=</span> <span class="dv">18</span>] <span class="co">#subsets cases are equal to or over 18 years</span></span>
+<span id="cb1952-3"><a href="data-table.html#cb1952-3" tabindex="-1"></a>linelist[age <span class="sc">&gt;=</span> <span class="dv">18</span> <span class="sc">&amp;</span> hospital <span class="sc">!=</span> <span class="st">&quot;Central Hospital&quot;</span>] <span class="co">#subsets cases equal to or over 18 years old but not diagnosed at the Central Hospital</span></span></code></pre></div>
 <p>Sử dụng .N trong đối số i đại diện cho tổng số hàng trong data table. Điều này có thể được sử dụng để subset dữ liệu dựa trên số thứ tự hàng:</p>
-<div class="sourceCode" id="cb1979"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">linelist</span><span class="op">[</span><span class="va">.N</span><span class="op">]</span> <span class="co">#returns the last row</span>
-<span class="va">linelist</span><span class="op">[</span><span class="fl">15</span><span class="op">:</span><span class="va">.N</span><span class="op">]</span> <span class="co">#returns the 15th to the last row</span></code></pre></div>
+<div class="sourceCode" id="cb1953"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1953-1"><a href="data-table.html#cb1953-1" tabindex="-1"></a>linelist[.N] <span class="co">#returns the last row</span></span>
+<span id="cb1953-2"><a href="data-table.html#cb1953-2" tabindex="-1"></a>linelist[<span class="dv">15</span><span class="sc">:</span>.N] <span class="co">#returns the 15th to the last row</span></span></code></pre></div>
 <div id="sử-dụng-hàm-trợ-giúp-để-lọc" class="section level3 unnumbered">
-<h3>Sử dụng hàm trợ giúp để lọc<a class="anchor" aria-label="anchor" href="#s%E1%BB%AD-d%E1%BB%A5ng-h%C3%A0m-tr%E1%BB%A3-gi%C3%BAp-%C4%91%E1%BB%83-l%E1%BB%8Dc"><i class="fas fa-link"></i></a>
-</h3>
+<h3>Sử dụng hàm trợ giúp để lọc</h3>
 <p>Data table sử dụng các hàm trợ giúp để việc subset các hàng trở nên dễ dàng. Hàm <code>%like%</code> được sử dụng để khớp với một pattern trong cột, <code>%chin%</code> được sử dụng để khớp với một ký tự cụ thể và hàm trợ giúp <code>%between%</code> được sử dụng để khớp các cột theo số thứ tự trong một phạm vi xác định trước.</p>
 <p>Trong các ví dụ dưới đây, chúng ta: * lọc các hàng mà biến hospital có chứa “Hospital” * lọc các hàng có kết quả là “Recover” hoặc “Death” * lọc các hàng trong độ tuổi 40-60</p>
-<div class="sourceCode" id="cb1980"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">linelist</span><span class="op">[</span><span class="va">hospital</span> <span class="op">%like%</span> <span class="st">"Hospital"</span><span class="op">]</span> <span class="co">#filter rows where the hospital variable contains “Hospital”</span>
-<span class="va">linelist</span><span class="op">[</span><span class="va">outcome</span> <span class="op">%chin%</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Recover"</span>, <span class="st">"Death"</span><span class="op">)</span><span class="op">]</span> <span class="co">#filter rows where the outcome is “Recover” or “Death”</span>
-<span class="va">linelist</span><span class="op">[</span><span class="va">age</span> <span class="op">%between%</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">40</span>, <span class="fl">60</span><span class="op">)</span><span class="op">]</span> <span class="co">#filter rows in the age range 40-60</span>
-
-<span class="co">#%between% must take a vector of length 2, whereas %chin% can take vectors of length &gt;= 1</span></code></pre></div>
+<div class="sourceCode" id="cb1954"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1954-1"><a href="data-table.html#cb1954-1" tabindex="-1"></a>linelist[hospital <span class="sc">%like%</span> <span class="st">&quot;Hospital&quot;</span>] <span class="co">#filter rows where the hospital variable contains “Hospital”</span></span>
+<span id="cb1954-2"><a href="data-table.html#cb1954-2" tabindex="-1"></a>linelist[outcome <span class="sc">%chin%</span> <span class="fu">c</span>(<span class="st">&quot;Recover&quot;</span>, <span class="st">&quot;Death&quot;</span>)] <span class="co">#filter rows where the outcome is “Recover” or “Death”</span></span>
+<span id="cb1954-3"><a href="data-table.html#cb1954-3" tabindex="-1"></a>linelist[age <span class="sc">%between%</span> <span class="fu">c</span>(<span class="dv">40</span>, <span class="dv">60</span>)] <span class="co">#filter rows in the age range 40-60</span></span>
+<span id="cb1954-4"><a href="data-table.html#cb1954-4" tabindex="-1"></a></span>
+<span id="cb1954-5"><a href="data-table.html#cb1954-5" tabindex="-1"></a><span class="co">#%between% must take a vector of length 2, whereas %chin% can take vectors of length &gt;= 1</span></span></code></pre></div>
 </div>
 </div>
 <div id="đối-số-j-chọn-và-tính-toán-trên-cột" class="section level2" number="50.4">
-<h2>
-<span class="header-section-number">50.4</span> Đối số j: chọn và tính toán trên cột<a class="anchor" aria-label="anchor" href="#%C4%91%E1%BB%91i-s%E1%BB%91-j-ch%E1%BB%8Dn-v%C3%A0-t%C3%ADnh-to%C3%A1n-tr%C3%AAn-c%E1%BB%99t"><i class="fas fa-link"></i></a>
-</h2>
-<p>Sử dụng cấu trúc <strong>DT[i, j, by]</strong>, chúng ta có thể chọn cột bằng cách sử dụng số hoặc tên. Đối số <strong>j</strong> là đối số thứ hai; do đó, cú pháp <strong>DT[, j]</strong> được sử dụng. Để tạo điều kiện tính toán trên đối số <strong>j</strong>, cột được bao quanh bằng cách sử dụng <code><a href="https://rdrr.io/r/base/list.html">list()</a></code> hoặc <code>.()</code>.</p>
+<h2><span class="header-section-number">50.4</span> Đối số j: chọn và tính toán trên cột</h2>
+<p>Sử dụng cấu trúc <strong>DT[i, j, by]</strong>, chúng ta có thể chọn cột bằng cách sử dụng số hoặc tên. Đối số <strong>j</strong> là đối số thứ hai; do đó, cú pháp <strong>DT[, j]</strong> được sử dụng. Để tạo điều kiện tính toán trên đối số <strong>j</strong>, cột được bao quanh bằng cách sử dụng <code>list()</code> hoặc <code>.()</code>.</p>
 <div id="chọn-cột" class="section level3 unnumbered">
-<h3>Chọn cột<a class="anchor" aria-label="anchor" href="#ch%E1%BB%8Dn-c%E1%BB%99t"><i class="fas fa-link"></i></a>
-</h3>
+<h3>Chọn cột</h3>
 <p>Ví dụ đầu tiên lấy các cột thứ nhất, thứ ba và thứ năm của data table, ví dụ thứ hai chọn tất cả các cột ngoại trừ các cột height, weight và gender. Ví dụ thứ ba sử dụng <code>.()</code> phía trước để chọn cột <strong>case_id</strong> và <strong>outcome</strong>.</p>
-<div class="sourceCode" id="cb1981"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">linelist</span><span class="op">[</span> , <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">3</span>,<span class="fl">5</span><span class="op">)</span><span class="op">]</span>
-<span class="va">linelist</span><span class="op">[</span> , <span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"gender"</span>, <span class="st">"age"</span>, <span class="st">"wt_kg"</span>, <span class="st">"ht_cm"</span><span class="op">)</span><span class="op">]</span>
-<span class="va">linelist</span><span class="op">[</span> , <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="va">case_id</span>, <span class="va">outcome</span><span class="op">)</span><span class="op">]</span> <span class="co">#linelist[ , .(case_id, outcome)] works just as well</span></code></pre></div>
+<div class="sourceCode" id="cb1955"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1955-1"><a href="data-table.html#cb1955-1" tabindex="-1"></a>linelist[ , <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">5</span>)]</span>
+<span id="cb1955-2"><a href="data-table.html#cb1955-2" tabindex="-1"></a>linelist[ , <span class="sc">-</span><span class="fu">c</span>(<span class="st">&quot;gender&quot;</span>, <span class="st">&quot;age&quot;</span>, <span class="st">&quot;wt_kg&quot;</span>, <span class="st">&quot;ht_cm&quot;</span>)]</span>
+<span id="cb1955-3"><a href="data-table.html#cb1955-3" tabindex="-1"></a>linelist[ , <span class="fu">list</span>(case_id, outcome)] <span class="co">#linelist[ , .(case_id, outcome)] works just as well</span></span></code></pre></div>
 </div>
 <div id="tính-toán-trên-cột" class="section level3 unnumbered">
-<h3>Tính toán trên cột<a class="anchor" aria-label="anchor" href="#t%C3%ADnh-to%C3%A1n-tr%C3%AAn-c%E1%BB%99t"><i class="fas fa-link"></i></a>
-</h3>
+<h3>Tính toán trên cột</h3>
 <p>Bằng cách kết hợp các đối số <strong>i</strong> và <strong>j</strong>, có thể lọc các hàng và tính toán trên các cột. Sử dụng <strong>.N</strong> trong đối số <strong>j</strong> cũng thể hiện cho tổng số hàng trong data table và có thể hữu ích để trả về số hàng sau khi lọc.</p>
 <p>Trong các ví dụ dưới đây, chúng tôi: * Đếm số trường hợp nằm viện trên 7 ngày * Tính tuổi trung bình của các trường hợp tử vong tại military hospital * Tính toán độ lệch chuẩn, trung vị, tuổi trung bình của các trường hợp đã khỏi bệnh tại Central Hospital</p>
-<div class="sourceCode" id="cb1982"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">linelist</span><span class="op">[</span><span class="va">days_onset_hosp</span> <span class="op">&gt;</span> <span class="fl">7</span> , <span class="va">.N</span><span class="op">]</span></code></pre></div>
+<div class="sourceCode" id="cb1956"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1956-1"><a href="data-table.html#cb1956-1" tabindex="-1"></a>linelist[days_onset_hosp <span class="sc">&gt;</span> <span class="dv">7</span> , .N]</span></code></pre></div>
 <pre><code>## [1] 189</code></pre>
-<div class="sourceCode" id="cb1984"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">linelist</span><span class="op">[</span><span class="va">hospital</span> <span class="op">%like%</span> <span class="st">"Military"</span> <span class="op">&amp;</span> <span class="va">outcome</span> <span class="op">%chin%</span> <span class="st">"Death"</span>, <span class="fu">.</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">age</span>, na.rm <span class="op">=</span> <span class="cn">T</span><span class="op">)</span><span class="op">)</span><span class="op">]</span> <span class="co">#na.rm = T removes N/A values</span></code></pre></div>
+<div class="sourceCode" id="cb1958"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1958-1"><a href="data-table.html#cb1958-1" tabindex="-1"></a>linelist[hospital <span class="sc">%like%</span> <span class="st">&quot;Military&quot;</span> <span class="sc">&amp;</span> outcome <span class="sc">%chin%</span> <span class="st">&quot;Death&quot;</span>, .(<span class="fu">mean</span>(age, <span class="at">na.rm =</span> T))] <span class="co">#na.rm = T removes N/A values</span></span></code></pre></div>
 <pre><code>##         V1
+##      &lt;num&gt;
 ## 1: 15.9084</code></pre>
-<div class="sourceCode" id="cb1986"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">linelist</span><span class="op">[</span><span class="va">hospital</span> <span class="op">==</span> <span class="st">"Central Hospital"</span> <span class="op">&amp;</span> <span class="va">outcome</span> <span class="op">==</span> <span class="st">"Recover"</span>, 
-                 <span class="fu">.</span><span class="op">(</span>mean_age <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">age</span>, na.rm <span class="op">=</span> <span class="cn">T</span><span class="op">)</span>,
-                   median_age <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/median.html">median</a></span><span class="op">(</span><span class="va">age</span>, na.rm <span class="op">=</span> <span class="cn">T</span><span class="op">)</span>,
-                   sd_age <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">age</span>, na.rm <span class="op">=</span> <span class="cn">T</span><span class="op">)</span><span class="op">)</span><span class="op">]</span> <span class="co">#this syntax does not use the helper functions but works just as well</span></code></pre></div>
+<div class="sourceCode" id="cb1960"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1960-1"><a href="data-table.html#cb1960-1" tabindex="-1"></a>linelist[hospital <span class="sc">==</span> <span class="st">&quot;Central Hospital&quot;</span> <span class="sc">&amp;</span> outcome <span class="sc">==</span> <span class="st">&quot;Recover&quot;</span>, </span>
+<span id="cb1960-2"><a href="data-table.html#cb1960-2" tabindex="-1"></a>                 .(<span class="at">mean_age =</span> <span class="fu">mean</span>(age, <span class="at">na.rm =</span> T),</span>
+<span id="cb1960-3"><a href="data-table.html#cb1960-3" tabindex="-1"></a>                   <span class="at">median_age =</span> <span class="fu">median</span>(age, <span class="at">na.rm =</span> T),</span>
+<span id="cb1960-4"><a href="data-table.html#cb1960-4" tabindex="-1"></a>                   <span class="at">sd_age =</span> <span class="fu">sd</span>(age, <span class="at">na.rm =</span> T))] <span class="co">#this syntax does not use the helper functions but works just as well</span></span></code></pre></div>
 <pre><code>##    mean_age median_age   sd_age
+##       &lt;num&gt;      &lt;num&gt;    &lt;num&gt;
 ## 1: 16.85185         14 12.93857</code></pre>
 <p>Hãy nhớ rằng việc sử dụng .() bao quanh đối số j sẽ tạo điều kiện thuận lợi cho việc tính toán, trả về data table và cho phép đặt tên cột.</p>
 </div>
 </div>
 <div id="đối-số-by-tính-toán-theo-nhóm" class="section level2" number="50.5">
-<h2>
-<span class="header-section-number">50.5</span> Đối số by: tính toán theo nhóm<a class="anchor" aria-label="anchor" href="#%C4%91%E1%BB%91i-s%E1%BB%91-by-t%C3%ADnh-to%C3%A1n-theo-nh%C3%B3m"><i class="fas fa-link"></i></a>
-</h2>
-<p>Đối số <strong>by</strong> là đối số thứ ba trong cấu trúc <strong>DT[i, j, by]</strong>. Đối số <strong>by</strong> chấp nhận cả vectơ ký tự và cú pháp <code><a href="https://rdrr.io/r/base/list.html">list()</a></code> hoặc <code>.()</code>. Sử dụng cú pháp <code>.()</code> trong đối số <strong>by</strong> cho phép đổi tên cột một cách nhanh chóng.</p>
-<p>Trong các ví dụ dưới đây, chúng ta:<br>
+<h2><span class="header-section-number">50.5</span> Đối số by: tính toán theo nhóm</h2>
+<p>Đối số <strong>by</strong> là đối số thứ ba trong cấu trúc <strong>DT[i, j, by]</strong>. Đối số <strong>by</strong> chấp nhận cả vectơ ký tự và cú pháp <code>list()</code> hoặc <code>.()</code>. Sử dụng cú pháp <code>.()</code> trong đối số <strong>by</strong> cho phép đổi tên cột một cách nhanh chóng.</p>
+<p>Trong các ví dụ dưới đây, chúng ta:<br />
 * nhóm số trường hợp theo bệnh viện * trường hợp từ 18 tuổi trở lên, tính chiều cao và cân nặng trung bình theo giới tính và theo tình trạng hồi phục hay tử vong * trong những lần nhập viện kéo dài trên 7 ngày, đếm số trường hợp theo tháng họ nhập viện và theo bệnh viện họ nằm</p>
-<div class="sourceCode" id="cb1988"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">linelist</span><span class="op">[</span>, <span class="va">.N</span>, <span class="fu">.</span><span class="op">(</span><span class="va">hospital</span><span class="op">)</span><span class="op">]</span> <span class="co">#the number of cases by hospital</span></code></pre></div>
-<pre><code>##                                hospital    N
-## 1:                                Other  885
-## 2:                              Missing 1469
-## 3: St. Mark's Maternity Hospital (SMMH)  422
-## 4:                        Port Hospital 1762
-## 5:                    Military Hospital  896
-## 6:                     Central Hospital  454</code></pre>
-<div class="sourceCode" id="cb1990"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">linelist</span><span class="op">[</span><span class="va">age</span> <span class="op">&gt;</span> <span class="fl">18</span>, <span class="fu">.</span><span class="op">(</span>mean_wt <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">wt_kg</span>, na.rm <span class="op">=</span> <span class="cn">T</span><span class="op">)</span>,
-                             mean_ht <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">ht_cm</span>, na.rm <span class="op">=</span> <span class="cn">T</span><span class="op">)</span><span class="op">)</span>, <span class="fu">.</span><span class="op">(</span><span class="va">gender</span>, <span class="va">outcome</span><span class="op">)</span><span class="op">]</span> <span class="co">#NAs represent the categories where the data is missing</span></code></pre></div>
+<div class="sourceCode" id="cb1962"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1962-1"><a href="data-table.html#cb1962-1" tabindex="-1"></a>linelist[, .N, .(hospital)] <span class="co">#the number of cases by hospital</span></span></code></pre></div>
+<pre><code>##                                hospital     N
+##                                  &lt;char&gt; &lt;int&gt;
+## 1:                                Other   885
+## 2:                              Missing  1469
+## 3: St. Mark&#39;s Maternity Hospital (SMMH)   422
+## 4:                        Port Hospital  1762
+## 5:                    Military Hospital   896
+## 6:                     Central Hospital   454</code></pre>
+<div class="sourceCode" id="cb1964"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1964-1"><a href="data-table.html#cb1964-1" tabindex="-1"></a>linelist[age <span class="sc">&gt;</span> <span class="dv">18</span>, .(<span class="at">mean_wt =</span> <span class="fu">mean</span>(wt_kg, <span class="at">na.rm =</span> T),</span>
+<span id="cb1964-2"><a href="data-table.html#cb1964-2" tabindex="-1"></a>                             <span class="at">mean_ht =</span> <span class="fu">mean</span>(ht_cm, <span class="at">na.rm =</span> T)), .(gender, outcome)] <span class="co">#NAs represent the categories where the data is missing</span></span></code></pre></div>
 <pre><code>##    gender outcome  mean_wt  mean_ht
+##    &lt;char&gt;  &lt;char&gt;    &lt;num&gt;    &lt;num&gt;
 ## 1:      m Recover 71.90227 178.1977
 ## 2:      f   Death 63.27273 159.9448
 ## 3:      m   Death 71.61770 175.4726
@@ -271,147 +295,123 @@
 ## 7:   &lt;NA&gt; Recover 67.21429 175.2143
 ## 8:   &lt;NA&gt;   Death 69.16667 170.7917
 ## 9:   &lt;NA&gt;    &lt;NA&gt; 70.25000 175.5000</code></pre>
-<div class="sourceCode" id="cb1992"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">linelist</span><span class="op">[</span><span class="va">days_onset_hosp</span> <span class="op">&gt;</span> <span class="fl">7</span>, <span class="va">.N</span>, <span class="fu">.</span><span class="op">(</span>month <span class="op">=</span> <span class="fu">month</span><span class="op">(</span><span class="va">date_hospitalisation</span><span class="op">)</span>, <span class="va">hospital</span><span class="op">)</span><span class="op">]</span></code></pre></div>
-<pre><code>##     month                             hospital  N
-##  1:     5                    Military Hospital  3
-##  2:     6                        Port Hospital  4
-##  3:     7                        Port Hospital  8
-##  4:     8 St. Mark's Maternity Hospital (SMMH)  5
-##  5:     8                    Military Hospital  9
-##  6:     8                                Other 10
-##  7:     8                        Port Hospital 10
-##  8:     9                        Port Hospital 28
-##  9:     9                              Missing 27
-## 10:     9                     Central Hospital 10
-## 11:     9 St. Mark's Maternity Hospital (SMMH)  6
-## 12:    10                              Missing  2
-## 13:    10                    Military Hospital  3
-## 14:     3                        Port Hospital  1
-## 15:     4                    Military Hospital  1
-## 16:     5                                Other  2
-## 17:     5                     Central Hospital  1
-## 18:     5                              Missing  1
-## 19:     6                              Missing  7
-## 20:     6 St. Mark's Maternity Hospital (SMMH)  2
-## 21:     6                    Military Hospital  1
-## 22:     7                    Military Hospital  3
-## 23:     7                                Other  1
-## 24:     7                              Missing  2
-## 25:     7 St. Mark's Maternity Hospital (SMMH)  1
-## 26:     8                     Central Hospital  2
-## 27:     8                              Missing  6
-## 28:     9                                Other  9
-## 29:     9                    Military Hospital 11
-## 30:    10                        Port Hospital  3
-## 31:    10                                Other  4
-## 32:    10 St. Mark's Maternity Hospital (SMMH)  1
-## 33:    10                     Central Hospital  1
-## 34:    11                              Missing  2
-## 35:    11                        Port Hospital  1
-## 36:    12                        Port Hospital  1
-##     month                             hospital  N</code></pre>
+<div class="sourceCode" id="cb1966"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1966-1"><a href="data-table.html#cb1966-1" tabindex="-1"></a>linelist[days_onset_hosp <span class="sc">&gt;</span> <span class="dv">7</span>, .N, .(<span class="at">month =</span> <span class="fu">month</span>(date_hospitalisation), hospital)]</span></code></pre></div>
+<pre><code>##     month                             hospital     N
+##     &lt;int&gt;                               &lt;char&gt; &lt;int&gt;
+##  1:     5                    Military Hospital     3
+##  2:     6                        Port Hospital     4
+##  3:     7                        Port Hospital     8
+##  4:     8 St. Mark&#39;s Maternity Hospital (SMMH)     5
+##  5:     8                    Military Hospital     9
+##  6:     8                                Other    10
+##  7:     8                        Port Hospital    10
+##  8:     9                        Port Hospital    28
+##  9:     9                              Missing    27
+## 10:     9                     Central Hospital    10
+## 11:     9 St. Mark&#39;s Maternity Hospital (SMMH)     6
+## 12:    10                              Missing     2
+## 13:    10                    Military Hospital     3
+## 14:     3                        Port Hospital     1
+## 15:     4                    Military Hospital     1
+## 16:     5                                Other     2
+## 17:     5                     Central Hospital     1
+## 18:     5                              Missing     1
+## 19:     6                              Missing     7
+## 20:     6 St. Mark&#39;s Maternity Hospital (SMMH)     2
+## 21:     6                    Military Hospital     1
+## 22:     7                    Military Hospital     3
+## 23:     7                                Other     1
+## 24:     7                              Missing     2
+## 25:     7 St. Mark&#39;s Maternity Hospital (SMMH)     1
+## 26:     8                     Central Hospital     2
+## 27:     8                              Missing     6
+## 28:     9                                Other     9
+## 29:     9                    Military Hospital    11
+## 30:    10                        Port Hospital     3
+## 31:    10                                Other     4
+## 32:    10 St. Mark&#39;s Maternity Hospital (SMMH)     1
+## 33:    10                     Central Hospital     1
+## 34:    11                              Missing     2
+## 35:    11                        Port Hospital     1
+## 36:    12                        Port Hospital     1
+##     month                             hospital     N</code></pre>
 <p>Data.table cũng cho phép các biểu thức chuỗi như sau:</p>
-<div class="sourceCode" id="cb1994"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">linelist</span><span class="op">[</span>, <span class="va">.N</span>, <span class="fu">.</span><span class="op">(</span><span class="va">hospital</span><span class="op">)</span><span class="op">]</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/order.html">order</a></span><span class="op">(</span><span class="op">-</span><span class="va">N</span><span class="op">)</span><span class="op">]</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">3</span><span class="op">]</span> <span class="co">#1st selects all cases by hospital, 2nd orders the cases in descending order, 3rd subsets the 3 hospitals with the largest caseload</span></code></pre></div>
-<pre><code>##             hospital    N
-## 1:     Port Hospital 1762
-## 2:           Missing 1469
-## 3: Military Hospital  896</code></pre>
+<div class="sourceCode" id="cb1968"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1968-1"><a href="data-table.html#cb1968-1" tabindex="-1"></a>linelist[, .N, .(hospital)][<span class="fu">order</span>(<span class="sc">-</span>N)][<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>] <span class="co">#1st selects all cases by hospital, 2nd orders the cases in descending order, 3rd subsets the 3 hospitals with the largest caseload</span></span></code></pre></div>
+<pre><code>##             hospital     N
+##               &lt;char&gt; &lt;int&gt;
+## 1:     Port Hospital  1762
+## 2:           Missing  1469
+## 3: Military Hospital   896</code></pre>
 <p>Trong các ví dụ này, chúng ta đang tuân theo giả định rằng một hàng trong data table tương đương với một trường hợp mới, vì vậy chúng ta có thể sử dụng <strong>.N</strong> để thể hiện số hàng trong data table. Một hàm hữu ích khác thể hiện số lượng các trường hợp duy nhất là <code>uniqueN()</code>, hàm này trả về số lượng các giá trị duy nhất trong một đầu vào nhất định.</p>
-<div class="sourceCode" id="cb1996"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">linelist</span><span class="op">[</span>, <span class="fu">.</span><span class="op">(</span><span class="fu">uniqueN</span><span class="op">(</span><span class="va">gender</span><span class="op">)</span><span class="op">)</span><span class="op">]</span> <span class="co">#remember .() in the j argument returns a data table</span></code></pre></div>
-<pre><code>##    V1
-## 1:  3</code></pre>
-<p>Đáp án là 3, vì các giá trị duy nhất trong cột gender là m, f và N/A. So sánh với hàm base R là <code><a href="https://rdrr.io/r/base/unique.html">unique()</a></code>, trả về tất cả các giá trị duy nhất trong một đầu vào nhất định:</p>
-<div class="sourceCode" id="cb1998"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">linelist</span><span class="op">[</span>, <span class="fu">.</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="va">gender</span><span class="op">)</span><span class="op">)</span><span class="op">]</span></code></pre></div>
-<pre><code>##      V1
-## 1:    m
-## 2:    f
-## 3: &lt;NA&gt;</code></pre>
+<div class="sourceCode" id="cb1970"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1970-1"><a href="data-table.html#cb1970-1" tabindex="-1"></a>linelist[, .(<span class="fu">uniqueN</span>(gender))] <span class="co">#remember .() in the j argument returns a data table</span></span></code></pre></div>
+<pre><code>##       V1
+##    &lt;int&gt;
+## 1:     3</code></pre>
+<p>Đáp án là 3, vì các giá trị duy nhất trong cột gender là m, f và N/A. So sánh với hàm base R là <code>unique()</code>, trả về tất cả các giá trị duy nhất trong một đầu vào nhất định:</p>
+<div class="sourceCode" id="cb1972"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1972-1"><a href="data-table.html#cb1972-1" tabindex="-1"></a>linelist[, .(<span class="fu">unique</span>(gender))]</span></code></pre></div>
+<pre><code>##        V1
+##    &lt;char&gt;
+## 1:      m
+## 2:      f
+## 3:   &lt;NA&gt;</code></pre>
 <p>Để tìm số trường hợp duy nhất trong một tháng (month) nhất định, chúng tôi sẽ viết như sau:</p>
-<div class="sourceCode" id="cb2000"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">linelist</span><span class="op">[</span>, <span class="fu">.</span><span class="op">(</span><span class="fu">uniqueN</span><span class="op">(</span><span class="va">case_id</span><span class="op">)</span><span class="op">)</span>, <span class="fu">.</span><span class="op">(</span>month <span class="op">=</span> <span class="fu">month</span><span class="op">(</span><span class="va">date_hospitalisation</span><span class="op">)</span><span class="op">)</span><span class="op">]</span></code></pre></div>
-<pre><code>##     month   V1
-##  1:     5   62
-##  2:     6  100
-##  3:     7  198
-##  4:     8  509
-##  5:     9 1170
-##  6:    10 1228
-##  7:    11  813
-##  8:    12  576
-##  9:     1  434
-## 10:     2  310
-## 11:     3  290
-## 12:     4  198</code></pre>
+<div class="sourceCode" id="cb1974"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1974-1"><a href="data-table.html#cb1974-1" tabindex="-1"></a>linelist[, .(<span class="fu">uniqueN</span>(case_id)), .(<span class="at">month =</span> <span class="fu">month</span>(date_hospitalisation))]</span></code></pre></div>
+<pre><code>##     month    V1
+##     &lt;int&gt; &lt;int&gt;
+##  1:     5    62
+##  2:     6   100
+##  3:     7   198
+##  4:     8   509
+##  5:     9  1170
+##  6:    10  1228
+##  7:    11   813
+##  8:    12   576
+##  9:     1   434
+## 10:     2   310
+## 11:     3   290
+## 12:     4   198</code></pre>
 </div>
 <div id="thêm-và-cập-nhật-dữ-liệu-vào-data-table" class="section level2" number="50.6">
-<h2>
-<span class="header-section-number">50.6</span> Thêm và cập nhật dữ liệu vào data table<a class="anchor" aria-label="anchor" href="#th%C3%AAm-v%C3%A0-c%E1%BA%ADp-nh%E1%BA%ADt-d%E1%BB%AF-li%E1%BB%87u-v%C3%A0o-data-table"><i class="fas fa-link"></i></a>
-</h2>
+<h2><span class="header-section-number">50.6</span> Thêm và cập nhật dữ liệu vào data table</h2>
 <p>Toán tử <code>:=</code> được sử dụng để thêm hoặc cập nhật dữ liệu trong data table. Việc thêm cột vào data table của bạn có thể được thực hiện theo những cách dưới đây:</p>
-<div class="sourceCode" id="cb2002"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">linelist</span><span class="op">[</span>, <span class="va">adult</span> <span class="op">:=</span> <span class="va">age</span> <span class="op">&gt;=</span> <span class="fl">18</span><span class="op">]</span> <span class="co">#adds one column</span>
-<span class="va">linelist</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"child"</span>, <span class="st">"wt_lbs"</span><span class="op">)</span> <span class="op">:=</span> <span class="fu">.</span><span class="op">(</span><span class="va">age</span> <span class="op">&lt;</span> <span class="fl">18</span>, <span class="va">wt_kg</span><span class="op">*</span><span class="fl">2.204</span><span class="op">)</span><span class="op">]</span> <span class="co">#to add multiple columns requires c("") and list() or .() syntax</span>
-<span class="va">linelist</span><span class="op">[</span>, <span class="fu">`:=`</span> <span class="op">(</span>bmi_in_range <span class="op">=</span> <span class="op">(</span><span class="va">bmi</span> <span class="op">&gt;</span> <span class="fl">16</span> <span class="op">&amp;</span> <span class="va">bmi</span> <span class="op">&lt;</span> <span class="fl">40</span><span class="op">)</span>,
-                         no_infector_source_data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">infector</span><span class="op">)</span> <span class="op">|</span> <span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">source</span><span class="op">)</span><span class="op">)</span><span class="op">]</span> <span class="co">#this method uses := as a functional operator `:=`</span>
-<span class="va">linelist</span><span class="op">[</span>, <span class="va">adult</span> <span class="op">:=</span> <span class="cn">NULL</span><span class="op">]</span> <span class="co">#deletes the column</span></code></pre></div>
+<div class="sourceCode" id="cb1976"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1976-1"><a href="data-table.html#cb1976-1" tabindex="-1"></a>linelist[, adult <span class="sc">:=</span> age <span class="sc">&gt;=</span> <span class="dv">18</span>] <span class="co">#adds one column</span></span>
+<span id="cb1976-2"><a href="data-table.html#cb1976-2" tabindex="-1"></a>linelist[, <span class="fu">c</span>(<span class="st">&quot;child&quot;</span>, <span class="st">&quot;wt_lbs&quot;</span>) <span class="sc">:=</span> .(age <span class="sc">&lt;</span> <span class="dv">18</span>, wt_kg<span class="sc">*</span><span class="fl">2.204</span>)] <span class="co">#to add multiple columns requires c(&quot;&quot;) and list() or .() syntax</span></span>
+<span id="cb1976-3"><a href="data-table.html#cb1976-3" tabindex="-1"></a>linelist[, <span class="st">`</span><span class="at">:=</span><span class="st">`</span> (<span class="at">bmi_in_range =</span> (bmi <span class="sc">&gt;</span> <span class="dv">16</span> <span class="sc">&amp;</span> bmi <span class="sc">&lt;</span> <span class="dv">40</span>),</span>
+<span id="cb1976-4"><a href="data-table.html#cb1976-4" tabindex="-1"></a>                         <span class="at">no_infector_source_data =</span> <span class="fu">is.na</span>(infector) <span class="sc">|</span> <span class="fu">is.na</span>(source))] <span class="co">#this method uses := as a functional operator `:=`</span></span>
+<span id="cb1976-5"><a href="data-table.html#cb1976-5" tabindex="-1"></a>linelist[, adult <span class="sc">:=</span> <span class="cn">NULL</span>] <span class="co">#deletes the column</span></span></code></pre></div>
 <p>Các tổ hợp phức tạp hơn nằm ngoài phạm vi của chương giới thiệu này, nhưng ý tưởng của chương này là cung cấp một giải pháp thay thế phổ biến và khả thi cho <strong>dplyr</strong> để phân nhóm và làm sạch dữ liệu. Package <strong>data.table</strong> là một package tốt giúp code gọn gàng và dễ đọc.</p>
 </div>
 <div id="tài-nguyên-học-liệu-17" class="section level2" number="50.7">
-<h2>
-<span class="header-section-number">50.7</span> Tài nguyên học liệu<a class="anchor" aria-label="anchor" href="#t%C3%A0i-nguy%C3%AAn-h%E1%BB%8Dc-li%E1%BB%87u-17"><i class="fas fa-link"></i></a>
-</h2>
+<h2><span class="header-section-number">50.7</span> Tài nguyên học liệu</h2>
 <p>Để có thêm thông tin, dưới đây là một số tài nguyên hữu ích: * <a href="https://cran.r-project.org/web/packages/data.table/vignettes/datatable-intro.html" class="uri">https://cran.r-project.org/web/packages/data.table/vignettes/datatable-intro.html</a> * <a href="https://github.com/Rdatatable/data.table" class="uri">https://github.com/Rdatatable/data.table</a> * <a href="https://s3.amazonaws.com/assets.datacamp.com/img/blog/data+table+cheat+sheet.pdf" class="uri">https://s3.amazonaws.com/assets.datacamp.com/img/blog/data+table+cheat+sheet.pdf</a> * <a href="https://www.machinelearningplus.com/data-manipulation/datatable-in-r-complete-guide/" class="uri">https://www.machinelearningplus.com/data-manipulation/datatable-in-r-complete-guide/</a> * <a href="https://www.datacamp.com/community/tutorials/data-table-r-tutorial" class="uri">https://www.datacamp.com/community/tutorials/data-table-r-tutorial</a></p>
 <p>Bạn có thể thực hiện bất kỳ chức năng tóm tắt nào trên dữ liệu được nhóm; xem Cheat Sheet tại đây để có thêm thông tin: <a href="https://s3.amazonaws.com/assets.datacamp.com/blog_assets/datatable_Cheat_Sheet_R.pdf" class="uri">https://s3.amazonaws.com/assets.datacamp.com/blog_assets/datatable_Cheat_Shgiteet_R.pdf</a></p>
 
 </div>
 </div>
-  <div class="chapter-nav">
-<div class="prev"><a href="network-drives.html"><span class="header-section-number">49</span> R trên ổ cứng mạng</a></div>
-<div class="empty"></div>
-</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
-    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
-      <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#data-table"><span class="header-section-number">50</span> Data Table</a></li>
-<li><a class="nav-link" href="#gi%E1%BB%9Bi-thi%E1%BB%87u-v%E1%BB%81-data-table"><span class="header-section-number">50.1</span> Giới thiệu về data table</a></li>
-<li>
-<a class="nav-link" href="#g%E1%BB%8Di-package-v%C3%A0-nh%E1%BA%ADp-d%E1%BB%AF-li%E1%BB%87u"><span class="header-section-number">50.2</span> Gọi package và nhập dữ liệu</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#g%E1%BB%8Di-package-11">Gọi package</a></li>
-<li><a class="nav-link" href="#nh%E1%BA%ADp-d%E1%BB%AF-li%E1%BB%87u-27">Nhập dữ liệu</a></li>
-</ul>
-</li>
-<li>
-<a class="nav-link" href="#%C4%91%E1%BB%91i-s%E1%BB%91-i-ch%E1%BB%8Dn-v%C3%A0-l%E1%BB%8Dc-h%C3%A0ng"><span class="header-section-number">50.3</span> Đối số i: chọn và lọc hàng</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#s%E1%BB%AD-d%E1%BB%A5ng-h%C3%A0m-tr%E1%BB%A3-gi%C3%BAp-%C4%91%E1%BB%83-l%E1%BB%8Dc">Sử dụng hàm trợ giúp để lọc</a></li></ul>
-</li>
-<li>
-<a class="nav-link" href="#%C4%91%E1%BB%91i-s%E1%BB%91-j-ch%E1%BB%8Dn-v%C3%A0-t%C3%ADnh-to%C3%A1n-tr%C3%AAn-c%E1%BB%99t"><span class="header-section-number">50.4</span> Đối số j: chọn và tính toán trên cột</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#ch%E1%BB%8Dn-c%E1%BB%99t">Chọn cột</a></li>
-<li><a class="nav-link" href="#t%C3%ADnh-to%C3%A1n-tr%C3%AAn-c%E1%BB%99t">Tính toán trên cột</a></li>
-</ul>
-</li>
-<li><a class="nav-link" href="#%C4%91%E1%BB%91i-s%E1%BB%91-by-t%C3%ADnh-to%C3%A1n-theo-nh%C3%B3m"><span class="header-section-number">50.5</span> Đối số by: tính toán theo nhóm</a></li>
-<li><a class="nav-link" href="#th%C3%AAm-v%C3%A0-c%E1%BA%ADp-nh%E1%BA%ADt-d%E1%BB%AF-li%E1%BB%87u-v%C3%A0o-data-table"><span class="header-section-number">50.6</span> Thêm và cập nhật dữ liệu vào data table</a></li>
-<li><a class="nav-link" href="#t%C3%A0i-nguy%C3%AAn-h%E1%BB%8Dc-li%E1%BB%87u-17"><span class="header-section-number">50.7</span> Tài nguyên học liệu</a></li>
-</ul>
+  </main>
+
+  <div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page">
+      <h2>On this page</h2>
+      <div id="book-on-this-page"></div>
 
       <div class="book-extra">
         <ul class="list-unstyled">
-          
+          <li><a id="book-source" href="#">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="#">Edit this page <i class="fab fa-github"></i></a></li>
         </ul>
-</div>
+      </div>
     </nav>
-</div>
+  </div>
 
 </div>
 </div> <!-- .container -->
 
-<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+<footer class="bg-primary text-light mt-5">
+  <div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Cẩm nang dịch tễ học với R</strong>" was written by the handbook team. It was last built on 2021-11-01.</p>
+    <p>"<strong>Cẩm nang dịch tễ học với R</strong>" was written by the handbook team. It was last built on 2024-02-16.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
@@ -419,12 +419,16 @@
   </div>
 
 </div></div>
-</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+</footer>
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');
@@ -432,5 +436,23 @@
     document.getElementsByTagName("head")[0].appendChild(script);
   })();
 </script>
+<script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
 </body>
+
 </html>

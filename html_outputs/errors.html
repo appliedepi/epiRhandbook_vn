@@ -1,43 +1,153 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>47 Các lỗi thường gặp | Cẩm nang dịch tễ học với R</title>
-<meta name="author" content="the handbook team">
-<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.2"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.5.1/tabs.js"></script><script src="libs/bs3compat-0.2.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
-<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/htmlwidgets-1.5.3/htmlwidgets.js"></script><link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet">
-<script src="libs/datatables-binding-0.16/datatables.js"></script><link href="libs/dt-core-1.10.20/css/jquery.dataTables.min.css" rel="stylesheet">
-<link href="libs/dt-core-1.10.20/css/jquery.dataTables.extra.css" rel="stylesheet">
-<script src="libs/dt-core-1.10.20/js/jquery.dataTables.min.js"></script><link href="libs/nouislider-7.0.10/jquery.nouislider.min.css" rel="stylesheet">
-<script src="libs/nouislider-7.0.10/jquery.nouislider.min.js"></script><link href="libs/selectize-0.12.0/selectize.bootstrap3.css" rel="stylesheet">
-<script src="libs/selectize-0.12.0/selectize.min.js"></script><link href="libs/crosstalk-1.1.1/css/crosstalk.css" rel="stylesheet">
-<script src="libs/crosstalk-1.1.1/js/crosstalk.min.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
-<link href="libs/tabwid-1.0.0/tabwid.css" rel="stylesheet">
-<script src="libs/tabwid-1.0.0/tabwid.js"></script><link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet">
-<script src="libs/leaflet-1.3.1/leaflet.js"></script><link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet">
-<script src="libs/Proj4Leaflet-1.0.1/proj4-compressed.js"></script><script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script><link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet">
-<script src="libs/leaflet-binding-2.0.3/leaflet.js"></script><script src="libs/leaflet-providers-1.9.0/leaflet-providers_1.9.0.js"></script><script src="libs/leaflet-providers-plugin-2.0.3/leaflet-providers-plugin.js"></script><script src="libs/viz-1.8.2/viz.js"></script><link href="libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet">
-<script src="libs/grViz-binding-1.0.6.1/grViz.js"></script><script src="libs/d3-4.5.0/d3.min.js"></script><script src="libs/sankey-1/sankey.js"></script><script src="libs/sankeyNetwork-binding-0.4/sankeyNetwork.js"></script><script src="libs/plotly-binding-4.9.2.1/plotly.js"></script><script src="libs/typedarray-0.1/typedarray.min.js"></script><link href="libs/plotly-htmlwidgets-css-1.52.2/plotly-htmlwidgets.css" rel="stylesheet">
-<script src="libs/plotly-main-1.52.2/plotly-latest.min.js"></script><link href="libs/vis-4.20.1/vis.css" rel="stylesheet">
-<script src="libs/vis-4.20.1/vis.min.js"></script><script src="libs/visNetwork-binding-2.0.9/visNetwork.js"></script><link href="libs/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet">
-<script src="libs/plotly-basic-1.52.2/plotly-basic-1.52.2.min.js"></script><script src="libs/plotly-cartesian-1.52.2/plotly-cartesian-1.52.2.min.js"></script><script src="libs/proj4js-2.3.15/proj4.js"></script><link href="libs/highcharts-8.1.2/css/motion.css" rel="stylesheet">
-<script src="libs/highcharts-8.1.2/highcharts.js"></script><script src="libs/highcharts-8.1.2/highcharts-3d.js"></script><script src="libs/highcharts-8.1.2/highcharts-more.js"></script><script src="libs/highcharts-8.1.2/modules/stock.js"></script><script src="libs/highcharts-8.1.2/modules/map.js"></script><script src="libs/highcharts-8.1.2/modules/annotations.js"></script><script src="libs/highcharts-8.1.2/modules/data.js"></script><script src="libs/highcharts-8.1.2/modules/drilldown.js"></script><script src="libs/highcharts-8.1.2/modules/item-series.js"></script><script src="libs/highcharts-8.1.2/modules/offline-exporting.js"></script><script src="libs/highcharts-8.1.2/modules/overlapping-datalabels.js"></script><script src="libs/highcharts-8.1.2/modules/exporting.js"></script><script src="libs/highcharts-8.1.2/modules/export-data.js"></script><script src="libs/highcharts-8.1.2/modules/funnel.js"></script><script src="libs/highcharts-8.1.2/modules/heatmap.js"></script><script src="libs/highcharts-8.1.2/modules/treemap.js"></script><script src="libs/highcharts-8.1.2/modules/sankey.js"></script><script src="libs/highcharts-8.1.2/modules/dependency-wheel.js"></script><script src="libs/highcharts-8.1.2/modules/organization.js"></script><script src="libs/highcharts-8.1.2/modules/solid-gauge.js"></script><script src="libs/highcharts-8.1.2/modules/streamgraph.js"></script><script src="libs/highcharts-8.1.2/modules/sunburst.js"></script><script src="libs/highcharts-8.1.2/modules/vector.js"></script><script src="libs/highcharts-8.1.2/modules/wordcloud.js"></script><script src="libs/highcharts-8.1.2/modules/xrange.js"></script><script src="libs/highcharts-8.1.2/modules/tilemap.js"></script><script src="libs/highcharts-8.1.2/modules/venn.js"></script><script src="libs/highcharts-8.1.2/modules/gantt.js"></script><script src="libs/highcharts-8.1.2/modules/timeline.js"></script><script src="libs/highcharts-8.1.2/modules/parallel-coordinates.js"></script><script src="libs/highcharts-8.1.2/modules/bullet.js"></script><script src="libs/highcharts-8.1.2/modules/coloraxis.js"></script><script src="libs/highcharts-8.1.2/modules/dumbbell.js"></script><script src="libs/highcharts-8.1.2/modules/lollipop.js"></script><script src="libs/highcharts-8.1.2/modules/series-label.js"></script><script src="libs/highcharts-8.1.2/plugins/motion.js"></script><script src="libs/highcharts-8.1.2/custom/reset.js"></script><script src="libs/highcharts-8.1.2/modules/boost.js"></script><script src="libs/highchart-binding-0.8.2/highchart.js"></script><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=G-QXDW878QLX"></script><script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>47 Các lỗi thường gặp | Cẩm nang dịch tễ học với R</title>
+
+    <meta name="author" content="the handbook team" />
+  
+   <meta name="description" content="The Epi R Handbook is a R reference manual for applied epidemiology and public health." />
+   <meta name="generator" content="placeholder" />
+  <meta property="og:title" content="47 Các lỗi thường gặp | Cẩm nang dịch tễ học với R" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="The Epi R Handbook is a R reference manual for applied epidemiology and public health." />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="47 Các lỗi thường gặp | Cẩm nang dịch tễ học với R" />
+  
+  <meta name="twitter:description" content="The Epi R Handbook is a R reference manual for applied epidemiology and public health." />
+  
+  <!-- JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script>
+    <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet" />
+    <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script>
+    <script src="libs/bs3compat-0.6.1/transition.js"></script>
+    <script src="libs/bs3compat-0.6.1/tabs.js"></script>
+    <script src="libs/bs3compat-0.6.1/bs3compat.js"></script>
+    <link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet" />
+    <script src="libs/bs4_book-1.0.0/bs4_book.js"></script>
+    <script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+    <link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+    <script src="libs/datatables-binding-0.31/datatables.js"></script>
+    <link href="libs/dt-core-1.13.6/css/jquery.dataTables.min.css" rel="stylesheet" />
+    <link href="libs/dt-core-1.13.6/css/jquery.dataTables.extra.css" rel="stylesheet" />
+    <script src="libs/dt-core-1.13.6/js/jquery.dataTables.min.js"></script>
+    <link href="libs/nouislider-7.0.10/jquery.nouislider.min.css" rel="stylesheet" />
+    <script src="libs/nouislider-7.0.10/jquery.nouislider.min.js"></script>
+    <link href="libs/selectize-0.12.0/selectize.bootstrap3.css" rel="stylesheet" />
+    <script src="libs/selectize-0.12.0/selectize.min.js"></script>
+    <link href="libs/crosstalk-1.2.1/css/crosstalk.min.css" rel="stylesheet" />
+    <script src="libs/crosstalk-1.2.1/js/crosstalk.min.js"></script>
+    <script src="libs/kePrint-0.0.1/kePrint.js"></script>
+    <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+    <link href="libs/tabwid-1.1.3/tabwid.css" rel="stylesheet" />
+    <script src="libs/tabwid-1.1.3/tabwid.js"></script>
+    <link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet" />
+    <script src="libs/leaflet-1.3.1/leaflet.js"></script>
+    <link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
+    <script src="libs/proj4-2.6.2/proj4.min.js"></script>
+    <script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
+    <link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
+    <script src="libs/leaflet-binding-2.2.1/leaflet.js"></script>
+    <script src="libs/leaflet-providers-2.0.0/leaflet-providers_2.0.0.js"></script>
+    <script src="libs/leaflet-providers-plugin-2.2.1/leaflet-providers-plugin.js"></script>
+    <script src="libs/viz-1.8.2/viz.js"></script>
+    <link href="libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet" />
+    <script src="libs/grViz-binding-1.0.11/grViz.js"></script>
+    <script src="libs/d3-4.5.0/d3.min.js"></script>
+    <script src="libs/sankey-1/sankey.js"></script>
+    <script src="libs/sankeyNetwork-binding-0.4/sankeyNetwork.js"></script>
+    <script src="libs/plotly-binding-4.10.4/plotly.js"></script>
+    <script src="libs/typedarray-0.1/typedarray.min.js"></script>
+    <link href="libs/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet" />
+    <script src="libs/plotly-main-2.11.1/plotly-latest.min.js"></script>
+    <link href="libs/vis-9.1.0/vis-network.min.css" rel="stylesheet" />
+    <script src="libs/vis-9.1.0/vis-network.min.js"></script>
+    <script src="libs/visNetwork-binding-2.1.2/visNetwork.js"></script>
+    <link href="libs/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <script src="libs/plotly-basic-2.11.1/plotly-basic-2.11.1.min.js"></script>
+    <script src="libs/plotly-cartesian-2.11.1/plotly-cartesian-2.11.1.min.js"></script>
+    <script src="libs/proj4js-2.3.15/proj4.js"></script>
+    <link href="libs/highcharts-9.3.1/css/motion.css" rel="stylesheet" />
+    <script src="libs/highcharts-9.3.1/highcharts.js"></script>
+    <script src="libs/highcharts-9.3.1/highcharts-3d.js"></script>
+    <script src="libs/highcharts-9.3.1/highcharts-more.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/stock.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/map.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/data.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/exporting.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/offline-exporting.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/drilldown.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/item-series.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/overlapping-datalabels.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/annotations.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/export-data.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/funnel.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/heatmap.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/treemap.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/sankey.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/dependency-wheel.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/organization.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/solid-gauge.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/streamgraph.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/sunburst.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/vector.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/wordcloud.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/xrange.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/tilemap.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/venn.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/gantt.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/timeline.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/parallel-coordinates.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/bullet.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/coloraxis.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/dumbbell.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/lollipop.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/series-label.js"></script>
+    <script src="libs/highcharts-9.3.1/plugins/motion.js"></script>
+    <script src="libs/highcharts-9.3.1/custom/reset.js"></script>
+    <script src="libs/highcharts-9.3.1/modules/boost.js"></script>
+    <script src="libs/highchart-binding-0.9.4/highchart.js"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QXDW878QLX"></script>
+    <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
 
       gtag('config', 'G-QXDW878QLX');
-    </script><script src="https://cdn.jsdelivr.net/autocomplete.js/0/autocomplete.jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/mark.js@8.11.1/dist/mark.min.js"></script><!-- CSS --><link rel="stylesheet" href="style_bs4.css">
+    </script>
+
+    <div class="alert alert-info alert-dismissible">
+      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+      <strong>Bạn cần trợ giúp khi học R?</strong> Hãy tham gia <a href="https://www.appliedepi.org/live/" class="alert-link">khóa học</a>, trải nghiệm <a href="https://www.appliedepi.org/tutorial/" class="alert-link">các học phần miễn phí</a>, gửi bài viết <a href="https://community.appliedepi.org/" class="alert-link">trên trang Cộng đồng</a>, hoặc liên hệ <a href="mailto:contact@appliedepi.org" class="alert-link">dịch vụ hỗ trợ của chúng tôi</a>.
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script>
+
+  <!-- CSS -->
+  <style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+      <link rel="stylesheet" href="style_bs4.css" />
+  
 </head>
+
 <body data-spy="scroll" data-target="#toc">
 
 <div class="container-fluid">
 <div class="row">
-  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book">
+    <a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
 
     <div class="d-flex align-items-start justify-content-between">
       <h1>
@@ -49,213 +159,126 @@
     <div id="main-nav" class="collapse-lg">
       <form role="search">
         <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
-</form>
+      </form>
 
-      <nav aria-label="Table of contents"><h2>Table of contents</h2>
-        <ul class="book-toc list-unstyled">
-<li><a class="" href="index.html"></a></li>
-<li class="book-part">Về cuốn sách này</li>
-<li><a class="" href="editorial-style.html"><span class="header-section-number">1</span> Biên tập và ghi chú kỹ thuật</a></li>
-<li><a class="" href="data-used.html"><span class="header-section-number">2</span> Tải sách và dữ liệu</a></li>
-<li class="book-part">Nhập môn về R</li>
-<li><a class="" href="basics.html"><span class="header-section-number">3</span> R Cơ bản</a></li>
-<li><a class="" href="transition-to-R.html"><span class="header-section-number">4</span> Chuyển đổi sang R</a></li>
-<li><a class="" href="packages-suggested.html"><span class="header-section-number">5</span> Package đề xuất</a></li>
-<li><a class="" href="r-projects.html"><span class="header-section-number">6</span> Dự án R</a></li>
-<li><a class="" href="importing.html"><span class="header-section-number">7</span> Nhập xuất dữ liệu</a></li>
-<li class="book-part">Quản lý dữ liệu</li>
-<li><a class="" href="cleaning.html"><span class="header-section-number">8</span> Làm sạch số liệu và các hàm quan trọng</a></li>
-<li><a class="" href="dates.html"><span class="header-section-number">9</span> Làm việc với ngày tháng</a></li>
-<li><a class="" href="characters-strings.html"><span class="header-section-number">10</span> Ký tự và chuỗi</a></li>
-<li><a class="" href="factors.html"><span class="header-section-number">11</span> Factors</a></li>
-<li><a class="" href="pivoting.html"><span class="header-section-number">12</span> Xoay trục dữ liệu</a></li>
-<li><a class="" href="grouping.html"><span class="header-section-number">13</span> Nhóm dữ liệu</a></li>
-<li><a class="" href="joining-matching.html"><span class="header-section-number">14</span> Nối dữ liệu</a></li>
-<li><a class="" href="deduplication.html"><span class="header-section-number">15</span> Loại bỏ trùng lặp</a></li>
-<li><a class="" href="iteration.html"><span class="header-section-number">16</span> Lặp, vòng lặp, và danh sách</a></li>
-<li class="book-part">Phân tích dữ liệu</li>
-<li><a class="" href="tables-descriptive.html"><span class="header-section-number">17</span> Bảng mô tả</a></li>
-<li><a class="" href="stat-tests.html"><span class="header-section-number">18</span> Các kiểm định thống kê cơ bản</a></li>
-<li><a class="" href="regression.html"><span class="header-section-number">19</span> Hồi quy đơn và đa biến</a></li>
-<li><a class="" href="missing-data.html"><span class="header-section-number">20</span> Dữ liệu Missing</a></li>
-<li><a class="" href="standardization.html"><span class="header-section-number">21</span> Tỷ suất chuẩn hóa</a></li>
-<li><a class="" href="moving-average.html"><span class="header-section-number">22</span> Đường trung bình động</a></li>
-<li><a class="" href="time-series.html"><span class="header-section-number">23</span> Chuỗi thời gian và phát hiện ổ dịch</a></li>
-<li><a class="" href="epidemic-models.html"><span class="header-section-number">24</span> Mô hình hóa dịch bệnh</a></li>
-<li><a class="" href="contact-tracing.html"><span class="header-section-number">25</span> Truy vết tiếp xúc</a></li>
-<li><a class="" href="survey-analysis.html"><span class="header-section-number">26</span> Phân tích khảo sát</a></li>
-<li><a class="" href="survival-analysis.html"><span class="header-section-number">27</span> Phân tích sống còn</a></li>
-<li><a class="" href="gis.html"><span class="header-section-number">28</span> GIS cơ bản</a></li>
-<li class="book-part">Trực quan hóa dữ liệu</li>
-<li><a class="" href="tables-presentation.html"><span class="header-section-number">29</span> Trình bày bảng</a></li>
-<li><a class="" href="ggplot-basics.html"><span class="header-section-number">30</span> ggplot cơ bản</a></li>
-<li><a class="" href="ggplot-tips.html"><span class="header-section-number">31</span> Các tips với ggplot</a></li>
-<li><a class="" href="epicurves.html"><span class="header-section-number">32</span> Đường cong dịch bệnh</a></li>
-<li><a class="" href="age-pyramid.html"><span class="header-section-number">33</span> Tháp dân số và thang đo Likert</a></li>
-<li><a class="" href="heatmaps.html"><span class="header-section-number">34</span> Biểu đồ nhiệt</a></li>
-<li><a class="" href="diagrams.html"><span class="header-section-number">35</span> Sơ đồ và biểu đồ</a></li>
-<li><a class="" href="combination-analysis.html"><span class="header-section-number">36</span> Biểu đồ kết hợp</a></li>
-<li><a class="" href="transmission-chains.html"><span class="header-section-number">37</span> Chuỗi lây nhiễm</a></li>
-<li><a class="" href="phylogenetic-trees.html"><span class="header-section-number">38</span> Cây phả hệ</a></li>
-<li><a class="" href="interactive-plots.html"><span class="header-section-number">39</span> Biểu đồ tương tác</a></li>
-<li class="book-part">Báo cáo và dashboards</li>
-<li><a class="" href="rmarkdown.html"><span class="header-section-number">40</span> Báo cáo với R Markdown</a></li>
-<li><a class="" href="reportfactory.html"><span class="header-section-number">41</span> Tổ chức báo cáo định kỳ</a></li>
-<li><a class="" href="flexdashboard.html"><span class="header-section-number">42</span> Dashboards với R Markdown</a></li>
-<li><a class="" href="shiny-basics.html"><span class="header-section-number">43</span> Dashboards với Shiny</a></li>
-<li class="book-part">Tổng hợp</li>
-<li><a class="" href="writing-functions.html"><span class="header-section-number">44</span> Viết hàm</a></li>
-<li><a class="" href="directories.html"><span class="header-section-number">45</span> Tương tác với thư mục làm việc</a></li>
-<li><a class="" href="collaboration.html"><span class="header-section-number">46</span> Version control với Git và Github</a></li>
-<li><a class="active" href="errors.html"><span class="header-section-number">47</span> Các lỗi thường gặp</a></li>
-<li><a class="" href="help.html"><span class="header-section-number">48</span> Nhờ sự trợ giúp</a></li>
-<li><a class="" href="network-drives.html"><span class="header-section-number">49</span> R trên ổ cứng mạng</a></li>
-<li><a class="" href="data-table.html"><span class="header-section-number">50</span> Data Table</a></li>
-</ul>
+      <nav aria-label="Table of contents">
+        <h2>Table of contents</h2>
+        <div id="book-toc"></div>
 
         <div class="book-extra">
-          
+          <p><a id="book-repo" href="#">View book source <i class="fab fa-github"></i></a></li></p>
         </div>
       </nav>
-</div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="errors" class="section level1" number="47">
-<h1>
-<span class="header-section-number">47</span> Các lỗi thường gặp<a class="anchor" aria-label="anchor" href="#errors"><i class="fas fa-link"></i></a>
-</h1>
+    </div>
+  </header>
+
+  <main class="col-sm-12 col-md-9 col-lg-7" id="content">
+<div id="errors" class="section level1" number="47">
+<h1><span class="header-section-number">47</span> Các lỗi thường gặp</h1>
 <p>Chương này bao gồm một danh sách các lỗi phổ biến và các giải pháp đề xuất để khắc phục chúng.</p>
 <div id="phiên-giải-thông-báo-lỗi" class="section level2" number="47.1">
-<h2>
-<span class="header-section-number">47.1</span> Phiên giải thông báo lỗi<a class="anchor" aria-label="anchor" href="#phi%C3%AAn-gi%E1%BA%A3i-th%C3%B4ng-b%C3%A1o-l%E1%BB%97i"><i class="fas fa-link"></i></a>
-</h2>
+<h2><span class="header-section-number">47.1</span> Phiên giải thông báo lỗi</h2>
 <p>Các lỗi trong R đôi khi có thể khó hiểu, vì vậy Google là bạn của bạn. Tìm kiếm thông báo lỗi với “R” và tìm các bài đăng gần đây trong <a href="StackExchange.com">StackExchange.com</a>, <a href="stackoverflow.com">stackoverflow.com</a>, <a href="community.rstudio.com">community.rstudio.com</a>, twitter (#rstats), và các diễn đàn khác được lập trình viên sử dụng để gửi câu hỏi và câu trả lời. Hãy cố gắng tìm các bài đăng gần đây đã giải quyết các vấn đề tương tự.</p>
 <p>Nếu sau nhiều lần tìm kiếm, bạn không thể tìm thấy câu trả lời cho vấn đề của mình, hãy cân nhắc tạo một <em>ví dụ có thể tái tạo</em> (“reprex”) và tự đăng câu hỏi. Xem chương <a href="help.html#help">Nhờ sự trợ giúp</a> để biết các mẹo về cách tạo và đăng một ví dụ có thể tái tạo lên diễn đàn.</p>
 </div>
 <div id="các-lỗi-thường-gặp" class="section level2" number="47.2">
-<h2>
-<span class="header-section-number">47.2</span> Các lỗi thường gặp<a class="anchor" aria-label="anchor" href="#c%C3%A1c-l%E1%BB%97i-th%C6%B0%E1%BB%9Dng-g%E1%BA%B7p"><i class="fas fa-link"></i></a>
-</h2>
+<h2><span class="header-section-number">47.2</span> Các lỗi thường gặp</h2>
 <p>Dưới đây, chúng tôi liệt kê một số lỗi phổ biến và các giải thích/giải pháp tiềm năng. Một số trong số này được mượn từ Noam Ross, người đã phân tích các bài đăng phổ biến nhất trên diễn đàn Stack Overflow về các thông báo lỗi trên R (xem bài phân tích <a href="https://github.com/noamross/zero-dependency-problems/blob/master/misc/stack-overflow-common-r-errors.md">tại đây</a>)</p>
 <div id="lỗi-đánh-máy" class="section level3 unnumbered">
-<h3>Lỗi đánh máy<a class="anchor" aria-label="anchor" href="#l%E1%BB%97i-%C4%91%C3%A1nh-m%C3%A1y"><i class="fas fa-link"></i></a>
-</h3>
+<h3>Lỗi đánh máy</h3>
 <pre><code>Error: unexpected symbol in:
-"  geom_histogram(stat = "identity")+
-  tidyquant::geom_ma(n=7, size = 2, color = "red" lty"</code></pre>
+&quot;  geom_histogram(stat = &quot;identity&quot;)+
+  tidyquant::geom_ma(n=7, size = 2, color = &quot;red&quot; lty&quot;</code></pre>
 <p>Nếu bạn thấy lỗi “unexpected symbol”, kiểm tra xem có thiếu dấu phẩy không</p>
 </div>
 <div id="các-lỗi-liên-quan-đến-package" class="section level3 unnumbered">
-<h3>Các lỗi liên quan đến Package<a class="anchor" aria-label="anchor" href="#c%C3%A1c-l%E1%BB%97i-li%C3%AAn-quan-%C4%91%E1%BA%BFn-package"><i class="fas fa-link"></i></a>
-</h3>
-<pre><code>could not find function "x"...</code></pre>
+<h3>Các lỗi liên quan đến Package</h3>
+<pre><code>could not find function &quot;x&quot;...</code></pre>
 <p>Điều này có thể có nghĩa là bạn đã nhập sai tên hàm hoặc quên cài đặt hoặc gọi một package.</p>
 <pre><code>Error in select(data, var) : unused argument (var)</code></pre>
-<p>Bạn nghĩ rằng bạn đang sử dụng <code><a href="https://dplyr.tidyverse.org/reference/select.html">dplyr::select()</a></code> nhưng thực tế là hàm <code><a href="https://dplyr.tidyverse.org/reference/select.html">select()</a></code> đã bị đè bởi hàm <code><a href="https://rdrr.io/pkg/MASS/man/lm.ridge.html">MASS::select()</a></code> - hãy ghi rõ <code>dplyr::</code> hoặc sắp xếp lại thứ tự các package được gọi để dplyr đứng sau tất cả các package khác.</p>
-<p>Các lỗi hàm bị đè phổ biến khác bắt nguồn từ: <code><a href="https://rdrr.io/pkg/plyr/man/summarise.html">plyr::summarise()</a></code> và <code><a href="https://rdrr.io/r/stats/filter.html">stats::filter()</a></code>. Cân nhắc sử dụng <a href="https://www.tidyverse.org/blog/2018/06/conflicted/"><strong>conflicted</strong> package</a>.</p>
+<p>Bạn nghĩ rằng bạn đang sử dụng <code>dplyr::select()</code> nhưng thực tế là hàm <code>select()</code> đã bị đè bởi hàm <code>MASS::select()</code> - hãy ghi rõ <code>dplyr::</code> hoặc sắp xếp lại thứ tự các package được gọi để dplyr đứng sau tất cả các package khác.</p>
+<p>Các lỗi hàm bị đè phổ biến khác bắt nguồn từ: <code>plyr::summarise()</code> và <code>stats::filter()</code>. Cân nhắc sử dụng <a href="https://www.tidyverse.org/blog/2018/06/conflicted/"><strong>conflicted</strong> package</a>.</p>
 <pre><code>Error in install.packages : ERROR: failed to lock directory ‘C:\Users\Name\Documents\R\win-library\4.0’ for modifying
 Try removing ‘C:\Users\Name\Documents\R\win-library\4.0/00LOCK’</code></pre>
 <p>Nếu bạn gặp lỗi thông báo rằng bạn cần xóa tệp “00LOCK”, go to your “R” library in your computer directory (e.g. R/win-library/) and look for a folder called “00LOCK”. Delete this manually, and try installing the package again. A previous install process was probably interrupted, which led to this.</p>
 </div>
 <div id="các-lỗi-liên-quan-tới-đối-tượng" class="section level3 unnumbered">
-<h3>Các lỗi liên quan tới đối tượng<a class="anchor" aria-label="anchor" href="#c%C3%A1c-l%E1%BB%97i-li%C3%AAn-quan-t%E1%BB%9Bi-%C4%91%E1%BB%91i-t%C6%B0%E1%BB%A3ng"><i class="fas fa-link"></i></a>
-</h3>
+<h3>Các lỗi liên quan tới đối tượng</h3>
 <pre><code>No such file or directory:</code></pre>
-<p>Nếu bạn gặp lỗi như thế này khi cố gắng xuất hoặc nhập: Hãy kiểm tra lỗi chính tả của tệp và đường dẫn tệp và nếu đường dẫn chứa dấu gạch chéo, hãy đảm bảo rằng bạn đang dùng dấu gạch chéo xuôi <code><a href="https://rdrr.io/r/base/Arithmetic.html">/</a></code> chứ không phải dấu gạch chéo ngược <code>\</code>. Ngoài ra, hãy đảm bảo rằng bạn đã sử dụng đúng phần mở rộng tệp (ví dụ: .csv, .xlsx).</p>
-<pre><code>object 'x' not found </code></pre>
+<p>Nếu bạn gặp lỗi như thế này khi cố gắng xuất hoặc nhập: Hãy kiểm tra lỗi chính tả của tệp và đường dẫn tệp và nếu đường dẫn chứa dấu gạch chéo, hãy đảm bảo rằng bạn đang dùng dấu gạch chéo xuôi <code>/</code> chứ không phải dấu gạch chéo ngược <code>\</code>. Ngoài ra, hãy đảm bảo rằng bạn đã sử dụng đúng phần mở rộng tệp (ví dụ: .csv, .xlsx).</p>
+<pre><code>object &#39;x&#39; not found </code></pre>
 <p>Điều này có nghĩa là một đối tượng bạn đang tham chiếu không tồn tại. Có lẽ code trên đã không chạy đúng cách?</p>
-<pre><code>Error in 'x': subscript out of bounds</code></pre>
+<pre><code>Error in &#39;x&#39;: subscript out of bounds</code></pre>
 <p>Điều này có nghĩa là bạn đã cố gắng truy cập vào thứ gì đó (một phần tử của vectơ hoặc danh sách) không có ở đó.</p>
 </div>
 <div id="các-lỗi-liên-quan-tới-cú-pháp-hàm" class="section level3 unnumbered">
-<h3>Các lỗi liên quan tới cú pháp hàm<a class="anchor" aria-label="anchor" href="#c%C3%A1c-l%E1%BB%97i-li%C3%AAn-quan-t%E1%BB%9Bi-c%C3%BA-ph%C3%A1p-h%C3%A0m"><i class="fas fa-link"></i></a>
-</h3>
+<h3>Các lỗi liên quan tới cú pháp hàm</h3>
 <pre><code># ran recode without re-stating the x variable in mutate(x = recode(x, OLD = NEW)
 Error: Problem with `mutate()` input `hospital`.
-x argument ".x" is missing, with no default
+x argument &quot;.x&quot; is missing, with no default
 i Input `hospital` is `recode(...)`.</code></pre>
-<p>Lỗi bên trên (<code>argument .x is missing, with no default</code>) thường gặp với hàm <code><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate()</a></code> nếu bạn đang cung cấp một hàm như <code>recode()</code> hoặc <code>replace_na()</code> trong đó nó yêu cầu bạn cung cấp tên cột làm đối số đầu tiên. Điều này rất dễ quên.</p>
+<p>Lỗi bên trên (<code>argument .x is missing, with no default</code>) thường gặp với hàm <code>mutate()</code> nếu bạn đang cung cấp một hàm như <code>recode()</code> hoặc <code>replace_na()</code> trong đó nó yêu cầu bạn cung cấp tên cột làm đối số đầu tiên. Điều này rất dễ quên.</p>
 </div>
 <div id="các-lỗi-logic" class="section level3 unnumbered">
-<h3>Các lỗi logic<a class="anchor" aria-label="anchor" href="#c%C3%A1c-l%E1%BB%97i-logic"><i class="fas fa-link"></i></a>
-</h3>
+<h3>Các lỗi logic</h3>
 <pre><code>Error in if</code></pre>
 <p>Điều này có thể có nghĩa là một mệnh đề <code>if</code> đã được áp dụng cho một cái gì đó không phải là TRUE hoặc FALSE.</p>
 </div>
 <div id="các-lỗi-liên-quan-tới-factor" class="section level3 unnumbered">
-<h3>Các lỗi liên quan tới Factor<a class="anchor" aria-label="anchor" href="#c%C3%A1c-l%E1%BB%97i-li%C3%AAn-quan-t%E1%BB%9Bi-factor"><i class="fas fa-link"></i></a>
-</h3>
-<pre><code>#Tried to add a value ("Missing") to a factor (with replace_na operating on a factor)
+<h3>Các lỗi liên quan tới Factor</h3>
+<pre><code>#Tried to add a value (&quot;Missing&quot;) to a factor (with replace_na operating on a factor)
 Problem with `mutate()` input `age_cat`.
 i invalid factor level, NA generated
-i Input `age_cat` is `replace_na(age_cat, "Missing")`.invalid factor level, NA generated</code></pre>
+i Input `age_cat` is `replace_na(age_cat, &quot;Missing&quot;)`.invalid factor level, NA generated</code></pre>
 <p>Nếu bạn nhìn thấy lỗi liên quan tới thứ bậc kiểu factor không hợp lệ, có thể bạn đang có một cột kiểu Factor(chứa các thứ bậc đã được xác định) và bạn đang cố gắng thêm một giá trị mới vào nó. Chuyển nó thành kiểu ký tự trước khi thêm giá trị mới.</p>
 </div>
 <div id="lỗi-khi-vẽ-biểu-đồ" class="section level3 unnumbered">
-<h3>Lỗi khi vẽ biểu đồ<a class="anchor" aria-label="anchor" href="#l%E1%BB%97i-khi-v%E1%BA%BD-bi%E1%BB%83u-%C4%91%E1%BB%93"><i class="fas fa-link"></i></a>
-</h3>
+<h3>Lỗi khi vẽ biểu đồ</h3>
 <p><code>Error: Insufficient values in manual scale. 3 needed but only 2 provided.</code>
 Đây có thể là lỗi khi bạn vẽ biểu đồ bằng ggplot, sử dụng scale_fill_manual() values = c(“orange”, “purple”), trong đó bạn chưa cung cấp đủ số lượng màu cho hàm. Nếu cột này dạng factor, hãy cân nhắc liệu NA có phải là một bậc của factor hay không.</p>
-<pre><code>Can't add x object</code></pre>
-<p>Bạn có thể thừa dấu <code><a href="https://rdrr.io/r/base/Arithmetic.html">+</a></code> ở cuối lệnh ggplot mà bạn cần xóa.</p>
+<pre><code>Can&#39;t add x object</code></pre>
+<p>Bạn có thể thừa dấu <code>+</code> ở cuối lệnh ggplot mà bạn cần xóa.</p>
 </div>
 <div id="lỗi-r-markdown" class="section level3 unnumbered">
-<h3>Lỗi R Markdown<a class="anchor" aria-label="anchor" href="#l%E1%BB%97i-r-markdown"><i class="fas fa-link"></i></a>
-</h3>
+<h3>Lỗi R Markdown</h3>
 <p>Nếu thông báo lỗi là <code>Error in options[[sprintf("fig.%s", i)]]</code>, kiểm tra xem các tùy chọn của knitr ở đầu mỗi đoạn code có sử dụng chính xác <code>out.width =</code> hoặc <code>out.height =</code> và <em>không phải</em> <code>fig.width=</code> và <code>fig.height=</code> hay không.</p>
 </div>
 <div id="tổng-hợp-2" class="section level3 unnumbered">
-<h3>Tổng hợp<a class="anchor" aria-label="anchor" href="#t%E1%BB%95ng-h%E1%BB%A3p-2"><i class="fas fa-link"></i></a>
-</h3>
+<h3>Tổng hợp</h3>
 <p>Cân nhắc liệu bạn có đã sắp xếp lại các hàm đã được pipe trong package <strong>dplyr</strong> và đã không thay thế một pipe ở giữa, hoặc đã không xóa một pipe ở cuối sau khi sắp xếp lại.</p>
 <!-- ======================================================= -->
 </div>
 </div>
 <div id="nguồn-14" class="section level2" number="47.3">
-<h2>
-<span class="header-section-number">47.3</span> Nguồn<a class="anchor" aria-label="anchor" href="#ngu%E1%BB%93n-14"><i class="fas fa-link"></i></a>
-</h2>
+<h2><span class="header-section-number">47.3</span> Nguồn</h2>
 <p>Đây là một bài đăng trên blog khác liệt kê <a href="https://www.r-bloggers.com/2016/06/common-r-programming-errors-faced-by-beginners/">Các lỗi lập trình R phổ biến mà người mới bắt đầu gặp phải</a></p>
 
 </div>
 </div>
-  <div class="chapter-nav">
-<div class="prev"><a href="collaboration.html"><span class="header-section-number">46</span> Version control với Git và Github</a></div>
-<div class="next"><a href="help.html"><span class="header-section-number">48</span> Nhờ sự trợ giúp</a></div>
-</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
-    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
-      <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#errors"><span class="header-section-number">47</span> Các lỗi thường gặp</a></li>
-<li><a class="nav-link" href="#phi%C3%AAn-gi%E1%BA%A3i-th%C3%B4ng-b%C3%A1o-l%E1%BB%97i"><span class="header-section-number">47.1</span> Phiên giải thông báo lỗi</a></li>
-<li>
-<a class="nav-link" href="#c%C3%A1c-l%E1%BB%97i-th%C6%B0%E1%BB%9Dng-g%E1%BA%B7p"><span class="header-section-number">47.2</span> Các lỗi thường gặp</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#l%E1%BB%97i-%C4%91%C3%A1nh-m%C3%A1y">Lỗi đánh máy</a></li>
-<li><a class="nav-link" href="#c%C3%A1c-l%E1%BB%97i-li%C3%AAn-quan-%C4%91%E1%BA%BFn-package">Các lỗi liên quan đến Package</a></li>
-<li><a class="nav-link" href="#c%C3%A1c-l%E1%BB%97i-li%C3%AAn-quan-t%E1%BB%9Bi-%C4%91%E1%BB%91i-t%C6%B0%E1%BB%A3ng">Các lỗi liên quan tới đối tượng</a></li>
-<li><a class="nav-link" href="#c%C3%A1c-l%E1%BB%97i-li%C3%AAn-quan-t%E1%BB%9Bi-c%C3%BA-ph%C3%A1p-h%C3%A0m">Các lỗi liên quan tới cú pháp hàm</a></li>
-<li><a class="nav-link" href="#c%C3%A1c-l%E1%BB%97i-logic">Các lỗi logic</a></li>
-<li><a class="nav-link" href="#c%C3%A1c-l%E1%BB%97i-li%C3%AAn-quan-t%E1%BB%9Bi-factor">Các lỗi liên quan tới Factor</a></li>
-<li><a class="nav-link" href="#l%E1%BB%97i-khi-v%E1%BA%BD-bi%E1%BB%83u-%C4%91%E1%BB%93">Lỗi khi vẽ biểu đồ</a></li>
-<li><a class="nav-link" href="#l%E1%BB%97i-r-markdown">Lỗi R Markdown</a></li>
-<li><a class="nav-link" href="#t%E1%BB%95ng-h%E1%BB%A3p-2">Tổng hợp</a></li>
-</ul>
-</li>
-<li><a class="nav-link" href="#ngu%E1%BB%93n-14"><span class="header-section-number">47.3</span> Nguồn</a></li>
-</ul>
+  </main>
+
+  <div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page">
+      <h2>On this page</h2>
+      <div id="book-on-this-page"></div>
 
       <div class="book-extra">
         <ul class="list-unstyled">
-          
+          <li><a id="book-source" href="#">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="#">Edit this page <i class="fab fa-github"></i></a></li>
         </ul>
-</div>
+      </div>
     </nav>
-</div>
+  </div>
 
 </div>
 </div> <!-- .container -->
 
-<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+<footer class="bg-primary text-light mt-5">
+  <div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Cẩm nang dịch tễ học với R</strong>" was written by the handbook team. It was last built on 2021-11-01.</p>
+    <p>"<strong>Cẩm nang dịch tễ học với R</strong>" was written by the handbook team. It was last built on 2024-02-16.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
@@ -263,12 +286,16 @@ i Input `age_cat` is `replace_na(age_cat, "Missing")`.invalid factor level, NA g
   </div>
 
 </div></div>
-</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+</footer>
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');
@@ -276,5 +303,23 @@ i Input `age_cat` is `replace_na(age_cat, "Missing")`.invalid factor level, NA g
     document.getElementsByTagName("head")[0].appendChild(script);
   })();
 </script>
+<script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
 </body>
+
 </html>
